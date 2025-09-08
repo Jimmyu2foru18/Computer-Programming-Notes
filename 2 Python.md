@@ -12,6 +12,7 @@
 8. [Advanced Topics](#advanced-topics)
 9. [️ Best Practices](#best-practices)
 10. [Practice Projects](#practice-projects)
+
 ---
 ## Getting Started {#getting-started}
 ### What is Python? {#what-is-python?}
@@ -785,4 +786,5 @@ Congratulations! You've completed the comprehensive Python learning guide. You n
 - **Advanced topics** exposure
 **Keep practicing, keep building, and keep learning!** 
 ---
+
 *Happy Coding! *
