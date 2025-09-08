@@ -30,7 +30,7 @@ git commit -m "Your commit message"
 git push origin main
 ```
 2. GitHub Actions will automatically build and deploy the site to GitHub Pages.
-3. Your site will be available at `https://[your-username].github.io/[repository-name]/`
+
 ### Configuration 
 The deployment is configured in the `.github/workflows/deploy.yml` file. This workflow:
 - Triggers on pushes to the main branch
