@@ -279,6 +279,12 @@ function loadMarkdownFile(fileName) {
             
             // Override the heading renderer to hide ID attributes
             renderer.heading = function(text, level) {
+                // Make sure text is a string
+                if (typeof text !== 'string') {
+                    console.warn('Heading text is not a string:', text);
+                    text = String(text || '');
+                }
+                
                 // Extract the text without the ID attribute
                 const cleanText = text.replace(/\s*\{#.*?\}\s*$/, '');
                 
@@ -290,6 +296,9 @@ function loadMarkdownFile(fileName) {
             
             // Parse the markdown to HTML using marked.js with custom renderer
             const html = marked.parse(markdown, { renderer: renderer });
+            
+            // Store the current file name as a data attribute for PDF generation
+            contentDiv.setAttribute('data-current-file', fileName);
             
             // Display the HTML content
             contentDiv.innerHTML = html;
@@ -325,6 +334,13 @@ function loadMarkdownFile(fileName) {
  */
 function generatePDF() {
     const contentDiv = document.getElementById('markdown-content');
+    
+    // Check if content is loaded
+    if (!contentDiv || contentDiv.children.length === 0 || contentDiv.querySelector('.welcome-message')) {
+        alert('Please load a document before generating a PDF.');
+        return;
+    }
+    
     const currentFile = contentDiv.getAttribute('data-current-file') || 'document';
     const fileName = currentFile.replace(/\.md$/, '.pdf');
     
@@ -337,12 +353,21 @@ function generatePDF() {
         contentClone.removeChild(pageTOC);
     }
     
+    // Make sure all content is visible in the clone
+    const allElements = contentClone.querySelectorAll('*');
+    allElements.forEach(el => {
+        if (el.style) {
+            el.style.display = '';
+            el.style.visibility = 'visible';
+        }
+    });
+    
     // Configure PDF options
     const options = {
         margin: [10, 10, 10, 10],
         filename: fileName,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
+        html2canvas: { scale: 2, logging: true, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
     
