@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Include highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <!-- Include html2pdf.js for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Coding Notes</h1>
+        </header>
+        
+        <div class="main-content">
+            <!-- Sidebar for navigation -->
+            <nav class="sidebar">
+                <div class="toc-container">
+                    <h2>Table of Contents</h2>
+                    <ul id="toc-list">
+                        <!-- Table of contents will be populated by JavaScript -->
+                        <div id="loading-toc">Loading table of contents...</div>
+                    </ul>
+                </div>
+            </nav>
+            
+            <!-- Main content area -->
+            <main class="content">
+                <div class="content-actions">
+                    <button id="save-pdf-btn" class="action-button">Save as PDF</button>
+                </div>
+                <div id="markdown-content">
+                    <!-- Markdown content will be loaded here -->
+                    <div class="welcome-message">
+                        <h2>Welcome to Coding Notes</h2>
+                        <p>Select a topic from the table of contents to get started.</p>
+                    </div>
+                </div>
+                <div id="loading-content" style="display: none;">Loading content...</div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Coding Notes</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
