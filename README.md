@@ -1,4 +1,4 @@
-# Coding Notes and Guides {#coding-notes-and-guides}
+# Coding Notes and Guides
 This repository contains comprehensive guides and notes on various programming languages, technologies, and concepts.
 ## Table of Contents {#table-of-contents}
 - Python
