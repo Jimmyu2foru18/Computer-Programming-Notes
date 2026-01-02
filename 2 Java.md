@@ -1,28 +1,28 @@
-# Java Programming Guide {#java-programming-guide}
-*From Beginner to Mastery - Your Complete Java Learning Journey*
+# Java Programming Guide
+
 ---
-## Table of Contents {#table-of-contents}
-1. [Getting Started](#getting-started)
-2. [Variables & Data Types](#variables-data-types)
-3. [Control Flow](#control-flow)
-4. [Data Structures](#data-structures)
-5. [Methods & Functions](#methods-functions)
-6. [Object-Oriented Programming](#object-oriented-programming)
-7. [Advanced Topics](#advanced-topics)
-8. [Best Practices](#best-practices)
-9. [Practice Projects](#practice-projects)
-10. [Next Steps](#next-steps)
+## Table of Contents
+1. [Getting Started]
+2. [Variables & Data Types]
+3. [Control Flow]
+4. [Data Structures]
+5. [Methods & Functions]
+6. [Object-Oriented Programming]
+7. [Advanced Topics]
+8. [Best Practices]
+9. [Practice Projects]
+10. [Next Steps]
 ---
-## Getting Started {#getting-started}
-### What is Java? {#what-is-java?}
+## Getting Started
+### What is Java?
 Java is a **high-level**, **object-oriented** programming language designed for platform independence. Write once, run anywhere!
-### Key Features {#key-features}
+### Key Features
 - **Strongly Typed**: Type safety at compile time
 - **Platform Independent**: JVM (Java Virtual Machine)
 - **Automatic Memory Management**: Garbage collection
 - **Secure**: Built-in security features
 - **Multithreading**: Concurrent programming support
-### Setting Up Java {#setting-up-java}
+### Setting Up Java
 ```bash
 # Check if Java is installed {#check-if-java-is-installed}
 java -version
@@ -30,7 +30,7 @@ javac -version
 # Download from Oracle or use OpenJDK {#download-from-oracle-or-use-openjdk}
 # Set JAVA_HOME environment variable {#set-java_home-environment-variable}
 ```
-### Your First Java Program {#your-first-java-program}
+### Your First Java Program
 ```java
 public class HelloWorld {
 public static void main(String[] args) {
@@ -44,8 +44,8 @@ javac HelloWorld.java # Compile to bytecode
 java HelloWorld # Run the program
 ```
 ---
-## Variables & Data Types {#variables-&-data-types}
-### ️ Primitive Data Types {#️-primitive-data-types}
+## Variables & Data Types
+### ️ Primitive Data Types
 | Type | Size | Range | Example |
 |------|------|-------|----------|
 | `byte` | 8-bit | -128 to 127 | `byte age = 25;` |
@@ -56,7 +56,7 @@ java HelloWorld # Run the program
 | `double` | 64-bit | IEEE 754 | `double pi = 3.14159;` |
 | `boolean` | 1-bit | true/false | `boolean isActive = true;` |
 | `char` | 16-bit | Unicode | `char grade = 'A';` |
-### Reference Data Types {#reference-data-types}
+### Reference Data Types
 ```java
 // Strings
 String name = "Java Developer";
@@ -68,7 +68,7 @@ String[] languages = new String[3];
 Scanner scanner = new Scanner(System.in);
 ArrayList<String> list = new ArrayList<>();
 ```
-### Variable Declaration & Initialization {#variable-declaration-&-initialization}
+### Variable Declaration & Initialization
 ```java
 // Declaration
 int age;
@@ -80,7 +80,7 @@ name = "Alice";
 int score = 95;
 final double PI = 3.14159; // Constant
 ```
-### Variable Scope {#variable-scope}
+### Variable Scope
 ```java
 public class ScopeExample {
 static int classVariable = 10; // Class scope
@@ -95,9 +95,9 @@ int blockVariable = 40; // Block scope
 }
 ```
 ---
-## Control Flow {#control-flow}
-### Conditional Statements {#conditional-statements}
-#### if-else Statement {#if-else-statement}
+## Control Flow
+### Conditional Statements
+#### if-else Statement
 ```java
 int score = 85;
 if (score >= 90) {
@@ -110,7 +110,7 @@ System.out.println("Grade: C ");
 System.out.println("Grade: F ");
 }
 ```
-#### switch Statement {#switch-statement}
+#### switch Statement
 ```java
 int day = 3;
 String dayName;
@@ -129,8 +129,8 @@ case 6, 7 -> "Weekend";
 default -> "Invalid day";
 };
 ```
-### Loops {#loops}
-#### for Loop {#for-loop}
+### Loops
+#### for Loop
 ```java
 // Traditional for loop
 for (int i = 0; i < 5; i++) {
@@ -142,7 +142,7 @@ for (int num: numbers) {
 System.out.println("Number: " + num);
 }
 ```
-#### while Loop {#while-loop}
+#### while Loop
 ```java
 int count = 0;
 while (count < 5) {
@@ -150,7 +150,7 @@ System.out.println("Count: " + count);
 count++;
 }
 ```
-#### do-while Loop {#do-while-loop}
+#### do-while Loop
 ```java
 int num = 0;
 do {
@@ -158,7 +158,7 @@ System.out.println("Number: " + num);
 num++;
 } while (num < 5);
 ```
-### Loop Control {#loop-control}
+### Loop Control
 ```java
 for (int i = 0; i < 10; i++) {
 if (i == 3) {
@@ -171,9 +171,9 @@ System.out.println(i);
 }
 ```
 ---
-## Data Structures {#data-structures}
-### Arrays {#arrays}
-#### One-Dimensional Arrays {#one-dimensional-arrays}
+## Data Structures
+### Arrays
+#### One-Dimensional Arrays
 ```java
 // Declaration and initialization
 int[] numbers = new int[5];
@@ -189,7 +189,7 @@ for (int i = 0; i < scores.length; i++) {
 System.out.println("Score " + i + ": " + scores[i]);
 }
 ```
-#### Multi-Dimensional Arrays {#multi-dimensional-arrays}
+#### Multi-Dimensional Arrays
 ```java
 // 2D Array
 int[][] matrix = {
@@ -207,8 +207,8 @@ System.out.print(matrix[i][j] + " ");
 System.out.println();
 }
 ```
-### Strings {#strings}
-#### String Basics {#string-basics}
+### Strings
+#### String Basics
 ```java
 // String creation
 String str1 = "Hello"; // String literal
@@ -217,7 +217,7 @@ String str2 = new String("World"); // String object
 String original = "Java";
 String modified = original + " Programming"; // Creates new string
 ```
-#### Essential String Methods {#essential-string-methods}
+#### Essential String Methods
 ```java
 String text = " Java Programming ";
 // Length and character access
@@ -240,7 +240,7 @@ String replaced = text.replace("Java", "Python");
 // Splitting
 String[] words = "apple,banana,orange".split(",");
 ```
-#### StringBuilder for Efficiency {#stringbuilder-for-efficiency}
+#### StringBuilder for Efficiency
 ```java
 // Efficient string building
 StringBuilder sb = new StringBuilder();
@@ -252,16 +252,16 @@ String result = sb.toString(); // "Hello World"
 String chained = new StringBuilder().append("Java").append(" is").append(" awesome!").toString();
 ```
 ---
-## Methods & Functions {#methods-&-functions}
-### Method Syntax {#method-syntax}
+## Methods & Functions
+### Method Syntax
 ```java
 [access_modifier] [static] return_type methodName(parameters) {
 // Method body
 return value; // if return_type is not void
 }
 ```
-### Method Examples {#method-examples}
-#### Basic Methods {#basic-methods}
+### Method Examples
+#### Basic Methods
 ```java
 public class Calculator {
 // Method with return value
@@ -278,7 +278,7 @@ return Math.PI * radius * radius;
 }
 }
 ```
-#### Method Overloading {#method-overloading}
+#### Method Overloading
 ```java
 public class MathUtils {
 // Same method name, different parameters
@@ -293,7 +293,7 @@ return a * b * c;
 }
 }
 ```
-#### Variable Arguments (Varargs) {#variable-arguments-(varargs)}
+#### Variable Arguments (Varargs)
 ```java
 public class VarargsExample {
 public int sum(int... numbers) {
@@ -312,9 +312,9 @@ int result2 = example.sum(1, 2, 3, 4, 5); // 15
 }
 ```
 ---
-## Object-Oriented Programming {#object-oriented-programming}
-### ️ Classes and Objects {#️-classes-and-objects}
-#### Class Definition {#class-definition}
+## Object-Oriented Programming
+### ️ Classes and Objects
+#### Class Definition
 ```java
 public class Car {
 // Instance variables (attributes)
@@ -342,7 +342,7 @@ System.out.printf("%d %s %s - $%.2f%n", year, brand, model, price);
 }
 }
 ```
-#### Object Creation and Usage {#object-creation-and-usage}
+#### Object Creation and Usage
 ```java
 public class CarDemo {
 public static void main(String[] args) {
@@ -355,13 +355,14 @@ car1.displayInfo();
 }
 }
 ```
-### Encapsulation {#encapsulation}
-#### Access Modifiers {#access-modifiers}
+### Encapsulation
+#### Access Modifiers
 - `private`: Only within the same class
 - `protected`: Same package + subclasses
 - `public`: Accessible everywhere
 - (default): Same package only
-#### Getters and Setters {#getters-and-setters}
+
+#### Getters and Setters
 ```java
 public class Student {
 private String name;
@@ -395,8 +396,8 @@ this.gpa = gpa;
 }
 }
 ```
-### Inheritance {#inheritance}
-#### Basic Inheritance {#basic-inheritance}
+### Inheritance
+#### Basic Inheritance
 ```java
 // Parent class (Superclass)
 public class Animal {
@@ -430,8 +431,8 @@ System.out.println(name + " the " + breed + " is eating dog food ");
 }
 }
 ```
-### Polymorphism {#polymorphism}
-#### Method Overriding {#method-overriding}
+### Polymorphism
+#### Method Overriding
 ```java
 public class Shape {
 public double getArea() {
@@ -471,7 +472,7 @@ System.out.println("Drawing a rectangle ⬜");
 }
 }
 ```
-#### Polymorphic Behavior {#polymorphic-behavior}
+#### Polymorphic Behavior
 ```java
 public class PolymorphismDemo {
 public static void main(String[] args) {
@@ -488,8 +489,8 @@ System.out.println();
 }
 }
 ```
-### Interfaces {#interfaces}
-#### Interface Definition {#interface-definition}
+### Interfaces
+#### Interface Definition
 ```java
 public interface Drawable {
 // Abstract methods (implicitly public abstract)
@@ -507,7 +508,7 @@ System.out.println("This is a drawable interface");
 String TYPE = "DRAWABLE";
 }
 ```
-#### Interface Implementation {#interface-implementation}
+#### Interface Implementation
 ```java
 public class Button implements Drawable {
 private String text;
@@ -529,7 +530,7 @@ System.out.println("Button resized by factor: " + factor);
 }
 }
 ```
-### ️ Abstract Classes {#️-abstract-classes}
+### ️ Abstract Classes
 ```java
 public abstract class Vehicle {
 protected String brand;
@@ -563,9 +564,9 @@ return batteryCapacity * 3.5; // miles per kWh
 }
 ```
 ---
-## ️ Advanced Topics {#️-advanced-topics}
-### Packages {#packages}
-#### Package Declaration {#package-declaration}
+## ️ Advanced Topics
+### Packages
+#### Package Declaration
 ```java
 // File: com/company/utils/MathUtils.java
 package com.company.utils;
@@ -575,7 +576,7 @@ return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
 }
 ```
-#### Importing Packages {#importing-packages}
+#### Importing Packages
 ```java
 // Import specific class
 import com.company.utils.MathUtils;
@@ -589,8 +590,8 @@ return PI * pow(radius, 2); // Using static import
 }
 }
 ```
-### Generics {#generics}
-#### Generic Classes {#generic-classes}
+### Generics
+#### Generic Classes
 ```java
 public class Box<T> {
 private T content;
@@ -609,7 +610,7 @@ Box<Integer> intBox = new Box<>();
 intBox.setContent(42);
 Integer number = intBox.getContent();
 ```
-#### Generic Methods {#generic-methods}
+#### Generic Methods
 ```java
 public class GenericUtils {
 public static <T> void swap(T[] array, int i, int j) {
@@ -628,8 +629,8 @@ return max;
 }
 }
 ```
-### Exception Handling {#exception-handling}
-#### Try-Catch-Finally {#try-catch-finally}
+### Exception Handling
+#### Try-Catch-Finally
 ```java
 public class ExceptionExample {
 public static void main(String[] args) {
@@ -652,7 +653,7 @@ return a / b;
 }
 }
 ```
-#### Custom Exceptions {#custom-exceptions}
+#### Custom Exceptions
 ```java
 public class InvalidAgeException extends Exception {
 public InvalidAgeException(String message) {
@@ -669,8 +670,8 @@ this.age = age;
 }
 }
 ```
-### File I/O {#file-i/o}
-#### Reading Files {#reading-files}
+### File I/O
+#### Reading Files
 ```java
 import java.io.*;
 import java.nio.file.*;
@@ -696,7 +697,7 @@ System.out.println("Error reading file: " + e.getMessage());
 }
 }
 ```
-#### Writing Files {#writing-files}
+#### Writing Files
 ```java
 import java.io.*;
 import java.nio.file.*;
@@ -717,8 +718,8 @@ System.out.println("Error writing file: " + e.getMessage());
 }
 }
 ```
-### Multithreading Basics {#multithreading-basics}
-#### Creating Threads {#creating-threads}
+### Multithreading Basics
+#### Creating Threads
 ```java
 // Method 1: Extending Thread class
 class MyThread extends Thread {
@@ -759,8 +760,8 @@ thread2.start();
 }
 ```
 ---
-## Best Practices {#best-practices}
-### Naming Conventions {#naming-conventions}
+## Best Practices
+### Naming Conventions
 ```java
 // Classes: PascalCase
 public class StudentManager { }
@@ -772,7 +773,7 @@ public static final int MAX_STUDENTS = 100;
 // Packages: lowercase with dots
 package com.company.project.utils;
 ```
-### Security Best Practices {#security-best-practices}
+### Security Best Practices
 ```java
 public class SecurityExample {
 // Use private fields with public getters/setters
@@ -791,7 +792,7 @@ return new ArrayList<>(items); // Return copy, not original
 }
 }
 ```
-### Performance Tips {#performance-tips}
+### Performance Tips
 ```java
 // Use StringBuilder for string concatenation in loops
 public String buildString(String[] words) {
@@ -813,9 +814,9 @@ String input = scanner.nextLine();
 } // Scanner automatically closed
 ```
 ---
-## Practice Projects {#practice-projects}
-### Beginner Projects {#beginner-projects}
-#### 1. Calculator Application {#1.-calculator-application}
+## Practice Projects 
+### Beginner Projects
+#### 1. Calculator Application
 ```java
 import java.util.Scanner;
 public class Calculator {
@@ -842,7 +843,7 @@ default: return Double.NaN;
 }
 }
 ```
-#### 2. Student Grade Manager {#2.-student-grade-manager}
+#### 2. Student Grade Manager
 ```java
 import java.util.*;
 class Student {
@@ -874,8 +875,8 @@ return String.format("%s: %.1f%% (%s)", name, getAverage(), getLetterGrade());
 }
 }
 ```
-### Intermediate Projects {#intermediate-projects}
-#### 3. Library Management System {#3.-library-management-system}
+### Intermediate Projects
+#### 3. Library Management System
 ```java
 import java.util.*;
 import java.time.LocalDate;
@@ -936,38 +937,25 @@ books.values().forEach(System.out::println);
 }
 ```
 ---
-## Next Steps {#next-steps}
-### Advanced Java Topics {#advanced-java-topics}
+## Next Steps
+### Advanced Java Topics
 - **Collections Framework**: ArrayList, HashMap, TreeSet, etc.
 - **Lambda Expressions & Streams**: Functional programming in Java
 - **Concurrency**: ExecutorService, CompletableFuture
 - **Design Patterns**: Singleton, Factory, Observer, etc.
 - **Testing**: JUnit, Mockito
 - **Build Tools**: Maven, Gradle
-### Java Frameworks {#java-frameworks}
+
+### Java Frameworks 
 - **Spring Framework**: Dependency injection, Spring Boot
 - **Hibernate**: Object-Relational Mapping (ORM)
 - **Apache Maven**: Project management and build automation
 - **JUnit**: Unit testing framework
-### Recommended Resources {#recommended-resources}
+
+### Recommended Resources
 - **Books**: "Effective Java" by Joshua Bloch
 - **Online**: Oracle Java Documentation, Codecademy
 - **Practice**: LeetCode, HackerRank, Codewars
 - **Projects**: Build REST APIs, web applications
 ---
-## Conclusion {#conclusion}
-Congratulations! You've completed the comprehensive Java programming guide. You now have:
-**Solid Foundation**: Variables, data types, control flow 
-**OOP Mastery**: Classes, inheritance, polymorphism, encapsulation 
-**Advanced Skills**: Generics, exception handling, file I/O 
-**Best Practices**: Code organization, security, performance 
-**Practical Experience**: Real-world projects and examples 
-### Keep Learning! {#keep-learning!}
-- Practice coding daily
-- Build personal projects
-- Contribute to open source
-- Join Java communities
-- Stay updated with new Java features
-**Happy Coding! **
----
-*"The best way to learn Java is by writing Java code!"* 
+
