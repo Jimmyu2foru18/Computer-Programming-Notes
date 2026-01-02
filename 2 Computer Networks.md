@@ -1,22 +1,6 @@
 # Computer Networks: Learning Guide
 ---
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Network Fundamentals](#network-fundamentals)
-3. [Network Models](#network-models)
-4. [Network Protocols](#network-protocols)
-5. [IP Addressing & Subnetting](#ip-addressing-subnetting)
-6. [Routing & Switching](#routing-switching)
-7. [Network Security](#network-security)
-8. [Wireless Networks](#wireless-networks)
-9. [Network Implementation](#network-implementation)
-10. [Cloud Networking](#cloud-networking)
-11. [Network Monitoring & Troubleshooting](#network-monitoring-troubleshooting)
-12. [Advanced Topics](#advanced-topics)
-13. [Best Practices](#best-practices)
-14. [Practice Projects](#practice-projects)
-15. [Next Steps](#next-steps)
----
+
 ## Introduction
 ### What are Computer Networks?
 A **computer network** is a collection of interconnected devices that can communicate and share resources. Networks enable:
@@ -34,7 +18,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ---
 ## ️ Network Fundamentals
 ### Network Topologies
-#### **1. Bus Topology**
+### **1. Bus Topology**
 ```
 [Device1]---[Device2]---[Device3]---[Device4]
 | | | |
@@ -42,7 +26,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ```
 - **Pros**: Simple, cost-effective
 - **Cons**: Single point of failure, performance degrades with more devices
-#### **2. Star Topology** 
+### **2. Star Topology** 
 ```
 [Device2]
 |
@@ -52,7 +36,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ```
 - **Pros**: Easy to manage, fault isolation
 - **Cons**: Central device is single point of failure
-#### **3. Ring Topology**
+### **3. Ring Topology**
 ```
 [Device1]---[Device2]
 | |
@@ -60,7 +44,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ```
 - **Pros**: Equal access, predictable performance
 - **Cons**: Difficult to troubleshoot, one failure affects all
-#### **4. Mesh Topology**
+### **4. Mesh Topology**
 ```
 [Device1]--[Device2]
 | \ / |
@@ -78,16 +62,16 @@ A **computer network** is a collection of interconnected devices that can commun
 | **WAN** (Wide Area Network) | Country/Global | Internet, Corporate networks |
 | **VPN** (Virtual Private Network) | Logical | Secure remote access |
 ### Network Devices
-#### **Network Interface Card (NIC)** 
+### **Network Interface Card (NIC)** 
 - Connects device to network
 - Has unique MAC address
 - Handles physical layer communication
 
-#### **Hub** (Legacy)
+### **Hub** (Legacy)
 - Operates at Physical Layer
 - Broadcasts data to all ports
 - Creates single collision domain
-#### **Switch**
+### **Switch**
 - Operates at Data Link Layer
 - Learns MAC addresses
 - Creates separate collision domains
@@ -95,11 +79,11 @@ A **computer network** is a collection of interconnected devices that can commun
 # View switch MAC address table
 show mac address-table
 ```
-#### **Router** 
+### **Router** 
 - Operates at Network Layer
 - Routes packets between networks
 - Uses IP addresses for forwarding
-#### **Firewall**
+### **Firewall**
 - Security device
 - Controls traffic based on rules
 - Can be hardware or software
@@ -139,7 +123,7 @@ Bits on wire
 ---
 ## Network Protocols
 ### Transport Layer Protocols 
-#### **TCP (Transmission Control Protocol)**
+### **TCP (Transmission Control Protocol)**
 - **Connection-oriented**
 - **Reliable delivery**
 - **Flow control**
@@ -166,7 +150,7 @@ Client Server
 | Acknowledgment Number |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
-#### **UDP (User Datagram Protocol)**
+### **UDP (User Datagram Protocol)**
 - **Connectionless**
 - **Fast but unreliable**
 - **No flow control**
@@ -178,7 +162,7 @@ Client Server
 - DHCP
 
 ### Network Layer Protocols
-#### **IP (Internet Protocol)**
+### **IP (Internet Protocol)**
 **IPv4 Header:**
 ```
 0 1 2 3
@@ -196,7 +180,7 @@ Client Server
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 ### Application Layer Protocols 
-#### **HTTP/HTTPS** 
+### **HTTP/HTTPS** 
 ```http
 # HTTP Request
 GET /index.html HTTP/1.1
@@ -209,7 +193,7 @@ Content-Type: text/html
 Content-Length: 1234
 <html>...</html>
 ```
-#### **DNS (Domain Name System)**
+### **DNS (Domain Name System)**
 ```bash
 # DNS Query Process
 1. User types: www.google.com
@@ -220,7 +204,7 @@ Content-Length: 1234
 6. Query google.com DNS server
 7. Return IP address: 142.250.191.14
 ```
-#### **DHCP (Dynamic Host Configuration Protocol)**
+### **DHCP (Dynamic Host Configuration Protocol)**
 ```
 DHCP Process (DORA):
 1. Discover - Client broadcasts for DHCP server
@@ -231,7 +215,7 @@ DHCP Process (DORA):
 ---
 ## IP Addressing & Subnetting 
 ### IPv4 Addressing 
-#### **Address Structure** 
+### **Address Structure** 
 ```
 IPv4 Address: 192.168.1.100
 Binary: 11000000.10101000.00000001.01100100
@@ -240,7 +224,7 @@ Network: 192.168.1.0
 Host: 100
 Broadcast: 192.168.1.255
 ```
-#### **Address Classes**
+### **Address Classes**
 | Class | Range | Default Mask | Networks | Hosts per Network |
 |-------|-------|--------------|----------|-------------------|
 | A | 1-126 | /8 (255.0.0.0) | 126 | 16,777,214 |
@@ -248,14 +232,14 @@ Broadcast: 192.168.1.255
 | C | 192-223 | /24 (255.255.255.0) | 2,097,152 | 254 |
 | D | 224-239 | Multicast | - | - |
 | E | 240-255 | Experimental | - | - |
-#### **Private IP Ranges**
+### **Private IP Ranges**
 ```
 Class A: 10.0.0.0/8 (10.0.0.0 - 10.255.255.255)
 Class B: 172.16.0.0/12 (172.16.0.0 - 172.31.255.255)
 Class C: 192.168.0.0/16 (192.168.0.0 - 192.168.255.255)
 ```
 ### Subnetting
-#### **CIDR Notation**
+### **CIDR Notation**
 ```
 192.168.1.0/24
 │ │
@@ -264,7 +248,7 @@ Class C: 192.168.0.0/16 (192.168.0.0 - 192.168.255.255)
 Host bits = 32 - 24 = 8
 Possible hosts = 2^8 - 2 = 254
 ```
-#### **Subnetting Example** 
+### **Subnetting Example** 
 **Scenario**: Divide 192.168.1.0/24 into 4 subnets
 ```
 Original: 192.168.1.0/24 (256 addresses)
@@ -275,7 +259,7 @@ Subnet 2: 192.168.1.64/26 (192.168.1.65 - 192.168.1.126)
 Subnet 3: 192.168.1.128/26 (192.168.1.129 - 192.168.1.190)
 Subnet 4: 192.168.1.192/26 (192.168.1.193 - 192.168.1.254)
 ```
-#### **VLSM (Variable Length Subnet Masking)** 
+### **VLSM (Variable Length Subnet Masking)** 
 ```
 Requirements:
 - Sales: 50 hosts
@@ -290,7 +274,7 @@ P2P Link 1: 192.168.1.112/30 (2 usable hosts)
 P2P Link 2: 192.168.1.116/30 (2 usable hosts)
 ```
 ### IPv6 Addressing 
-#### **Address Format** 
+### **Address Format** 
 ```
 IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 Compressed: 2001:db8:85a3::8a2e:370:7334
@@ -302,14 +286,14 @@ Address Types:
 ---
 ## ️ Routing & Switching 
 ### Routing Fundamentals 
-#### **Routing Table** 
+### **Routing Table** 
 ```bash
 # Example routing table
 Destination Gateway Genmask Flags Metric Ref Use Iface
 0.0.0.0 192.168.1.1 0.0.0.0 UG 100 0 0 eth0
 192.168.1.0 0.0.0.0 255.255.255.0 U 100 0 0 eth0
 ```
-#### **Routing Protocols** 
+### **Routing Protocols** 
 **Distance Vector (RIP)**
 ```
 Characteristics:
@@ -344,14 +328,14 @@ Characteristics:
 - Scalable for large networks
 ```
 ### Switching Fundamentals 
-#### **MAC Address Table** 
+### **MAC Address Table** 
 ```
 Port MAC Address VLAN Age
 1 00:1A:2B:3C:4D:5E 1 5
 2 00:1A:2B:3C:4D:5F 1 3
 3 00:1A:2B:3C:4D:60 2 7
 ```
-#### **VLAN Configuration** 
+### **VLAN Configuration** 
 ```bash
 # Create VLANs 
 vlan 10
@@ -370,7 +354,7 @@ interface fastethernet 0/24
 switchport mode trunk
 switchport trunk allowed vlan 10,20
 ```
-#### **Spanning Tree Protocol (STP)**
+### **Spanning Tree Protocol (STP)**
 ```
 STP States:
 1. Blocking - Receives BPDUs only
@@ -385,7 +369,7 @@ Root Bridge Selection:
 ---
 ## Network Security 
 ### Common Threats
-#### **Malware Types** 
+### **Malware Types** 
 ```
 Virus - Replicates by attaching to files
 Worm - Self-replicating across networks
@@ -393,7 +377,7 @@ Trojan - Disguised malicious software
 Ransomware - Encrypts files for ransom
 ️ Spyware - Secretly gathers information
 ```
-#### **Attack Vectors**
+### **Attack Vectors**
 ```
 Phishing - Deceptive emails/websites
 DoS/DDoS - Overwhelming with traffic
@@ -403,7 +387,7 @@ XSS - Cross-site scripting
 ️ Zero-day - Unknown vulnerabilities
 ```
 ### ️ Security Measures
-#### **Firewall Rules**
+### **Firewall Rules**
 ```bash
 # iptables examples 
 # Allow SSH from specific network
@@ -416,7 +400,7 @@ iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 # Allow established connections 
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 ```
-#### **VPN Configuration** 
+### **VPN Configuration** 
 ```bash
 # OpenVPN server configuration
 port 1194
@@ -437,7 +421,7 @@ persist-tun
 status openvpn-status.log
 verb 3
 ```
-#### **Network Access Control** 
+### **Network Access Control** 
 ```bash
 # 802.1X Configuration 
 # Enable on switch port
@@ -448,7 +432,7 @@ authentication timer restart 3600
 dot1x pae authenticator
 ```
 ### Encryption Protocols 
-#### **SSL/TLS**
+### **SSL/TLS**
 ```
 TLS Handshake Process:
 1. Client Hello (supported ciphers)
@@ -458,7 +442,7 @@ TLS Handshake Process:
 5. Finished messages
 6. Encrypted communication
 ```
-#### **IPSec**
+### **IPSec**
 ```
 IPSec Modes:
 - Transport Mode: Encrypts payload only
@@ -480,7 +464,7 @@ Protocols:
 | 802.11ax (Wi-Fi 6) | 2019 | 2.4/5 GHz | 9.6 Gbps | 35m |
 
 ### Wireless Security 
-#### **Security Protocols Evolution** 
+### **Security Protocols Evolution** 
 ```
 WEP (Wired Equivalent Privacy)
 - 64/128-bit keys
@@ -499,7 +483,7 @@ WPA3 (Wi-Fi Protected Access 3)
 - Enhanced security
 - Latest standard
 ```
-#### **Wireless Access Point Configuration** 
+### **Wireless Access Point Configuration** 
 ```bash
 # Basic AP configuration
 ssid "CompanyWiFi"
@@ -517,7 +501,7 @@ auth_server_shared_secret radiussecret
 ---
 ## Network Implementation
 ### Home Network Setup 
-#### **Basic Home Network**
+### **Basic Home Network**
 ```
 Internet
 |
@@ -530,7 +514,7 @@ Internet
 +-- [Phone] (WiFi)
 +-- [Smart TV] (WiFi)
 ```
-#### **Router Configuration**
+### **Router Configuration**
 ```bash
 # Basic router setup 
 # WAN Configuration 
@@ -547,7 +531,7 @@ wireless security wpa2-psk
 wireless password "MySecurePassword"
 ```
 ### Enterprise Network Design 
-#### **Three-Tier Architecture** 
+### **Three-Tier Architecture** 
 ```
 [Internet]
 |
@@ -557,7 +541,7 @@ wireless password "MySecurePassword"
 |
 [Access Layer] - End-user connectivity
 ```
-#### **Network Segmentation**
+### **Network Segmentation**
 ```
 VLAN Design:
 VLAN 10 - Management (192.168.10.0/24)
@@ -567,7 +551,7 @@ VLAN 40 - Guest (192.168.40.0/24)
 VLAN 50 - Servers (192.168.50.0/24)
 VLAN 99 - Native (unused)
 ```
-#### **High Availability Design**
+### **High Availability Design**
 ```bash
 # HSRP Configuration (Hot Standby Router Protocol) 
 interface vlan 10
@@ -580,7 +564,7 @@ standby 1 authentication md5 key-string hsrpkey
 ---
 ## ️ Cloud Networking
 ### ️ Virtual Private Clouds (VPC)
-#### **AWS VPC Example** 
+### **AWS VPC Example** 
 ```bash
 # Create VPC
 aws ec2 create-vpc --cidr-block 10.0.0.0/16
@@ -591,7 +575,7 @@ aws ec2 create-subnet --vpc-id vpc-12345678 --cidr-block 10.0.2.0/24
 aws ec2 create-internet-gateway
 aws ec2 attach-internet-gateway --vpc-id vpc-12345678 --internet-gateway-id igw-12345678
 ```
-#### **Azure Virtual Network**
+### **Azure Virtual Network**
 ```bash
 # Create resource group 
 az group create --name MyResourceGroup --location eastus
@@ -605,7 +589,7 @@ az network vnet create \
 ```
 
 ### Hybrid Connectivity
-#### **Site-to-Site VPN** 
+### **Site-to-Site VPN** 
 ```
 On-Premises Network (192.168.0.0/16)
 |
@@ -617,7 +601,7 @@ Internet
 |
 Cloud Network (10.0.0.0/16)
 ```
-#### **Direct Connect/ExpressRoute**
+### **Direct Connect/ExpressRoute**
 ```
 On-Premises
 |
@@ -631,7 +615,7 @@ Cloud Network
 ## Network Monitoring & Troubleshooting 
 
 ### ️ Essential Tools
-#### **Command Line Tools**
+### **Command Line Tools**
 ```bash
 # Ping - Test connectivity 
 ping -c 4 google.com
@@ -653,7 +637,7 @@ arp -a
 tcpdump -i eth0 host 192.168.1.100
 tcpdump -i any port 80
 ```
-#### **Network Scanning**
+### **Network Scanning**
 ```bash
 # Nmap - Network discovery
 nmap -sn 192.168.1.0/24 # Ping scan
@@ -663,7 +647,7 @@ nmap -O 192.168.1.100 # OS detection
 nmap -A 192.168.1.100 # Aggressive scan
 ```
 ### Performance Testing
-#### **Bandwidth Testing** 
+### **Bandwidth Testing** 
 ```bash
 # iperf3 - Bandwidth testing
 # Server side 
@@ -674,7 +658,7 @@ iperf3 -c server_ip -t 60 # 60-second test
 iperf3 -c server_ip -P 4 # 4 parallel streams
 iperf3 -c server_ip -u # UDP test
 ```
-#### **Latency Testing** 
+### **Latency Testing** 
 ```bash
 # hping3 - Advanced ping 
 hping3 -S -p 80 google.com # TCP SYN to port 80
@@ -684,7 +668,7 @@ mtr google.com
 mtr --report --report-cycles 100 google.com
 ```
 ### Troubleshooting Methodology 
-#### **OSI Layer Approach**
+### **OSI Layer Approach**
 ```
 7. Application - Check application logs, configs
 6. Presentation - Verify encryption, compression
@@ -694,7 +678,7 @@ mtr --report --report-cycles 100 google.com
 2. Data Link - Verify switching, VLANs
 1. Physical - Check cables, interfaces
 ```
-#### **Common Issues & Solutions**
+### **Common Issues & Solutions**
 ```bash
 # IP Configuration Issues 
 # Check IP settings 
@@ -722,7 +706,7 @@ netsh advfirewall show allprofiles
 
 ## Advanced Topics
 ### Software-Defined Networking (SDN) 
-#### **SDN Architecture**
+### **SDN Architecture**
 ```
 [Applications]
 |
@@ -732,7 +716,7 @@ netsh advfirewall show allprofiles
 |
 [SDN Switches] (Data Plane)
 ```
-#### **OpenFlow Example**
+### **OpenFlow Example**
 ```python
 # Simple OpenFlow controller (Python) 
 from ryu.base import app_manager
@@ -749,7 +733,7 @@ datapath = msg.datapath
 # Process packet... 
 ```
 ### Network Function Virtualization (NFV) 
-#### **Virtual Network Functions** 
+### **Virtual Network Functions** 
 ```
 Traditional: [Physical Firewall] [Physical Load Balancer]
 NFV: [Virtual Firewall] [Virtual Load Balancer]
@@ -759,7 +743,7 @@ NFV: [Virtual Firewall] [Virtual Load Balancer]
 [Commodity Hardware]
 ```
 ### 5G Networks 
-#### **5G Architecture** 
+### **5G Architecture** 
 ```
 [User Equipment]
 |
@@ -772,7 +756,7 @@ NFV: [Virtual Firewall] [Virtual Load Balancer]
 - PCF (Policy Control Function)
 ```
 ### Intent-Based Networking (IBN) 
-#### **IBN Workflow** 
+### **IBN Workflow** 
 ```
 1. Intent Definition
 "Ensure database servers have 99.9% availability"
@@ -790,7 +774,7 @@ NFV: [Virtual Firewall] [Virtual Load Balancer]
 ---
 ## Best Practices 
 ### ️ Network Design Principles 
-#### **Hierarchical Design**
+### **Hierarchical Design**
 ```
 Benefits:
 - Scalability
@@ -803,7 +787,7 @@ Implementation:
 - Distribution layer: Policy enforcement
 - Access layer: User connectivity
 ```
-#### **Security by Design**
+### **Security by Design**
 ```
 Defense in Depth:
 - Perimeter security (firewalls)
@@ -813,7 +797,7 @@ Defense in Depth:
 - Encryption (VPNs, TLS)
 ```
 ### Performance Optimization
-#### **Bandwidth Management**
+### **Bandwidth Management**
 ```bash
 # Quality of Service (QoS) 
 # Traffic classification
@@ -830,7 +814,7 @@ bandwidth percent 30
 class class-default
 bandwidth percent 50
 ```
-#### **Load Balancing**
+### **Load Balancing**
 ```bash
 # NGINX load balancer 
 upstream backend {
@@ -846,7 +830,7 @@ proxy_pass http://backend;
 }
 ```
 ### Change Management
-#### **Configuration Management** 
+### **Configuration Management** 
 ```bash
 # Ansible network automation 
 ---
@@ -861,7 +845,7 @@ name: GigabitEthernet0/1
 description: Sales Department
 enabled: true
 ```
-#### **Documentation Standards**
+### **Documentation Standards**
 ```
 Network Documentation:
 - Network diagrams
@@ -955,7 +939,7 @@ aws ec2 create-customer-gateway --type ipsec.1 --public-ip YOUR_PUBLIC_IP --bgp-
 ---
 ## Next Steps 
 ### Advanced Learning Paths 
-#### **Network Engineering Track**
+### **Network Engineering Track**
 ```
 1. Certifications:
 - CCNA (Cisco Certified Network Associate)
@@ -971,7 +955,7 @@ aws ec2 create-customer-gateway --type ipsec.1 --public-ip YOUR_PUBLIC_IP --bgp-
 - Network Security
 - Network Automation
 ```
-#### **Cloud Networking Track**
+### **Cloud Networking Track**
 ```
 1. ️ Cloud Platforms:
 - AWS Certified Advanced Networking
@@ -983,7 +967,7 @@ aws ec2 create-customer-gateway --type ipsec.1 --public-ip YOUR_PUBLIC_IP --bgp-
 - Container networking (Docker, Podman)
 - Infrastructure as Code (Terraform)
 ```
-#### **Network Security Track**
+### **Network Security Track**
 ```
 1. Certifications:
 - CISSP (Certified Information Systems Security Professional)
@@ -998,7 +982,7 @@ aws ec2 create-customer-gateway --type ipsec.1 --public-ip YOUR_PUBLIC_IP --bgp-
 - Compliance and governance
 ```
 ### Emerging Technologies
-#### **Network Automation**
+### **Network Automation**
 ```python
 # Python network automation example
 import netmiko
@@ -1020,7 +1004,7 @@ output = connection.send_config_set([
 print(output)
 connection.disconnect()
 ```
-#### **AI/ML in Networking**
+### **AI/ML in Networking**
 ```
 Applications:
 - Predictive maintenance
@@ -1030,7 +1014,7 @@ Applications:
 - Capacity planning
 ```
 ### Recommended Resources
-#### **Books**
+### **Books**
 ```
 Essential Reading:
 - "Computer Networking: A Top-Down Approach" - Kurose & Ross
@@ -1039,7 +1023,7 @@ Essential Reading:
 - "Routing TCP/IP" - Jeff Doyle
 - "Network Security Essentials" - William Stallings
 ```
-#### **Online Platforms**
+### **Online Platforms**
 ```
 Learning Platforms:
 - Cisco Networking Academy
@@ -1049,7 +1033,7 @@ Learning Platforms:
 - INE (IP Expert)
 - GNS3 Academy
 ```
-#### **Lab Environments**
+### **Lab Environments**
 ```
 Simulation Tools:
 - GNS3 (Graphical Network Simulator)
@@ -1061,3 +1045,4 @@ Simulation Tools:
 ---
 
 @Th3viousGameus
+
