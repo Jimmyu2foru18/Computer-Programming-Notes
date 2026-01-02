@@ -683,14 +683,38 @@ function loadMarkdownFile(fileName) {
             
             // Override the heading renderer to handle IDs properly
             renderer.heading = function(text, level) {
-                // Make sure text is a string and not an object
-                if (typeof text !== 'string') {
-                    console.warn('Heading text is not a string:', text);
-                    text = String(text || '');
+                // Handle different input types that marked.js might pass
+                let headingText = '';
+                
+                if (typeof text === 'string') {
+                    headingText = text;
+                } else if (text && typeof text === 'object') {
+                    // Handle object input - try to extract text content
+                    console.warn('Heading text is an object:', text);
+                    
+                    // Check for common properties that might contain text
+                    if (text.text) {
+                        headingText = text.text;
+                    } else if (text.content) {
+                        headingText = text.content;
+                    } else if (text.value) {
+                        headingText = text.value;
+                    } else {
+                        // Convert object to string representation
+                        headingText = String(text);
+                    }
+                } else {
+                    // Handle any other type
+                    headingText = String(text || '');
+                }
+                
+                // Ensure we have a string
+                if (typeof headingText !== 'string') {
+                    headingText = String(headingText || '');
                 }
                 
                 // Extract the text without the ID attribute
-                const cleanText = text.replace(/\s*\{#.*?\}\s*$/, '');
+                const cleanText = headingText.replace(/\s*\{#.*?\}\s*$/, '');
                 
                 // Generate an ID from the clean text
                 const id = cleanText.toLowerCase().replace(/[^\w]+/g, '-');
