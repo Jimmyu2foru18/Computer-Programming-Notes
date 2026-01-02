@@ -1,5 +1,4 @@
-# ️ System Administration & Operating Systems: Complete Guide {#system-administration-operating-systems-complete-guide}
-*From Beginner to System Administrator Expert*
+# ️ System Administration & Operating Systems:
 ---
 ## Table of Contents {#table-of-contents}
 1. [Introduction](#introduction)
@@ -1991,3 +1990,4 @@ self.learning_resources = {
 ---
 
 @Th3viousGameus
+
