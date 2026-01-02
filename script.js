@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
             files: ['1.0 DSA_Guide.md']
         },
         {
+            name: 'Test',
+            files: ['test_language_labels.md', 'test_headers_tables.md']
+        },
+        {
             name: 'Database Management Systems',
             files: ['1.0 DBMS.md', '2 DBMS.md']
         },
@@ -412,9 +416,42 @@ function fallbackMarkdownToHtml(markdown) {
         html = html.replace(/```(\w+)?\n?([\s\S]*?)```/gim, function(match, lang, code) {
             const language = lang ? lang.replace(/^-/, '') : ''; // Remove leading dash if present
             const langClass = language ? ` class="language-${language}"` : '';
-            return `<pre><code${langClass}>${code.trim()}</code></pre>`;
+            const langAttr = language ? ` data-language="${language}"` : '';
+            return `<pre${langAttr}><code${langClass}>${code.trim()}</code></pre>`;
         });
         html = html.replace(/`([^`]+)`/gim, '<code>$1</code>');
+        
+        // Convert tables
+        html = html.replace(/^\|(.+)\|$/gim, function(match, content) {
+            return '<tr><td>' + content.split('|').map(cell => cell.trim()).filter(cell => cell !== '').join('</td><td>') + '</td></tr>';
+        });
+        
+        // Wrap table rows in table structure
+        html = html.replace(/(<tr>.*<\/tr>\s*)+/g, function(match) {
+            // Extract headers from first row if it looks like a header
+            const rows = match.match(/<tr>(.*?)<\/tr>/g);
+            if (rows && rows.length > 0) {
+                const firstRow = rows[0];
+                const headerCells = firstRow.match(/<td>(.*?)<\/td>/g);
+                
+                // Check if this looks like a header row (all cells are typically header-like)
+                const isHeader = headerCells && headerCells.every(cell => {
+                    const content = cell.replace(/<\/?td>/g, '').trim();
+                    return content.length > 0 && content.length < 20; // Simple heuristic
+                });
+                
+                if (isHeader && rows.length > 1) {
+                    // Convert first row to header
+                    const headerRow = rows[0].replace(/<td>/g, '<th>').replace(/<\/td>/g, '</th>');
+                    const bodyRows = rows.slice(1).join('');
+                    return '<table><thead>' + headerRow + '</thead><tbody>' + bodyRows + '</tbody></table>';
+                } else {
+                    // No header, just wrap in table
+                    return '<table><tbody>' + match + '</tbody></table>';
+                }
+            }
+            return match;
+        });
         
         // Convert links
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>');
@@ -670,7 +707,8 @@ function loadMarkdownFile(fileName) {
             renderer.code = function(code, language) {
                 const lang = language ? language.replace(/^-/, '') : '';
                 const langClass = lang ? ` class="language-${lang}"` : '';
-                return `<pre><code${langClass}>${code}</code></pre>`;
+                const langAttr = lang ? ` data-language="${lang}"` : '';
+                return `<pre${langAttr}><code${langClass}>${code}</code></pre>`;
             };
             
             // Override codespan renderer for inline code
