@@ -1,27 +1,6 @@
 # Linux: Learning Guide
-
-## Table of Contents 
-1. [Introduction to Linux](#introduction-to-linux)
-2. [Linux Distributions](#linux-distributions)
-3. [Installation and Setup](#installation-and-setup)
-4. [Command Line Interface (CLI)](#command-line-interface-cli)
-5. [File System and Navigation](#file-system-and-navigation)
-6. [File Operations and Permissions](#file-operations-and-permissions)
-7. [Text Processing and Editors](#text-processing-and-editors)
-8. [Process Management](#process-management)
-9. [Package Management](#package-management)
-10. [System Services and Systemd](#system-services-and-systemd)
-11. [User and Group Management](#user-and-group-management)
-12. [Network Configuration](#network-configuration)
-13. [Storage Management](#storage-management)
-14. [System Monitoring and Performance](#system-monitoring-and-performance)
-15. [Security and Hardening](#security-and-hardening)
-16. [Shell Scripting](#shell-scripting)
-17. [System Administration](#system-administration)
-18. [Troubleshooting](#troubleshooting)
-19. [Advanced Topics](#advanced-topics)
-20. [Best Practices](#best-practices)
 ---
+
 ## Introduction to Linux
 Linux is a free, open-source operating system kernel originally created by Linus Torvalds in 1991. It forms the foundation of numerous operating systems called Linux distributions.
 ### Key Features 
@@ -48,18 +27,18 @@ Linux is a free, open-source operating system kernel originally created by Linus
 ---
 ## Linux Distributions 
 ### Popular Distributions 
-#### Debian-based 
+### Debian-based 
 - **Ubuntu**: User-friendly, great for beginners
 - **Debian**: Stable, reliable, server-focused
 - **Linux Mint**: Easy to use, Windows-like interface
-#### Red Hat-based 
+### Red Hat-based 
 - **RHEL**: Enterprise-focused, commercial support
 - **CentOS Stream**: Community version of RHEL
 - **Fedora**: Cutting-edge features, community-driven
-#### Arch-based 
+### Arch-based 
 - **Arch Linux**: Rolling release, DIY approach
 - **Manjaro**: User-friendly Arch derivative
-#### SUSE-based 
+### SUSE-based 
 - **openSUSE**: Community version
 - **SLES**: Enterprise version
 ### Choosing a Distribution 
@@ -74,7 +53,7 @@ Linux is a free, open-source operating system kernel originally created by Linus
 ---
 ## Installation and Setup 
 ### Pre-installation Planning
-#### System Requirements 
+### System Requirements 
 ```bash
 # Minimum requirements (varies by distribution): 
 # - RAM: 2GB (4GB+ recommended)
@@ -82,7 +61,7 @@ Linux is a free, open-source operating system kernel originally created by Linus
 # - Processor: 1GHz (64-bit recommended)
 # - Graphics: VGA capable display
 ```
-#### Partition Planning
+### Partition Planning
 ```bash
 # Recommended partition scheme:
 /boot # 500MB - Boot files
@@ -91,7 +70,7 @@ Linux is a free, open-source operating system kernel originally created by Linus
 swap # 2x RAM or 8GB max
 ```
 ### Installation Process
-#### Creating Bootable Media
+### Creating Bootable Media
 ```bash
 # Using dd command (Linux/macOS)
 sudo dd if=ubuntu-22.04.iso of=/dev/sdX bs=4M status=progress
@@ -100,7 +79,7 @@ sudo dd if=ubuntu-22.04.iso of=/dev/sdX bs=4M status=progress
 # Verify checksum
 sha256sum ubuntu-22.04.iso
 ```
-#### Installation Steps
+### Installation Steps
 1. Boot from installation media
 2. Select language and keyboard layout
 3. Configure network (if needed)
@@ -109,7 +88,7 @@ sha256sum ubuntu-22.04.iso
 6. Install bootloader
 7. Complete installation
 ### Post-installation Setup
-#### System Updates
+### System Updates
 ```bash
 # Ubuntu/Debian
 sudo apt update && sudo apt upgrade -y
@@ -118,7 +97,7 @@ sudo dnf update -y
 # Arch Linux
 sudo pacman -Syu
 ```
-#### Essential Software
+### Essential Software
 ```bash
 # Development tools
 sudo apt install build-essential git vim curl wget
@@ -131,13 +110,13 @@ sudo add-apt-repository multiverse
 ---
 ## Command Line Interface (CLI)
 ### Terminal Basics
-#### Understanding the Prompt
+### Understanding the Prompt
 ```bash
 # Format: username@hostname:current_directory$
 user@ubuntu:~$ 
 root@server:/home/user# 
 ```
-#### Essential Keyboard Shortcuts
+### Essential Keyboard Shortcuts
 ```bash
 Ctrl+C # Interrupt current command
 Ctrl+D # Exit shell or EOF
@@ -230,7 +209,7 @@ subdirectory/file.txt
 ---
 ## File Operations and Permissions
 ### Basic File Operations
-#### Creating Files and Directories
+### Creating Files and Directories
 ```bash
 # Create empty file
 touch filename.txt
@@ -246,7 +225,7 @@ Line 1
 Line 2
 EOF
 ```
-#### Copying Files
+### Copying Files
 ```bash
 # Copy files
 cp source.txt destination.txt
@@ -259,7 +238,7 @@ cp -i file.txt dest.txt # Interactive (prompt before overwrite)
 cp -u source/ dest/ # Update (copy only newer files)
 cp -v source dest # Verbose output
 ```
-#### Moving and Renaming
+### Moving and Renaming
 ```bash
 # Move/rename files
 mv oldname.txt newname.txt
@@ -270,7 +249,7 @@ mv directory/ /path/to/new/location/
 # Move multiple files
 mv file1.txt file2.txt file3.txt /destination/
 ```
-#### Removing Files
+### Removing Files
 ```bash
 # Remove files
 rm file.txt
@@ -284,7 +263,7 @@ rm -i file.txt # Interactive
 rm -I *.txt # Prompt once for multiple files
 ```
 ### File Permissions
-#### Understanding Permissions
+### Understanding Permissions
 ```bash
 # Permission format: drwxrwxrwx
 # d = directory, - = file
@@ -295,7 +274,7 @@ rm -I *.txt # Prompt once for multiple files
 -rw-r--r-- 1 user group 1024 Jan 1 12:00 file.txt
 drwxr-xr-x 2 user group 4096 Jan 1 12:00 directory/
 ```
-#### Numeric Permissions
+### Numeric Permissions
 ```bash
 # Binary to Octal conversion:
 # r = 4, w = 2, x = 1
@@ -304,7 +283,7 @@ drwxr-xr-x 2 user group 4096 Jan 1 12:00 directory/
 # 600 = rw-------
 # 777 = rwxrwxrwx
 ```
-#### Changing Permissions
+### Changing Permissions
 ```bash
 # Using chmod with octal
 chmod 755 script.sh
@@ -318,7 +297,7 @@ chmod a+r file.txt # Add read for all
 # Recursive permissions
 chmod -R 755 directory/
 ```
-#### Changing Ownership
+### Changing Ownership
 ```bash
 # Change owner
 chown user file.txt
@@ -329,7 +308,7 @@ chgrp group file.txt
 chgrp -R group directory/
 ```
 ### Advanced File Operations
-#### Links
+### Links
 ```bash
 # Hard links
 ln original.txt hardlink.txt
@@ -340,7 +319,7 @@ ln -s../config.txt link_to_config
 ls -l
 find. -type l # Find symbolic links
 ```
-#### File Attributes
+### File Attributes
 ```bash
 # Extended attributes
 lsattr file.txt
@@ -354,7 +333,7 @@ setfacl -x u:user file.txt
 ---
 ## Text Processing and Editors
 ### Viewing File Contents
-#### Basic Viewing
+### Basic Viewing
 ```bash
 # Display entire file
 cat file.txt
@@ -373,7 +352,7 @@ tail -n 20 file.txt # Last 20 lines
 tail -f /var/log/syslog # Follow file changes
 ```
 ### Text Processing Tools
-#### grep - Pattern Matching
+### grep - Pattern Matching
 ```bash
 # Basic search
 grep "pattern" file.txt
@@ -389,7 +368,7 @@ grep "[0-9]\+" file.txt # Lines with numbers
 grep -E "pattern1|pattern2" file.txt
 egrep "pattern1|pattern2" file.txt
 ```
-#### sed - Stream Editor
+### sed - Stream Editor
 ```bash
 # Substitute text
 sed 's/old/new/' file.txt # First occurrence per line
@@ -406,7 +385,7 @@ sed '2a\New line' file.txt # Append after line 2
 sed -i 's/old/new/g' file.txt
 sed -i.bak 's/old/new/g' file.txt # Create backup
 ```
-#### awk - Text Processing
+### awk - Text Processing
 ```bash
 # Print columns
 awk '{print $1}' file.txt # First column
@@ -421,7 +400,7 @@ awk 'END {print NR}' file.txt # Total number of lines
 # Field separator
 awk -F: '{print $1}' /etc/passwd # Use colon as separator
 ```
-#### sort and uniq
+### sort and uniq
 ```bash
 # Sorting
 sort file.txt
@@ -436,7 +415,7 @@ uniq -c file.txt # Count occurrences
 uniq -d file.txt # Show only duplicates
 ```
 ### Text Editors
-#### nano - Simple Editor
+### nano - Simple Editor
 ```bash
 # Open file
 nano filename.txt
@@ -448,7 +427,7 @@ nano filename.txt
 # Ctrl+U - Paste
 # Ctrl+G - Help
 ```
-#### vim - Advanced Editor
+### vim - Advanced Editor
 ```bash
 # Open file
 vim filename.txt
@@ -477,7 +456,7 @@ N # Previous match:%s/old/new/g # Replace all
 ---
 ## Process Management
 ### Understanding Processes
-#### Process Information
+### Process Information
 ```bash
 # List running processes
 ps # Current user processes
@@ -495,7 +474,7 @@ htop # Enhanced version
 ps -p PID # Specific process
 cat /proc/PID/status # Detailed process info
 ```
-#### Process States
+### Process States
 ```bash
 # Process states:
 # R - Running
@@ -506,7 +485,7 @@ cat /proc/PID/status # Detailed process info
 # X - Dead
 ```
 ### Job Control
-#### Background and Foreground
+### Background and Foreground
 ```bash
 # Run in background
 command &
@@ -523,7 +502,7 @@ kill -STOP PID # Suspend process
 kill -CONT PID # Resume process
 ```
 ### Process Control
-#### Killing Processes
+### Killing Processes
 ```bash
 # Kill by PID
 kill PID
@@ -537,7 +516,7 @@ pkill -u username # Kill user processes
 top # Press 'k' to kill
 htop # Press F9 to kill
 ```
-#### Process Signals
+### Process Signals
 ```bash
 # Common signals:
 kill -1 PID # SIGHUP (reload config)
@@ -550,7 +529,7 @@ kill -19 PID # SIGSTOP (stop)
 kill -l
 ```
 ### System Resources
-#### Memory Usage
+### Memory Usage
 ```bash
 # Memory information
 free -h # Human readable
@@ -560,7 +539,7 @@ cat /proc/meminfo # Detailed memory info
 ps aux --sort=-%mem # Sort by memory usage
 top -o %MEM # Sort top by memory
 ```
-#### CPU Usage
+### CPU Usage
 ```bash
 # CPU information
 lscpu # CPU details
@@ -574,7 +553,7 @@ mpstat # CPU statistics
 ---
 ## Package Management
 ### APT (Debian/Ubuntu)
-#### Basic Operations
+### Basic Operations
 ```bash
 # Update package lists
 sudo apt update
@@ -589,7 +568,7 @@ sudo apt remove package_name
 sudo apt purge package_name # Remove with config files
 sudo apt autoremove # Remove unused dependencies
 ```
-#### Package Information
+### Package Information
 ```bash
 # Search packages
 apt search keyword
@@ -602,7 +581,7 @@ apt policy package_name
 dpkg -L package_name # List files in package
 dpkg -S /path/to/file # Find package containing file
 ```
-#### Repository Management
+### Repository Management
 ```bash
 # Add repository
 sudo add-apt-repository ppa:repository/name
@@ -614,7 +593,7 @@ ls /etc/apt/sources.list.d/
 cat /etc/apt/sources.list
 ```
 ### YUM/DNF (RHEL/CentOS/Fedora)
-#### Basic Operations
+### Basic Operations
 ```bash
 # Update system
 sudo dnf update
@@ -630,7 +609,7 @@ dnf search keyword
 dnf list installed
 dnf list available
 ```
-#### Package Information
+### Package Information
 ```bash
 # Package details
 dnf info package_name
@@ -641,7 +620,7 @@ dnf history info transaction_id
 dnf history undo transaction_id
 ```
 ### Pacman (Arch Linux)
-#### Basic Operations
+### Basic Operations
 ```bash
 # Update system
 sudo pacman -Syu
@@ -690,7 +669,7 @@ flatpak update
 ---
 ## System Services and Systemd
 ### Understanding Systemd
-#### Service Management
+### Service Management
 ```bash
 # Service status
 sudo systemctl status service_name
@@ -707,7 +686,7 @@ sudo systemctl disable service_name
 sudo systemctl mask service_name # Prevent starting
 sudo systemctl unmask service_name
 ```
-#### System State
+### System State
 ```bash
 # System status
 systemctl status
@@ -719,7 +698,7 @@ systemctl get-default
 sudo systemctl set-default multi-user.target
 systemctl list-units --type=target
 ```
-#### Logs with journalctl
+### Logs with journalctl
 ```bash
 # View logs
 journalctl
@@ -737,7 +716,7 @@ sudo journalctl --vacuum-time=2weeks
 sudo journalctl --vacuum-size=100M
 ```
 ### Creating Custom Services
-#### Service Unit File
+### Service Unit File
 ```bash
 # Create service file
 sudo nano /etc/systemd/system/myapp.service
@@ -755,7 +734,7 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 ```
-#### Service Management
+### Service Management
 ```bash
 # Reload systemd
 sudo systemctl daemon-reload
@@ -767,7 +746,7 @@ sudo systemctl status myapp.service
 journalctl -u myapp.service
 ```
 ### Timer Units (Cron Alternative)
-#### Timer Unit File
+### Timer Unit File
 ```bash
 # Create timer file
 sudo nano /etc/systemd/system/backup.timer
@@ -781,7 +760,7 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 ```
-#### Timer Management
+### Timer Management
 ```bash
 # Enable and start timer
 sudo systemctl enable backup.timer
@@ -793,7 +772,7 @@ systemctl status backup.timer
 ---
 ## User and Group Management
 ### User Management
-#### Creating Users
+### Creating Users
 ```bash
 # Add user
 sudo useradd username
@@ -805,7 +784,7 @@ sudo passwd username
 # Add user interactively
 sudo adduser username
 ```
-#### Modifying Users
+### Modifying Users
 ```bash
 # Modify user
 sudo usermod -l newname oldname # Change username
@@ -817,7 +796,7 @@ sudo usermod -a -G group username # Add to group
 sudo usermod -L username # Lock account
 sudo usermod -U username # Unlock account
 ```
-#### Removing Users
+### Removing Users
 ```bash
 # Remove user
 sudo userdel username
@@ -827,7 +806,7 @@ sudo deluser username
 sudo deluser --remove-home username
 ```
 ### Group Management
-#### Creating Groups
+### Creating Groups
 ```bash
 # Add group
 sudo groupadd groupname
@@ -835,7 +814,7 @@ sudo groupadd -g 1001 groupname # Specify GID
 # Add group interactively
 sudo addgroup groupname
 ```
-#### Managing Group Membership
+### Managing Group Membership
 ```bash
 # Add user to group
 sudo usermod -a -G groupname username
@@ -845,14 +824,14 @@ sudo gpasswd -d username groupname
 # Set group password
 sudo gpasswd groupname
 ```
-#### Removing Groups
+### Removing Groups
 ```bash
 # Remove group
 sudo groupdel groupname
 sudo delgroup groupname
 ```
 ### User Information
-#### Viewing User Information
+### Viewing User Information
 ```bash
 # Current user info
 whoami
@@ -868,7 +847,7 @@ w
 last
 lastlog
 ```
-#### User Database Files
+### User Database Files
 ```bash
 # User accounts
 cat /etc/passwd
@@ -882,7 +861,7 @@ getent group groupname
 sudo cat /etc/shadow
 ```
 ### Sudo Configuration
-#### Sudo Access
+### Sudo Access
 ```bash
 # Add user to sudo group
 sudo usermod -a -G sudo username
@@ -901,7 +880,7 @@ username ALL=(ALL) /bin/systemctl, /bin/mount
 ---
 ## Network Configuration
 ### Network Information
-#### Interface Information
+### Interface Information
 ```bash
 # Network interfaces
 ip addr show
@@ -914,7 +893,7 @@ ifconfig eth0
 ip -s link show
 cat /proc/net/dev
 ```
-#### Routing Information
+### Routing Information
 ```bash
 # Routing table
 ip route show
@@ -923,7 +902,7 @@ netstat -rn
 # Default gateway
 ip route show default
 ```
-#### Network Connectivity
+### Network Connectivity
 ```bash
 # Ping
 ping google.com
@@ -939,7 +918,7 @@ dig google.com
 host google.com
 ```
 ### Network Configuration
-#### Temporary Configuration
+### Temporary Configuration
 ```bash
 # Configure IP address
 sudo ip addr add 192.168.1.100/24 dev eth0
@@ -956,8 +935,8 @@ sudo route add -net 192.168.2.0/24 gw 192.168.1.1
 sudo ip route add default via 192.168.1.1
 sudo route add default gw 192.168.1.1
 ```
-#### Persistent Configuration (Ubuntu/Debian)
-##### Netplan Configuration
+### Persistent Configuration (Ubuntu/Debian)
+#### Netplan Configuration
 ```bash
 # Edit netplan configuration
 sudo nano /etc/netplan/01-network-manager-all.yaml
@@ -983,7 +962,7 @@ dhcp4: true
 sudo netplan apply
 sudo netplan --debug apply
 ```
-##### Legacy Configuration (/etc/network/interfaces)
+#### Legacy Configuration (/etc/network/interfaces)
 ```bash
 # Edit interfaces file
 sudo nano /etc/network/interfaces
@@ -1001,7 +980,7 @@ iface eth0 inet dhcp
 sudo systemctl restart networking
 sudo ifdown eth0 && sudo ifup eth0
 ```
-#### DNS Configuration
+### DNS Configuration
 ```bash
 # DNS servers
 sudo nano /etc/resolv.conf
@@ -1020,7 +999,7 @@ Domains=example.com
 sudo systemctl restart systemd-resolved
 ```
 ### Network Services
-#### SSH Configuration
+### SSH Configuration
 ```bash
 # Install SSH server
 sudo apt install openssh-server
@@ -1040,7 +1019,7 @@ ssh -p 2222 user@hostname # Custom port
 ssh -X user@hostname # X11 forwarding
 ssh -L 8080:localhost:80 user@hostname # Port forwarding
 ```
-#### Firewall (UFW)
+### Firewall (UFW)
 ```bash
 # Enable firewall
 sudo ufw enable
@@ -1060,7 +1039,7 @@ sudo ufw --force reset
 ---
 ## Storage Management
 ### Disk Information
-#### Disk Usage
+### Disk Usage
 ```bash
 # Disk space usage
 df -h # Human readable
@@ -1073,7 +1052,7 @@ lsblk # Block devices
 fdisk -l # Partition tables
 blkid # Block device attributes
 ```
-#### Disk Performance
+### Disk Performance
 ```bash
 # I/O statistics
 iostat -x 1 5 # Extended stats, 1 sec interval, 5 times
@@ -1083,7 +1062,7 @@ iotop # Process I/O usage
 sudo iotop -o # Only active processes
 ```
 ### Partitioning
-#### fdisk - MBR Partitioning
+### fdisk - MBR Partitioning
 ```bash
 # Open disk for partitioning
 sudo fdisk /dev/sdb
@@ -1103,7 +1082,7 @@ sudo fdisk /dev/sdb
 > +10G # Size
 > w # Write changes
 ```
-#### gdisk - GPT Partitioning
+### gdisk - GPT Partitioning
 ```bash
 # GPT partitioning
 sudo gdisk /dev/sdb
@@ -1115,7 +1094,7 @@ sudo gdisk /dev/sdb
 # w - write changes
 # q - quit without saving
 ```
-#### parted - Advanced Partitioning
+### parted - Advanced Partitioning
 ```bash
 # Interactive mode
 sudo parted /dev/sdb
@@ -1127,7 +1106,7 @@ sudo parted /dev/sdb mkpart primary ext4 50% 100%
 sudo parted /dev/sdb print
 ```
 ### File Systems
-#### Creating File Systems
+### Creating File Systems
 ```bash
 # ext4 file system
 sudo mkfs.ext4 /dev/sdb1
@@ -1138,7 +1117,7 @@ sudo mkfs.btrfs /dev/sdb1
 sudo mkfs.ntfs /dev/sdb1
 sudo mkfs.vfat -F 32 /dev/sdb1 # FAT32
 ```
-#### File System Check and Repair
+### File System Check and Repair
 ```bash
 # Check file system
 sudo fsck /dev/sdb1
@@ -1149,7 +1128,7 @@ sudo fsck -y /dev/sdb1 # Auto-repair
 sudo e2fsck -p /dev/sdb1 # Automatic repair
 ```
 ### Mounting
-#### Manual Mounting
+### Manual Mounting
 ```bash
 # Create mount point
 sudo mkdir /mnt/mydisk
@@ -1165,7 +1144,7 @@ sudo umount /dev/sdb1
 sudo umount -f /mnt/mydisk
 sudo umount -l /mnt/mydisk # Lazy unmount
 ```
-#### Persistent Mounting (/etc/fstab)
+### Persistent Mounting (/etc/fstab)
 ```bash
 # Edit fstab
 sudo nano /etc/fstab
@@ -1180,12 +1159,12 @@ sudo mount -a
 sudo findmnt --verify
 ```
 ### LVM (Logical Volume Management)
-#### LVM Concepts
+### LVM Concepts
 ```bash
 # Physical Volume (PV) -> Volume Group (VG) -> Logical Volume (LV)
 # /dev/sdb1 -> vg_data -> lv_home, lv_var
 ```
-#### Creating LVM
+### Creating LVM
 ```bash
 # Create physical volume
 sudo pvcreate /dev/sdb1 /dev/sdc1
@@ -1201,7 +1180,7 @@ sudo lvdisplay
 sudo mkfs.ext4 /dev/vg_data/lv_home
 sudo mkfs.ext4 /dev/vg_data/lv_var
 ```
-#### Managing LVM
+### Managing LVM
 ```bash
 # Extend logical volume
 sudo lvextend -L +5G /dev/vg_data/lv_home
@@ -1216,7 +1195,7 @@ sudo resize2fs /dev/vg_data/lv_home 8G
 sudo lvreduce -L 8G /dev/vg_data/lv_home
 ```
 ### RAID Configuration
-#### Software RAID with mdadm
+### Software RAID with mdadm
 ```bash
 # Install mdadm
 sudo apt install mdadm
@@ -1231,7 +1210,7 @@ sudo mdadm --detail /dev/md0
 sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 sudo update-initramfs -u
 ```
-#### RAID Management
+### RAID Management
 ```bash
 # Add spare device
 sudo mdadm --add /dev/md0 /dev/sdg1
@@ -1246,7 +1225,7 @@ sudo mdadm --assemble /dev/md0 /dev/sdb1 /dev/sdc1
 ---
 ## System Monitoring and Performance
 ### System Information
-#### Hardware Information
+### Hardware Information
 ```bash
 # System information
 uname -a # Kernel and system info
@@ -1266,7 +1245,7 @@ sudo dmidecode -t system # System information
 sudo dmidecode -t memory # Memory information
 sudo dmidecode -t processor # CPU information
 ```
-#### System Resources
+### System Resources
 ```bash
 # Memory usage
 free -h
@@ -1283,7 +1262,7 @@ w
 cat /proc/loadavg
 ```
 ### Performance Monitoring
-#### Real-time Monitoring
+### Real-time Monitoring
 ```bash
 # System overview
 top # Process activity
@@ -1299,7 +1278,7 @@ nethogs # Network usage by process
 ss -tuln # Socket statistics
 netstat -tuln # Network connections
 ```
-#### Historical Monitoring
+### Historical Monitoring
 ```bash
 # System Activity Reporter (SAR)
 sar -u 1 60 # CPU usage for 1 minute
@@ -1311,7 +1290,7 @@ sar -u -f /var/log/sysstat/saXX # XX = day of month
 sar -A # All activities
 ```
 ### Log Analysis
-#### System Logs
+### System Logs
 ```bash
 # System log files
 tail -f /var/log/syslog # System messages
@@ -1323,7 +1302,7 @@ tail -f /var/log/apache2/access.log
 tail -f /var/log/nginx/error.log
 tail -f /var/log/mysql/error.log
 ```
-#### Log Rotation
+### Log Rotation
 ```bash
 # Logrotate configuration
 sudo nano /etc/logrotate.conf
@@ -1346,7 +1325,7 @@ endscript
 }
 ```
 ### Performance Tuning
-#### Kernel Parameters
+### Kernel Parameters
 ```bash
 # View kernel parameters
 sysctl -a
@@ -1364,7 +1343,7 @@ net.core.wmem_max=134217728
 # Apply changes
 sudo sysctl -p
 ```
-#### I/O Scheduling
+### I/O Scheduling
 ```bash
 # Check current scheduler
 cat /sys/block/sda/queue/scheduler
@@ -1378,7 +1357,7 @@ sudo update-grub
 ---
 ## Security and Hardening
 ### User Security
-#### Password Policies
+### Password Policies
 ```bash
 # Install password quality library
 sudo apt install libpam-pwquality
@@ -1396,7 +1375,7 @@ PASS_WARN_AGE 7
 sudo chage -M 90 -m 1 -W 7 username
 sudo chage -l username # View settings
 ```
-#### Account Security
+### Account Security
 ```bash
 # Lock account after failed attempts
 sudo nano /etc/pam.d/common-auth
@@ -1411,7 +1390,7 @@ sudo usermod -L username # Lock account
 sudo usermod -s /sbin/nologin username # Disable shell
 ```
 ### SSH Security
-#### SSH Hardening
+### SSH Hardening
 ```bash
 # Edit SSH configuration
 sudo nano /etc/ssh/sshd_config
@@ -1428,7 +1407,7 @@ DenyUsers baduser
 # Restart SSH service
 sudo systemctl restart sshd
 ```
-#### SSH Key Authentication
+### SSH Key Authentication
 ```bash
 # Generate SSH key pair
 ssh-keygen -t rsa -b 4096 -C "user@example.com"
@@ -1443,7 +1422,7 @@ chmod 600 ~/.ssh/id_rsa
 chmod 644 ~/.ssh/id_rsa.pub
 ```
 ### Firewall Configuration
-#### UFW (Uncomplicated Firewall)
+### UFW (Uncomplicated Firewall)
 ```bash
 # Enable firewall
 sudo ufw enable
@@ -1467,7 +1446,7 @@ sudo ufw deny from 192.168.2.0/24
 sudo ufw logging on
 sudo tail -f /var/log/ufw.log
 ```
-#### iptables (Advanced)
+### iptables (Advanced)
 ```bash
 # View current rules
 sudo iptables -L -n -v
@@ -1486,7 +1465,7 @@ sudo netfilter-persistent reload
 sudo service iptables save
 ```
 ### System Auditing
-#### auditd Configuration
+### auditd Configuration
 ```bash
 # Install audit daemon
 sudo apt install auditd audispd-plugins
@@ -1508,7 +1487,7 @@ sudo ausearch -f /etc/passwd
 sudo aureport --summary
 ```
 ### File Integrity Monitoring
-#### AIDE (Advanced Intrusion Detection Environment)
+### AIDE (Advanced Intrusion Detection Environment)
 ```bash
 # Install AIDE
 sudo apt install aide
@@ -1531,7 +1510,7 @@ sudo cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 ---
 ## Shell Scripting
 ### Bash Scripting Basics
-#### Script Structure
+### Script Structure
 ```bash
 #!/bin/bash
 # Script description
@@ -1549,7 +1528,7 @@ echo "Starting script..."
 greet "$NAME"
 echo "Script completed."
 ```
-#### Variables and Parameters
+### Variables and Parameters
 ```bash
 #!/bin/bash
 # Variable assignment
@@ -1573,7 +1552,7 @@ echo "Path: $PATH"
 read -p "Enter your name: " username
 echo "Hello, $username!"
 ```
-#### Control Structures
+### Control Structures
 ```bash
 #!/bin/bash
 # If statements
@@ -1616,7 +1595,7 @@ echo "Counter: $counter"
 ((counter++))
 done
 ```
-#### Functions
+### Functions
 ```bash
 #!/bin/bash
 # Function definition
@@ -1647,7 +1626,7 @@ size=$(get_file_size "/etc/passwd")
 echo "File size: $size bytes"
 ```
 ### Advanced Scripting
-#### Error Handling
+### Error Handling
 ```bash
 #!/bin/bash
 # Exit on error
@@ -1677,7 +1656,7 @@ return 0
 }
 }
 ```
-#### Input Validation
+### Input Validation
 ```bash
 #!/bin/bash
 # Validate number of arguments
@@ -1716,7 +1695,7 @@ echo "Error: Invalid email format" >&2
 exit 1
 fi
 ```
-#### Arrays and String Manipulation
+### Arrays and String Manipulation
 ```bash
 #!/bin/bash
 # Arrays
@@ -1753,7 +1732,7 @@ for item in "${ADDR[@]}"; do
 echo "Item: $item"
 done
 ```
-#### File Processing
+### File Processing
 ```bash
 #!/bin/bash
 # Process CSV file
@@ -1807,7 +1786,7 @@ fi
 ---
 ## System Administration
 ### Cron Jobs and Task Scheduling
-#### Crontab Management
+### Crontab Management
 ```bash
 # Edit user crontab
 crontab -e
@@ -1824,7 +1803,7 @@ ls /etc/cron.daily/
 ls /etc/cron.weekly/
 ls /etc/cron.monthly/
 ```
-#### Crontab Format
+### Crontab Format
 ```bash
 # Format: minute hour day month weekday command
 # * * * * * command
@@ -1844,7 +1823,7 @@ ls /etc/cron.monthly/
 @daily /path/to/daily.sh # Once per day
 @weekly /path/to/weekly.sh # Once per week
 ```
-#### Advanced Cron Examples
+### Advanced Cron Examples
 ```bash
 # Backup script with logging
 0 2 * * * /usr/local/bin/backup.sh >> /var/log/backup.log 2>&1
@@ -1858,7 +1837,7 @@ MAILTO=admin@example.com
 0 5 * * * [ -f /tmp/maintenance ] || /path/to/normal_task.sh
 ```
 ### System Startup and Boot Process
-#### Boot Process Overview
+### Boot Process Overview
 ```bash
 # Boot sequence:
 # 1. BIOS/UEFI
@@ -1869,7 +1848,7 @@ MAILTO=admin@example.com
 # 6. System services
 # 7. Login manager
 ```
-#### GRUB Configuration
+### GRUB Configuration
 ```bash
 # GRUB configuration file
 sudo nano /etc/default/grub
@@ -1890,7 +1869,7 @@ linux /vmlinuz root=/dev/sda1
 initrd /initrd.img
 boot
 ```
-#### Kernel Parameters
+### Kernel Parameters
 ```bash
 # View current kernel parameters
 cat /proc/cmdline
@@ -1903,7 +1882,7 @@ cat /proc/cmdline
 # mem=4G - Limit memory usage
 # maxcpus=2 - Limit CPU cores
 ```
-#### Recovery and Rescue
+### Recovery and Rescue
 ```bash
 # Boot to single-user mode
 # Add 'single' or '1' to kernel parameters
@@ -1921,7 +1900,7 @@ fsck /dev/sda1
 fsck -y /dev/sda1 # Auto-repair
 ```
 ### System Backup and Recovery
-#### Full System Backup
+### Full System Backup
 ```bash
 # Create full system backup (excluding unnecessary directories)
 sudo tar -czpf /backup/system-backup-$(date +%Y%m%d).tar.gz \
@@ -1937,7 +1916,7 @@ sudo tar -czpf /backup/system-backup-$(date +%Y%m%d).tar.gz \
 # Restore from backup
 sudo tar -xzpf /backup/system-backup-20231201.tar.gz -C /mnt/restore/
 ```
-#### rsync Backups
+### rsync Backups
 ```bash
 # Local backup
 rsync -avH --delete /home/user/ /backup/user/
@@ -1960,7 +1939,7 @@ ln -s "$CURRENT" "$LATEST"
 # Keep only last 7 backups
 find "$BACKUP_DIR" -maxdepth 1 -type d -name "20*" | sort | head -n -7 | xargs rm -rf
 ```
-#### Database Backups
+### Database Backups
 ```bash
 # MySQL backup
 mysqldump -u root -p database_name > backup.sql
@@ -1981,7 +1960,7 @@ mysqldump -u "$DB_USER" -p"$DB_PASS" --all-databases | gzip > "$BACKUP_DIR/all_d
 find "$BACKUP_DIR" -name "*.sql.gz" -mtime +30 -delete
 ```
 ### Log Management
-#### Log File Locations
+### Log File Locations
 ```bash
 # System logs
 /var/log/syslog # General system messages
@@ -2000,7 +1979,7 @@ find "$BACKUP_DIR" -name "*.sql.gz" -mtime +30 -delete
 /var/log/mail.log # Mail server logs
 /var/log/ufw.log # Firewall logs
 ```
-#### Log Analysis Tools
+### Log Analysis Tools
 ```bash
 # Real-time log monitoring
 tail -f /var/log/syslog
@@ -2016,7 +1995,7 @@ grep "Failed password" /var/log/auth.log | awk '{print $11}' | sort | uniq -c
 grep "$(date +'%b %d')" /var/log/syslog
 awk -v date="$(date +'%b %d')" '$0 ~ date' /var/log/syslog
 ```
-#### Centralized Logging
+### Centralized Logging
 ```bash
 # rsyslog configuration
 sudo nano /etc/rsyslog.conf
@@ -2034,7 +2013,7 @@ sudo systemctl restart rsyslog
 ---
 ## Troubleshooting
 ### System Won't Boot
-#### Boot Issues Diagnosis
+### Boot Issues Diagnosis
 ```bash
 # Check boot messages
 dmesg | less
@@ -2050,7 +2029,7 @@ sudo update-grub
 sudo update-initramfs -u
 sudo update-initramfs -c -k $(uname -r)
 ```
-#### Recovery Procedures
+### Recovery Procedures
 ```bash
 # Boot from live USB/CD
 # Mount root filesystem
@@ -2074,7 +2053,7 @@ sudo umount -R /mnt/system
 reboot
 ```
 ### Performance Issues
-#### System Performance Analysis
+### System Performance Analysis
 ```bash
 # CPU usage
 top -o %CPU
@@ -2097,7 +2076,7 @@ uptime
 w
 sar -q 1 10
 ```
-#### Performance Optimization
+### Performance Optimization
 ```bash
 # Identify resource-heavy processes
 ps aux --sort=-%cpu,-%mem | head -20
@@ -2115,7 +2094,7 @@ ncdu /
 find / -type f -size +100M 2>/dev/null
 ```
 ### Network Issues
-#### Network Troubleshooting
+### Network Troubleshooting
 ```bash
 # Check network interfaces
 ip addr show
@@ -2140,7 +2119,7 @@ telnet hostname port
 nc -zv hostname port
 nmap -p port hostname
 ```
-#### Network Configuration Issues
+### Network Configuration Issues
 ```bash
 # Reset network interface
 sudo ifdown eth0
@@ -2159,7 +2138,7 @@ sudo ufw status
 sudo iptables -L
 ```
 ### Storage Issues
-#### Disk Space Problems
+### Disk Space Problems
 ```bash
 # Check disk usage
 df -h
@@ -2176,7 +2155,7 @@ sudo find /tmp -type f -atime +7 -delete
 # Check for deleted files still held open
 lsof +L1
 ```
-#### Filesystem Corruption
+### Filesystem Corruption
 ```bash
 # Check filesystem
 sudo fsck /dev/sda1
@@ -2189,7 +2168,7 @@ sudo smartctl -a /dev/sda
 sudo smartctl -t short /dev/sda
 ```
 ### Service and Process Issues
-#### Service Troubleshooting
+### Service Troubleshooting
 ```bash
 # Check service status
 sudo systemctl status service_name
@@ -2205,7 +2184,7 @@ sudo systemctl reload service_name
 # Check service dependencies
 sudo systemctl list-dependencies service_name
 ```
-#### Process Issues
+### Process Issues
 ```bash
 # Find problematic processes
 ps aux | grep process_name
@@ -2225,7 +2204,7 @@ cat /proc/PID/limits
 ---
 ## Advanced Topics
 ### Containers and Virtualization
-#### Docker Basics
+### Docker Basics
 ```bash
 # Install Docker
 sudo apt update
@@ -2259,7 +2238,7 @@ docker volume ls
 docker volume create myvolume
 docker run -v myvolume:/data nginx
 ```
-#### LXC/LXD Containers
+### LXC/LXD Containers
 ```bash
 # Install LXD
 sudo apt install lxd
@@ -2280,7 +2259,7 @@ lxc file push localfile mycontainer/path/
 lxc file pull mycontainer/path/file localfile
 ```
 ### Kernel Modules and Compilation
-#### Kernel Module Management
+### Kernel Module Management
 ```bash
 # List loaded modules
 lsmod
@@ -2301,7 +2280,7 @@ echo "options module_name param=value" | sudo tee /etc/modprobe.d/module.conf
 # Blacklist modules
 echo "blacklist module_name" | sudo tee /etc/modprobe.d/blacklist.conf
 ```
-#### Kernel Compilation
+### Kernel Compilation
 ```bash
 # Install build dependencies
 sudo apt install build-essential libncurses-dev bison flex libssl-dev libelf-dev
@@ -2322,7 +2301,7 @@ sudo make install
 sudo update-grub
 ```
 ### System Optimization
-#### Memory Optimization
+### Memory Optimization
 ```bash
 # Adjust swappiness
 echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
@@ -2336,7 +2315,7 @@ echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.conf
 # Apply changes
 sudo sysctl -p
 ```
-#### Network Optimization
+### Network Optimization
 ```bash
 # TCP buffer sizes
 echo 'net.core.rmem_max=134217728' | sudo tee -a /etc/sysctl.conf
@@ -2353,7 +2332,7 @@ sudo sysctl -p
 ---
 ## Best Practices
 ### Security Best Practices
-#### System Hardening Checklist
+### System Hardening Checklist
 ```bash
 # 1. Keep system updated
 sudo apt update && sudo apt upgrade
@@ -2385,7 +2364,7 @@ find /home -type d -perm 777 -exec chmod 755 {} \;
 sudo apt install logwatch
 ```
 ### Backup Strategies
-#### 3-2-1 Backup Rule
+### 3-2-1 Backup Rule
 ```bash
 # 3 copies of important data
 # 2 different storage media
@@ -2404,7 +2383,7 @@ rsync -avH --delete -e ssh "$SOURCE/" "$REMOTE_BACKUP/"
 aws s3 sync "$SOURCE/" "$CLOUD_BACKUP/" --delete
 ```
 ### Performance Monitoring
-#### Monitoring Script
+### Monitoring Script
 ```bash
 #!/bin/bash
 # System monitoring script
@@ -2429,7 +2408,7 @@ echo "High memory usage: ${MEM_USAGE}%" | mail -s "Memory Alert" admin@example.c
 fi
 ```
 ### Documentation and Change Management
-#### System Documentation Template
+### System Documentation Template
 ```bash
 # System Information
 Hostname: $(hostname)
@@ -2453,7 +2432,7 @@ SSH Port: $(grep "^Port" /etc/ssh/sshd_config | awk '{print $2}')
 Fail2ban Status: $(systemctl is-active fail2ban)
 ```
 ### Maintenance Procedures
-#### Regular Maintenance Script
+### Regular Maintenance Script
 ```bash
 #!/bin/bash
 # Weekly maintenance script
@@ -2491,3 +2470,4 @@ echo "Weekly maintenance completed - $(date)"
 ```
 
 @Th3viousGameus
+
