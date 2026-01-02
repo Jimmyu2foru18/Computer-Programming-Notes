@@ -1,7 +1,7 @@
-# The OSI Model: Complete Guide from Basics to Mastery {#the-osi-model-complete-guide-from-basics-to-mastery}
-*Your comprehensive journey through the seven layers of network communication*
+# The OSI Model: Learning Guide 
+
 ---
-## Table of Contents {#table-of-contents}
+## Table of Contents
 1. [Introduction](#introduction)
 2. [️ OSI Model Overview](#osi-model-overview)
 3. [Layer 1: Physical Layer](#layer-1-physical-layer)
@@ -19,15 +19,17 @@
 15. [Practice Projects](#practice-projects)
 16. [Next Steps](#next-steps)
 ---
-## Introduction {#introduction}
+## Introduction
 The **OSI (Open Systems Interconnection) Model** is the foundation of modern networking. Created by the International Organization for Standardization (ISO), it provides a conceptual framework that standardizes network communication into seven distinct layers.
-### Why Learn the OSI Model? {#why-learn-the-osi-model?}
+
+### Why Learn the OSI Model? 
 - ** Troubleshooting**: Systematic approach to identifying network issues
 - ** Understanding**: Clear framework for learning networking concepts
 - ** Communication**: Common language for network professionals
 - **️ Design**: Blueprint for building network solutions
 - ** Analysis**: Tool for analyzing network protocols and behaviors
-### Key Benefits {#key-benefits}
+
+### Key Benefits 
 ```
 Standardization across vendors and technologies
 Modular approach to complex networking tasks
@@ -36,8 +38,8 @@ Simplified troubleshooting methodology
 Clear separation of concerns
 ```
 ---
-## ️ OSI Model Overview {#️-osi-model-overview}
-### The Seven Layers {#the-seven-layers}
+## ️ OSI Model Overview
+### The Seven Layers
 | Layer | Name | Function | Examples |
 |-------|------|----------|----------|
 | 7 | Application | Network services to applications | HTTP, SMTP, DNS |
@@ -47,14 +49,15 @@ Clear separation of concerns
 | 3 | Network | Routing between networks | IP, ICMP, OSPF |
 | 2 | Data Link | Node-to-node delivery | Ethernet, Wi-Fi, PPP |
 | 1 | Physical | Physical transmission | Cables, Radio, Fiber |
-### Data Flow Process {#data-flow-process}
+
+### Data Flow Process
 ```
 Sending Data (Top to Bottom):
 Application → Presentation → Session → Transport → Network → Data Link → Physical
 Receiving Data (Bottom to Top):
 Physical → Data Link → Network → Transport → Session → Presentation → Application
 ```
-### Memory Aid: "Please Do Not Throw Sausage Pizza Away" {#memory-aid:-"please-do-not-throw-sausage-pizza-away"}
+### Memory Aid: "Please Do Not Throw Sausage Pizza Away"
 - **P**hysical
 - **D**ata Link
 - **N**etwork
@@ -63,17 +66,20 @@ Physical → Data Link → Network → Transport → Session → Presentation �
 - **P**resentation
 - **A**pplication
 ---
-## Layer 1: Physical Layer {#layer-1:-physical-layer}
-### Primary Functions {#primary-functions}
+
+## Layer 1: Physical Layer 
+### Primary Functions
 The Physical Layer handles the **actual transmission of raw bits** over a physical medium.
-#### Key Responsibilities {#key-responsibilities}
+
+#### Key Responsibilities
 - **Bit Transmission**: Converting data bits into electrical, optical, or radio signals
 - **Physical Medium**: Defining cable types, connectors, and transmission methods
 - **Signal Encoding**: Converting digital data into analog signals
 - **Synchronization**: Ensuring sender and receiver timing alignment
 - **Topology**: Physical arrangement of network devices
-### ️ Technologies and Standards {#️-technologies-and-standards}
-#### Transmission Media {#transmission-media}
+
+### ️ Technologies and Standards
+#### Transmission Media
 ```
 Copper Cables:
 • Cat5e: 100 Mbps, 100m max distance
@@ -89,7 +95,7 @@ Wireless:
 • Bluetooth 5.0: 2 Mbps, 240m range
 • 5G: Up to 20 Gbps theoretical
 ```
-#### Encoding Schemes {#encoding-schemes}
+#### Encoding Schemes
 ```python
 # Manchester Encoding Example {#manchester-encoding-example}
 def manchester_encode(data_bit):
@@ -103,9 +109,9 @@ encoded = [manchester_encode(bit) for bit in data]
 print(encoded)
 # Output: ['/_', '_/', '/_', '_/'] {#output-_-_-_-_}
 ```
-### ️ Network Topologies {#️-network-topologies}
+### ️ Network Topologies
 ```
-⭐ Star Topology:
+Star Topology:
 • Central hub/switch connects all devices
 • Easy to troubleshoot and expand
 • Single point of failure at center
@@ -122,23 +128,24 @@ Ring Topology:
 • High redundancy and reliability
 • Complex and expensive
 ```
-### Common Devices {#common-devices}
+### Common Devices
 - **Repeaters**: Amplify and regenerate signals
 - **Hubs**: Multi-port repeaters (largely obsolete)
 - **Cables**: Physical transmission medium
 - **Connectors**: RJ45, SC, LC, ST connectors
 ---
-## Layer 2: Data Link Layer {#layer-2:-data-link-layer}
-### Primary Functions {#primary-functions}
+
+## Layer 2: Data Link Layer
+### Primary Functions
 The Data Link Layer provides **error-free transmission** between directly connected nodes.
-#### Key Responsibilities {#key-responsibilities}
+#### Key Responsibilities
 - **Framing**: Organizing bits into frames with headers and trailers
 - **MAC Addressing**: Physical addressing using MAC addresses
 - **Error Detection**: Identifying transmission errors
 - **Flow Control**: Managing data transmission rate
 - **Media Access Control**: Determining medium access rights
-### ️ Sublayers {#️-sublayers}
-#### LLC (Logical Link Control) {#llc-(logical-link-control)}
+### ️ Sublayers
+#### LLC (Logical Link Control)
 ```
 Functions:
 Error control and recovery
@@ -147,7 +154,7 @@ Interface with Network Layer
 Protocol multiplexing
 Standard: IEEE 802.2
 ```
-#### MAC (Media Access Control) {#mac-(media-access-control)}
+#### MAC (Media Access Control)
 ```
 Functions:
 Physical addressing (MAC addresses)
@@ -156,9 +163,9 @@ Medium access control protocols
 Collision detection and avoidance
 Examples: Ethernet (802.3), Wi-Fi (802.11)
 ```
-### ️ MAC Addresses {#️-mac-addresses}
+### ️ MAC Addresses
 ```python
-# MAC Address Structure {#mac-address-structure}
+# MAC Address Structure 
 # Format: XX:XX:XX:XX:XX:XX (48 bits) {#format-xxxxxxxxxxxx-48-bits}
 # Example: 00:1B:44:11:3A:B7 {#example-001b44113ab7}
 def parse_mac_address(mac):
@@ -171,13 +178,13 @@ return {
 'nic_specific': nic, # Device specific
 'broadcast': mac == 'FF:FF:FF:FF:FF:FF'
 }
-# Example usage {#example-usage}
+# Example usage
 mac_info = parse_mac_address('00:1B:44:11:3A:B7')
 print(f"Manufacturer: {mac_info['oui']}")
 print(f"Device ID: {mac_info['nic_specific']}")
 ```
-### Frame Structure {#frame-structure}
-#### Ethernet Frame Format {#ethernet-frame-format}
+### Frame Structure
+#### Ethernet Frame Format 
 ```
 +------------------+------------------+----------+----------+-----+
 | Destination MAC | Source MAC |Type/Len | Data | FCS |
@@ -190,8 +197,8 @@ Fields:
 • Data: Payload (46-1500 bytes)
 • FCS: Frame Check Sequence (CRC-32)
 ```
-### Access Control Methods {#access-control-methods}
-#### CSMA/CD (Ethernet) {#csma/cd-(ethernet)}
+### Access Control Methods
+#### CSMA/CD (Ethernet)
 ```python
 def csma_cd_algorithm():
 """
@@ -208,7 +215,7 @@ steps = [
 ]
 return steps
 ```
-#### CSMA/CA (Wi-Fi) {#csma/ca-(wi-fi)}
+#### CSMA/CA (Wi-Fi)
 ```python
 def csma_ca_algorithm():
 """
@@ -226,32 +233,35 @@ steps = [
 ]
 return steps
 ```
-### ️ Common Technologies {#️-common-technologies}
+### ️ Common Technologies
 - **Ethernet**: Wired LAN technology (IEEE 802.3)
 - **Wi-Fi**: Wireless LAN technology (IEEE 802.11)
 - **Switches**: Forward frames based on MAC addresses
 - **Bridges**: Connect network segments
 ---
-## Layer 3: Network Layer {#layer-3:-network-layer}
-### Primary Functions {#primary-functions}
+
+## Layer 3: Network Layer
+### Primary Functions
 The Network Layer handles **routing between different networks** using logical addressing.
-#### Key Responsibilities {#key-responsibilities}
+
+#### Key Responsibilities 
 - **Logical Addressing**: IP addressing for global identification
 - **Routing**: Path determination across multiple networks
 - **Packet Forwarding**: Moving packets toward destination
 - **Fragmentation**: Breaking large packets into smaller pieces
 - **Path Selection**: Choosing optimal routes
-### ️ IP Addressing {#️-ip-addressing}
-#### IPv4 Addressing {#ipv4-addressing}
+
+### ️ IP Addressing
+#### IPv4 Addressing
 ```python
-# IPv4 Address Structure {#ipv4-address-structure}
+# IPv4 Address Structure
 class IPv4Address:
 def __init__(self, address, subnet_mask):
 self.address = address
 self.subnet_mask = subnet_mask
 self.network, self.host = self.calculate_network_host()
 def calculate_network_host(self):
-# Convert to binary and apply subnet mask {#convert-to-binary-and-apply-subnet-mask}
+# Convert to binary and apply subnet mask
 addr_parts = [int(x) for x in self.address.split('.')]
 mask_parts = [int(x) for x in self.subnet_mask.split('.')]
 network_parts = [addr_parts[i] & mask_parts[i] for i in range(4)]
@@ -278,15 +288,15 @@ print(f"Network: {ip.network}")
 print(f"Host: {ip.host}")
 print(f"Class: {ip.get_class()}")
 ```
-#### IPv6 Addressing {#ipv6-addressing}
+#### IPv6 Addressing
 ```python
-# IPv6 Address Structure {#ipv6-address-structure}
+# IPv6 Address Structure
 class IPv6Address:
 def __init__(self, address):
 self.address = address
 self.expanded = self.expand_address()
 def expand_address(self):
-# Expand compressed IPv6 address {#expand-compressed-ipv6-address}
+# Expand compressed IPv6 address
 if '::' in self.address:
 parts = self.address.split('::')
 left = parts[0].split(':') if parts[0] else []
@@ -296,7 +306,7 @@ middle = ['0000'] * missing_groups
 full_parts = left + middle + right
 else:
 full_parts = self.address.split(':')
-# Pad each group to 4 characters {#pad-each-group-to-4-characters}
+# Pad each group to 4 characters
 expanded_parts = [part.zfill(4) for part in full_parts]
 return ':'.join(expanded_parts)
 def get_type(self):
@@ -316,10 +326,11 @@ print(f"Original: {ipv6.address}")
 print(f"Expanded: {ipv6.expanded}")
 print(f"Type: {ipv6.get_type()}")
 ```
-### ️ Routing Protocols {#️-routing-protocols}
-#### Interior Gateway Protocols (IGP) {#interior-gateway-protocols-(igp)}
+
+### ️ Routing Protocols
+#### Interior Gateway Protocols (IGP)
 ```python
-# Routing Protocol Comparison {#routing-protocol-comparison}
+# Routing Protocol Comparison
 routing_protocols = {
 'RIP': {
 'type': 'Distance Vector',
@@ -349,9 +360,10 @@ print(f"\n{protocol}:")
 for key, value in details.items():
 print(f" {key.title()}: {value}")
 ```
-#### Exterior Gateway Protocol (EGP) {#exterior-gateway-protocol-(egp)}
+
+#### Exterior Gateway Protocol (EGP)
 ```python
-# BGP (Border Gateway Protocol) Concepts {#bgp-border-gateway-protocol-concepts}
+# BGP (Border Gateway Protocol) Concepts
 class BGPConcepts:
 def __init__(self):
 self.as_types = {
@@ -378,9 +390,10 @@ return {
 ]
 }
 ```
-### IP Packet Structure {#ip-packet-structure}
+
+### IP Packet Structure
 ```python
-# IPv4 Packet Header {#ipv4-packet-header}
+# IPv4 Packet Header
 class IPv4Header:
 def __init__(self):
 self.fields = {
@@ -402,25 +415,28 @@ self.fields = {
 def calculate_header_size(self, ihl_value):
 return ihl_value * 4 # IHL is in 32-bit words
 ```
-### ️ Common Technologies {#️-common-technologies}
+
+### ️ Common Technologies
 - **Routers**: Forward packets between networks
 - **Layer 3 Switches**: Combine switching and routing
 - **ICMP**: Internet Control Message Protocol for diagnostics
 - **NAT**: Network Address Translation for private networks
 ---
-## Layer 4: Transport Layer {#layer-4:-transport-layer}
-### Primary Functions {#primary-functions}
+
+## Layer 4: Transport Layer 
+
+### Primary Functions
 The Transport Layer provides **reliable end-to-end communication** between applications.
-#### Key Responsibilities {#key-responsibilities}
+#### Key Responsibilities
 - **Segmentation**: Breaking data into manageable segments
 - **Port Addressing**: Identifying specific applications
 - **Connection Management**: Establishing and terminating connections
 - **Reliability**: Ensuring data delivery (TCP)
 - **Flow Control**: Managing transmission rate
 - **Error Recovery**: Detecting and correcting errors
-### TCP vs UDP Comparison {#tcp-vs-udp-comparison}
+### TCP vs UDP Comparison
 ```python
-# Protocol Comparison {#protocol-comparison}
+# Protocol Comparison
 protocol_comparison = {
 'TCP': {
 'connection_type': 'Connection-oriented',
@@ -451,8 +467,10 @@ return 'UDP'
 else:
 return 'Consider application requirements'
 ```
-### TCP Connection Management {#tcp-connection-management}
-#### Three-Way Handshake {#three-way-handshake}
+
+### TCP Connection Management
+
+#### Three-Way Handshake
 ```python
 class TCPConnection:
 def __init__(self):
@@ -519,8 +537,10 @@ steps = [
 ]
 return steps
 ```
-### Flow Control and Congestion Control {#flow-control-and-congestion-control}
-#### TCP Window Management {#tcp-window-management}
+
+### Flow Control and Congestion Control
+
+#### TCP Window Management
 ```python
 class TCPFlowControl:
 def __init__(self, initial_window_size=65535):
@@ -561,9 +581,10 @@ return {
 }
 }
 ```
-### Port Numbers {#port-numbers}
+
+### Port Numbers
 ```python
-# Port Number Categories and Examples {#port-number-categories-and-examples}
+# Port Number Categories and Examples
 class PortNumbers:
 def __init__(self):
 self.well_known_ports = {
@@ -611,9 +632,10 @@ return "Dynamic/Private port"
 else:
 return "Invalid port number"
 ```
-### Segment Structure {#segment-structure}
+
+### Segment Structure
 ```python
-# TCP Segment Header {#tcp-segment-header}
+# TCP Segment Header
 class TCPHeader:
 def __init__(self):
 self.fields = {
@@ -639,17 +661,21 @@ self.tcp_flags = {
 }
 ```
 ---
-## Layer 5: Session Layer {#layer-5:-session-layer}
-### Primary Functions {#primary-functions}
+
+## Layer 5: Session Layer
+
+### Primary Functions
 The Session Layer manages **communication sessions** between applications.
-#### Key Responsibilities {#key-responsibilities}
+
+#### Key Responsibilities 
 - **Session Establishment**: Creating communication sessions
 - **Session Management**: Maintaining active sessions
 - **Session Termination**: Properly closing sessions
 - **Dialogue Control**: Managing communication flow
 - **Synchronization**: Adding checkpoints for recovery
 - **Authentication**: Verifying user identity
-### Session Management {#session-management}
+
+### Session Management
 ```python
 class SessionManager:
 def __init__(self):
@@ -686,7 +712,7 @@ checkpoint = session['checkpoints'][checkpoint_sequence - 1]
 return checkpoint['data']
 return None
 ```
-### ️ Dialogue Control {#️-dialogue-control}
+### ️ Dialogue Control
 ```python
 class DialogueControl:
 def __init__(self):
@@ -718,9 +744,10 @@ return {
 elif session_type == 'full_duplex':
 return {'allowed': True, 'action': 'Transmit freely'}
 ```
-### Session Layer Protocols {#session-layer-protocols}
+
+### Session Layer Protocols
 ```python
-# Common Session Layer Protocols {#common-session-layer-protocols}
+# Common Session Layer Protocols
 session_protocols = {
 'NetBIOS': {
 'purpose': 'Network Basic Input/Output System',
@@ -760,7 +787,8 @@ session_protocols = {
 }
 }
 ```
-### Session State Management {#session-state-management}
+
+### Session State Management
 ```python
 class SessionState:
 def __init__(self):
@@ -784,16 +812,19 @@ transitions = {
 return transitions.get((current_state, event), current_state)
 ```
 ---
-## Layer 6: Presentation Layer {#layer-6:-presentation-layer}
-### Primary Functions {#primary-functions}
+
+## Layer 6: Presentation Layer
+### Primary Functions
 The Presentation Layer handles **data formatting, encryption, and compression**.
-#### Key Responsibilities {#key-responsibilities}
+
+#### Key Responsibilities
 - **Data Translation**: Converting between different data formats
 - **Encryption/Decryption**: Securing data for transmission
 - **Compression/Decompression**: Reducing data size
 - **Character Encoding**: Handling different character sets
 - **Data Serialization**: Converting objects to transmittable format
-### Encryption and Security {#encryption-and-security}
+
+### Encryption and Security
 ```python
 import hashlib
 import base64
@@ -823,7 +854,8 @@ self.encryption_algorithms = {
 }
 }
 def symmetric_encryption_example(self, data):
-# Generate a key for Fernet (AES 128 in CBC mode) {#generate-a-key-for-fernet-aes-128-in-cbc-mode}
+
+# Generate a key for Fernet (AES 128 in CBC mode)
 key = Fernet.generate_key()
 cipher_suite = Fernet(key)
 # Encrypt the data {#encrypt-the-data}
@@ -837,17 +869,22 @@ return {
 'decrypted': decrypted_data
 }
 def hash_function_example(self, data):
-# Common hash functions {#common-hash-functions}
+
+# Common hash functions 
 hash_results = {}
-# MD5 (not recommended for security) {#md5-not-recommended-for-security}
+
+# MD5 (not recommended for security) 
 hash_results['MD5'] = hashlib.md5(data.encode()).hexdigest()
-# SHA-256 (recommended) {#sha-256-recommended}
+
+# SHA-256 (recommended) 
 hash_results['SHA-256'] = hashlib.sha256(data.encode()).hexdigest()
-# SHA-512 (more secure) {#sha-512-more-secure}
+
+# SHA-512 (more secure) 
 hash_results['SHA-512'] = hashlib.sha512(data.encode()).hexdigest()
 return hash_results
 ```
-### ️ Data Compression {#️-data-compression}
+
+### ️ Data Compression 
 ```python
 import zlib
 import gzip
@@ -900,7 +937,8 @@ return zlib.decompress(compressed_data).decode()
 else:
 return compressed_data.decode()
 ```
-### Character Encoding {#character-encoding}
+
+### Character Encoding
 ```python
 class CharacterEncoding:
 def __init__(self):
@@ -935,14 +973,16 @@ results['UTF-8'] = {
 'hex': utf8_encoded.hex(),
 'length': len(utf8_encoded)
 }
-# UTF-16 encoding {#utf-16-encoding}
+
+# UTF-16 encoding
 utf16_encoded = text.encode('utf-16')
 results['UTF-16'] = {
 'bytes': utf16_encoded,
 'hex': utf16_encoded.hex(),
 'length': len(utf16_encoded)
 }
-# ASCII encoding (if possible) {#ascii-encoding-if-possible}
+
+# ASCII encoding (if possible)
 try:
 ascii_encoded = text.encode('ascii')
 results['ASCII'] = {
@@ -954,7 +994,8 @@ except UnicodeEncodeError:
 results['ASCII'] = 'Cannot encode - contains non-ASCII characters'
 return results
 ```
-### Data Serialization {#data-serialization}
+
+### Data Serialization
 ```python
 import json
 import pickle
@@ -998,9 +1039,10 @@ self._dict_to_xml(value, child)
 else:
 child.text = str(value)
 ```
-### Common Presentation Layer Technologies {#common-presentation-layer-technologies}
+
+### Common Presentation Layer Technologies
 ```python
-# SSL/TLS Implementation Concepts {#ssltls-implementation-concepts}
+# SSL/TLS Implementation Concepts
 class SSLTLSConcepts:
 def __init__(self):
 self.tls_versions = {
@@ -1026,17 +1068,20 @@ return [
 '7. Finished - Handshake complete'
 ]
 ```
+
 ---
-## Layer 7: Application Layer {#layer-7:-application-layer}
-### Primary Functions {#primary-functions}
+## Layer 7: Application Layer
+### Primary Functions
 The Application Layer provides **network services directly to applications**.
-#### Key Responsibilities {#key-responsibilities}
+
+#### Key Responsibilities 
 - **Network Service Access**: Providing interface to network services
 - **Application Protocols**: Implementing specific communication protocols
 - **User Interface**: Presenting network functionality to users
 - **Data Exchange**: Facilitating application-to-application communication
 - **Service Advertisement**: Making services discoverable
-### Web Protocols {#web-protocols}
+
+### Web Protocols
 ```python
 class HTTPProtocol:
 def __init__(self):
@@ -1086,12 +1131,14 @@ return '\r\n'.join(request_parts)
 def parse_http_response(self, response):
 lines = response.split('\r\n')
 status_line = lines[0]
-# Parse status line {#parse-status-line}
+
+# Parse status line
 parts = status_line.split(' ', 2)
 version = parts[0]
 status_code = int(parts[1])
 reason_phrase = parts[2] if len(parts) > 2 else ''
-# Parse headers {#parse-headers}
+
+# Parse headers
 headers = {}
 body_start = 0
 for i, line in enumerate(lines[1:], 1):
@@ -1100,7 +1147,8 @@ body_start = i + 1
 break
 key, value = line.split(': ', 1)
 headers[key] = value
-# Extract body {#extract-body}
+
+# Extract body
 body = '\r\n'.join(lines[body_start:]) if body_start < len(lines) else ''
 return {
 'version': version,
@@ -1110,7 +1158,8 @@ return {
 'body': body
 }
 ```
-### Email Protocols {#email-protocols}
+
+### Email Protocols
 ```python
 class EmailProtocols:
 def __init__(self):
@@ -1166,7 +1215,8 @@ return {
 'body': 'Email message content goes here.'
 }
 ```
-### ️ File Transfer Protocols {#️-file-transfer-protocols}
+
+### ️ File Transfer Protocols
 ```python
 class FileTransferProtocols:
 def __init__(self):
@@ -1214,7 +1264,8 @@ return [
 'S: 221 Goodbye'
 ]
 ```
-### DNS (Domain Name System) {#dns-(domain-name-system)}
+
+### DNS (Domain Name System)
 ```python
 class DNSProtocol:
 def __init__(self):
@@ -1267,7 +1318,8 @@ return {
 }
 }
 ```
-### Network Management Protocols {#network-management-protocols}
+
+### Network Management Protocols
 ```python
 class NetworkManagementProtocols:
 def __init__(self):
@@ -1317,8 +1369,9 @@ return {
 }
 ```
 ---
-## Troubleshooting with OSI {#troubleshooting-with-osi}
-### Systematic Troubleshooting Approach {#systematic-troubleshooting-approach}
+
+## Troubleshooting with OSI
+### Systematic Troubleshooting Approach
 ```python
 class OSITroubleshooting:
 def __init__(self):
@@ -1446,7 +1499,8 @@ return {
 }
 }
 ```
-### Troubleshooting Methodology {#troubleshooting-methodology}
+
+### Troubleshooting Methodology
 ```python
 class NetworkTroubleshooting:
 def __init__(self):
@@ -1505,8 +1559,9 @@ return {
 }
 ```
 ---
-## Real-World Applications {#real-world-applications}
-### Web Browsing Example {#web-browsing-example}
+
+## Real-World Applications
+### Web Browsing Example
 ```python
 class WebBrowsingOSI:
 def __init__(self):
@@ -1563,7 +1618,8 @@ return [
 "11. Browser renders web page for user"
 ]
 ```
-### Email Communication {#email-communication}
+
+### Email Communication
 ```python
 class EmailOSIExample:
 def __init__(self):
@@ -1594,7 +1650,8 @@ return {
 'Layer 1 - Physical': ['Network cables, Wi-Fi radio']
 }
 ```
-### Online Gaming {#online-gaming}
+
+### Online Gaming
 ```python
 class OnlineGamingOSI:
 def __init__(self):
@@ -1624,8 +1681,9 @@ return {
 }
 ```
 ---
-## ️ Security Considerations {#️-security-considerations}
-### Security by OSI Layer {#security-by-osi-layer}
+
+## ️ Security Considerations
+### Security by OSI Layer
 ```python
 class OSISecurity:
 def __init__(self):
@@ -1725,7 +1783,7 @@ return {
 ]
 }
 ```
-### Common Security Protocols {#common-security-protocols}
+### Common Security Protocols
 ```python
 class SecurityProtocols:
 def __init__(self):
@@ -1757,8 +1815,9 @@ self.protocols = {
 }
 ```
 ---
-## Performance Optimization {#performance-optimization}
-### Optimization by Layer {#optimization-by-layer}
+
+## Performance Optimization
+### Optimization by Layer
 ```python
 class OSIPerformanceOptimization:
 def __init__(self):
@@ -1852,8 +1911,9 @@ return {
 }
 ```
 ---
-## Best Practices {#best-practices}
-### Network Design Best Practices {#network-design-best-practices}
+
+## Best Practices
+### Network Design Best Practices
 ```python
 class NetworkBestPractices:
 def __init__(self):
@@ -1924,8 +1984,8 @@ return {
 }
 ```
 ---
-## Practice Projects {#practice-projects}
-### ️ Hands-On Learning Projects {#️-hands-on-learning-projects}
+## Practice Projects
+### ️ Hands-On Learning Projects
 ```python
 class OSIPracticeProjects:
 def __init__(self):
@@ -2019,7 +2079,7 @@ self.advanced_projects = {
 }
 }
 ```
-### Learning Path {#learning-path}
+### Learning Path
 ```python
 class OSILearningPath:
 def __init__(self):
@@ -2072,8 +2132,9 @@ self.learning_stages = {
 }
 ```
 ---
-## Next Steps {#next-steps}
-### Certification Paths {#certification-paths}
+
+## Next Steps
+### Certification Paths
 ```python
 class NetworkingCertifications:
 def __init__(self):
@@ -2114,7 +2175,8 @@ self.expert_level = {
 }
 }
 ```
-### Advanced Topics to Explore {#advanced-topics-to-explore}
+
+### Advanced Topics to Explore
 ```python
 class AdvancedNetworkingTopics:
 def __init__(self):
@@ -2161,7 +2223,7 @@ self.specialized_areas = {
 ]
 }
 ```
-### Recommended Resources {#recommended-resources}
+### Recommended Resources
 ```python
 class LearningResources:
 def __init__(self):
@@ -2210,24 +2272,4 @@ self.practical_experience = [
 ]
 ```
 ---
-## Conclusion {#conclusion}
-Congratulations! You've completed a comprehensive journey through the OSI Model. This guide has covered:
-**Fundamental Concepts**: Understanding each of the seven layers
-**Practical Applications**: Real-world examples and use cases
-**Troubleshooting Skills**: Systematic problem-solving approaches
-**Security Considerations**: Protection strategies for each layer
-**Performance Optimization**: Techniques for improving network performance
-**Best Practices**: Industry-standard approaches to network design
-**Hands-on Projects**: Practical exercises to reinforce learning
-**Career Guidance**: Certification paths and advanced topics
-### Your Next Actions {#your-next-actions}
-1. **Practice Regularly**: Use the provided code examples and exercises
-2. **Build a Lab**: Set up a home networking lab for hands-on experience
-3. **Join Communities**: Connect with other networking professionals
-4. **Pursue Certifications**: Consider CompTIA Network+ or Cisco CCNA
-5. **Stay Updated**: Follow networking trends and emerging technologies
-### Remember {#remember}
-The OSI Model is more than just a theoretical framework—it's a practical tool that will serve you throughout your networking career. Whether you're troubleshooting a connectivity issue, designing a new network, or implementing security measures, the systematic approach provided by the OSI Model will guide you to success.
-**Keep learning, keep practicing, and keep building!** 
----
-*This guide is a living document. As networking technologies evolve, so too should your understanding of how they fit within the OSI framework. Happy networking!* 
+chnologies evolve, so too should your understanding of how they fit within the OSI framework. Happy networking!* 
