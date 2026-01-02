@@ -1,19 +1,6 @@
 # Python:  Learning Guide 
-
 ---
-## Table of Contents
-1. [Getting Started]
-2. [Variables & Data Types]
-3. [Control Flow]
-4. [Data Structures]
-5. [Functions]
-6. [Modules & Packages]
-7. [️ Object-Oriented Programming]
-8. [Advanced Topics]
-9. [️ Best Practices]
-10. [Practice Projects]
 
----
 ## Getting Started
 ### What is Python? 
 Python is a **high-level**, **interpreted** programming language known for its:
@@ -62,7 +49,7 @@ class = "reserved" # Don't use keywords
 x = "unclear" # Use descriptive names
 ```
 ### Data Types 
-#### **Numeric Types**
+### **Numeric Types**
 ```python
 # Integers 
 count = 42
@@ -74,7 +61,7 @@ scientific = 2.5e-4 # 0.00025
 # Complex numbers 
 complex_num = 3 + 4j
 ```
-#### **Text Type**
+### **Text Type**
 ```python
 # Strings 
 single_quote = 'Hello'
@@ -87,7 +74,7 @@ age = 30
 message = f"Hi, I'm {name} and I'm {age} years old"
 print(message) # Hi, I'm Bob and I'm 30 years old
 ```
-#### **Boolean Type** 
+### **Boolean Type** 
 ```python
 is_active = True
 is_complete = False
@@ -115,7 +102,7 @@ print(f"Your grade is: {grade}")
 status = "Pass" if score >= 60 else "Fail"
 ```
 ### Loops
-#### **For Loops**
+### **For Loops**
 ```python
 # Iterate over sequences
 fruits = ["apple", "banana", "cherry"]
@@ -132,7 +119,7 @@ print(i)
 for index, fruit in enumerate(fruits):
 print(f"{index}: {fruit}")
 ```
-#### **While Loops**
+### **While Loops**
 ```python
 # Basic while loop
 count = 0
@@ -146,7 +133,7 @@ if user_input.lower() == 'quit':
 break
 print(f"You entered: {user_input}")
 ```
-#### **Loop Control**
+### **Loop Control**
 ```python
 # break and continue
 for i in range(10):
@@ -646,7 +633,7 @@ result = "".join(str(i) for i in range(1000))
 ---
 ## Practice Projects
 ### Beginner Projects
-#### **1. Number Guessing Game**
+### **1. Number Guessing Game**
 ```python
 import random
 def number_guessing_game():
@@ -676,7 +663,7 @@ def number_guessing_game():
 if __name__ == "__main__":
     number_guessing_game()
 ```
-#### **2. Todo List Manager**
+### **2. Todo List Manager**
 ```python
 class TodoList:
     def __init__(self):
@@ -751,7 +738,7 @@ if __name__ == "__main__":
     main()
 ```
 ### Intermediate Projects
-#### **3. Web Scraper**
+### **3. Web Scraper**
 ```python
 import requests
 from bs4 import BeautifulSoup
@@ -814,7 +801,7 @@ if __name__ == "__main__":
     main()
 ```
 
-#### **4. Contact Book Application**
+### **4. Contact Book Application**
 ```python
 class Contact:
     def __init__(self, name, phone, email=""):
@@ -937,4 +924,5 @@ book.save_to_file("contacts.txt")
 ---
 
 @Th3viousGameus
+
 
