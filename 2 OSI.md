@@ -2272,4 +2272,5 @@ self.practical_experience = [
 ]
 ```
 ---
-chnologies evolve, so too should your understanding of how they fit within the OSI framework. Happy networking!* 
+
+
