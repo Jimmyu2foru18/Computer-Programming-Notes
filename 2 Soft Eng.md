@@ -957,7 +957,7 @@ if: github.ref == 'refs/heads/main'
 steps:
 - name: Deploy to production
 run: |
-# Deployment commands here {#deployment-commands-here}
+# Deployment commands here
 echo "Deploying to production..."
 ```
 ---
