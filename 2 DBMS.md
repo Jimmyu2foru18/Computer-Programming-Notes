@@ -1,22 +1,6 @@
 # ️ Database Management Systems:
 ---
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Database Fundamentals](#database-fundamentals)
-3. [️ Database Models](#database-models)
-4. [Relational Database Design](#relational-database-design)
-5. [SQL Mastery](#sql-mastery)
-6. [Query Optimization](#query-optimization)
-7. [Database Security](#database-security)
-8. [Performance Tuning](#performance-tuning)
-9. [Transaction Management](#transaction-management)
-10. [Distributed Databases](#distributed-databases)
-11. [NoSQL Databases](#nosql-databases)
-12. [Advanced Topics](#advanced-topics)
-13. [Best Practices](#best-practices)
-14. [Practice Projects](#practice-projects)
-15. [Next Steps](#next-steps)
----
+
 ## Introduction
 ### What is a Database Management System?
 A Database Management System (DBMS) is software that provides an interface between users and databases, enabling efficient storage, retrieval, and management of data. It acts as an intermediary between applications and the physical data storage.
@@ -38,11 +22,11 @@ A Database Management System (DBMS) is software that provides an interface betwe
 
 ## Database Fundamentals 
 ### Core Concepts 
-#### 1. **Data vs Information** 
+### 1. **Data vs Information** 
 - **Data**: Raw facts and figures ("John", "25", "Engineer")
 - **Information**: Processed data with meaning ("John is a 25-year-old Engineer")
 
-#### 2. **Database Components** ️
+### 2. **Database Components** ️
 ```
 Database System Architecture:
 ┌─────────────────────────────────────┐
@@ -60,7 +44,7 @@ Database System Architecture:
 │ Physical Storage │
 └─────────────────────────────────────┘
 ```
-#### 3. **Database Schema Levels**
+### 3. **Database Schema Levels**
 **Three-Schema Architecture:**
 ```sql
 -- External Schema (User View)
@@ -83,7 +67,7 @@ CREATE INDEX idx_employee_salary ON employees(salary);
 ```
 
 ### Data Models Evolution
-#### 1. **Hierarchical Model**
+### 1. **Hierarchical Model**
 ```
 Company
 ├── Department A
@@ -94,14 +78,14 @@ Company
 └── Employee 4
 ```
 
-#### 2. **Network Model**
+### 2. **Network Model**
 ```
 Employee ←→ Project
 ↕ ↕
 Department ←→ Manager
 ```
 
-#### 3. **Relational Model**
+### 3. **Relational Model**
 ```sql
 -- Tables with relationships
 Employees: (emp_id, name, dept_id)
@@ -113,7 +97,7 @@ Assignments: (emp_id, proj_id, hours)
 ## ️ Database Models
 
 ### Relational Model Fundamentals
-#### Core Components
+### Core Components
 
 **1. Relations (Tables)**
 ```sql
@@ -150,7 +134,7 @@ INSERT INTO employees VALUES
 ```
 
 ### Relational Algebra Operations
-#### Basic Operations
+### Basic Operations
 **1. Selection (σ)** - Filter rows
 ```sql
 -- σ(salary > 15000)(employees)
@@ -193,7 +177,7 @@ SELECT DISTINCT manager_id FROM employees WHERE manager_id IS NOT NULL;
 SELECT * FROM employees, departments;
 ```
 
-#### Advanced Operations
+### Advanced Operations
 **1. Join Operations**
 ```sql
 -- Inner Join
@@ -232,7 +216,7 @@ AND a.project_id = p.project_id));
 ## Relational Database Design
 ### Entity-Relationship (ER) Modeling 
 
-#### ER Diagram Components
+### ER Diagram Components
 **1. Entities** - Real-world objects
 ```sql
 -- Strong Entity
@@ -303,7 +287,7 @@ FOREIGN KEY (course_id) REFERENCES courses(course_id));
 
 ### Normalization
 
-#### Database Anomalies
+### Database Anomalies
 **Unnormalized Table Example:**
 ```sql
 -- Problems: Redundancy, Update/Insert/Delete Anomalies
@@ -316,7 +300,7 @@ course_name VARCHAR(100),
 instructor_name VARCHAR(100),
 grade CHAR(2));
 ```
-#### Normal Forms
+### Normal Forms
 
 **1. First Normal Form (1NF)**
 - Eliminate repeating groups
@@ -419,7 +403,7 @@ FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id));
 ## SQL Master
 
 ### Data Definition Language (DDL)
-#### Creating Database Objects 
+### Creating Database Objects 
 **1. Database Creation**
 ```sql
 -- Create database
@@ -520,7 +504,7 @@ GROUP BY d.department_id, d.department_name;
 
 ### Data Manipulation Language (DML)
 
-#### Advanced SELECT Queries 
+### Advanced SELECT Queries 
 **1. Window Functions**
 ```sql
 -- Ranking functions
@@ -640,7 +624,7 @@ FROM departments
 WHERE department_name IN ('IT', 'Sales', 'Marketing'));
 ```
 
-#### Data Modification Operations
+### Data Modification Operations
 **1. INSERT Statements**
 ```sql
 -- Single row insert
@@ -723,7 +707,7 @@ AND status = 'INACTIVE') as old_employees);
 ## Query Optimization
 
 ### Understanding Query Execution
-#### Query Processing Steps
+### Query Processing Steps
 ```sql
 -- Example query to analyze
 SELECT 
@@ -744,7 +728,7 @@ LIMIT 10;
 3. **Execution**: Execute the plan
 4. **Result**: Return data to client
 
-#### Execution Plans
+### Execution Plans
 **1. EXPLAIN Statement**
 ```sql
 -- Basic EXPLAIN
@@ -769,7 +753,7 @@ WHERE e.salary > 50000;
 
 ### Index Optimization
 
-#### Index Types and Usage
+### Index Types and Usage
 **1. B-Tree Indexes (Default)**
 ```sql
 -- Single column index
@@ -804,7 +788,7 @@ CREATE INDEX idx_employee_upper_email ON employees(UPPER(email));
 -- Index on calculated field
 CREATE INDEX idx_employee_annual_salary ON employees((salary * 12));
 ```
-#### Index Usage Guidelines
+### Index Usage Guidelines
 **Good Index Usage:**
 ```sql
 -- Uses index on salary
@@ -826,7 +810,7 @@ SELECT * FROM employees WHERE last_name LIKE '%son';
 ```
 ### Query Optimization Techniques
 
-#### 1. **WHERE Clause Optimization**
+### 1. **WHERE Clause Optimization**
 ```sql
 -- Poor: Function in WHERE clause
 SELECT * FROM employees WHERE YEAR(hire_date) = 2023;
@@ -845,7 +829,7 @@ WHERE NOT EXISTS (
 SELECT 1 FROM temp_depts t WHERE t.department_id = e.department_id);
 ```
 
-#### 2. **JOIN Optimization**
+### 2. **JOIN Optimization**
 ```sql
 -- Poor: Cartesian product then filter
 SELECT e.first_name, d.department_name
@@ -866,7 +850,7 @@ WHERE salary > 50000) e
 JOIN departments d ON e.department_id = d.department_id;
 ```
 
-#### 3. **Subquery Optimization**
+### 3. **Subquery Optimization**
 ```sql
 -- Poor: Correlated subquery
 SELECT e1.first_name, e1.salary
@@ -897,7 +881,7 @@ WHERE e.salary > dept_avg.avg_salary;
 ## Database Security 
 
 ### Authentication and Authorization
-#### User Management
+### User Management
 
 **1. Creating Users and Roles**
 ```sql
@@ -937,7 +921,7 @@ SELECT * FROM information_schema.user_privileges WHERE grantee LIKE '%app_user%'
 ```
 ### Data Protection 
 
-#### 1. **Encryption**
+### 1. **Encryption**
 **Column-Level Encryption:**
 ```sql
 -- Create table with encrypted columns
@@ -973,7 +957,7 @@ WITH ALGORITHM = AES_256
 ENCRYPTION BY SERVER CERTIFICATE TDE_Certificate;
 ALTER DATABASE company_db SET ENCRYPTION ON;
 ```
-#### 2. **Data Masking**
+### 2. **Data Masking**
 **Dynamic Data Masking:**
 ```sql
 -- Create masked columns (SQL Server)
@@ -1009,7 +993,7 @@ FROM employees;
 ```
 
 ### SQL Injection Prevention
-#### 1. **Parameterized Queries**
+### 1. **Parameterized Queries**
 **Java Example:**
 ```java
 // Vulnerable to SQL injection
@@ -1031,7 +1015,7 @@ cursor.execute(query)
 query = "SELECT * FROM employees WHERE last_name = %s"
 cursor.execute(query, (user_input,))
 ```
-#### 2. **Stored Procedures**
+### 2. **Stored Procedures**
 ```sql
 -- Secure stored procedure
 DELIMITER //
@@ -1047,7 +1031,7 @@ DELIMITER;
 -- Call procedure
 CALL GetEmployeesByDepartment('IT');
 ```
-#### 3. **Input Validation**
+### 3. **Input Validation**
 ```sql
 -- Validate input in stored procedures
 DELIMITER //
@@ -1083,7 +1067,7 @@ DELIMITER;
 ---
 ## Performance Tuning
 ### Database Monitoring
-#### 1. **Performance Metrics**
+### 1. **Performance Metrics**
 **Key Metrics to Monitor:**
 ```sql
 -- Query performance metrics
@@ -1125,7 +1109,7 @@ WHERE wait_time_ms > 0
 ORDER BY wait_time_ms DESC;
 ```
 
-#### 2. **Slow Query Analysis** 
+### 2. **Slow Query Analysis** 
 **MySQL Slow Query Log:**
 ```sql
 -- Enable slow query log
@@ -1146,7 +1130,7 @@ ORDER BY avg_timer_wait DESC
 LIMIT 10;
 ```
 ### Optimization Strategies
-#### 1. **Partitioning**
+### 1. **Partitioning**
 **Range Partitioning:**
 ```sql
 -- Partition by date range
@@ -1183,7 +1167,7 @@ PARTITION BY HASH(user_id)
 PARTITIONS 8;
 ```
 
-#### 2. **Caching Strategies**
+### 2. **Caching Strategies**
 **Query Result Caching:**
 ```sql
 -- Enable query cache (MySQL)
@@ -1224,7 +1208,7 @@ return employee;
 }
 ```
 
-#### 3. **Connection Pooling**
+### 3. **Connection Pooling**
 **HikariCP Configuration:**
 ```java
 @Configuration
@@ -1256,7 +1240,7 @@ return new HikariDataSource(config);
 ## Transaction Management
 
 ### ACID Properties 
-#### Understanding ACID 
+### Understanding ACID 
 
 **1. Atomicity** - All or nothing
 ```sql
@@ -1325,7 +1309,7 @@ SET GLOBAL sync_binlog = 1; -- Sync binary log
 ```
 
 ### Isolation Levels
-#### Concurrency Problems and Solutions
+### Concurrency Problems and Solutions
 
 **1. Read Uncommitted** - Allows dirty reads
 ```sql
@@ -1374,7 +1358,7 @@ COMMIT;
 
 ### Locking Mechanisms
 
-#### Lock Types
+### Lock Types
 **1. Shared Locks (S-locks)**
 ```sql
 -- Explicit shared lock
@@ -1403,7 +1387,7 @@ UPDATE accounts SET balance = balance - 100 WHERE account_id = 'ACC001';
 UPDATE employees SET salary = 75000 WHERE employee_id = 100;
 ```
 
-#### Deadlock Detection and Resolution 
+### Deadlock Detection and Resolution 
 **Deadlock Example:**
 ```sql
 -- Session 1
@@ -1434,7 +1418,7 @@ COMMIT;
 ## Distributed Databases
 
 ### Distributed Database Concepts
-#### Architecture Types
+### Architecture Types
 
 **1. Homogeneous Distributed Databases**
 ```sql
@@ -1466,7 +1450,7 @@ order_date DATE);
 ```
 
 ### Data Distribution Strategies
-#### 1. **Horizontal Fragmentation (Sharding)**
+### 1. **Horizontal Fragmentation (Sharding)**
 ```sql
 -- Partition data by rows
 -- Shard 1: Customers A-M
@@ -1485,7 +1469,7 @@ if (customer_name.charAt(0) <= 'M') {
 }
 ```
 
-#### 2. **Vertical Fragmentation**
+### 2. **Vertical Fragmentation**
 ```sql
 -- Partition data by columns
 -- Fragment 1: Basic employee info
@@ -1502,7 +1486,7 @@ ssn VARCHAR(11),
 FOREIGN KEY (employee_id) REFERENCES employee_basic(employee_id));
 ```
 
-#### 3. **Replication**
+### 3. **Replication**
 ```sql
 -- Master-Slave Replication
 -- Master (Write operations)
@@ -1516,7 +1500,7 @@ SELECT * FROM employees WHERE department_id = 10;
 ```
 
 ### CAP Theorem
-#### Understanding CAP
+### Understanding CAP
 
 **Consistency (C)**: All nodes see the same data simultaneously
 **Availability (A)**: System remains operational
@@ -1537,7 +1521,7 @@ db.accounts.updateOne(
 ```
 
 ### Distributed Query Processing
-#### Query Optimization in Distributed Systems
+### Query Optimization in Distributed Systems
 ```sql
 -- Original query
 SELECT e.first_name, e.last_name, d.department_name
@@ -1563,7 +1547,7 @@ FROM departments;
 ## NoSQL Databases
 ### NoSQL Database Types 
 
-#### 1. **Document Databases**
+### 1. **Document Databases**
 **MongoDB Examples:**
 ```javascript
 // Insert document
@@ -1609,7 +1593,7 @@ count: { $sum: 1 }
 }}
 ]);
 ```
-#### 2. **Key-Value Stores**
+### 2. **Key-Value Stores**
 **Redis Examples:**
 ```redis
 # String operations
@@ -1639,7 +1623,7 @@ ZRANGE employee_salaries 0 -1 WITHSCORES
 ZRANGEBYSCORE employee_salaries 70000 90000
 ```
 
-#### 3. **Column-Family Stores** 
+### 3. **Column-Family Stores** 
 **Cassandra Examples:**
 ```cql
 -- Create keyspace
@@ -1675,7 +1659,7 @@ details text,
 PRIMARY KEY (employee_id, activity_date, activity_time)) WITH CLUSTERING ORDER BY (activity_date DESC, activity_time DESC);
 ```
 
-#### 4. **Graph Databases**
+### 4. **Graph Databases**
 **Neo4j Examples:**
 ```cypher
 // Create nodes
@@ -1720,7 +1704,7 @@ RETURN path;
 ## Advanced Topics 
 
 ### Data Warehousing
-#### Star Schema Design
+### Star Schema Design
 ```sql
 -- Fact table (center of star)
 CREATE TABLE sales_fact (
@@ -1770,7 +1754,7 @@ country VARCHAR(50),
 customer_segment VARCHAR(30));
 ```
 
-#### OLAP Operations
+### OLAP Operations
 ```sql
 -- Roll-up (summarize to higher level)
 SELECT 
@@ -1821,7 +1805,7 @@ GROUP BY d.month_name, p.category;
 ```
 
 ### Big Data Technologies
-#### Apache Spark with SQL
+### Apache Spark with SQL
 ```python
 # PySpark example
 from pyspark.sql import SparkSession
@@ -1859,7 +1843,7 @@ result.write \.mode("overwrite") \.parquet("hdfs://output/department_analysis")
 ```
 
 ### Machine Learning Integration
-#### SQL for Data Science
+### SQL for Data Science
 ```sql
 -- Feature engineering for ML
 CREATE VIEW employee_features AS
@@ -1902,7 +1886,7 @@ GROUP BY department_id;
 ## Best Practices
 ### Database Design Best Practices
 
-#### 1. **Naming Conventions**
+### 1. **Naming Conventions**
 ```sql
 -- Good naming conventions
 CREATE TABLE employees ( -- Plural table names
@@ -1925,7 +1909,7 @@ ALTER TABLE employees
 ADD CONSTRAINT uk_employees_email_address 
 UNIQUE (email_address);
 ```
-#### 2. **Data Types and Constraints**
+### 2. **Data Types and Constraints**
 ```sql
 -- Appropriate data types and constraints
 CREATE TABLE products (
@@ -1944,7 +1928,7 @@ FOREIGN KEY (category_id) REFERENCES categories(category_id),
 CHECK (price > cost) -- Business rule constraint);
 ```
 
-#### 3. **Security Best Practices**
+### 3. **Security Best Practices**
 ```sql
 -- Principle of least privilege
 -- Create specific roles for different access levels
@@ -1983,7 +1967,7 @@ DELIMITER;
 ```
 
 ### Performance Best Practices
-#### 1. **Query Optimization**
+### 1. **Query Optimization**
 ```sql
 -- Efficient queries
 -- Use appropriate indexes
@@ -2005,7 +1989,7 @@ WHERE EXISTS (
 SELECT 1 FROM orders o WHERE o.employee_id = e.employee_id);
 ```
 
-#### 2. **Maintenance Best Practices**
+### 2. **Maintenance Best Practices**
 ```sql
 -- Regular maintenance tasks
 -- Update table statistics
@@ -2305,24 +2289,24 @@ ORDER BY days_overdue DESC;
 ## Next Steps
 ### Advanced Learning Path
 
-#### 1. **Specialized Database Systems**
+### 1. **Specialized Database Systems**
 - **Time-Series Databases**: InfluxDB, TimescaleDB
 - **Search Engines**: Elasticsearch, Solr
 - **In-Memory Databases**: Redis, Memcached
 - **Blockchain Databases**: BigchainDB
 
-#### 2. **Cloud Database Services**
+### 2. **Cloud Database Services**
 - **AWS**: RDS, DynamoDB, Redshift, Aurora
 - **Google Cloud**: Cloud SQL, Firestore, BigQuery
 - **Azure**: SQL Database, Cosmos DB, Synapse
 
-#### 3. **Database Administration**
+### 3. **Database Administration**
 - Performance monitoring and tuning
 - Backup and recovery strategies
 - High availability and disaster recovery
 - Database migration and upgrades
 
-#### 4. **Data Engineering**
+### 4. **Data Engineering**
 - ETL/ELT processes
 - Data pipelines
 - Stream processing
@@ -2336,19 +2320,19 @@ ORDER BY days_overdue DESC;
 - **MongoDB**: MongoDB Certified Developer
 
 ### Recommended Resources
-#### Books
+### Books
 - "Database System Concepts" by Silberschatz, Galvin, and Gagne
 - "Designing Data-Intensive Applications" by Martin Kleppmann
 - "High Performance MySQL" by Baron Schwartz
 - "MongoDB: The Definitive Guide" by Shannon Bradshaw
 
-#### Online Platforms
+### Online Platforms
 - **Coursera**: Database courses from top universities
 - **edX**: MIT and Harvard database courses
 - **Pluralsight**: Comprehensive database training
 - **DataCamp**: Hands-on SQL and database practice
 
-#### Practice Platforms
+### Practice Platforms
 - **LeetCode**: Database problems
 - **HackerRank**: SQL challenges
 - **SQLBolt**: Interactive SQL tutorial
@@ -2356,3 +2340,4 @@ ORDER BY days_overdue DESC;
 ---
 
 @Th3viousGameus
+
