@@ -37,7 +37,7 @@ A Database Management System (DBMS) is software that provides an interface betwe
 ---
 
 ## Database Fundamentals 
-### Core Concepts {#core-concepts}
+### Core Concepts 
 #### 1. **Data vs Information** 
 - **Data**: Raw facts and figures ("John", "25", "Engineer")
 - **Information**: Processed data with meaning ("John is a 25-year-old Engineer")
@@ -1024,10 +1024,10 @@ ResultSet rs = pstmt.executeQuery();
 ```
 **Python Example:**
 ```python
-# Vulnerable to SQL injection {#vulnerable-to-sql-injection}
+# Vulnerable to SQL injection 
 query = f"SELECT * FROM employees WHERE last_name = '{user_input}'"
 cursor.execute(query)
-# Safe parameterized query {#safe-parameterized-query}
+# Safe parameterized query 
 query = "SELECT * FROM employees WHERE last_name = %s"
 cursor.execute(query, (user_input,))
 ```
