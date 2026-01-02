@@ -33,8 +33,8 @@ A **computer network** is a collection of interconnected devices that can commun
 - **Innovation**: Building scalable applications and services
 ---
 ## ️ Network Fundamentals
-### Network Topologies {#network-topologies}
-#### **1. Bus Topology** {#**1.-bus-topology**}
+### Network Topologies
+#### **1. Bus Topology**
 ```
 [Device1]---[Device2]---[Device3]---[Device4]
 | | | |
@@ -42,7 +42,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ```
 - **Pros**: Simple, cost-effective
 - **Cons**: Single point of failure, performance degrades with more devices
-#### **2. Star Topology** {#**2.-star-topology**}
+#### **2. Star Topology** 
 ```
 [Device2]
 |
@@ -52,7 +52,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ```
 - **Pros**: Easy to manage, fault isolation
 - **Cons**: Central device is single point of failure
-#### **3. Ring Topology** {#**3.-ring-topology**}
+#### **3. Ring Topology**
 ```
 [Device1]---[Device2]
 | |
@@ -60,7 +60,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ```
 - **Pros**: Equal access, predictable performance
 - **Cons**: Difficult to troubleshoot, one failure affects all
-#### **4. Mesh Topology** {#**4.-mesh-topology**}
+#### **4. Mesh Topology**
 ```
 [Device1]--[Device2]
 | \ / |
@@ -69,7 +69,7 @@ A **computer network** is a collection of interconnected devices that can commun
 ```
 - **Pros**: High redundancy, fault tolerance
 - **Cons**: Expensive, complex configuration
-### Network Types by Scale {#network-types-by-scale}
+### Network Types by Scale 
 | Type | Coverage | Examples |
 |------|----------|----------|
 | **PAN** (Personal Area Network) | 1-10 meters | Bluetooth, USB |
@@ -87,12 +87,12 @@ A **computer network** is a collection of interconnected devices that can commun
 - Operates at Physical Layer
 - Broadcasts data to all ports
 - Creates single collision domain
-#### **Switch** {#**switch**}
+#### **Switch**
 - Operates at Data Link Layer
 - Learns MAC addresses
 - Creates separate collision domains
 ```bash
-# View switch MAC address table {#view-switch-mac-address-table}
+# View switch MAC address table
 show mac address-table
 ```
 #### **Router** 
@@ -124,7 +124,7 @@ show mac address-table
 | **3** | Transport | Layer 4 | End-to-end communication |
 | **2** | Internet | Layer 3 | Routing and addressing |
 | **1** | Network Access | Layers 1-2 | Physical network access |
-### Data Encapsulation Process {#data-encapsulation-process}
+### Data Encapsulation Process 
 ```
 Application Data
 ↓
@@ -198,12 +198,12 @@ Client Server
 ### Application Layer Protocols 
 #### **HTTP/HTTPS** 
 ```http
-# HTTP Request {#http-request}
+# HTTP Request
 GET /index.html HTTP/1.1
 Host: www.example.com
 User-Agent: Mozilla/5.0
 Accept: text/html
-# HTTP Response {#http-response}
+# HTTP Response 
 HTTP/1.1 200 OK
 Content-Type: text/html
 Content-Length: 1234
@@ -211,7 +211,7 @@ Content-Length: 1234
 ```
 #### **DNS (Domain Name System)**
 ```bash
-# DNS Query Process {#dns-query-process}
+# DNS Query Process
 1. User types: www.google.com
 2. Check local cache
 3. Query local DNS server
@@ -304,7 +304,7 @@ Address Types:
 ### Routing Fundamentals 
 #### **Routing Table** 
 ```bash
-# Example routing table {#example-routing-table}
+# Example routing table
 Destination Gateway Genmask Flags Metric Ref Use Iface
 0.0.0.0 192.168.1.1 0.0.0.0 UG 100 0 0 eth0
 192.168.1.0 0.0.0.0 255.255.255.0 U 100 0 0 eth0
@@ -353,19 +353,19 @@ Port MAC Address VLAN Age
 ```
 #### **VLAN Configuration** 
 ```bash
-# Create VLANs {#create-vlans}
+# Create VLANs 
 vlan 10
 name Sales
 vlan 20
 name Engineering
-# Assign ports to VLANs {#assign-ports-to-vlans}
+# Assign ports to VLANs 
 interface fastethernet 0/1
 switchport mode access
 switchport access vlan 10
 interface fastethernet 0/2
 switchport mode access
 switchport access vlan 20
-# Configure trunk port {#configure-trunk-port}
+# Configure trunk port 
 interface fastethernet 0/24
 switchport mode trunk
 switchport trunk allowed vlan 10,20
@@ -405,20 +405,20 @@ XSS - Cross-site scripting
 ### ️ Security Measures
 #### **Firewall Rules**
 ```bash
-# iptables examples {#iptables-examples}
-# Allow SSH from specific network {#allow-ssh-from-specific-network}
+# iptables examples 
+# Allow SSH from specific network
 iptables -A INPUT -p tcp --dport 22 -s 192.168.1.0/24 -j ACCEPT
-# Block all other SSH {#block-all-other-ssh}
+# Block all other SSH 
 iptables -A INPUT -p tcp --dport 22 -j DROP
-# Allow HTTP and HTTPS {#allow-http-and-https}
+# Allow HTTP and HTTPS 
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-# Allow established connections {#allow-established-connections}
+# Allow established connections 
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 ```
 #### **VPN Configuration** 
 ```bash
-# OpenVPN server configuration {#openvpn-server-configuration}
+# OpenVPN server configuration
 port 1194
 proto udp
 dev tun
@@ -439,8 +439,8 @@ verb 3
 ```
 #### **Network Access Control** 
 ```bash
-# 802.1X Configuration {#8021x-configuration}
-# Enable on switch port {#enable-on-switch-port}
+# 802.1X Configuration 
+# Enable on switch port
 interface fastethernet 0/1
 authentication port-control auto
 authentication periodic
@@ -501,13 +501,13 @@ WPA3 (Wi-Fi Protected Access 3)
 ```
 #### **Wireless Access Point Configuration** 
 ```bash
-# Basic AP configuration {#basic-ap-configuration}
+# Basic AP configuration
 ssid "CompanyWiFi"
 wpa-psk "SecurePassword123!"
 wpa-key-mgmt WPA-PSK
 wpa-pairwise CCMP
 wpa-group-rekey 3600
-# Enterprise configuration {#enterprise-configuration}
+# Enterprise configuration
 ssid "CompanyWiFi-Enterprise"
 wpa-key-mgmt WPA-EAP
 auth_server_addr 192.168.1.100
@@ -532,16 +532,16 @@ Internet
 ```
 #### **Router Configuration**
 ```bash
-# Basic router setup {#basic-router-setup}
-# WAN Configuration {#wan-configuration}
+# Basic router setup 
+# WAN Configuration 
 interface wan
 ip address dhcp
-# LAN Configuration {#lan-configuration}
+# LAN Configuration 
 interface lan
 ip address 192.168.1.1 255.255.255.0
 dhcp-server enable
 dhcp-range 192.168.1.100 192.168.1.200
-# WiFi Configuration {#wifi-configuration}
+# WiFi Configuration
 wireless ssid "HomeNetwork"
 wireless security wpa2-psk
 wireless password "MySecurePassword"
@@ -569,7 +569,7 @@ VLAN 99 - Native (unused)
 ```
 #### **High Availability Design**
 ```bash
-# HSRP Configuration (Hot Standby Router Protocol) {#hsrp-configuration-hot-standby-router-protocol}
+# HSRP Configuration (Hot Standby Router Protocol) 
 interface vlan 10
 ip address 192.168.10.2 255.255.255.0
 standby 1 ip 192.168.10.1
@@ -582,20 +582,20 @@ standby 1 authentication md5 key-string hsrpkey
 ### ️ Virtual Private Clouds (VPC)
 #### **AWS VPC Example** 
 ```bash
-# Create VPC {#create-vpc}
+# Create VPC
 aws ec2 create-vpc --cidr-block 10.0.0.0/16
-# Create subnets {#create-subnets}
+# Create subnets
 aws ec2 create-subnet --vpc-id vpc-12345678 --cidr-block 10.0.1.0/24
 aws ec2 create-subnet --vpc-id vpc-12345678 --cidr-block 10.0.2.0/24
-# Create internet gateway {#create-internet-gateway}
+# Create internet gateway
 aws ec2 create-internet-gateway
 aws ec2 attach-internet-gateway --vpc-id vpc-12345678 --internet-gateway-id igw-12345678
 ```
 #### **Azure Virtual Network**
 ```bash
-# Create resource group {#create-resource-group}
+# Create resource group 
 az group create --name MyResourceGroup --location eastus
-# Create virtual network {#create-virtual-network}
+# Create virtual network 
 az network vnet create \
 --resource-group MyResourceGroup \
 --name MyVNet \
@@ -633,29 +633,29 @@ Cloud Network
 ### ️ Essential Tools
 #### **Command Line Tools**
 ```bash
-# Ping - Test connectivity {#ping-test-connectivity}
+# Ping - Test connectivity 
 ping -c 4 google.com
 ping -t google.com # Windows continuous
-# Traceroute - Trace packet path {#traceroute-trace-packet-path}
+# Traceroute - Trace packet path 
 traceroute google.com
 tracert google.com # Windows
-# Nslookup - DNS queries {#nslookup-dns-queries}
+# Nslookup - DNS queries 
 nslookup google.com
 nslookup google.com 8.8.8.8
-# Netstat - Network connections {#netstat-network-connections}
+# Netstat - Network connections 
 netstat -an # All connections
 netstat -rn # Routing table
-# ss - Socket statistics (Linux) {#ss-socket-statistics-linux}
+# ss - Socket statistics (Linux) 
 ss -tuln # TCP/UDP listening ports
-# arp - ARP table {#arp-arp-table}
+# arp - ARP table 
 arp -a
-# tcpdump - Packet capture {#tcpdump-packet-capture}
+# tcpdump - Packet capture
 tcpdump -i eth0 host 192.168.1.100
 tcpdump -i any port 80
 ```
 #### **Network Scanning**
 ```bash
-# Nmap - Network discovery {#nmap-network-discovery}
+# Nmap - Network discovery
 nmap -sn 192.168.1.0/24 # Ping scan
 nmap -sS 192.168.1.100 # SYN scan
 nmap -sV 192.168.1.100 # Version detection
@@ -665,10 +665,10 @@ nmap -A 192.168.1.100 # Aggressive scan
 ### Performance Testing
 #### **Bandwidth Testing** 
 ```bash
-# iperf3 - Bandwidth testing {#iperf3-bandwidth-testing}
-# Server side {#server-side}
+# iperf3 - Bandwidth testing
+# Server side 
 iperf3 -s
-# Client side {#client-side}
+# Client side
 iperf3 -c server_ip
 iperf3 -c server_ip -t 60 # 60-second test
 iperf3 -c server_ip -P 4 # 4 parallel streams
@@ -676,10 +676,10 @@ iperf3 -c server_ip -u # UDP test
 ```
 #### **Latency Testing** 
 ```bash
-# hping3 - Advanced ping {#hping3-advanced-ping}
+# hping3 - Advanced ping 
 hping3 -S -p 80 google.com # TCP SYN to port 80
 hping3 -c 100 -i u1000 google.com # 100 packets, 1ms interval
-# mtr - Continuous traceroute {#mtr-continuous-traceroute}
+# mtr - Continuous traceroute 
 mtr google.com
 mtr --report --report-cycles 100 google.com
 ```
@@ -696,26 +696,26 @@ mtr --report --report-cycles 100 google.com
 ```
 #### **Common Issues & Solutions**
 ```bash
-# IP Configuration Issues {#ip-configuration-issues}
-# Check IP settings {#check-ip-settings}
+# IP Configuration Issues 
+# Check IP settings 
 ip addr show
 ifconfig
 ipconfig /all # Windows
-# DNS Issues {#dns-issues}
-# Test DNS resolution {#test-dns-resolution}
+# DNS Issues 
+# Test DNS resolution 
 nslookup google.com
 dig google.com
-# Check DNS settings {#check-dns-settings}
+# Check DNS settings 
 cat /etc/resolv.conf
-# Routing Issues {#routing-issues}
-# Check routing table {#check-routing-table}
+# Routing Issues 
+# Check routing table 
 ip route show
 route -n
 route print # Windows
-# Firewall Issues {#firewall-issues}
-# Check iptables rules {#check-iptables-rules}
+# Firewall Issues 
+# Check iptables rules 
 iptables -L -n
-# Check Windows firewall {#check-windows-firewall}
+# Check Windows firewall
 netsh advfirewall show allprofiles
 ```
 ---
@@ -734,7 +734,7 @@ netsh advfirewall show allprofiles
 ```
 #### **OpenFlow Example**
 ```python
-# Simple OpenFlow controller (Python) {#simple-openflow-controller-python}
+# Simple OpenFlow controller (Python) 
 from ryu.base import app_manager
 from ryu.controller import ofp_event
 from ryu.controller.handler import MAIN_DISPATCHER, set_ev_cls
@@ -743,10 +743,10 @@ class SimpleSwitch(app_manager.RyuApp):
 OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
 @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
 def packet_in_handler(self, ev):
-# Handle incoming packets {#handle-incoming-packets}
+# Handle incoming packets 
 msg = ev.msg
 datapath = msg.datapath
-# Process packet... {#process-packet}
+# Process packet... 
 ```
 ### Network Function Virtualization (NFV) 
 #### **Virtual Network Functions** 
@@ -815,13 +815,13 @@ Defense in Depth:
 ### Performance Optimization
 #### **Bandwidth Management**
 ```bash
-# Quality of Service (QoS) {#quality-of-service-qos}
-# Traffic classification {#traffic-classification}
+# Quality of Service (QoS) 
+# Traffic classification
 class-map match-all VOICE
 match dscp ef
 class-map match-all VIDEO
 match dscp af41
-# Policy configuration {#policy-configuration}
+# Policy configuration 
 policy-map WAN_POLICY
 class VOICE
 priority percent 20
@@ -832,7 +832,7 @@ bandwidth percent 50
 ```
 #### **Load Balancing**
 ```bash
-# NGINX load balancer {#nginx-load-balancer}
+# NGINX load balancer 
 upstream backend {
 server 192.168.1.10:80 weight=3;
 server 192.168.1.11:80 weight=2;
@@ -848,7 +848,7 @@ proxy_pass http://backend;
 ### Change Management
 #### **Configuration Management** 
 ```bash
-# Ansible network automation {#ansible-network-automation}
+# Ansible network automation 
 ---
 - name: Configure VLAN
 ios_vlan:
