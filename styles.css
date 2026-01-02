@@ -5,6 +5,47 @@
     box-sizing: border-box;
 }
 
+/* Error and fallback content styles */
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.fallback-content {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.fallback-content h1, .fallback-content h2, .fallback-content h3 {
+    color: #856404;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.fallback-content code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+.fallback-content pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -203,6 +244,60 @@ header h1 {
     z-index: 1000;
 }
 
+/* PDF Generation specific styles */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt !important;
+        line-height: 1.5 !important;
+    }
+    
+    #markdown-content {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        background: white !important;
+        color: black !important;
+        width: 100% !important;
+    }
+    
+    #markdown-content * {
+        background: white !important;
+        color: black !important;
+        max-width: none !important;
+        width: auto !important;
+    }
+    
+    #markdown-content h1,
+    #markdown-content h2,
+    #markdown-content h3,
+    #markdown-content h4,
+    #markdown-content h5,
+    #markdown-content h6 {
+        color: black !important;
+        background: white !important;
+        page-break-after: avoid !important;
+    }
+    
+    #markdown-content pre,
+    #markdown-content code {
+        background: #f5f5f5 !important;
+        color: #333 !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    #markdown-content a {
+        color: #0066cc !important;
+        text-decoration: underline !important;
+    }
+    
+    .page-toc,
+    .saving-message {
+        display: none !important;
+    }
+}
+
 /* Loading indicators */
 #loading-toc, #loading-content {
     padding: 10px;
@@ -267,10 +362,35 @@ header h1 {
 #markdown-content ul, 
 #markdown-content ol {
     margin: 0 0 1rem 2rem;
+    padding-left: 1.5rem;
+}
+
+#markdown-content ul {
+    list-style-type: disc;
+    list-style-position: outside;
+}
+
+#markdown-content ul ul {
+    list-style-type: circle;
+    margin-bottom: 0;
+}
+
+#markdown-content ul ul ul {
+    list-style-type: square;
+}
+
+#markdown-content ol {
+    list-style-type: decimal;
+    list-style-position: outside;
 }
 
 #markdown-content li {
     margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+#markdown-content li > p {
+    margin-bottom: 0;
 }
 
 #markdown-content code {
@@ -287,11 +407,98 @@ header h1 {
     padding: 1rem;
     overflow-x: auto;
     margin-bottom: 1rem;
+    border-left: 4px solid #007bff;
+    position: relative;
 }
 
 #markdown-content pre code {
     background-color: transparent;
     padding: 0;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+/* Language label for code blocks */
+#markdown-content pre::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #007bff;
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    border-radius: 0 0 0 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+/* Basic syntax highlighting */
+#markdown-content code[class*="language-"] .token.comment,
+#markdown-content code[class*="language-"] .token.prolog,
+#markdown-content code[class*="language-"] .token.doctype,
+#markdown-content code[class*="language-"] .token.cdata {
+    color: #6a737d;
+    font-style: italic;
+}
+
+#markdown-content code[class*="language-"] .token.namespace {
+    opacity: 0.7;
+}
+
+#markdown-content code[class*="language-"] .token.string,
+#markdown-content code[class*="language-"] .token.attr-value {
+    color: #032f62;
+}
+
+#markdown-content code[class*="language-"] .token.punctuation,
+#markdown-content code[class*="language-"] .token.operator {
+    color: #24292e;
+}
+
+#markdown-content code[class*="language-"] .token.entity,
+#markdown-content code[class*="language-"] .token.url,
+#markdown-content code[class*="language-"] .token.symbol,
+#markdown-content code[class*="language-"] .token.number,
+#markdown-content code[class*="language-"] .token.boolean,
+#markdown-content code[class*="language-"] .token.variable,
+#markdown-content code[class*="language-"] .token.constant,
+#markdown-content code[class*="language-"] .token.property,
+#markdown-content code[class*="language-"] .token.regex,
+#markdown-content code[class*="language-"] .token.inserted {
+    color: #005cc5;
+}
+
+#markdown-content code[class*="language-"] .token.atrule,
+#markdown-content code[class*="language-"] .token.keyword,
+#markdown-content code[class*="language-"] .token.attr-name,
+#markdown-content code[class*="language-"] .language-autohotkey .token.selector {
+    color: #d73a49;
+}
+
+#markdown-content code[class*="language-"] .token.function,
+#markdown-content code[class*="language-"] .token.deleted,
+#markdown-content code[class*="language-"] .language-autohotkey .token.tag {
+    color: #6f42c1;
+}
+
+#markdown-content code[class*="language-"] .token.tag,
+#markdown-content code[class*="language-"] .token.selector,
+#markdown-content code[class*="language-"] .language-autohotkey .token.keyword {
+    color: #22863a;
+}
+
+#markdown-content code[class*="language-"] .token.important,
+#markdown-content code[class*="language-"] .token.function,
+#markdown-content code[class*="language-"] .token.bold {
+    font-weight: bold;
+}
+
+#markdown-content code[class*="language-"] .token.italic {
+    font-style: italic;
 }
 
 #markdown-content blockquote {
