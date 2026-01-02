@@ -1,5 +1,5 @@
 # Python Programming: Complete Learning Guide 
-> **From Beginner to Mastery** - Your comprehensive journey through Python programming
+
 ---
 ## Table of Contents
 1. [Getting Started]
@@ -777,6 +777,7 @@ main()
 - ** Videos**: Python tutorials on YouTube, Coursera, edX
 - ** Practice**: LeetCode, HackerRank, Codewars
 ---
+
 
 
 
