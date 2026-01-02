@@ -1,23 +1,6 @@
 # ️ System Administration & Operating Systems:
 ---
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Operating System Fundamentals](#operating-system-fundamentals)
-3. [Linux System Administration](#linux-system-administration)
-4. [Windows System Administration](#windows-system-administration)
-5. [System Security](#system-security)
-6. [System Monitoring & Performance](#system-monitoring-performance)
-7. [Process Management](#process-management)
-8. [Storage Management](#storage-management)
-9. [Network Administration](#network-administration)
-10. [System Automation](#system-automation)
-11. [️ Cloud & Virtualization](#cloud-virtualization)
-12. [️ Backup & Disaster Recovery](#backup-disaster-recovery)
-13. [Best Practices](#best-practices)
-14. [Practice Projects](#practice-projects)
-15. [Next Steps](#next-steps)
-16. [Conclusion](#conclusion)
----
+
 ## Introduction
 ### What is System Administration?
 System Administration is the practice of managing and maintaining computer systems, servers, and networks to ensure they operate efficiently, securely, and reliably. System administrators are the backbone of IT infrastructure, responsible for everything from user management to system security.
@@ -1990,5 +1973,6 @@ self.learning_resources = {
 ---
 
 @Th3viousGameus
+
 
 
