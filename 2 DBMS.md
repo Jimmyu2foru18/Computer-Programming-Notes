@@ -1,4 +1,4 @@
-# ️ Database Management Systems: Learners Guide
+# ️ Database Management Systems:
 ---
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -2354,3 +2354,4 @@ ORDER BY days_overdue DESC;
 - **SQLBolt**: Interactive SQL tutorial
 - **W3Schools**: SQL reference and exercises
 ---
+
