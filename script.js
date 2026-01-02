@@ -21,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Define the sections and their corresponding files in the specified order
     const sections = [
         {
-            name: 'Data Structures & Algorithms',
-            files: ['1.0 DSA_Guide.md']
-        },
-        {
             name: 'Python',
             files: ['1.0 Python.md', '2 Python.md']
         },
@@ -39,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: 'Software Engineering',
             files: ['1.0 Soft Eng.md', '2 Soft Eng.md']
+        },
+        {
+            name: 'Data Structures & Algorithms',
+            files: ['1.0 DSA_Guide.md']
         },
         {
             name: 'Database Management Systems',
@@ -408,19 +408,27 @@ function fallbackMarkdownToHtml(markdown) {
         html = html.replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>');
         html = html.replace(/\*(.*)\*/gim, '<em>$1</em>');
         
-        // Convert code blocks
-        html = html.replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>');
+        // Convert code blocks with language support
+        html = html.replace(/```(\w+)?\n?([\s\S]*?)```/gim, function(match, lang, code) {
+            const language = lang ? lang.replace(/^-/, '') : ''; // Remove leading dash if present
+            const langClass = language ? ` class="language-${language}"` : '';
+            return `<pre><code${langClass}>${code.trim()}</code></pre>`;
+        });
         html = html.replace(/`([^`]+)`/gim, '<code>$1</code>');
         
         // Convert links
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>');
         
-        // Convert lists
-        html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
-        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+        // Convert lists - handle both * and - bullet points
+        html = html.replace(/^[-*] (.*$)/gim, '<li>$1</li>');
         
-        // Convert paragraphs
-        html = html.replace(/\n\n/gim, '</p><p>');
+        // Group consecutive list items together
+        html = html.replace(/(<li>.*<\/li>\s*)+/g, function(match) {
+            return '<ul>' + match + '</ul>';
+        });
+        
+        // Convert paragraphs - but not inside lists or code blocks
+        html = html.replace(/(?<!\<\/li\>)\n\n(?<!\<li\>)/gim, '</p><p>');
         html = '<p>' + html + '</p>';
         
         // Clean up extra tags
@@ -429,6 +437,10 @@ function fallbackMarkdownToHtml(markdown) {
         html = html.replace(/(<\/h[1-6]>)<\/p>/gim, '$1');
         html = html.replace(/<p>(<pre>)/gim, '$1');
         html = html.replace(/(<\/pre>)<\/p>/gim, '$1');
+        html = html.replace(/<p>(<ul>)/gim, '$1');
+        html = html.replace(/(<\/ul>)<\/p>/gim, '$1');
+        html = html.replace(/<p>(<li>)/gim, '$1');
+        html = html.replace(/(<\/li>)<\/p>/gim, '$1');
         
         return html;
     } catch (error) {
@@ -647,6 +659,23 @@ function loadMarkdownFile(fileName) {
                 const id = cleanText.toLowerCase().replace(/[^\w]+/g, '-');
                 
                 return `<h${level} id="${id}">${cleanText}</h${level}>`;
+            };
+            
+            // Override list item renderer to handle both * and - bullets
+            renderer.listitem = function(text) {
+                return `<li>${text}</li>\n`;
+            };
+            
+            // Override code block renderer to handle language properly
+            renderer.code = function(code, language) {
+                const lang = language ? language.replace(/^-/, '') : '';
+                const langClass = lang ? ` class="language-${lang}"` : '';
+                return `<pre><code${langClass}>${code}</code></pre>`;
+            };
+            
+            // Override codespan renderer for inline code
+            renderer.codespan = function(code) {
+                return `<code>${code}</code>`;
             };
             
             // Parse the markdown to HTML using marked.js with custom renderer
