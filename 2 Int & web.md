@@ -245,7 +245,7 @@ background-color: yellow;
 padding: 0.5rem;
 }
 /* ID Selector */
-# header { {#header}
+# header {
 background-color: #f8f9fa;
 padding: 1rem;
 }
@@ -1620,7 +1620,7 @@ res.status(500).json({ error: 'Failed to fetch profile' });
 ## Deployment & Hosting
 ### Local Development Environment 
 
-#### XAMPP Setup {#xampp-setup}
+#### XAMPP Setup
 ```bash
 # Download XAMPP from https://www.apachefriends.org/
 # Install and start Apache + MySQL services
@@ -1660,7 +1660,7 @@ console.log(`Development server running on http://localhost:${PORT}`);
 ```bash
 # Connect to EC2 instance
 ssh -i "your-key.pem" ubuntu@your-ec2-public-ip
-# Update system {#update-system}
+# Update system 
 sudo apt update && sudo apt upgrade -y
 
 # Install Node.js
@@ -1676,7 +1676,7 @@ sudo apt install nginx -y
 # Configure Nginx 
 sudo nano /etc/nginx/sites-available/your-domain
 ```
-##### Nginx Configuration {#nginx-configuration}
+##### Nginx Configuration
 ```nginx
 server {
 listen 80;
@@ -2659,7 +2659,7 @@ expect(fetch).toHaveBeenCalledTimes(2);
 - Weather icons and animations
 
 ### Intermediate Projects
-#### 4. E-commerce Product Catalog {#4.-e-commerce-product-catalog}
+#### 4. E-commerce Product Catalog 
 **Technologies**: React/Vue, Node.js, MongoDB/MySQL
 **Features**:
 - Product listing and search
@@ -2780,7 +2780,7 @@ expect(fetch).toHaveBeenCalledTimes(2);
 - Performance metrics
 
 ### Community and Resources
-#### Learning Resources {#learning-resources}
+#### Learning Resources 
 - **Documentation**: MDN, official framework docs
 - **Courses**: freeCodeCamp, Coursera, Udemy
 - **Books**: "You Don't Know JS", "Clean Code"
