@@ -97,17 +97,17 @@ Wireless:
 ```
 #### Encoding Schemes
 ```python
-# Manchester Encoding Example {#manchester-encoding-example}
+# Manchester Encoding Example 
 def manchester_encode(data_bit):
 if data_bit == 0:
 return "High-to-Low transition" # _/
 else:
 return "Low-to-High transition" # /_
-# Example: Encoding binary 1010 {#example-encoding-binary-1010}
+# Example: Encoding binary 1010 
 data = [1, 0, 1, 0]
 encoded = [manchester_encode(bit) for bit in data]
 print(encoded)
-# Output: ['/_', '_/', '/_', '_/'] {#output-_-_-_-_}
+# Output: ['/_', '_/', '/_', '_/']
 ```
 ### ️ Network Topologies
 ```
@@ -166,8 +166,8 @@ Examples: Ethernet (802.3), Wi-Fi (802.11)
 ### ️ MAC Addresses
 ```python
 # MAC Address Structure 
-# Format: XX:XX:XX:XX:XX:XX (48 bits) {#format-xxxxxxxxxxxx-48-bits}
-# Example: 00:1B:44:11:3A:B7 {#example-001b44113ab7}
+# Format: XX:XX:XX:XX:XX:XX (48 bits) 
+# Example: 00:1B:44:11:3A:B7
 def parse_mac_address(mac):
 parts = mac.split(':')
 oui = ':'.join(parts[:3]) # Organizationally Unique Identifier
@@ -281,7 +281,7 @@ elif 224 <= first_octet <= 239:
 return 'D (Multicast)'
 else:
 return 'E (Reserved)'
-# Example usage {#example-usage}
+# Example usage
 ip = IPv4Address('192.168.1.100', '255.255.255.0')
 print(f"Address: {ip.address}")
 print(f"Network: {ip.network}")
@@ -320,7 +320,7 @@ elif self.address.startswith('ff00'):
 return 'Multicast'
 else:
 return 'Global unicast'
-# Example usage {#example-usage}
+# Example usage 
 ipv6 = IPv6Address('2001:db8::1')
 print(f"Original: {ipv6.address}")
 print(f"Expanded: {ipv6.expanded}")
@@ -707,7 +707,7 @@ self.active_sessions[session_id]['checkpoints'].append(checkpoint)
 def recover_from_checkpoint(self, session_id, checkpoint_sequence):
 session = self.active_sessions.get(session_id)
 if session and checkpoint_sequence <= len(session['checkpoints']):
-# Restore session state from checkpoint {#restore-session-state-from-checkpoint}
+# Restore session state from checkpoint 
 checkpoint = session['checkpoints'][checkpoint_sequence - 1]
 return checkpoint['data']
 return None
@@ -858,9 +858,9 @@ def symmetric_encryption_example(self, data):
 # Generate a key for Fernet (AES 128 in CBC mode)
 key = Fernet.generate_key()
 cipher_suite = Fernet(key)
-# Encrypt the data {#encrypt-the-data}
+# Encrypt the data 
 encrypted_data = cipher_suite.encrypt(data.encode())
-# Decrypt the data {#decrypt-the-data}
+# Decrypt the data 
 decrypted_data = cipher_suite.decrypt(encrypted_data).decode()
 return {
 'original': data,
@@ -966,7 +966,7 @@ self.encodings = {
 }
 def encoding_example(self, text):
 results = {}
-# UTF-8 encoding {#utf-8-encoding}
+# UTF-8 encoding
 utf8_encoded = text.encode('utf-8')
 results['UTF-8'] = {
 'bytes': utf8_encoded,
