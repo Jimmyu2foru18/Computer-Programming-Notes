@@ -1,27 +1,27 @@
-# Python Programming: Complete Learning Guide {#python-programming-complete-learning-guide}
+# Python Programming: Complete Learning Guide 
 > **From Beginner to Mastery** - Your comprehensive journey through Python programming
 ---
-## Table of Contents {#table-of-contents}
-1. [Getting Started](#getting-started)
-2. [Variables & Data Types](#variables-data-types)
-3. [Control Flow](#control-flow)
-4. [Data Structures](#data-structures)
-5. [Functions](#functions)
-6. [Modules & Packages](#modules-packages)
-7. [️ Object-Oriented Programming](#object-oriented-programming)
-8. [Advanced Topics](#advanced-topics)
-9. [️ Best Practices](#best-practices)
-10. [Practice Projects](#practice-projects)
+## Table of Contents
+1. [Getting Started]
+2. [Variables & Data Types]
+3. [Control Flow]
+4. [Data Structures]
+5. [Functions]
+6. [Modules & Packages]
+7. [️ Object-Oriented Programming]
+8. [Advanced Topics]
+9. [️ Best Practices]
+10. [Practice Projects]
 
 ---
-## Getting Started {#getting-started}
-### What is Python? {#what-is-python?}
+## Getting Started
+### What is Python? 
 Python is a **high-level**, **interpreted** programming language known for its:
 - **Readable syntax** - Easy to learn and understand
 - **Versatility** - Web development, data science, AI, automation
 - **Large community** - Extensive libraries and support
 - **Rapid development** - Quick prototyping and deployment
-### Installation & Setup {#installation-&-setup}
+### Installation & Setup 
 ```bash
 # Download from python.org {#download-from-pythonorg}
 # Verify installation {#verify-installation}
@@ -30,15 +30,15 @@ python3 --version
 # Install package manager (usually included) {#install-package-manager-usually-included}
 pip --version
 ```
-### Your First Python Program {#your-first-python-program}
+### Your First Python Program 
 ```python
 # hello_world.py {#hello_worldpy}
 print("Hello, World! ")
 print("Welcome to Python programming!")
 ```
 ---
-## Variables & Data Types {#variables-&-data-types}
-### Variables {#variables}
+## Variables & Data Types
+### Variables 
 Python is **dynamically typed** - no need to declare variable types!
 ```python
 # Variable assignment {#variable-assignment}
@@ -50,7 +50,7 @@ is_student = True # Boolean
 x, y, z = 1, 2, 3
 a = b = c = 0
 ```
-### ️ Naming Conventions {#️-naming-conventions}
+### ️ Naming Conventions
 ```python
 # Good naming {#good-naming}
 user_name = "john_doe"
@@ -61,8 +61,8 @@ MAX_SIZE = 1000 # Constants in UPPERCASE
 class = "reserved" # Don't use keywords
 x = "unclear" # Use descriptive names
 ```
-### Data Types {#data-types}
-#### **Numeric Types** {#**numeric-types**}
+### Data Types 
+#### **Numeric Types**
 ```python
 # Integers {#integers}
 count = 42
@@ -74,7 +74,7 @@ scientific = 2.5e-4 # 0.00025
 # Complex numbers {#complex-numbers}
 complex_num = 3 + 4j
 ```
-#### **Text Type** {#**text-type**}
+#### **Text Type**
 ```python
 # Strings {#strings}
 single_quote = 'Hello'
@@ -87,7 +87,7 @@ age = 30
 message = f"Hi, I'm {name} and I'm {age} years old"
 print(message) # Hi, I'm Bob and I'm 30 years old
 ```
-#### **Boolean Type** {#**boolean-type**}
+#### **Boolean Type** 
 ```python
 is_active = True
 is_complete = False
@@ -97,8 +97,8 @@ result = True or False # True
 result = not True # False
 ```
 ---
-## Control Flow {#control-flow}
-### Conditional Statements {#conditional-statements}
+## Control Flow 
+### Conditional Statements
 ```python
 # if-elif-else {#if-elif-else}
 score = 85
@@ -114,8 +114,8 @@ print(f"Your grade is: {grade}")
 # Ternary operator {#ternary-operator}
 status = "Pass" if score >= 60 else "Fail"
 ```
-### Loops {#loops}
-#### **For Loops** {#**for-loops**}
+### Loops
+#### **For Loops**
 ```python
 # Iterate over sequences {#iterate-over-sequences}
 fruits = ["apple", "banana", "cherry"]
@@ -132,7 +132,7 @@ print(i)
 for index, fruit in enumerate(fruits):
 print(f"{index}: {fruit}")
 ```
-#### **While Loops** {#**while-loops**}
+#### **While Loops**
 ```python
 # Basic while loop {#basic-while-loop}
 count = 0
@@ -146,7 +146,7 @@ if user_input.lower() == 'quit':
 break
 print(f"You entered: {user_input}")
 ```
-#### **Loop Control** {#**loop-control**}
+#### **Loop Control**
 ```python
 # break and continue {#break-and-continue}
 for i in range(10):
@@ -157,8 +157,8 @@ break # Stop at 7
 print(i) # Prints: 0, 1, 2, 4, 5, 6
 ```
 ---
-## Data Structures {#data-structures}
-### Lists (Arrays) {#lists-(arrays)}
+## Data Structures
+### Lists (Arrays)
 ```python
 # Creating lists {#creating-lists}
 numbers = [1, 2, 3, 4, 5]
@@ -179,7 +179,7 @@ print(my_list[:3]) # [0, 1, 2]
 print(my_list[2:]) # [2, 3, 4, 5]
 print(my_list[::-1]) # [5, 4, 3, 2, 1, 0] (reverse)
 ```
-### Tuples {#tuples}
+### Tuples
 ```python
 # Immutable sequences {#immutable-sequences}
 coordinates = (10, 20)
@@ -194,7 +194,7 @@ Point = namedtuple('Point', ['x', 'y'])
 p = Point(10, 20)
 print(p.x, p.y)
 ```
-### ️ Dictionaries {#️-dictionaries}
+### ️ Dictionaries
 ```python
 # Key-value pairs {#key-value-pairs}
 student = {
@@ -213,7 +213,7 @@ squares_dict = {x: x**2 for x in range(5)}
 for key, value in student.items():
 print(f"{key}: {value}")
 ```
-### Sets {#sets}
+### Sets
 ```python
 # Unique collections {#unique-collections}
 fruits = {"apple", "banana", "cherry"}
@@ -229,8 +229,8 @@ intersection = set1 & set2 # {3, 4}
 difference = set1 - set2 # {1, 2}
 ```
 ---
-## Functions {#functions}
-### Basic Functions {#basic-functions}
+## Functions
+### Basic Functions
 ```python
 # Function definition {#function-definition}
 def greet(name):
@@ -245,7 +245,7 @@ return f"Hello, {title} {name}!"
 print(greet_with_title("Smith")) # Hello, Mr./Ms. Smith!
 print(greet_with_title("Smith", "Dr.")) # Hello, Dr. Smith!
 ```
-### Advanced Function Features {#advanced-function-features}
+### Advanced Function Features
 ```python
 # Variable arguments {#variable-arguments}
 def sum_all(*args):
@@ -267,7 +267,7 @@ def apply_operation(numbers, operation):
 return [operation(x) for x in numbers]
 result = apply_operation([1, 2, 3], lambda x: x * 2) # [2, 4, 6]
 ```
-### Decorators {#decorators}
+### Decorators
 ```python
 # Function decorators {#function-decorators}
 def timer(func):
@@ -287,8 +287,8 @@ return "Done!"
 result = slow_function() # Prints execution time
 ```
 ---
-## Modules & Packages {#modules-&-packages}
-### Importing Modules {#importing-modules}
+## Modules & Packages
+### Importing Modules
 ```python
 # Standard library imports {#standard-library-imports}
 import math
@@ -303,7 +303,7 @@ print(datetime.now()) # Current date and time
 import numpy as np
 import pandas as pd
 ```
-### Creating Your Own Modules {#creating-your-own-modules}
+### Creating Your Own Modules
 ```python
 # math_utils.py {#math_utilspy}
 def add(a, b):
@@ -320,7 +320,7 @@ import math_utils
 result = add(5, 3) # 8
 result = math_utils.multiply(4, 7) # 28
 ```
-### Package Management {#package-management}
+### Package Management
 ```bash
 # Installing packages {#installing-packages}
 pip install requests
@@ -336,8 +336,8 @@ myenv\Scripts\activate
 source myenv/bin/activate
 ```
 ---
-## ️ Object-Oriented Programming {#️-object-oriented-programming}
-### ️ Classes and Objects {#️-classes-and-objects}
+## ️ Object-Oriented Programming 
+### ️ Classes and Objects
 ```python
 class Dog:
 # Class variable {#class-variable}
@@ -361,7 +361,7 @@ print(my_dog) # Buddy is a 3-year-old Golden Retriever
 print(my_dog.bark()) # Buddy says Woof!
 print(my_dog.learn_trick("sit")) # Buddy learned sit!
 ```
-### Encapsulation {#encapsulation}
+### Encapsulation
 ```python
 class BankAccount:
 def __init__(self, account_number, initial_balance=0):
@@ -391,7 +391,7 @@ account = BankAccount("12345", 1000)
 print(account.deposit(500)) # Deposited $500. New balance: $1500
 print(account.balance) # 1500
 ```
-### Inheritance {#inheritance}
+### Inheritance
 ```python
 # Base class {#base-class}
 class Animal:
@@ -426,7 +426,7 @@ print(dog.info()) # Buddy is a Dog
 print(dog.speak()) # Woof!
 print(cat.speak()) # Meow!
 ```
-### Polymorphism {#polymorphism}
+### Polymorphism
 ```python
 # Polymorphism in action {#polymorphism-in-action}
 def animal_concert(animals):
@@ -444,8 +444,8 @@ animal_concert(animals)
 # Max: Woof! {#max-woof}
 ```
 ---
-## Advanced Topics {#advanced-topics}
-### Iterators and Generators {#iterators-and-generators}
+## Advanced Topics
+### Iterators and Generators
 ```python
 # Generator function {#generator-function}
 def fibonacci(n):
@@ -461,7 +461,7 @@ print(num, end=" ") # 0 1 1 2 3 5 8 13 21 34
 squares = (x**2 for x in range(10))
 print(list(squares)) # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
-### Context Managers {#context-managers}
+### Context Managers
 ```python
 # File handling with context manager {#file-handling-with-context-manager}
 with open("data.txt", "w") as file:
@@ -481,7 +481,7 @@ with Timer():
 # Some time-consuming operation {#some-time-consuming-operation}
 sum(range(1000000))
 ```
-### Exception Handling {#exception-handling}
+### Exception Handling
 ```python
 # Basic exception handling {#basic-exception-handling}
 try:
@@ -515,8 +515,8 @@ except CustomError as e:
 print(f"Validation error: {e.message}")
 ```
 ---
-## ️ Best Practices {#️-best-practices}
-### Code Style (PEP 8) {#code-style-(pep-8)}
+## ️ Best Practices
+### Code Style (PEP 8)
 ```python
 # Good practices {#good-practices}
 # Imports at the top {#imports-at-the-top}
@@ -551,7 +551,7 @@ self.total += item_price
 else:
 raise ValueError("Item price must be positive")
 ```
-### Testing {#testing}
+### Testing
 ```python
 # test_calculator.py {#test_calculatorpy}
 import unittest
@@ -574,7 +574,7 @@ divide(10, 0)
 if __name__ == '__main__':
 unittest.main()
 ```
-### Performance Tips {#performance-tips}
+### Performance Tips
 ```python
 # List comprehensions vs loops {#list-comprehensions-vs-loops}
 # Faster {#faster}
@@ -600,9 +600,9 @@ for s in string_list:
 result += s
 ```
 ---
-## Practice Projects {#practice-projects}
-### Beginner Projects {#beginner-projects}
-#### **1. Number Guessing Game** {#**1.-number-guessing-game**}
+## Practice Projects
+### Beginner Projects
+#### **1. Number Guessing Game**
 ```python
 import random
 def number_guessing_game():
@@ -630,7 +630,7 @@ print(f" Game over! The number was {number}")
 if __name__ == "__main__":
 number_guessing_game()
 ```
-#### **2. Todo List Manager** {#**2.-todo-list-manager**}
+#### **2. Todo List Manager**
 ```python
 class TodoList:
 def __init__(self):
@@ -695,8 +695,8 @@ print(" Invalid choice")
 if __name__ == "__main__":
 main()
 ```
-### Intermediate Projects {#intermediate-projects}
-#### **3. Web Scraper** {#**3.-web-scraper**}
+### Intermediate Projects
+#### **3. Web Scraper**
 ```python
 import requests
 from bs4 import BeautifulSoup
@@ -753,8 +753,8 @@ if __name__ == "__main__":
 main()
 ```
 ---
-## Next Steps {#next-steps}
-### Advanced Topics to Explore {#advanced-topics-to-explore}
+## Next Steps
+### Advanced Topics to Explore
 1. ** Web Development**
 - Flask/Django frameworks
 - REST APIs
@@ -771,13 +771,13 @@ main()
 - Docker containers
 - CI/CD pipelines
 - Cloud deployment
-### Learning Resources {#learning-resources}
+### Learning Resources
 - ** Books**: "Automate the Boring Stuff with Python", "Python Crash Course"
 - ** Websites**: Python.org, Real Python, GeeksforGeeks
 - ** Videos**: Python tutorials on YouTube, Coursera, edX
 - ** Practice**: LeetCode, HackerRank, Codewars
 ---
-## Conclusion {#conclusion}
+## Conclusion
 Congratulations! You've completed the comprehensive Python learning guide. You now have:
 - **Solid foundation** in Python syntax and concepts
 - **Object-oriented programming** skills
@@ -787,4 +787,3 @@ Congratulations! You've completed the comprehensive Python learning guide. You n
 **Keep practicing, keep building, and keep learning!** 
 ---
 
-*Happy Coding! *
