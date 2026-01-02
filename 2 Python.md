@@ -1,4 +1,4 @@
-# Python Programming: Complete Learning Guide 
+# Python Programming:  Learning Guide 
 
 ---
 ## Table of Contents
@@ -777,6 +777,7 @@ main()
 - ** Videos**: Python tutorials on YouTube, Coursera, edX
 - ** Practice**: LeetCode, HackerRank, Codewars
 ---
+
 
 
 
