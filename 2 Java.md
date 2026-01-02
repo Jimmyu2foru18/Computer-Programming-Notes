@@ -1,18 +1,6 @@
 # Java Programming Guide
+---
 
----
-## Table of Contents
-1. [Getting Started]
-2. [Variables & Data Types]
-3. [Control Flow]
-4. [Data Structures]
-5. [Methods & Functions]
-6. [Object-Oriented Programming]
-7. [Advanced Topics]
-8. [Best Practices]
-9. [Practice Projects]
-10. [Next Steps]
----
 ## Getting Started
 ### What is Java?
 Java is a **high-level**, **object-oriented** programming language designed for platform independence. Write once, run anywhere!
@@ -960,4 +948,5 @@ books.values().forEach(System.out::println);
 ---
 
 @Th3viousGameus
+
 
