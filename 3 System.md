@@ -18,10 +18,10 @@
 15. [Next Steps](#next-steps)
 16. [Conclusion](#conclusion)
 ---
-## Introduction {#introduction}
-### What is System Administration? {#what-is-system-administration?}
+## Introduction
+### What is System Administration?
 System Administration is the practice of managing and maintaining computer systems, servers, and networks to ensure they operate efficiently, securely, and reliably. System administrators are the backbone of IT infrastructure, responsible for everything from user management to system security.
-### Why Learn System Administration? {#why-learn-system-administration?}
+### Why Learn System Administration?
 ```python
 class SystemAdminBenefits:
 def __init__(self):
@@ -47,7 +47,7 @@ self.industry_applications = {
 'data_centers': 'Server and network infrastructure'
 }
 ```
-### ️ Learning Path Overview {#️-learning-path-overview}
+### ️ Learning Path Overview
 ```python
 class SystemAdminLearningPath:
 def __init__(self):
@@ -80,8 +80,8 @@ self.advanced_level = {
 }
 ```
 ---
-## Operating System Fundamentals {#operating-system-fundamentals}
-### ️ What is an Operating System? {#️-what-is-an-operating-system?}
+## Operating System Fundamentals
+### ️ What is an Operating System?
 ```python
 class OperatingSystem:
 def __init__(self):
@@ -143,7 +143,7 @@ self.types = {
 }
 }
 ```
-### ️ OS Architecture {#️-os-architecture}
+### ️ OS Architecture
 ```python
 class OSArchitecture:
 def __init__(self):
@@ -186,7 +186,7 @@ self.system_layers = {
 }
 }
 ```
-### Process and Thread Management {#process-and-thread-management}
+### Process and Thread Management
 ```python
 class ProcessManagement:
 def __init__(self):
@@ -240,7 +240,7 @@ self.thread_vs_process = {
 }
 }
 ```
-### Memory Management {#memory-management}
+### Memory Management
 ```python
 class MemoryManagement:
 def __init__(self):
@@ -298,17 +298,17 @@ self.virtual_memory = {
 }
 ```
 ---
-## Linux System Administration {#linux-system-administration}
-### Getting Started with Linux {#getting-started-with-linux}
+## Linux System Administration
+### Getting Started with Linux
 ```bash
-# Essential Linux Commands for System Administration {#essential-linux-commands-for-system-administration}
-# System Information {#system-information}
+# Essential Linux Commands for System Administration
+# System Information
 uname -a # System information
 hostname # Display hostname
 whoami # Current user
 id # User and group IDs
 uptime # System uptime and load
-# File and Directory Operations {#file-and-directory-operations}
+# File and Directory Operations
 ls -la # List files with details
 cd /path/to/directory # Change directory
 pwd # Print working directory
@@ -319,12 +319,12 @@ cp -r source destination # Copy files/directories
 mv source destination # Move/rename files
 find /path -name "*.txt" # Find files by name
 locate filename # Locate files in database
-# File Permissions and Ownership {#file-permissions-and-ownership}
+# File Permissions and Ownership
 chmod 755 filename # Change file permissions
 chown user:group filename # Change ownership
 chgrp group filename # Change group ownership
 umask 022 # Set default permissions
-# Text Processing {#text-processing}
+# Text Processing
 cat filename # Display file content
 less filename # View file with pagination
 head -n 10 filename # First 10 lines
@@ -332,19 +332,19 @@ tail -f filename # Follow file changes
 grep "pattern" filename # Search text patterns
 sed 's/old/new/g' file # Stream editor
 awk '{print $1}' file # Text processing
-# System Monitoring {#system-monitoring}
+# System Monitoring
 top # Process monitor
 htop # Enhanced process monitor
 ps aux # List all processes
 ps -ef | grep process # Find specific process
 kill -9 PID # Kill process by PID
 killall process_name # Kill process by name
-# Disk Usage {#disk-usage}
+# Disk Usage
 df -h # Disk space usage
 du -sh directory # Directory size
 lsblk # List block devices
 fdisk -l # List disk partitions
-# Network Commands {#network-commands}
+# Network Commands
 ifconfig # Network interface configuration
 ip addr show # Show IP addresses
 netstat -tuln # Network connections
@@ -353,27 +353,27 @@ ping hostname # Test connectivity
 wget URL # Download files
 curl URL # Transfer data
 ```
-### User and Group Management {#user-and-group-management}
+### User and Group Management
 ```bash
-#!/bin/bash {#binbash}
-# User and Group Management Script {#user-and-group-management-script}
-# User Management {#user-management}
+#!/bin/bash
+# User and Group Management Script
+# User Management
 useradd -m -s /bin/bash username # Create user with home directory
 usermod -aG sudo username # Add user to sudo group
 userdel -r username # Delete user and home directory
 passwd username # Change user password
 su - username # Switch to user
 sudo command # Execute as root
-# Group Management {#group-management}
+# Group Management
 groupadd groupname # Create group
 groupdel groupname # Delete group
 groupmod -n newname oldname # Rename group
 groups username # Show user's groups
-# Password and Account Policies {#password-and-account-policies}
+# Password and Account Policies
 chage -l username # View password aging info
 chage -M 90 username # Set password expiry to 90 days
 chage -E 2024-12-31 username # Set account expiry date
-# Viewing User Information {#viewing-user-information}
+# Viewing User Information
 cat /etc/passwd # User account information
 cat /etc/group # Group information
 cat /etc/shadow # Password hashes (root only)
@@ -381,33 +381,33 @@ who # Currently logged in users
 w # Detailed user activity
 last # Login history
 ```
-### System Services Management {#system-services-management}
+### System Services Management
 ```bash
-#!/bin/bash {#binbash}
-# Systemd Service Management {#systemd-service-management}
-# Service Control {#service-control}
+#!/bin/bash
+# Systemd Service Management
+# Service Control
 systemctl start service_name # Start service
 systemctl stop service_name # Stop service
 systemctl restart service_name # Restart service
 systemctl reload service_name # Reload configuration
 systemctl enable service_name # Enable at boot
 systemctl disable service_name # Disable at boot
-# Service Status {#service-status}
+# Service Status
 systemctl status service_name # Service status
 systemctl is-active service_name # Check if active
 systemctl is-enabled service_name # Check if enabled
 systemctl list-units --type=service # List all services
-# System Control {#system-control}
+# System Control
 systemctl reboot # Restart system
 systemctl poweroff # Shutdown system
 systemctl suspend # Suspend system
 systemctl hibernate # Hibernate system
-# Logs and Troubleshooting {#logs-and-troubleshooting}
+# Logs and Troubleshooting
 journalctl -u service_name # View service logs
 journalctl -f # Follow system logs
 journalctl --since "2024-01-01" # Logs since date
 journalctl -p err # Error messages only
-# Creating Custom Service {#creating-custom-service}
+# Creating Custom Service
 cat > /etc/systemd/system/myapp.service << EOF
 [Unit]
 Description=My Application
@@ -424,11 +424,11 @@ EOF
 systemctl daemon-reload # Reload systemd configuration
 systemctl enable myapp.service # Enable custom service
 ```
-### Package Management {#package-management}
+### Package Management
 ```bash
-#!/bin/bash {#binbash}
-# Package Management for Different Distributions {#package-management-for-different-distributions}
-# Debian/Ubuntu (APT) {#debianubuntu-apt}
+#!/bin/bash
+# Package Management for Different Distributions
+# Debian/Ubuntu (APT)
 apt update # Update package lists
 apt upgrade # Upgrade packages
 apt install package_name # Install package
@@ -437,7 +437,7 @@ apt purge package_name # Remove package and config
 apt search keyword # Search packages
 apt show package_name # Package information
 apt autoremove # Remove unused packages
-# Red Hat/CentOS/Fedora (YUM/DNF) {#red-hatcentosfedora-yumdnf}
+# Red Hat/CentOS/Fedora (YUM/DNF)
 yum update # Update packages (CentOS 7)
 dnf update # Update packages (CentOS 8+/Fedora)
 yum install package_name # Install package
@@ -445,180 +445,180 @@ yum remove package_name # Remove package
 yum search keyword # Search packages
 yum info package_name # Package information
 yum history # Transaction history
-# SUSE (Zypper) {#suse-zypper}
+# SUSE (Zypper)
 zypper refresh # Refresh repositories
 zypper update # Update packages
 zypper install package_name # Install package
 zypper remove package_name # Remove package
 zypper search keyword # Search packages
-# Snap Packages (Universal) {#snap-packages-universal}
+# Snap Packages (Universal)
 snap list # List installed snaps
 snap install package_name # Install snap package
 snap remove package_name # Remove snap package
 snap refresh # Update all snaps
-# Flatpak (Universal) {#flatpak-universal}
+# Flatpak (Universal)
 flatpak list # List installed flatpaks
 flatpak install package_name # Install flatpak
 flatpak uninstall package_name # Remove flatpak
 flatpak update # Update all flatpaks
 ```
-### ️ File System Management {#️-file-system-management}
+### ️ File System Management
 ```bash
-#!/bin/bash {#binbash}
-# File System Management {#file-system-management}
-# Disk Partitioning {#disk-partitioning}
+#!/bin/bash
+# File System Management
+# Disk Partitioning
 fdisk /dev/sda # Partition disk (interactive)
 parted /dev/sda # Advanced partitioning
 lsblk # List block devices
 blkid # Show UUID and file system types
-# File System Creation {#file-system-creation}
+# File System Creation
 mkfs.ext4 /dev/sda1 # Create ext4 file system
 mkfs.xfs /dev/sda1 # Create XFS file system
 mkfs.btrfs /dev/sda1 # Create Btrfs file system
-# Mounting File Systems {#mounting-file-systems}
+# Mounting File Systems
 mount /dev/sda1 /mnt/data # Mount file system
 umount /mnt/data # Unmount file system
 mount -a # Mount all in /etc/fstab
-# /etc/fstab Configuration {#etcfstab-configuration}
+# /etc/fstab Configuration
 cat >> /etc/fstab << EOF
-# Device Mount Point FS Type Options Dump Pass {#device-mount-point-fs-type-options-dump-pass}
+# Device Mount Point FS Type Options Dump Pass
 /dev/sda1 /mnt/data ext4 defaults 0 2
 UUID=xxx-xxx /home ext4 defaults,noatime 0 2
 EOF
-# File System Checking and Repair {#file-system-checking-and-repair}
+# File System Checking and Repair
 fsck /dev/sda1 # Check file system
 fsck -f /dev/sda1 # Force check
 e2fsck -f /dev/sda1 # Check ext2/3/4
 xfs_repair /dev/sda1 # Repair XFS
-# LVM (Logical Volume Management) {#lvm-logical-volume-management}
+# LVM (Logical Volume Management)
 pvcreate /dev/sda1 # Create physical volume
 vgcreate vg_data /dev/sda1 # Create volume group
 lvcreate -L 10G -n lv_data vg_data # Create logical volume
 lvextend -L +5G /dev/vg_data/lv_data # Extend logical volume
 resize2fs /dev/vg_data/lv_data # Resize file system
-# RAID Configuration {#raid-configuration}
+# RAID Configuration
 mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sda1 /dev/sdb1
 mdadm --detail /dev/md0 # RAID status
 cat /proc/mdstat # RAID information
 ```
 ---
-## Windows System Administration {#windows-system-administration}
-### ️ Windows Server Management {#️-windows-server-management}
+## Windows System Administration
+### ️ Windows Server Management
 ```powershell
-# PowerShell Commands for Windows Administration {#powershell-commands-for-windows-administration}
-# System Information {#system-information}
+# PowerShell Commands for Windows Administration
+# System Information
 Get-ComputerInfo # Detailed system information
 Get-WmiObject -Class Win32_OperatingSystem # OS information
 Get-Process # Running processes
 Get-Service # System services
 Get-EventLog -LogName System -Newest 10 # System event logs
-# User and Group Management {#user-and-group-management}
+# User and Group Management
 New-LocalUser -Name "username" -Password (ConvertTo-SecureString "password" -AsPlainText -Force)
 Add-LocalGroupMember -Group "Administrators" -Member "username"
 Get-LocalUser # List local users
 Get-LocalGroup # List local groups
 Remove-LocalUser -Name "username" # Delete user
-# Active Directory (if domain controller) {#active-directory-if-domain-controller}
+# Active Directory (if domain controller)
 Import-Module ActiveDirectory
 New-ADUser -Name "John Doe" -SamAccountName "jdoe" -UserPrincipalName "jdoe@domain.com"
 Get-ADUser -Filter * # List all AD users
 Get-ADGroup -Filter * # List all AD groups
 Add-ADGroupMember -Identity "GroupName" -Members "username"
-# Service Management {#service-management}
+# Service Management
 Start-Service -Name "ServiceName" # Start service
 Stop-Service -Name "ServiceName" # Stop service
 Restart-Service -Name "ServiceName" # Restart service
 Set-Service -Name "ServiceName" -StartupType Automatic # Set startup type
 Get-Service | Where-Object {$_.Status -eq "Running"} # Running services
-# Registry Management {#registry-management}
+# Registry Management
 Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "ShowHidden" -Value 1
 New-Item -Path "HKLM:\SOFTWARE\MyApp" -Force
 Remove-Item -Path "HKLM:\SOFTWARE\MyApp" -Recurse
-# File and Folder Operations {#file-and-folder-operations}
+# File and Folder Operations
 Get-ChildItem -Path C:\ -Recurse # List files recursively
 Copy-Item -Path "source" -Destination "destination" -Recurse
 Move-Item -Path "source" -Destination "destination"
 Remove-Item -Path "file_or_folder" -Recurse -Force
 Get-Acl -Path "C:\folder" # Get permissions
 Set-Acl -Path "C:\folder" -AclObject $acl # Set permissions
-# Network Configuration {#network-configuration}
+# Network Configuration
 Get-NetIPConfiguration # Network configuration
 Get-NetAdapter # Network adapters
 Set-NetIPInterface -InterfaceAlias "Ethernet" -DHCP Enabled
 New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress "192.168.1.100" -PrefixLength 24
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses "8.8.8.8","8.8.4.4"
-# Windows Features {#windows-features}
+# Windows Features
 Get-WindowsFeature # List available features
 Install-WindowsFeature -Name "IIS-WebServerRole" -IncludeManagementTools
 Uninstall-WindowsFeature -Name "FeatureName"
 Enable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux"
-# Scheduled Tasks {#scheduled-tasks}
+# Scheduled Tasks
 $action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-File C:\Scripts\backup.ps1"
 $trigger = New-ScheduledTaskTrigger -Daily -At 2AM
 Register-ScheduledTask -TaskName "DailyBackup" -Action $action -Trigger $trigger
 Get-ScheduledTask # List scheduled tasks
 Start-ScheduledTask -TaskName "TaskName" # Run task manually
 ```
-### Group Policy Management {#group-policy-management}
+### Group Policy Management
 ```powershell
-# Group Policy Management {#group-policy-management}
-# Import Group Policy module {#import-group-policy-module}
+# Group Policy Management
+# Import Group Policy module
 Import-Module GroupPolicy
-# Create new GPO {#create-new-gpo}
+# Create new GPO
 New-GPO -Name "Security Policy" -Comment "Company security settings"
-# Link GPO to OU {#link-gpo-to-ou}
+# Link GPO to OU
 New-GPLink -Name "Security Policy" -Target "OU=Computers,DC=domain,DC=com"
-# Backup and Restore GPOs {#backup-and-restore-gpos}
+# Backup and Restore GPOs
 Backup-GPO -Name "Security Policy" -Path "C:\GPOBackups"
 Restore-GPO -Name "Security Policy" -Path "C:\GPOBackups" -BackupId $backupId
-# Generate GPO Reports {#generate-gpo-reports}
+# Generate GPO Reports
 Get-GPOReport -Name "Security Policy" -ReportType HTML -Path "C:\Reports\SecurityPolicy.html"
-# Common Group Policy Settings via Registry {#common-group-policy-settings-via-registry}
-# Disable USB storage {#disable-usb-storage}
+# Common Group Policy Settings via Registry
+# Disable USB storage
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\USBSTOR" -Name "Start" -Value 4
-# Set password policy {#set-password-policy}
+# Set password policy
 secedit /export /cfg C:\secpol.cfg
-# Edit the file to modify password settings {#edit-the-file-to-modify-password-settings}
+# Edit the file to modify password settings
 secedit /configure /db C:\Windows\security\local.sdb /cfg C:\secpol.cfg
-# Windows Update settings {#windows-update-settings}
+# Windows Update settings
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "NoAutoUpdate" -Value 0
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "AUOptions" -Value 4
 ```
-### ️ Windows Security Management {#️-windows-security-management}
+### ️ Windows Security Management
 ```powershell
-# Windows Security Management {#windows-security-management}
-# Windows Defender {#windows-defender}
+# Windows Security Management
+# Windows Defender
 Get-MpComputerStatus # Defender status
 Update-MpSignature # Update definitions
 Start-MpScan -ScanType QuickScan # Quick scan
 Start-MpScan -ScanType FullScan # Full scan
 Set-MpPreference -DisableRealtimeMonitoring $false # Enable real-time protection
-# Firewall Management {#firewall-management}
+# Firewall Management
 Get-NetFirewallProfile # Firewall profiles
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
 New-NetFirewallRule -DisplayName "Allow HTTP" -Direction Inbound -Protocol TCP -LocalPort 80 -Action Allow
 Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'True'} # Active rules
 Remove-NetFirewallRule -DisplayName "RuleName"
-# BitLocker Management {#bitlocker-management}
+# BitLocker Management
 Get-BitLockerVolume # BitLocker status
 Enable-BitLocker -MountPoint "C:" -EncryptionMethod XtsAes256 -UsedSpaceOnly
 Unlock-BitLocker -MountPoint "C:" -Password (ConvertTo-SecureString "password" -AsPlainText -Force)
 Suspend-BitLocker -MountPoint "C:" # Suspend encryption
 Resume-BitLocker -MountPoint "C:" # Resume encryption
-# Certificate Management {#certificate-management}
+# Certificate Management
 Get-ChildItem -Path Cert:\LocalMachine\My # List certificates
 Import-Certificate -FilePath "C:\cert.cer" -CertStoreLocation Cert:\LocalMachine\Root
 Export-Certificate -Cert $cert -FilePath "C:\exported_cert.cer"
 Remove-Item -Path "Cert:\LocalMachine\My\$thumbprint"
-# Audit Policy {#audit-policy}
+# Audit Policy
 auditpol /get /category:* # Get audit policies
 auditpol /set /subcategory:"Logon" /success:enable /failure:enable
 Get-WinEvent -LogName Security -MaxEvents 100 # Security event logs
 ```
 ---
-## System Security {#system-security}
-### ️ Security Fundamentals {#️-security-fundamentals}
+## System Security
+### ️ Security Fundamentals
 ```python
 class SystemSecurity:
 def __init__(self):
@@ -682,13 +682,13 @@ self.threat_landscape = {
 }
 }
 ```
-### Access Control and Authentication {#access-control-and-authentication}
+### Access Control and Authentication
 ```bash
-#!/bin/bash {#binbash}
-# Linux Security Configuration {#linux-security-configuration}
-# SSH Hardening {#ssh-hardening}
+#!/bin/bash
+# Linux Security Configuration
+# SSH Hardening
 cat > /etc/ssh/sshd_config << EOF
-# SSH Security Configuration {#ssh-security-configuration}
+# SSH Security Configuration
 Port 2222 # Change default port
 Protocol 2 # Use SSH protocol 2
 PermitRootLogin no # Disable root login
@@ -701,33 +701,33 @@ AllowUsers user1 user2 # Restrict allowed users
 DenyUsers baduser # Deny specific users
 EOF
 systemctl restart sshd # Restart SSH service
-# Firewall Configuration (iptables) {#firewall-configuration-iptables}
-#!/bin/bash {#binbash}
-# Basic iptables firewall rules {#basic-iptables-firewall-rules}
-# Flush existing rules {#flush-existing-rules}
+# Firewall Configuration (iptables)
+#!/bin/bash
+# Basic iptables firewall rules
+# Flush existing rules
 iptables -F
 iptables -X
 iptables -t nat -F
 iptables -t nat -X
-# Set default policies {#set-default-policies}
+# Set default policies
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT ACCEPT
-# Allow loopback {#allow-loopback}
+# Allow loopback
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
-# Allow established connections {#allow-established-connections}
+# Allow established connections
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-# Allow SSH (custom port) {#allow-ssh-custom-port}
+# Allow SSH (custom port)
 iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
-# Allow HTTP and HTTPS {#allow-http-and-https}
+# Allow HTTP and HTTPS
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-# Allow ping {#allow-ping}
+# Allow ping
 iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
-# Save rules {#save-rules}
+# Save rules
 iptables-save > /etc/iptables/rules.v4
-# UFW (Uncomplicated Firewall) - Ubuntu {#ufw-uncomplicated-firewall-ubuntu}
+# UFW (Uncomplicated Firewall) - Ubuntu
 ufw enable # Enable firewall
 ufw default deny incoming # Default deny incoming
 ufw default allow outgoing # Default allow outgoing
@@ -735,55 +735,55 @@ ufw allow ssh # Allow SSH
 ufw allow 80/tcp # Allow HTTP
 ufw allow 443/tcp # Allow HTTPS
 ufw status verbose # Show firewall status
-# File Permissions and Security {#file-permissions-and-security}
-# Set secure permissions on important files {#set-secure-permissions-on-important-files}
+# File Permissions and Security
+# Set secure permissions on important files
 chmod 600 /etc/ssh/ssh_host_*_key # SSH private keys
 chmod 644 /etc/passwd # Password file
 chmod 640 /etc/shadow # Shadow password file
 chmod 755 /etc # System configuration directory
-# Find and fix insecure permissions {#find-and-fix-insecure-permissions}
+# Find and fix insecure permissions
 find / -type f -perm -002 2>/dev/null # World-writable files
 find / -type f -perm -004000 2>/dev/null # SUID files
 find / -type f -perm -002000 2>/dev/null # SGID files
-# SELinux Configuration (Red Hat/CentOS) {#selinux-configuration-red-hatcentos}
+# SELinux Configuration (Red Hat/CentOS)
 getenforce # Check SELinux status
 setenforce 1 # Enable SELinux
 setsebool -P httpd_can_network_connect on # Set boolean
 restorecon -R /var/www/html # Restore context
 ls -Z /var/www/html # Show SELinux context
-# AppArmor Configuration (Ubuntu/SUSE) {#apparmor-configuration-ubuntususe}
+# AppArmor Configuration (Ubuntu/SUSE)
 aa-status # AppArmor status
 aa-enforce /etc/apparmor.d/usr.bin.firefox # Enforce profile
 aa-complain /etc/apparmor.d/usr.bin.firefox # Complain mode
 ```
-### Security Monitoring and Logging {#security-monitoring-and-logging}
+### Security Monitoring and Logging
 ```bash
-#!/bin/bash {#binbash}
-# Security Monitoring and Logging {#security-monitoring-and-logging}
-# System Log Analysis {#system-log-analysis}
-# Monitor authentication logs {#monitor-authentication-logs}
+#!/bin/bash
+# Security Monitoring and Logging
+# System Log Analysis
+# Monitor authentication logs
 tail -f /var/log/auth.log # Real-time auth monitoring
 grep "Failed password" /var/log/auth.log # Failed login attempts
 grep "sudo" /var/log/auth.log # Sudo usage
-# Monitor system logs {#monitor-system-logs}
+# Monitor system logs
 tail -f /var/log/syslog # System messages
 grep "error\|warning" /var/log/syslog # Errors and warnings
-# Security-focused log analysis {#security-focused-log-analysis}
-# Failed SSH attempts {#failed-ssh-attempts}
+# Security-focused log analysis
+# Failed SSH attempts
 awk '/Failed password/ {print $1, $2, $3, $11}' /var/log/auth.log | sort | uniq -c
-# Successful SSH logins {#successful-ssh-logins}
+# Successful SSH logins
 awk '/Accepted password/ {print $1, $2, $3, $9, $11}' /var/log/auth.log
-# Root access attempts {#root-access-attempts}
+# Root access attempts
 grep "su:" /var/log/auth.log
-# Intrusion Detection with AIDE {#intrusion-detection-with-aide}
-# Install and configure AIDE {#install-and-configure-aide}
+# Intrusion Detection with AIDE
+# Install and configure AIDE
 apt install aide # Install AIDE
 aide --init # Initialize database
 mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 aide --check # Check for changes
-# Create AIDE check script {#create-aide-check-script}
+# Create AIDE check script
 cat > /usr/local/bin/aide-check.sh << 'EOF'
-#!/bin/bash {#binbash}
+#!/bin/bash
 AIDE_LOG="/var/log/aide.log"
 aide --check > $AIDE_LOG 2>&1
 if [ $? -ne 0 ]; then
@@ -792,11 +792,11 @@ cat $AIDE_LOG | mail -s "AIDE Report" admin@company.com
 fi
 EOF
 chmod +x /usr/local/bin/aide-check.sh
-# Schedule daily AIDE checks {#schedule-daily-aide-checks}
+# Schedule daily AIDE checks
 echo "0 2 * * * root /usr/local/bin/aide-check.sh" >> /etc/crontab
-# Fail2ban for Intrusion Prevention {#fail2ban-for-intrusion-prevention}
+# Fail2ban for Intrusion Prevention
 apt install fail2ban # Install fail2ban
-# Configure fail2ban {#configure-fail2ban}
+# Configure fail2ban
 cat > /etc/fail2ban/jail.local << EOF
 [DEFAULT]
 bantime = 3600
@@ -820,51 +820,51 @@ fail2ban-client status # Check status
 fail2ban-client status sshd # Check SSH jail
 ```
 ---
-## System Monitoring & Performance {#system-monitoring-&-performance}
-### Performance Monitoring Tools {#performance-monitoring-tools}
+## System Monitoring & Performance
+### Performance Monitoring Tools
 ```bash
-#!/bin/bash {#binbash}
-# System Performance Monitoring {#system-performance-monitoring}
-# CPU Monitoring {#cpu-monitoring}
+#!/bin/bash
+# System Performance Monitoring
+# CPU Monitoring
 top # Real-time process monitor
 htop # Enhanced process monitor
 sar -u 1 10 # CPU utilization (1 sec, 10 times)
 mpstat 1 5 # Multi-processor statistics
 vmstat 1 5 # Virtual memory statistics
-# Memory Monitoring {#memory-monitoring}
+# Memory Monitoring
 free -h # Memory usage
 cat /proc/meminfo # Detailed memory info
 sar -r 1 10 # Memory utilization
 ps aux --sort=-%mem | head -10 # Top memory consumers
-# Disk I/O Monitoring {#disk-io-monitoring}
+# Disk I/O Monitoring
 iostat -x 1 5 # Extended I/O statistics
 sar -d 1 10 # Disk activity
 iotop # I/O usage by process
 lsof | grep deleted # Find deleted files still open
-# Network Monitoring {#network-monitoring}
+# Network Monitoring
 netstat -tuln # Network connections
 ss -tuln # Socket statistics
 sar -n DEV 1 10 # Network interface statistics
 iftop # Network usage by connection
 nload # Network load monitor
-# System Load Monitoring {#system-load-monitoring}
+# System Load Monitoring
 uptime # System uptime and load
 w # Who is logged in and what they're doing
 sar -q 1 10 # Queue length and load averages
-# Process Monitoring {#process-monitoring}
+# Process Monitoring
 ps aux # All processes
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem # Processes sorted by memory
 pgrep -f process_name # Find process by name
 kill -USR1 $(pgrep process_name) # Send signal to process
-# Log File Monitoring {#log-file-monitoring}
+# Log File Monitoring
 tail -f /var/log/syslog # Follow system log
 multitail /var/log/syslog /var/log/auth.log # Monitor multiple logs
 logwatch --detail high --mailto admin@company.com # Log analysis
 ```
-### Performance Monitoring Scripts {#performance-monitoring-scripts}
+### Performance Monitoring Scripts
 ```python
-#!/usr/bin/env python3 {#usrbinenv-python3}
-# System Performance Monitor {#system-performance-monitor}
+#!/usr/bin/env python3
+# System Performance Monitor
 import psutil
 import time
 import json
@@ -942,9 +942,9 @@ try:
 processes.append(proc.info)
 except (psutil.NoSuchProcess, psutil.AccessDenied):
 pass
-# Sort by CPU usage {#sort-by-cpu-usage}
+# Sort by CPU usage
 top_cpu = sorted(processes, key=lambda x: x['cpu_percent'] or 0, reverse=True)[:5]
-# Sort by memory usage {#sort-by-memory-usage}
+# Sort by memory usage
 top_memory = sorted(processes, key=lambda x: x['memory_percent'] or 0, reverse=True)[:5]
 return {
 'top_cpu_processes': top_cpu,
@@ -969,13 +969,13 @@ print(f"Starting system monitoring (interval: {interval}s)")
 while True:
 try:
 metrics = self.collect_all_metrics()
-# Print summary to console {#print-summary-to-console}
+# Print summary to console
 print(f"\n[{metrics['timestamp']}]")
 print(f"CPU: {metrics['cpu']['cpu_percent']:.1f}%")
 print(f"Memory: {metrics['memory']['memory']['percent']:.1f}%")
 print(f"Disk: {metrics['disk']['disk_usage']['percent']:.1f}%")
 print(f"Load: {metrics['cpu']['load_average']['1min']:.2f}")
-# Save to file {#save-to-file}
+# Save to file
 with open(output_file, 'a') as f:
 f.write(json.dumps(metrics) + '\n')
 time.sleep(interval)
@@ -987,44 +987,44 @@ print(f"Error collecting metrics: {e}")
 time.sleep(interval)
 if __name__ == "__main__":
 monitor = SystemMonitor()
-# Collect metrics once {#collect-metrics-once}
+# Collect metrics once
 metrics = monitor.collect_all_metrics()
 print(json.dumps(metrics, indent=2))
-# Start continuous monitoring {#start-continuous-monitoring}
-# monitor.monitor_continuous(interval=30) {#monitormonitor_continuousinterval30}
+# Start continuous monitoring
+# monitor.monitor_continuous(interval=30)
 ```
-### Alert System {#alert-system}
+### Alert System
 ```bash
-#!/bin/bash {#binbash}
-# System Alert Script {#system-alert-script}
-# Configuration {#configuration}
+#!/bin/bash
+# System Alert Script
+# Configuration
 EMAIL="admin@company.com"
 CPU_THRESHOLD=80
 MEMORY_THRESHOLD=85
 DISK_THRESHOLD=90
 LOAD_THRESHOLD=5.0
-# Function to send alert {#function-to-send-alert}
+# Function to send alert
 send_alert() {
 local subject="$1"
 local message="$2"
 echo "$message" | mail -s "$subject" "$EMAIL"
 logger "ALERT: $subject - $message"
 }
-# Check CPU usage {#check-cpu-usage}
+# Check CPU usage
 check_cpu() {
 local cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
 if (( $(echo "$cpu_usage > $CPU_THRESHOLD" | bc -l))); then
 send_alert "High CPU Usage" "CPU usage is ${cpu_usage}% (threshold: ${CPU_THRESHOLD}%)"
 fi
 }
-# Check memory usage {#check-memory-usage}
+# Check memory usage
 check_memory() {
 local memory_usage=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100.0}')
 if [ "$memory_usage" -gt "$MEMORY_THRESHOLD" ]; then
 send_alert "High Memory Usage" "Memory usage is ${memory_usage}% (threshold: ${MEMORY_THRESHOLD}%)"
 fi
 }
-# Check disk usage {#check-disk-usage}
+# Check disk usage
 check_disk() {
 while read -r line; do
 local usage=$(echo "$line" | awk '{print $5}' | cut -d'%' -f1)
@@ -1034,14 +1034,14 @@ send_alert "High Disk Usage" "Disk usage on $partition is ${usage}% (threshold: 
 fi
 done < <(df -h | grep -E '^/dev/')
 }
-# Check system load {#check-system-load}
+# Check system load
 check_load() {
 local load_1min=$(uptime | awk -F'load average:' '{print $2}' | awk -F',' '{print $1}' | xargs)
 if (( $(echo "$load_1min > $LOAD_THRESHOLD" | bc -l))); then
 send_alert "High System Load" "1-minute load average is $load_1min (threshold: $LOAD_THRESHOLD)"
 fi
 }
-# Check for failed services {#check-for-failed-services}
+# Check for failed services
 check_services() {
 local failed_services=$(systemctl --failed --no-legend | wc -l)
 if [ "$failed_services" -gt 0 ]; then
@@ -1049,14 +1049,14 @@ local services=$(systemctl --failed --no-legend | awk '{print $1}' | tr '\n' ' '
 send_alert "Failed Services" "$failed_services service(s) failed: $services"
 fi
 }
-# Check log errors {#check-log-errors}
+# Check log errors
 check_log_errors() {
 local error_count=$(journalctl --since "1 hour ago" --priority=err --no-pager -q | wc -l)
 if [ "$error_count" -gt 10 ]; then
 send_alert "High Error Rate" "$error_count errors in system logs in the last hour"
 fi
 }
-# Main monitoring function {#main-monitoring-function}
+# Main monitoring function
 run_checks() {
 echo "$(date): Running system checks..."
 check_cpu
@@ -1067,33 +1067,33 @@ check_services
 check_log_errors
 echo "$(date): System checks completed."
 }
-# Run checks {#run-checks}
+# Run checks
 run_checks
-# Add to crontab for regular monitoring: {#add-to-crontab-for-regular-monitoring}
-# */5 * * * * /usr/local/bin/system-alert.sh {#5-usrlocalbinsystem-alertsh}
+# Add to crontab for regular monitoring:
+# */5 * * * * /usr/local/bin/system-alert.sh
 ```
 ---
-## Process Management {#process-management}
-### Process Control and Monitoring {#process-control-and-monitoring}
+## Process Management
+### Process Control and Monitoring
 ```bash
-#!/bin/bash {#binbash}
-# Advanced Process Management {#advanced-process-management}
-# Process Information {#process-information}
+#!/bin/bash
+# Advanced Process Management
+# Process Information
 ps aux # All processes with details
 ps -ef # All processes (different format)
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu # Custom format, sorted by CPU
 ps -C process_name # Processes by name
 ps -u username # Processes by user
-# Process Tree {#process-tree}
+# Process Tree
 pstree # Process tree
 pstree -p # With PIDs
 pstree username # User's process tree
-# Finding Processes {#finding-processes}
+# Finding Processes
 pgrep -f "pattern" # Find processes by pattern
 pidof process_name # Get PID by process name
 which command # Find command location
 whereis command # Find command and manual
-# Process Signals {#process-signals}
+# Process Signals
 kill -l # List all signals
 kill -TERM PID # Graceful termination
 kill -KILL PID # Force kill
@@ -1101,57 +1101,57 @@ kill -HUP PID # Hangup (reload config)
 kill -USR1 PID # User-defined signal 1
 killall process_name # Kill all instances
 pkill -f "pattern" # Kill by pattern
-# Job Control {#job-control}
+# Job Control
 jobs # List active jobs
 bg %1 # Put job 1 in background
 fg %1 # Bring job 1 to foreground
 nohup command & # Run command immune to hangups
 screen -S session_name # Start screen session
 tmux new-session -s session_name # Start tmux session
-# Process Priority {#process-priority}
+# Process Priority
 nice -n 10 command # Start with lower priority
 renice 5 PID # Change priority of running process
 ionice -c 3 PID # Set I/O priority
-# System Resource Limits {#system-resource-limits}
+# System Resource Limits
 ulimit -a # Show all limits
 ulimit -n 4096 # Set file descriptor limit
 ulimit -u 1024 # Set process limit
 ulimit -f 1000000 # Set file size limit
-# Process Monitoring Tools {#process-monitoring-tools}
+# Process Monitoring Tools
 top # Real-time process monitor
 htop # Enhanced process monitor
 atop # Advanced system monitor
 iotop # I/O monitor
 iftop # Network monitor
 ```
-### Process Automation and Scheduling {#process-automation-and-scheduling}
+### Process Automation and Scheduling
 ```bash
-#!/bin/bash {#binbash}
-# Process Scheduling and Automation {#process-scheduling-and-automation}
-# Cron Jobs {#cron-jobs}
+#!/bin/bash
+# Process Scheduling and Automation
+# Cron Jobs
 crontab -l # List user's cron jobs
 crontab -e # Edit user's cron jobs
 crontab -r # Remove all cron jobs
 sudo crontab -l -u username # List another user's cron jobs
-# Cron Examples {#cron-examples}
-# Minute Hour Day Month DayOfWeek Command {#minute-hour-day-month-dayofweek-command}
-# 0 2 * * * /usr/local/bin/backup.sh # Daily at 2 AM {#0-2-usrlocalbinbackupsh-daily-at-2-am}
-# */15 * * * * /usr/local/bin/check-status.sh # Every 15 minutes {#15-usrlocalbincheck-statussh-every-15-minutes}
-# 0 0 1 * * /usr/local/bin/monthly-report.sh # Monthly on 1st {#0-0-1-usrlocalbinmonthly-reportsh-monthly-on-1st}
-# 0 9-17 * * 1-5 /usr/local/bin/business-hours.sh # Business hours {#0-9-17-1-5-usrlocalbinbusiness-hourssh-business-hours}
-# System-wide cron {#system-wide-cron}
+# Cron Examples
+# Minute Hour Day Month DayOfWeek Command
+# 0 2 * * * /usr/local/bin/backup.sh # Daily at 2 AM
+# */15 * * * * /usr/local/bin/check-status.sh # Every 15 minutes
+# 0 0 1 * * /usr/local/bin/monthly-report.sh # Monthly on 1st
+# 0 9-17 * * 1-5 /usr/local/bin/business-hours.sh # Business hours
+# System-wide cron
 cat /etc/crontab # System crontab
 ls /etc/cron.d/ # Additional cron files
 ls /etc/cron.daily/ # Daily scripts
 ls /etc/cron.weekly/ # Weekly scripts
 ls /etc/cron.monthly/ # Monthly scripts
-# At Command (one-time scheduling) {#at-command-one-time-scheduling}
+# At Command (one-time scheduling)
 at 14:30 # Schedule for 2:30 PM
 at now + 1 hour # Schedule for 1 hour from now
 at 2:30 tomorrow # Schedule for tomorrow
 atq # List scheduled jobs
 atrm job_number # Remove scheduled job
-# Systemd Timers (modern alternative to cron) {#systemd-timers-modern-alternative-to-cron}
+# Systemd Timers (modern alternative to cron)
 cat > /etc/systemd/system/backup.timer << EOF
 [Unit]
 Description=Daily Backup Timer
@@ -1175,10 +1175,10 @@ systemctl daemon-reload # Reload systemd
 systemctl enable backup.timer # Enable timer
 systemctl start backup.timer # Start timer
 systemctl list-timers # List all timers
-# Process Monitoring Script {#process-monitoring-script}
+# Process Monitoring Script
 cat > /usr/local/bin/process-monitor.sh << 'EOF'
-#!/bin/bash {#binbash}
-# Process Monitoring and Auto-restart {#process-monitoring-and-auto-restart}
+#!/bin/bash
+# Process Monitoring and Auto-restart
 PROCESS_NAME="$1"
 COMMAND="$2"
 LOG_FILE="/var/log/process-monitor.log"
@@ -1199,12 +1199,12 @@ sleep 60
 done
 EOF
 chmod +x /usr/local/bin/process-monitor.sh
-# Usage: /usr/local/bin/process-monitor.sh "nginx" "systemctl start nginx" {#usage-usrlocalbinprocess-monitorsh-nginx-systemctl-start-nginx}
+# Usage: /usr/local/bin/process-monitor.sh "nginx" "systemctl start nginx"
 ```
-### Process Performance Analysis {#process-performance-analysis}
+### Process Performance Analysis
 ```python
-#!/usr/bin/env python3 {#usrbinenv-python3}
-# Process Performance Analyzer {#process-performance-analyzer}
+#!/usr/bin/env python3
+# Process Performance Analyzer
 import psutil
 import time
 import argparse
@@ -1274,7 +1274,7 @@ print("\n--- Thread Count ---")
 print(f"Average: {sum(thread_values)/len(thread_values):5.1f}")
 print(f"Maximum: {max(thread_values):3d}")
 print(f"Minimum: {min(thread_values):3d}")
-# Detect anomalies {#detect-anomalies}
+# Detect anomalies
 cpu_avg = sum(cpu_values) / len(cpu_values)
 high_cpu_samples = [s for s in samples if s['cpu_percent'] > cpu_avg * 2]
 if high_cpu_samples:
@@ -1292,9 +1292,9 @@ info['cpu_percent'] = proc.cpu_percent()
 processes.append(info)
 except (psutil.NoSuchProcess, psutil.AccessDenied):
 pass
-# Sort by CPU usage {#sort-by-cpu-usage}
+# Sort by CPU usage
 cpu_sorted = sorted(processes, key=lambda x: x['cpu_percent'] or 0, reverse=True)
-# Sort by memory usage {#sort-by-memory-usage}
+# Sort by memory usage
 mem_sorted = sorted(processes, key=lambda x: x['memory_percent'] or 0, reverse=True)
 print("\n=== Top CPU Consumers ===")
 for i, proc in enumerate(cpu_sorted[:limit]):
@@ -1319,51 +1319,51 @@ else:
 print("Use --pid to monitor a specific process or --top to show resource consumers")
 ```
 ---
-## Storage Management {#storage-management}
-### ️ File System Management {#️-file-system-management}
+## Storage Management
+### ️ File System Management
 ```bash
-#!/bin/bash {#binbash}
-# Advanced Storage Management {#advanced-storage-management}
-# Disk Information {#disk-information}
+#!/bin/bash
+# Advanced Storage Management
+# Disk Information
 lsblk # List block devices
 blkid # Show UUIDs and labels
 fdisk -l # List disk partitions
 parted -l # Advanced partition info
 lshw -class disk # Hardware disk info
 smartctl -a /dev/sda # SMART disk health info
-# File System Operations {#file-system-operations}
+# File System Operations
 mkfs.ext4 /dev/sdb1 # Create ext4 filesystem
 mkfs.xfs /dev/sdb1 # Create XFS filesystem
 mkfs.btrfs /dev/sdb1 # Create Btrfs filesystem
 tune2fs -l /dev/sdb1 # Show ext2/3/4 info
 xfs_info /dev/sdb1 # Show XFS info
-# Mounting and Unmounting {#mounting-and-unmounting}
+# Mounting and Unmounting
 mount /dev/sdb1 /mnt/data # Mount filesystem
 umount /mnt/data # Unmount filesystem
 mount -o remount,ro /mnt/data # Remount read-only
 mount -a # Mount all in fstab
 findmnt # Show mounted filesystems
-# /etc/fstab Management {#etcfstab-management}
+# /etc/fstab Management
 cat >> /etc/fstab << EOF
-# Device Mount Point FS Type Options Dump Pass {#device-mount-point-fs-type-options-dump-pass}
+# Device Mount Point FS Type Options Dump Pass
 /dev/sdb1 /mnt/data ext4 defaults,noatime 0 2
 UUID=xxx-xxx /home ext4 defaults 0 2
 //server/share /mnt/smb cifs username=user,password=pass,uid=1000,gid=1000 0 0
 EOF
-# LVM (Logical Volume Management) {#lvm-logical-volume-management}
+# LVM (Logical Volume Management)
 pvcreate /dev/sdb1 /dev/sdc1 # Create physical volumes
 vgcreate vg_data /dev/sdb1 /dev/sdc1 # Create volume group
 lvcreate -L 100G -n lv_data vg_data # Create logical volume
 lvextend -L +50G /dev/vg_data/lv_data # Extend logical volume
 resize2fs /dev/vg_data/lv_data # Resize filesystem
-# LVM Information {#lvm-information}
+# LVM Information
 pvdisplay # Physical volume info
 vgdisplay # Volume group info
 lvdisplay # Logical volume info
 pvs # Physical volume summary
 vgs # Volume group summary
 lvs # Logical volume summary
-# RAID Management {#raid-management}
+# RAID Management
 mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
 mdadm --detail /dev/md0 # RAID array details
 cat /proc/mdstat # RAID status
@@ -1371,33 +1371,33 @@ mdadm --add /dev/md0 /dev/sdd1 # Add spare disk
 mdadm --fail /dev/md0 /dev/sdb1 # Mark disk as failed
 mdadm --remove /dev/md0 /dev/sdb1 # Remove failed disk
 ```
-### Storage Monitoring and Optimization {#storage-monitoring-and-optimization}
+### Storage Monitoring and Optimization
 ```bash
-#!/bin/bash {#binbash}
-# Storage Monitoring Script {#storage-monitoring-script}
-# Disk Usage Analysis {#disk-usage-analysis}
+#!/bin/bash
+# Storage Monitoring Script
+# Disk Usage Analysis
 df -h # Human-readable disk usage
 df -i # Inode usage
 du -sh /* # Directory sizes
 du -sh /var/log/* | sort -hr # Log file sizes
 ncdu / # Interactive disk usage
-# Find Large Files {#find-large-files}
+# Find Large Files
 find / -type f -size +100M 2>/dev/null | head -20 # Files >100MB
 find /var/log -name "*.log" -size +10M -mtime +7 # Large old logs
-# I/O Monitoring {#io-monitoring}
+# I/O Monitoring
 iostat -x 1 5 # Extended I/O statistics
 sar -d 1 10 # Disk activity
 iotop # I/O usage by process
 lsof | grep deleted # Deleted files still open
-# Storage Health Monitoring {#storage-health-monitoring}
+# Storage Health Monitoring
 smartctl -H /dev/sda # Quick health check
 smartctl -a /dev/sda # Detailed SMART info
 smartctl -t short /dev/sda # Run short self-test
 smartctl -l selftest /dev/sda # View test results
-# Automated Storage Cleanup {#automated-storage-cleanup}
+# Automated Storage Cleanup
 cat > /usr/local/bin/cleanup-storage.sh << 'EOF'
-#!/bin/bash {#binbash}
-# Automated Storage Cleanup {#automated-storage-cleanup}
+#!/bin/bash
+# Automated Storage Cleanup
 LOG_FILE="/var/log/cleanup.log"
 MAX_LOG_AGE=30
 MAX_TEMP_AGE=7
@@ -1406,17 +1406,17 @@ log_message() {
 echo "$(date): $1" | tee -a "$LOG_FILE"
 }
 log_message "Starting storage cleanup..."
-# Clean old log files {#clean-old-log-files}
+# Clean old log files
 find /var/log -name "*.log" -mtime +$MAX_LOG_AGE -exec rm -f {} \;
 log_message "Cleaned log files older than $MAX_LOG_AGE days"
-# Clean temporary files {#clean-temporary-files}
+# Clean temporary files
 find /tmp -type f -mtime +$MAX_TEMP_AGE -delete
 find /var/tmp -type f -mtime +$MAX_TEMP_AGE -delete
 log_message "Cleaned temporary files older than $MAX_TEMP_AGE days"
-# Clean package cache {#clean-package-cache}
+# Clean package cache
 apt-get clean 2>/dev/null || yum clean all 2>/dev/null
 log_message "Cleaned package cache"
-# Clean user cache if too large {#clean-user-cache-if-too-large}
+# Clean user cache if too large
 for user_home in /home/*; do
 if [ -d "$user_home/.cache" ]; then
 cache_size=$(du -s "$user_home/.cache" | cut -f1)
@@ -1426,27 +1426,27 @@ log_message "Cleaned cache for $(basename "$user_home")"
 fi
 fi
 done
-# Report disk usage {#report-disk-usage}
+# Report disk usage
 log_message "Current disk usage:"
 df -h | tee -a "$LOG_FILE"
 log_message "Storage cleanup completed"
 EOF
 chmod +x /usr/local/bin/cleanup-storage.sh
-# Schedule weekly cleanup {#schedule-weekly-cleanup}
+# Schedule weekly cleanup
 echo "0 2 * * 0 root /usr/local/bin/cleanup-storage.sh" >> /etc/crontab
 ```
 ---
-## Network Administration {#network-administration}
-### Network Configuration {#network-configuration}
+## Network Administration
+### Network Configuration
 ```bash
-#!/bin/bash {#binbash}
-# Network Configuration and Management {#network-configuration-and-management}
-# Network Interface Information {#network-interface-information}
+#!/bin/bash
+# Network Configuration and Management
+# Network Interface Information
 ip addr show # Show IP addresses
 ip link show # Show network interfaces
 ifconfig # Traditional interface config
 netstat -i # Interface statistics
-# Static IP Configuration (Ubuntu/Debian) {#static-ip-configuration-ubuntudebian}
+# Static IP Configuration (Ubuntu/Debian)
 cat > /etc/netplan/01-network.yaml << EOF
 network:
 version: 2
@@ -1462,24 +1462,24 @@ addresses:
 - 8.8.4.4
 EOF
 netplan apply # Apply network configuration
-# Network Interface Control {#network-interface-control}
+# Network Interface Control
 ip link set eth0 up # Bring interface up
 ip link set eth0 down # Bring interface down
 ifup eth0 # Bring interface up (traditional)
 ifdown eth0 # Bring interface down (traditional)
-# Routing Configuration {#routing-configuration}
+# Routing Configuration
 ip route show # Show routing table
 ip route add 192.168.2.0/24 via 192.168.1.1 # Add route
 ip route del 192.168.2.0/24 # Delete route
 route -n # Show routing table (traditional)
-# DNS Configuration {#dns-configuration}
+# DNS Configuration
 cat > /etc/resolv.conf << EOF
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 nameserver 1.1.1.1
 search company.local
 EOF
-# Network Testing {#network-testing}
+# Network Testing
 ping -c 4 google.com # Test connectivity
 traceroute google.com # Trace route
 mtr google.com # Network diagnostic tool
@@ -1489,20 +1489,20 @@ telnet server.com 80 # Test port connectivity
 nc -zv server.com 80 # Test port with netcat
 ```
 ---
-## System Automation {#system-automation}
-### Shell Scripting for Automation {#shell-scripting-for-automation}
+## System Automation
+### Shell Scripting for Automation
 ```bash
-#!/bin/bash {#binbash}
-# System Administration Automation Scripts {#system-administration-automation-scripts}
-# System Health Check Script {#system-health-check-script}
+#!/bin/bash
+# System Administration Automation Scripts
+# System Health Check Script
 cat > /usr/local/bin/system-health-check.sh << 'EOF'
-#!/bin/bash {#binbash}
-# Comprehensive System Health Check {#comprehensive-system-health-check}
+#!/bin/bash
+# Comprehensive System Health Check
 REPORT_FILE="/var/log/system-health-$(date +%Y%m%d).log"
 EMAIL="admin@company.com"
 CRITICAL_THRESHOLD=90
 WARNING_THRESHOLD=80
-# Colors for output {#colors-for-output}
+# Colors for output
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
@@ -1563,18 +1563,18 @@ done
 }
 check_security() {
 log_message "=== Security Check ==="
-# Check for failed login attempts {#check-for-failed-login-attempts}
+# Check for failed login attempts
 failed_logins=$(grep "Failed password" /var/log/auth.log | wc -l)
 if [ "$failed_logins" -gt 10 ]; then
 echo -e "${YELLOW}WARNING: $failed_logins failed login attempts found${NC}" | tee -a "$REPORT_FILE"
 fi
-# Check for root login attempts {#check-for-root-login-attempts}
+# Check for root login attempts
 root_attempts=$(grep "root" /var/log/auth.log | grep "Failed password" | wc -l)
 if [ "$root_attempts" -gt 0 ]; then
 echo -e "${RED}CRITICAL: $root_attempts failed root login attempts${NC}" | tee -a "$REPORT_FILE"
 fi
 }
-# Main execution {#main-execution}
+# Main execution
 log_message "Starting system health check..."
 check_disk_usage
 check_memory_usage
@@ -1582,16 +1582,16 @@ check_cpu_load
 check_services
 check_security
 log_message "System health check completed."
-# Email report if critical issues found {#email-report-if-critical-issues-found}
+# Email report if critical issues found
 if grep -q "CRITICAL" "$REPORT_FILE"; then
 mail -s "CRITICAL: System Health Alert - $(hostname)" "$EMAIL" < "$REPORT_FILE"
 fi
 EOF
 chmod +x /usr/local/bin/system-health-check.sh
-# User Management Automation {#user-management-automation}
+# User Management Automation
 cat > /usr/local/bin/user-management.sh << 'EOF'
-#!/bin/bash {#binbash}
-# Automated User Management {#automated-user-management}
+#!/bin/bash
+# Automated User Management
 create_user() {
 local username="$1"
 local full_name="$2"
@@ -1604,10 +1604,10 @@ useradd -m -c "$full_name" -s /bin/bash "$username"
 if [ -n "$groups" ]; then
 usermod -aG "$groups" "$username"
 fi
-# Generate random password {#generate-random-password}
+# Generate random password
 password=$(openssl rand -base64 12)
 echo "$username:$password" | chpasswd
-# Force password change on first login {#force-password-change-on-first-login}
+# Force password change on first login
 chage -d 0 "$username"
 echo "User $username created successfully"
 echo "Temporary password: $password"
@@ -1619,9 +1619,9 @@ if! id "$username" &>/dev/null; then
 echo "User $username does not exist"
 return 1
 fi
-# Lock the account {#lock-the-account}
+# Lock the account
 usermod -L "$username"
-# Expire the account {#expire-the-account}
+# Expire the account
 chage -E 0 "$username"
 echo "User $username has been deactivated"
 }
@@ -1630,7 +1630,7 @@ local days="${1:-90}"
 echo "Users inactive for more than $days days:"
 lastlog -b "$days" | grep -v "Never logged in" | tail -n +2
 }
-# Usage examples {#usage-examples}
+# Usage examples
 case "$1" in
 create)
 create_user "$2" "$3" "$4";;
@@ -1648,38 +1648,38 @@ EOF
 chmod +x /usr/local/bin/user-management.sh
 ```
 ---
-## ️ Cloud & Virtualization {#️-cloud-&-virtualization}
-### ️ Cloud Platform Management {#️-cloud-platform-management}
+## ️ Cloud & Virtualization
+### ️ Cloud Platform Management
 ```bash
-#!/bin/bash {#binbash}
-# Cloud Infrastructure Management {#cloud-infrastructure-management}
-# AWS CLI Examples {#aws-cli-examples}
-# EC2 Instance Management {#ec2-instance-management}
+#!/bin/bash
+# Cloud Infrastructure Management
+# AWS CLI Examples
+# EC2 Instance Management
 aws ec2 describe-instances # List all instances
 aws ec2 start-instances --instance-ids i-1234567890abcdef0
 aws ec2 stop-instances --instance-ids i-1234567890abcdef0
 aws ec2 create-image --instance-id i-1234567890abcdef0 --name "MyImage"
-# S3 Bucket Management {#s3-bucket-management}
+# S3 Bucket Management
 aws s3 ls # List buckets
 aws s3 sync /local/path s3://bucket-name/ # Sync to S3
 aws s3 cp file.txt s3://bucket-name/ # Copy file to S3
-# Azure CLI Examples {#azure-cli-examples}
-# Virtual Machine Management {#virtual-machine-management}
+# Azure CLI Examples
+# Virtual Machine Management
 az vm list # List VMs
 az vm start --resource-group myRG --name myVM
 az vm stop --resource-group myRG --name myVM
 az vm create --resource-group myRG --name myVM --image UbuntuLTS
-# Google Cloud Examples {#google-cloud-examples}
-# Compute Engine {#compute-engine}
+# Google Cloud Examples
+# Compute Engine
 gcloud compute instances list # List instances
 gcloud compute instances start myinstance
 gcloud compute instances stop myinstance
 ```
-### ️ Virtualization with Docker {#️-virtualization-with-docker}
+### ️ Virtualization with Docker
 ```bash
-#!/bin/bash {#binbash}
-# Docker Container Management {#docker-container-management}
-# Container Lifecycle {#container-lifecycle}
+#!/bin/bash
+# Docker Container Management
+# Container Lifecycle
 docker run -d --name webserver nginx # Run container
 docker ps # List running containers
 docker ps -a # List all containers
@@ -1687,12 +1687,12 @@ docker stop webserver # Stop container
 docker start webserver # Start container
 docker restart webserver # Restart container
 docker rm webserver # Remove container
-# Image Management {#image-management}
+# Image Management
 docker images # List images
 docker pull nginx:latest # Pull image
 docker build -t myapp. # Build image
 docker rmi nginx:latest # Remove image
-# Docker Compose Example {#docker-compose-example}
+# Docker Compose Example
 cat > docker-compose.yml << EOF
 version: '3.8'
 services:
@@ -1717,14 +1717,14 @@ docker-compose down # Stop services
 docker-compose logs # View logs
 ```
 ---
-## ️ Backup & Disaster Recovery {#️-backup-&-disaster-recovery}
-### Backup Strategies {#backup-strategies}
+## ️ Backup & Disaster Recovery
+### Backup Strategies
 ```bash
-#!/bin/bash {#binbash}
-# Comprehensive Backup Script {#comprehensive-backup-script}
+#!/bin/bash
+# Comprehensive Backup Script
 cat > /usr/local/bin/backup-system.sh << 'EOF'
-#!/bin/bash {#binbash}
-# System Backup Script {#system-backup-script}
+#!/bin/bash
+# System Backup Script
 BACKUP_DIR="/backup"
 DATE=$(date +%Y%m%d_%H%M%S)
 LOG_FILE="/var/log/backup.log"
@@ -1733,59 +1733,59 @@ EMAIL="admin@company.com"
 log_message() {
 echo "$(date): $1" | tee -a "$LOG_FILE"
 }
-# Create backup directory {#create-backup-directory}
+# Create backup directory
 mkdir -p "$BACKUP_DIR/$DATE"
 log_message "Starting backup process..."
-# System configuration backup {#system-configuration-backup}
+# System configuration backup
 log_message "Backing up system configuration..."
 tar -czf "$BACKUP_DIR/$DATE/system-config.tar.gz" \
 /etc \
 /usr/local/bin \
 /var/spool/cron \
 2>/dev/null
-# Database backup (MySQL) {#database-backup-mysql}
+# Database backup (MySQL)
 if command -v mysqldump >/dev/null; then
 log_message "Backing up MySQL databases..."
 mysqldump --all-databases --single-transaction --routines --triggers \
 > "$BACKUP_DIR/$DATE/mysql-all-databases.sql"
 fi
-# Database backup (PostgreSQL) {#database-backup-postgresql}
+# Database backup (PostgreSQL)
 if command -v pg_dumpall >/dev/null; then
 log_message "Backing up PostgreSQL databases..."
 sudo -u postgres pg_dumpall > "$BACKUP_DIR/$DATE/postgresql-all-databases.sql"
 fi
-# User data backup {#user-data-backup}
+# User data backup
 log_message "Backing up user data..."
 tar -czf "$BACKUP_DIR/$DATE/home-directories.tar.gz" /home 2>/dev/null
-# Web server data backup {#web-server-data-backup}
+# Web server data backup
 if [ -d "/var/www" ]; then
 log_message "Backing up web server data..."
 tar -czf "$BACKUP_DIR/$DATE/www-data.tar.gz" /var/www 2>/dev/null
 fi
-# Log files backup {#log-files-backup}
+# Log files backup
 log_message "Backing up log files..."
 tar -czf "$BACKUP_DIR/$DATE/log-files.tar.gz" /var/log 2>/dev/null
-# Create backup manifest {#create-backup-manifest}
+# Create backup manifest
 log_message "Creating backup manifest..."
 find "$BACKUP_DIR/$DATE" -type f -exec ls -lh {} \; > "$BACKUP_DIR/$DATE/manifest.txt"
-# Calculate backup size {#calculate-backup-size}
+# Calculate backup size
 backup_size=$(du -sh "$BACKUP_DIR/$DATE" | cut -f1)
 log_message "Backup completed. Size: $backup_size"
-# Clean old backups {#clean-old-backups}
+# Clean old backups
 log_message "Cleaning backups older than $RETENTION_DAYS days..."
 find "$BACKUP_DIR" -maxdepth 1 -type d -mtime +$RETENTION_DAYS -exec rm -rf {} \;
-# Send notification {#send-notification}
+# Send notification
 echo "Backup completed successfully on $(hostname) at $(date)" | \
 mail -s "Backup Report - $(hostname)" "$EMAIL"
 log_message "Backup process completed successfully"
 EOF
 chmod +x /usr/local/bin/backup-system.sh
-# Schedule daily backups {#schedule-daily-backups}
+# Schedule daily backups
 echo "0 2 * * * root /usr/local/bin/backup-system.sh" >> /etc/crontab
 ```
 ---
-## Best Practices {#best-practices}
-### System Administration Best Practices {#system-administration-best-practices}
+## Best Practices
+### System Administration Best Practices
 ```python
 class SystemAdminBestPractices:
 def __init__(self):
@@ -1844,8 +1844,8 @@ self.automation_practices = [
 ]
 ```
 ---
-## Practice Projects {#practice-projects}
-### ️ Hands-on Projects {#️-hands-on-projects}
+## Practice Projects
+### ️ Hands-on Projects
 ```python
 class SystemAdminProjects:
 def __init__(self):
@@ -1918,8 +1918,8 @@ self.advanced_projects = {
 }
 ```
 ---
-## Next Steps {#next-steps}
-### Career Development Path {#career-development-path}
+## Next Steps
+### Career Development Path
 ```python
 class SystemAdminCareerPath:
 def __init__(self):
