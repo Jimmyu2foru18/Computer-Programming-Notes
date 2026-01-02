@@ -1622,3 +1622,5 @@ return ResponseEntity.status(HttpStatus.CREATED).body(new UserResponse(user));
 #### Communities
 
 - **Stack Overflow**: Q&A and problem solving
+
+@Th3viousGameus
