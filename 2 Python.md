@@ -1,19 +1,6 @@
 # Python:  Learning Guide 
 
 ---
-## Table of Contents
-1. [Getting Started]
-2. [Variables & Data Types]
-3. [Control Flow]
-4. [Data Structures]
-5. [Functions]
-6. [Modules & Packages]
-7. [️ Object-Oriented Programming]
-8. [Advanced Topics]
-9. [️ Best Practices]
-10. [Practice Projects]
-
----
 ## Getting Started
 ### What is Python? 
 Python is a **high-level**, **interpreted** programming language known for its:
@@ -837,4 +824,5 @@ main()
 ---
 
 @Th3viousGameus
+
 
