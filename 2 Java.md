@@ -24,11 +24,11 @@ Java is a **high-level**, **object-oriented** programming language designed for 
 - **Multithreading**: Concurrent programming support
 ### Setting Up Java
 ```bash
-# Check if Java is installed {#check-if-java-is-installed}
+# Check if Java is installed 
 java -version
 javac -version
-# Download from Oracle or use OpenJDK {#download-from-oracle-or-use-openjdk}
-# Set JAVA_HOME environment variable {#set-java_home-environment-variable}
+# Download from Oracle or use OpenJDK 
+# Set JAVA_HOME environment variable
 ```
 ### Your First Java Program
 ```java
