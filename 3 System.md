@@ -1,6 +1,6 @@
 # ️ System Administration & Operating Systems:
 ---
-## Table of Contents {#table-of-contents}
+## Table of Contents
 1. [Introduction](#introduction)
 2. [Operating System Fundamentals](#operating-system-fundamentals)
 3. [Linux System Administration](#linux-system-administration)
@@ -1990,4 +1990,5 @@ self.learning_resources = {
 ---
 
 @Th3viousGameus
+
 
