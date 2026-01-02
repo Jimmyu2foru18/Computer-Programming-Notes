@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if marked.js is loaded properly
+    if (typeof marked === 'undefined') {
+        console.error('marked.js library is not loaded');
+        document.getElementById('markdown-content').innerHTML = '<div class="error">Error: Markdown parser library not loaded</div>';
+        return;
+    }
+    
+    // Check if marked.parse is available
+    if (typeof marked.parse !== 'function') {
+        console.error('marked.parse is not a function');
+        document.getElementById('markdown-content').innerHTML = '<div class="error">Error: Markdown parser function not available</div>';
+        return;
+    }
+    
+    // Log marked.js version and info
+    console.log('marked.js loaded:', typeof marked);
+    console.log('marked.parse available:', typeof marked.parse);
+    console.log('marked version:', marked.version || 'unknown');
+    
     // Define the sections and their corresponding files in the specified order
     const sections = [
+        {
+            name: 'Data Structures & Algorithms',
+            files: ['1.0 DSA_Guide.md']
+        },
         {
             name: 'Python',
             files: ['1.0 Python.md', '2 Python.md']
@@ -62,6 +85,188 @@ document.addEventListener('DOMContentLoaded', function() {
     // If you want to start with a specific file, uncomment and modify this line
     // loadMarkdownFile(sections[0].files[0]);
 });
+
+/**
+ * Alternative PDF generation using a more robust method
+ * Creates a proper HTML document for PDF generation
+ */
+function generatePDFFallback() {
+    const contentDiv = document.getElementById('markdown-content');
+    
+    // Check if content is loaded
+    if (!contentDiv || contentDiv.children.length === 0 || contentDiv.querySelector('.welcome-message')) {
+        alert('Please load a document before generating a PDF.');
+        return;
+    }
+    
+    const currentFile = contentDiv.getAttribute('data-current-file') || 'document';
+    const fileName = currentFile.replace(/\.md$/, '.pdf');
+    
+    console.log('Using fallback PDF generation for:', currentFile);
+    
+    // Create a proper HTML document for PDF generation
+    const pdfContent = document.createElement('div');
+    pdfContent.style.cssText = `
+        width: 794px;
+        min-height: 1123px;
+        background: white;
+        color: black;
+        padding: 50px;
+        font-family: Arial, sans-serif;
+        font-size: 12pt;
+        line-height: 1.6;
+        box-sizing: border-box;
+    `;
+    
+    // Clone the content (without TOC)
+    const contentClone = contentDiv.cloneNode(true);
+    const pageTOC = contentClone.querySelector('.page-toc');
+    if (pageTOC) {
+        contentClone.removeChild(pageTOC);
+    }
+    
+    // Fix any styling issues
+    const allElements = contentClone.querySelectorAll('*');
+    allElements.forEach(el => {
+        if (el.style) {
+            el.style.display = '';
+            el.style.visibility = 'visible';
+            el.style.opacity = '1';
+            el.style.backgroundColor = '';
+            el.style.color = '';
+        }
+    });
+    
+    pdfContent.innerHTML = contentClone.innerHTML;
+    
+    // Create a complete HTML document
+    const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>${currentFile}</title>
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    font-size: 12pt;
+                    line-height: 1.6;
+                    color: #000;
+                    background: #fff;
+                }
+                h1, h2, h3, h4, h5, h6 {
+                    color: #000;
+                    margin: 20px 0 10px 0;
+                    page-break-after: avoid;
+                }
+                h1 { font-size: 24pt; }
+                h2 { font-size: 20pt; }
+                h3 { font-size: 16pt; }
+                pre, code {
+                    background: #f5f5f5;
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    font-family: 'Courier New', monospace;
+                    font-size: 10pt;
+                    page-break-inside: avoid;
+                }
+                pre { margin: 15px 0; }
+                code { padding: 2px 4px; }
+                a { color: #0066cc; text-decoration: underline; }
+                ul, ol { margin: 10px 0; padding-left: 30px; }
+                li { margin: 5px 0; }
+                p { margin: 10px 0; }
+                blockquote {
+                    border-left: 4px solid #ddd;
+                    margin: 15px 0;
+                    padding-left: 20px;
+                    color: #555;
+                }
+                img { max-width: 100%; height: auto; }
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin: 15px 0;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    text-align: left;
+                }
+                th {
+                    background: #f5f5f5;
+                    font-weight: bold;
+                }
+                .page-break { page-break-before: always; }
+                .no-break { page-break-inside: avoid; }
+            </style>
+        </head>
+        <body>
+            ${pdfContent.innerHTML}
+        </body>
+        </html>
+    `;
+    
+    // Create a blob and download link
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    
+    // Create a temporary iframe to render the HTML for PDF generation
+    const iframe = document.createElement('iframe');
+    iframe.style.position = 'absolute';
+    iframe.style.left = '-9999px';
+    iframe.style.top = '-9999px';
+    iframe.style.width = '794px';
+    iframe.style.height = '1123px';
+    
+    document.body.appendChild(iframe);
+    
+    iframe.onload = function() {
+        try {
+            // Use html2pdf on the iframe content
+            html2pdf()
+                .set({
+                    margin: 20,
+                    filename: fileName,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { 
+                        scale: 1,
+                        width: 794,
+                        height: 1123,
+                        windowWidth: 794,
+                        backgroundColor: '#ffffff'
+                    },
+                    jsPDF: { 
+                        unit: 'px', 
+                        format: [794, 1123], 
+                        orientation: 'portrait' 
+                    }
+                })
+                .from(iframe.contentDocument.body)
+                .save()
+                .then(() => {
+                    console.log('PDF generated successfully using fallback method');
+                    document.body.removeChild(iframe);
+                    URL.revokeObjectURL(url);
+                })
+                .catch(error => {
+                    console.error('Error with fallback PDF generation:', error);
+                    document.body.removeChild(iframe);
+                    URL.revokeObjectURL(url);
+                    alert('Error generating PDF: ' + error.message);
+                });
+        } catch (error) {
+            console.error('Error in iframe onload:', error);
+            document.body.removeChild(iframe);
+            URL.revokeObjectURL(url);
+            alert('Error generating PDF: ' + error.message);
+        }
+    };
+    
+    iframe.srcdoc = htmlContent;
+}
 
 /**
  * Generates the table of contents based on the sections array
@@ -181,6 +386,58 @@ function getPageName(fileName) {
 }
 
 /**
+ * Fallback markdown to HTML converter when marked.js fails
+ * @param {string} markdown - The markdown text to convert
+ * @returns {string} - The converted HTML
+ */
+function fallbackMarkdownToHtml(markdown) {
+    if (typeof markdown !== 'string') {
+        console.error('fallbackMarkdownToHtml received non-string input:', typeof markdown);
+        return '<div class="error">Invalid content type</div>';
+    }
+    
+    try {
+        let html = markdown;
+        
+        // Convert headers
+        html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+        html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+        html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+        
+        // Convert bold and italic
+        html = html.replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>');
+        html = html.replace(/\*(.*)\*/gim, '<em>$1</em>');
+        
+        // Convert code blocks
+        html = html.replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>');
+        html = html.replace(/`([^`]+)`/gim, '<code>$1</code>');
+        
+        // Convert links
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>');
+        
+        // Convert lists
+        html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+        
+        // Convert paragraphs
+        html = html.replace(/\n\n/gim, '</p><p>');
+        html = '<p>' + html + '</p>';
+        
+        // Clean up extra tags
+        html = html.replace(/<p><\/p>/gim, '');
+        html = html.replace(/<p>(<h[1-6]>)/gim, '$1');
+        html = html.replace(/(<\/h[1-6]>)<\/p>/gim, '$1');
+        html = html.replace(/<p>(<pre>)/gim, '$1');
+        html = html.replace(/(<\/pre>)<\/p>/gim, '$1');
+        
+        return html;
+    } catch (error) {
+        console.error('Fallback markdown conversion failed:', error);
+        return '<div class="error">Content conversion failed: ' + error.message + '</div>';
+    }
+}
+
+/**
  * Generates a page-specific table of contents from headings
  * @param {HTMLElement} contentDiv - The content div containing the parsed markdown
  */
@@ -248,10 +505,10 @@ function removeEmojis(text) {
 }
 
 /**
- * Loads and displays a markdown file
+ * Alternative markdown loader that bypasses marked.js completely
  * @param {string} fileName - The name of the markdown file to load
  */
-function loadMarkdownFile(fileName) {
+function loadMarkdownFileDirect(fileName) {
     const contentDiv = document.getElementById('markdown-content');
     const loadingElement = document.getElementById('loading-content');
     
@@ -262,6 +519,8 @@ function loadMarkdownFile(fileName) {
     // Properly encode the file name to handle special characters
     const encodedFileName = encodeURIComponent(fileName);
     
+    console.log('Using direct markdown loader for:', fileName);
+    
     // Fetch the markdown file
     fetch(encodedFileName)
         .then(response => {
@@ -270,16 +529,112 @@ function loadMarkdownFile(fileName) {
             }
             return response.text();
         })
+        .then(text => {
+            // Validate that we got text and not something else
+            if (typeof text !== 'string') {
+                throw new Error(`Expected text content but got ${typeof text}`);
+            }
+            if (text.trim() === '') {
+                throw new Error('Empty content received');
+            }
+            
+            // Remove emojis from the markdown content
+            const cleanedText = removeEmojis(text);
+            
+            // Use fallback converter directly
+            const html = fallbackMarkdownToHtml(cleanedText);
+            
+            // Store the current file name as a data attribute for PDF generation
+            contentDiv.setAttribute('data-current-file', fileName);
+            
+            // Display the HTML content
+            contentDiv.innerHTML = html;
+            
+            // Generate page-specific table of contents
+            generatePageTOC(contentDiv);
+            
+            // Hide loading indicator and show content
+            loadingElement.style.display = 'none';
+            contentDiv.style.display = 'block';
+            
+            // Scroll to top of content
+            contentDiv.scrollTop = 0;
+        })
+        .catch(error => {
+            console.error('Error with direct markdown loader:', error);
+            contentDiv.innerHTML = `<div class="error">Error loading content: ${error.message}</div>`;
+            contentDiv.style.display = 'block';
+            loadingElement.style.display = 'none';
+        });
+}
+
+/**
+ * Loads and displays a markdown file
+ * @param {string} fileName - The name of the markdown file to load
+ */
+function loadMarkdownFile(fileName) {
+    const contentDiv = document.getElementById('markdown-content');
+    const loadingElement = document.getElementById('loading-content');
+    
+    // Debug mode - set to true for detailed logging
+    const DEBUG_MODE = true;
+    
+    // Show loading indicator
+    contentDiv.style.display = 'none';
+    loadingElement.style.display = 'block';
+    
+    // Properly encode the file name to handle special characters
+    const encodedFileName = encodeURIComponent(fileName);
+    
+    if (DEBUG_MODE) {
+        console.log('Loading markdown file:', fileName);
+        console.log('Encoded filename:', encodedFileName);
+    }
+    
+    // Fetch the markdown file
+    fetch(encodedFileName)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load ${fileName}: ${response.status} ${response.statusText}`);
+            }
+            // Ensure we're getting text content
+            const contentType = response.headers.get('content-type');
+            if (contentType && !contentType.includes('text/plain') && !contentType.includes('text/markdown')) {
+                console.warn('Unexpected content type:', contentType);
+            }
+            return response.text();
+        })
+        .then(text => {
+            // Validate that we got text and not something else
+            if (typeof text !== 'string') {
+                throw new Error(`Expected text content but got ${typeof text}`);
+            }
+            if (text.trim() === '') {
+                throw new Error('Empty content received');
+            }
+            return text;
+        })
         .then(markdown => {
             // Remove emojis from the markdown content
             markdown = removeEmojis(markdown);
             
+            // Debug: Check if markdown is valid
+            console.log('Markdown content type:', typeof markdown);
+            console.log('Markdown content preview:', markdown.substring(0, 100));
+            console.log('Markdown content length:', markdown.length);
+            
+            // Check if content contains [object Object] pattern
+            if (markdown.includes('[object Object]')) {
+                console.error('Markdown content contains [object Object] - this indicates a parsing issue');
+                throw new Error('Invalid markdown content detected');
+            }
+            
             // Configure marked.js renderer to handle IDs properly
             const renderer = new marked.Renderer();
             
-            // Override the heading renderer to hide ID attributes
+            // Override the heading renderer to handle IDs properly
             renderer.heading = function(text, level) {
-                // Make sure text is a string
+                // Make sure text is a string and not an object
                 if (typeof text !== 'string') {
                     console.warn('Heading text is not a string:', text);
                     text = String(text || '');
@@ -295,13 +650,71 @@ function loadMarkdownFile(fileName) {
             };
             
             // Parse the markdown to HTML using marked.js with custom renderer
-            const html = marked.parse(markdown, { renderer: renderer });
+            // Ensure markdown is a string and handle any potential parsing issues
+            const markdownString = String(markdown || '');
+            let html;
+            
+            try {
+                // Configure marked.js options for better compatibility
+                const markedOptions = {
+                    renderer: renderer,
+                    breaks: true,
+                    gfm: true,
+                    headerIds: true,
+                    mangle: false,
+                    sanitize: false
+                };
+                
+                // Try to parse with marked.js
+                let parsedHtml = marked.parse(markdownString, markedOptions);
+                
+                // Validate that html is not [object Object] or invalid
+                if (parsedHtml === '[object Object]' || typeof parsedHtml !== 'string') {
+                    console.error('Marked.js returned invalid HTML:', parsedHtml);
+                    throw new Error('Markdown parser returned invalid content');
+                }
+                
+                // Check if the parsed HTML contains [object Object] pattern
+                if (parsedHtml.includes('[object Object]')) {
+                    console.error('Parsed HTML contains [object Object] pattern');
+                    throw new Error('Markdown parsing produced invalid content');
+                }
+                
+                html = parsedHtml;
+            } catch (error) {
+                console.error('Error parsing markdown with marked.js:', error);
+                
+                // If marked.js fails completely, switch to direct loader
+                if (error.message.includes('Markdown parser returned invalid content') || 
+                    error.message.includes('Markdown parsing produced invalid content')) {
+                    console.log('Switching to direct markdown loader...');
+                    loadMarkdownFileDirect(fileName);
+                    return; // Exit this function to prevent double execution
+                }
+                
+                // Use the comprehensive fallback function
+                html = fallbackMarkdownToHtml(markdownString);
+                
+                // If fallback also fails, show error
+                if (html.includes('Content conversion failed')) {
+                    html = `<div class="error">Unable to display content: ${error.message}</div>`;
+                }
+            }
             
             // Store the current file name as a data attribute for PDF generation
             contentDiv.setAttribute('data-current-file', fileName);
             
             // Display the HTML content
-            contentDiv.innerHTML = html;
+            console.log('Final HTML content type:', typeof html);
+            console.log('Final HTML content preview:', html.substring(0, 200));
+            
+            // Additional validation before setting innerHTML
+            if (html === '[object Object]' || typeof html !== 'string') {
+                console.error('Attempting to set [object Object] as HTML content');
+                contentDiv.innerHTML = '<div class="error">Critical Error: Invalid content format detected</div>';
+            } else {
+                contentDiv.innerHTML = html;
+            }
             
             // Generate page-specific table of contents
             generatePageTOC(contentDiv);
@@ -323,7 +736,16 @@ function loadMarkdownFile(fileName) {
         })
         .catch(error => {
             console.error('Error loading markdown file:', error);
-            contentDiv.innerHTML = `<div class="error">Error loading content: ${error.message}</div>`;
+            
+            // Comprehensive error handling
+            let errorMessage = 'Error loading content: ' + error.message;
+            
+            // Check if this is the [object Object] error
+            if (error.message.includes('[object Object]') || error.message.includes('Invalid content')) {
+                errorMessage = 'Content parsing error: The markdown file could not be properly processed. Please check the file format.';
+            }
+            
+            contentDiv.innerHTML = `<div class="error">${errorMessage}</div>`;
             contentDiv.style.display = 'block';
             loadingElement.style.display = 'none';
         });
@@ -344,6 +766,9 @@ function generatePDF() {
     const currentFile = contentDiv.getAttribute('data-current-file') || 'document';
     const fileName = currentFile.replace(/\.md$/, '.pdf');
     
+    console.log('Generating PDF for file:', currentFile);
+    console.log('Content div innerHTML:', contentDiv.innerHTML);
+    
     // Create a clone of the content to avoid modifying the displayed content
     const contentClone = contentDiv.cloneNode(true);
     
@@ -359,16 +784,51 @@ function generatePDF() {
         if (el.style) {
             el.style.display = '';
             el.style.visibility = 'visible';
+            el.style.opacity = '1';
         }
     });
     
-    // Configure PDF options
+    // Ensure the clone itself is visible and has proper styling for PDF
+    contentClone.style.display = 'block';
+    contentClone.style.visibility = 'visible';
+    contentClone.style.opacity = '1';
+    contentClone.style.position = 'relative';
+    contentClone.style.width = '100%';
+    contentClone.style.maxWidth = 'none';
+    contentClone.style.margin = '0';
+    contentClone.style.padding = '20px';
+    contentClone.style.backgroundColor = 'white';
+    contentClone.style.color = 'black';
+    
+    // Add to body temporarily for debugging
+    contentClone.style.position = 'absolute';
+    contentClone.style.left = '-9999px';
+    contentClone.style.top = '-9999px';
+    document.body.appendChild(contentClone);
+    
+    console.log('Content clone appended to body for debugging');
+    console.log('Clone dimensions:', contentClone.offsetWidth, 'x', contentClone.offsetHeight);
+    
+    // Configure PDF options with better settings
     const options = {
-        margin: [10, 10, 10, 10],
+        margin: [15, 15, 15, 15],
         filename: fileName,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, logging: true, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: { 
+            scale: 1, 
+            logging: true, 
+            useCORS: true,
+            backgroundColor: '#ffffff',
+            width: 794, // A4 width in pixels at 96 DPI
+            height: 1123, // A4 height in pixels at 96 DPI
+            windowWidth: 794
+        },
+        jsPDF: { 
+            unit: 'px', 
+            format: [794, 1123], // A4 size in pixels
+            orientation: 'portrait',
+            compress: true
+        }
     };
     
     // Show a loading message
@@ -377,18 +837,32 @@ function generatePDF() {
     savingMessage.textContent = 'Generating PDF...';
     document.body.appendChild(savingMessage);
     
-    // Generate the PDF
+    // Generate the PDF with better error handling
     html2pdf()
         .set(options)
         .from(contentClone)
+        .toPdf()
+        .get('pdf')
+        .then(function (pdf) {
+            console.log('PDF object created successfully');
+            console.log('PDF has', pdf.internal.getNumberOfPages(), 'pages');
+        })
         .save()
         .then(() => {
-            // Remove the loading message when done
+            console.log('PDF saved successfully');
+            // Remove the temporary clone and loading message
+            document.body.removeChild(contentClone);
             document.body.removeChild(savingMessage);
         })
         .catch(error => {
             console.error('Error generating PDF:', error);
+            console.error('Error stack:', error.stack);
+            // Remove the temporary clone and loading message
+            document.body.removeChild(contentClone);
             document.body.removeChild(savingMessage);
-            alert('Error generating PDF: ' + error.message);
+            
+            // Try the fallback method
+            console.log('Trying fallback PDF generation method...');
+            generatePDFFallback();
         });
 }
