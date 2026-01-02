@@ -1,24 +1,6 @@
 # The OSI Model: Learning Guide 
+---
 
----
-## Table of Contents
-1. [Introduction](#introduction)
-2. [️ OSI Model Overview](#osi-model-overview)
-3. [Layer 1: Physical Layer](#layer-1-physical-layer)
-4. [Layer 2: Data Link Layer](#layer-2-data-link-layer)
-5. [Layer 3: Network Layer](#layer-3-network-layer)
-6. [Layer 4: Transport Layer](#layer-4-transport-layer)
-7. [Layer 5: Session Layer](#layer-5-session-layer)
-8. [Layer 6: Presentation Layer](#layer-6-presentation-layer)
-9. [Layer 7: Application Layer](#layer-7-application-layer)
-10. [Troubleshooting with OSI](#troubleshooting-with-osi)
-11. [Real-World Applications](#real-world-applications)
-12. [️ Security Considerations](#security-considerations)
-13. [Performance Optimization](#performance-optimization)
-14. [Best Practices](#best-practices)
-15. [Practice Projects](#practice-projects)
-16. [Next Steps](#next-steps)
----
 ## Introduction
 The **OSI (Open Systems Interconnection) Model** is the foundation of modern networking. Created by the International Organization for Standardization (ISO), it provides a conceptual framework that standardizes network communication into seven distinct layers.
 
@@ -71,7 +53,7 @@ Physical → Data Link → Network → Transport → Session → Presentation �
 ### Primary Functions
 The Physical Layer handles the **actual transmission of raw bits** over a physical medium.
 
-#### Key Responsibilities
+### Key Responsibilities
 - **Bit Transmission**: Converting data bits into electrical, optical, or radio signals
 - **Physical Medium**: Defining cable types, connectors, and transmission methods
 - **Signal Encoding**: Converting digital data into analog signals
@@ -79,7 +61,7 @@ The Physical Layer handles the **actual transmission of raw bits** over a physic
 - **Topology**: Physical arrangement of network devices
 
 ### ️ Technologies and Standards
-#### Transmission Media
+### Transmission Media
 ```
 Copper Cables:
 • Cat5e: 100 Mbps, 100m max distance
@@ -95,7 +77,7 @@ Wireless:
 • Bluetooth 5.0: 2 Mbps, 240m range
 • 5G: Up to 20 Gbps theoretical
 ```
-#### Encoding Schemes
+### Encoding Schemes
 ```python
 # Manchester Encoding Example 
 def manchester_encode(data_bit):
@@ -138,14 +120,14 @@ Ring Topology:
 ## Layer 2: Data Link Layer
 ### Primary Functions
 The Data Link Layer provides **error-free transmission** between directly connected nodes.
-#### Key Responsibilities
+### Key Responsibilities
 - **Framing**: Organizing bits into frames with headers and trailers
 - **MAC Addressing**: Physical addressing using MAC addresses
 - **Error Detection**: Identifying transmission errors
 - **Flow Control**: Managing data transmission rate
 - **Media Access Control**: Determining medium access rights
 ### ️ Sublayers
-#### LLC (Logical Link Control)
+### LLC (Logical Link Control)
 ```
 Functions:
 Error control and recovery
@@ -154,7 +136,7 @@ Interface with Network Layer
 Protocol multiplexing
 Standard: IEEE 802.2
 ```
-#### MAC (Media Access Control)
+### MAC (Media Access Control)
 ```
 Functions:
 Physical addressing (MAC addresses)
@@ -184,7 +166,7 @@ print(f"Manufacturer: {mac_info['oui']}")
 print(f"Device ID: {mac_info['nic_specific']}")
 ```
 ### Frame Structure
-#### Ethernet Frame Format 
+### Ethernet Frame Format 
 ```
 +------------------+------------------+----------+----------+-----+
 | Destination MAC | Source MAC |Type/Len | Data | FCS |
@@ -198,7 +180,7 @@ Fields:
 • FCS: Frame Check Sequence (CRC-32)
 ```
 ### Access Control Methods
-#### CSMA/CD (Ethernet)
+### CSMA/CD (Ethernet)
 ```python
 def csma_cd_algorithm():
 """
@@ -215,7 +197,7 @@ steps = [
 ]
 return steps
 ```
-#### CSMA/CA (Wi-Fi)
+### CSMA/CA (Wi-Fi)
 ```python
 def csma_ca_algorithm():
 """
@@ -244,7 +226,7 @@ return steps
 ### Primary Functions
 The Network Layer handles **routing between different networks** using logical addressing.
 
-#### Key Responsibilities 
+### Key Responsibilities 
 - **Logical Addressing**: IP addressing for global identification
 - **Routing**: Path determination across multiple networks
 - **Packet Forwarding**: Moving packets toward destination
@@ -252,7 +234,7 @@ The Network Layer handles **routing between different networks** using logical a
 - **Path Selection**: Choosing optimal routes
 
 ### ️ IP Addressing
-#### IPv4 Addressing
+### IPv4 Addressing
 ```python
 # IPv4 Address Structure
 class IPv4Address:
@@ -288,7 +270,7 @@ print(f"Network: {ip.network}")
 print(f"Host: {ip.host}")
 print(f"Class: {ip.get_class()}")
 ```
-#### IPv6 Addressing
+### IPv6 Addressing
 ```python
 # IPv6 Address Structure
 class IPv6Address:
@@ -328,7 +310,7 @@ print(f"Type: {ipv6.get_type()}")
 ```
 
 ### ️ Routing Protocols
-#### Interior Gateway Protocols (IGP)
+### Interior Gateway Protocols (IGP)
 ```python
 # Routing Protocol Comparison
 routing_protocols = {
@@ -361,7 +343,7 @@ for key, value in details.items():
 print(f" {key.title()}: {value}")
 ```
 
-#### Exterior Gateway Protocol (EGP)
+### Exterior Gateway Protocol (EGP)
 ```python
 # BGP (Border Gateway Protocol) Concepts
 class BGPConcepts:
@@ -427,7 +409,7 @@ return ihl_value * 4 # IHL is in 32-bit words
 
 ### Primary Functions
 The Transport Layer provides **reliable end-to-end communication** between applications.
-#### Key Responsibilities
+### Key Responsibilities
 - **Segmentation**: Breaking data into manageable segments
 - **Port Addressing**: Identifying specific applications
 - **Connection Management**: Establishing and terminating connections
@@ -470,7 +452,7 @@ return 'Consider application requirements'
 
 ### TCP Connection Management
 
-#### Three-Way Handshake
+### Three-Way Handshake
 ```python
 class TCPConnection:
 def __init__(self):
@@ -540,7 +522,7 @@ return steps
 
 ### Flow Control and Congestion Control
 
-#### TCP Window Management
+### TCP Window Management
 ```python
 class TCPFlowControl:
 def __init__(self, initial_window_size=65535):
@@ -667,7 +649,7 @@ self.tcp_flags = {
 ### Primary Functions
 The Session Layer manages **communication sessions** between applications.
 
-#### Key Responsibilities 
+### Key Responsibilities 
 - **Session Establishment**: Creating communication sessions
 - **Session Management**: Maintaining active sessions
 - **Session Termination**: Properly closing sessions
@@ -817,7 +799,7 @@ return transitions.get((current_state, event), current_state)
 ### Primary Functions
 The Presentation Layer handles **data formatting, encryption, and compression**.
 
-#### Key Responsibilities
+### Key Responsibilities
 - **Data Translation**: Converting between different data formats
 - **Encryption/Decryption**: Securing data for transmission
 - **Compression/Decompression**: Reducing data size
@@ -1074,7 +1056,7 @@ return [
 ### Primary Functions
 The Application Layer provides **network services directly to applications**.
 
-#### Key Responsibilities 
+### Key Responsibilities 
 - **Network Service Access**: Providing interface to network services
 - **Application Protocols**: Implementing specific communication protocols
 - **User Interface**: Presenting network functionality to users
@@ -2274,3 +2256,4 @@ self.practical_experience = [
 ---
 
 @Th3viousGameus
+
