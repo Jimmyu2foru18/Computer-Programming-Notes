@@ -1414,3 +1414,5 @@ jwt = JWTManager(app)
 class UserRegistrationSchema(Schema):
 email = ma_fields.Email(required=True)
 password = ma_fields.Str(
+
+@Th3viousGameus
