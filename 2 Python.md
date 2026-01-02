@@ -1,6 +1,19 @@
 # Python:  Learning Guide 
 
 ---
+## Table of Contents
+1. [Getting Started]
+2. [Variables & Data Types]
+3. [Control Flow]
+4. [Data Structures]
+5. [Functions]
+6. [Modules & Packages]
+7. [️ Object-Oriented Programming]
+8. [Advanced Topics]
+9. [️ Best Practices]
+10. [Practice Projects]
+
+---
 ## Getting Started
 ### What is Python? 
 Python is a **high-level**, **interpreted** programming language known for its:
@@ -10,16 +23,16 @@ Python is a **high-level**, **interpreted** programming language known for its:
 - **Rapid development** - Quick prototyping and deployment
 ### Installation & Setup 
 ```bash
-#### Download from python.org 
-#### Verify installation
+# Download from python.org 
+# Verify installation
 python --version
 python3 --version
-#### Install package manager (usually included)
+# Install package manager (usually included)
 pip --version
 ```
 ### Your First Python Program 
 ```python
-#### hello_world.py 
+# hello_world.py 
 print("Hello, World! ")
 print("Welcome to Python programming!")
 ```
@@ -28,22 +41,22 @@ print("Welcome to Python programming!")
 ### Variables 
 Python is **dynamically typed** - no need to declare variable types!
 ```python
-#### Variable assignment 
+# Variable assignment 
 name = "Alice" # String
 age = 25 # Integer
 height = 5.6 # Float
 is_student = True # Boolean
-#### Multiple assignment 
+# Multiple assignment 
 x, y, z = 1, 2, 3
 a = b = c = 0
 ```
 ### ️ Naming Conventions
 ```python
-#### Good naming 
+# Good naming 
 user_name = "john_doe"
 total_count = 100
 MAX_SIZE = 1000 # Constants in UPPERCASE
-#### Avoid 
+# Avoid 
 1name = "invalid" # Can't start with number
 class = "reserved" # Don't use keywords
 x = "unclear" # Use descriptive names
@@ -51,24 +64,24 @@ x = "unclear" # Use descriptive names
 ### Data Types 
 #### **Numeric Types**
 ```python
-#### Integers 
+# Integers 
 count = 42
 negative = -17
 big_number = 1_000_000 # Underscores for readability
-#### Floats 
+# Floats 
 pi = 3.14159
 scientific = 2.5e-4 # 0.00025
-#### Complex numbers 
+# Complex numbers 
 complex_num = 3 + 4j
 ```
 #### **Text Type**
 ```python
-#### Strings 
+# Strings 
 single_quote = 'Hello'
 double_quote = "World"
 multiline = """This is a
 multiline string"""
-#### String formatting 
+# String formatting 
 name = "Bob"
 age = 30
 message = f"Hi, I'm {name} and I'm {age} years old"
@@ -78,7 +91,7 @@ print(message) # Hi, I'm Bob and I'm 30 years old
 ```python
 is_active = True
 is_complete = False
-#### Boolean operations 
+# Boolean operations 
 result = True and False # False
 result = True or False # True
 result = not True # False
@@ -87,7 +100,7 @@ result = not True # False
 ## Control Flow 
 ### Conditional Statements
 ```python
-####  if-elif-else 
+# if-elif-else 
 score = 85
 if score >= 90:
 grade = "A"
@@ -98,35 +111,35 @@ grade = "C"
 else:
 grade = "F"
 print(f"Your grade is: {grade}")
-#### Ternary operator
+# Ternary operator
 status = "Pass" if score >= 60 else "Fail"
 ```
 ### Loops
 #### **For Loops**
 ```python
-#### Iterate over sequences
+# Iterate over sequences
 fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
 print(f"I love {fruit}! ")
-#### Range function
+# Range function
 for i in range(5): # 0, 1, 2, 3, 4
 print(i)
 for i in range(1, 6): # 1, 2, 3, 4, 5
 print(i)
 for i in range(0, 10, 2): # 0, 2, 4, 6, 8
 print(i)
-#### Enumerate for index and value
+# Enumerate for index and value
 for index, fruit in enumerate(fruits):
 print(f"{index}: {fruit}")
 ```
 #### **While Loops**
 ```python
-#### Basic while loop
+# Basic while loop
 count = 0
 while count < 5:
 print(f"Count: {count}")
 count += 1
-#### Input validation
+# Input validation
 while True:
 user_input = input("Enter 'quit' to exit: ")
 if user_input.lower() == 'quit':
@@ -135,7 +148,7 @@ print(f"You entered: {user_input}")
 ```
 #### **Loop Control**
 ```python
-#### break and continue
+# break and continue
 for i in range(10):
 if i == 3:
 continue # Skip 3
@@ -147,19 +160,19 @@ print(i) # Prints: 0, 1, 2, 4, 5, 6
 ## Data Structures
 ### Lists (Arrays)
 ```python
-#### Creating lists
+# Creating lists
 numbers = [1, 2, 3, 4, 5]
 mixed = [1, "hello", 3.14, True]
 empty_list = []
-#### List operations 
+# List operations 
 numbers.append(6) # Add to end
 numbers.insert(0, 0) # Insert at index
 numbers.remove(3) # Remove first occurrence
 popped = numbers.pop() # Remove and return last
-#### List comprehensions
+# List comprehensions
 squares = [x**2 for x in range(10)]
 even_squares = [x**2 for x in range(10) if x % 2 == 0]
-#### Slicing
+# Slicing
 my_list = [0, 1, 2, 3, 4, 5]
 print(my_list[1:4]) # [1, 2, 3]
 print(my_list[:3]) # [0, 1, 2]
@@ -168,14 +181,14 @@ print(my_list[::-1]) # [5, 4, 3, 2, 1, 0] (reverse)
 ```
 ### Tuples
 ```python
-#### Immutable sequences
+# Immutable sequences
 coordinates = (10, 20)
 colors = ("red", "green", "blue")
 single_item = (42,) # Note the comma!
-#### Tuple unpacking 
+# Tuple unpacking 
 x, y = coordinates
 print(f"X: {x}, Y: {y}")
-#### Named tuples
+# Named tuples
 from collections import namedtuple
 Point = namedtuple('Point', ['x', 'y'])
 p = Point(10, 20)
@@ -183,32 +196,31 @@ print(p.x, p.y)
 ```
 ### ️ Dictionaries
 ```python
-#### Key-value pairs
+# Key-value pairs
 student = {
 "name": "Alice",
 "age": 20,
 "grades": [85, 90, 78]
 }
-#### Dictionary operations 
+# Dictionary operations 
 student["email"] = "alice@email.com" # Add new key
 age = student.get("age", 0) # Safe access
 student.pop("grades") # Remove key
-#### Dictionary comprehensions
+# Dictionary comprehensions
 squares_dict = {x: x**2 for x in range(5)}
-##### {0: 0, 1: 1, 2: 4, 3: 9, 4: 16} {0-0-1-1-2-4-3-9-4-16}
-#### Iterating dictionaries
+# Iterating dictionaries
 for key, value in student.items():
 print(f"{key}: {value}")
 ```
 ### Sets
 ```python
-#### Unique collections
+# Unique collections
 fruits = {"apple", "banana", "cherry"}
 numbers = set([1, 2, 2, 3, 3, 4]) # {1, 2, 3, 4}
-#### Set operations
+# Set operations
 fruits.add("orange")
 fruits.remove("banana")
-#### Set mathematics
+# Set mathematics
 set1 = {1, 2, 3, 4}
 set2 = {3, 4, 5, 6}
 union = set1 | set2 # {1, 2, 3, 4, 5, 6}
@@ -219,14 +231,14 @@ difference = set1 - set2 # {1, 2}
 ## Functions
 ### Basic Functions
 ```python
-#### Function definition
+# Function definition
 def greet(name):
 """Greet a person by name."""
 return f"Hello, {name}!"
-#### Function call
+# Function call
 message = greet("Alice")
 print(message)
-#### Default parameters
+# Default parameters
 def greet_with_title(name, title="Mr./Ms."):
 return f"Hello, {title} {name}!"
 print(greet_with_title("Smith")) # Hello, Mr./Ms. Smith!
@@ -234,29 +246,29 @@ print(greet_with_title("Smith", "Dr.")) # Hello, Dr. Smith!
 ```
 ### Advanced Function Features
 ```python
-#### Variable arguments
+# Variable arguments
 def sum_all(*args):
 return sum(args)
 result = sum_all(1, 2, 3, 4, 5) # 15
-#### Keyword arguments
+# Keyword arguments
 def create_profile(**kwargs):
 profile = {}
 for key, value in kwargs.items():
 profile[key] = value
 return profile
 user = create_profile(name="Alice", age=25, city="New York")
-# Lambda functions {#lambda-functions}
+# Lambda functions
 square = lambda x: x**2
 numbers = [1, 2, 3, 4, 5]
 squared = list(map(square, numbers)) # [1, 4, 9, 16, 25]
-#### Higher-order functions
+# Higher-order functions
 def apply_operation(numbers, operation):
 return [operation(x) for x in numbers]
 result = apply_operation([1, 2, 3], lambda x: x * 2) # [2, 4, 6]
 ```
 ### Decorators
 ```python
-#### Function decorators
+# Function decorators
 def timer(func):
 import time
 
@@ -279,22 +291,22 @@ result = slow_function() # Prints execution time
 ## Modules & Packages
 ### Importing Modules
 ```python
-#### Standard library imports
+# Standard library imports
 import math
 import random
 from datetime import datetime, timedelta
 import os
-#### Using imported modules
+# Using imported modules
 print(math.pi) # 3.141592653589793
 print(random.randint(1, 10)) # Random number 1-10
 print(datetime.now()) # Current date and time
-#### Aliasing imports
+# Aliasing imports
 import numpy as np
 import pandas as pd
 ```
 ### Creating Your Own Modules
 ```python
-#### math_utils.py
+# math_utils.py
 def add(a, b):
 """Add two numbers."""
 return a + b
@@ -302,37 +314,36 @@ def multiply(a, b):
 """Multiply two numbers."""
 return a * b
 PI = 3.14159
-#### main.py
+# main.py
 from math_utils import add, multiply, PI
-####  or
+#  or
 import math_utils
 result = add(5, 3) # 8
 result = math_utils.multiply(4, 7) # 28
 ```
 ### Package Management
 ```bash
-#### Installing packages
+# Installing packages
 pip install requests
 pip install pandas numpy matplotlib
-#### Requirements file 
+# Requirements file 
 pip freeze > requirements.txt
 pip install -r requirements.txt
-#### Virtual environments
+# Virtual environments
 python -m venv myenv
-#### Windows 
+# Windows 
 myenv\Scripts\activate
-#### macOS/Linux 
+# macOS/Linux 
 source myenv/bin/activate
 ```
 ---
 ## ️ Object-Oriented Programming 
 ### ️ Classes and Objects
 ```python
-class Dog:
-#### Class variable
+# Class variable
 species = "Canis lupus"
 def __init__(self, name, breed, age):
-#### Instance variables 
+# Instance variables 
 self.name = name
 self.breed = breed
 self.age = age
@@ -346,7 +357,7 @@ return f"{self.name} learned {trick}!"
 
 def __str__(self):
 return f"{self.name} is a {self.age}-year-old {self.breed}"
-#### Creating objects
+# Creating objects
 my_dog = Dog("Buddy", "Golden Retriever", 3)
 print(my_dog) # Buddy is a 3-year-old Golden Retriever
 print(my_dog.bark()) # Buddy says Woof!
@@ -389,7 +400,7 @@ print(account.balance) # 1500
 ```
 ### Inheritance
 ```python
-#### Base class
+# Base class
 class Animal:
 
 def __init__(self, name, species):
@@ -400,7 +411,7 @@ def speak(self):
 return "Some generic animal sound"
 def info(self):
 return f"{self.name} is a {self.species}"
-#### Derived classes 
+# Derived classes 
 class Dog(Animal):
 def __init__(self, name, breed):
 super().__init__(name, "Dog")
@@ -420,7 +431,7 @@ return "Meow!"
 
 def purr(self):
 return f"{self.name} is purring contentedly"
-#### Using inheritance 
+# Using inheritance 
 dog = Dog("Buddy", "Labrador")
 cat = Cat("Whiskers", "Orange")
 
@@ -430,7 +441,7 @@ print(cat.speak()) # Meow!
 ```
 ### Polymorphism
 ```python
-#### Polymorphism in action 
+# Polymorphism in action 
 def animal_concert(animals):
 for animal in animals:
 print(f"{animal.name}: {animal.speak()}")
@@ -441,36 +452,36 @@ Cat("Whiskers", "Orange"),
 Dog("Max", "Bulldog")
 ]
 animal_concert(animals)
-####  Output:
-#### Buddy: Woof!
-#### Whiskers: Meow! 
-#### Max: Woof! 
+#  Output:
+# Buddy: Woof!
+# Whiskers: Meow! 
+# Max: Woof! 
 ```
 ---
 ## Advanced Topics
 ### Iterators and Generators
 ```python
-#### Generator function 
+# Generator function 
 def fibonacci(n):
 a, b = 0, 1
 for _ in range(n):
 yield a
 a, b = b, a + b
-#### Using generator 
+# Using generator 
 fib_sequence = fibonacci(10)
 for num in fib_sequence:
 print(num, end=" ") # 0 1 1 2 3 5 8 13 21 34
-#### Generator expression 
+# Generator expression 
 squares = (x**2 for x in range(10))
 print(list(squares)) # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 ### Context Managers
 ```python
-#### File handling with context manager 
+# File handling with context manager 
 with open("data.txt", "w") as file:
 file.write("Hello, World!")
-#### File automatically closed 
-##### Custom context manager
+# File automatically closed 
+# Custom context manager
 class Timer:
 
 def __enter__(self):
@@ -484,12 +495,12 @@ self.end = time.time()
 
 print(f"Execution time: {self.end - self.start:.4f} seconds")
 with Timer():
-#### Some time-consuming operation 
+# Some time-consuming operation 
 sum(range(1000000))
 ```
 ### Exception Handling
 ```python
-#### Basic exception handling 
+# Basic exception handling 
 try:
 number = int(input("Enter a number: "))
 result = 10 / number
@@ -498,18 +509,14 @@ print(f"Result: {result}")
 except ValueError:
 print("Please enter a valid number")
 except ZeroDivisionError:
-
 print("Cannot divide by zero")
 except Exception as e:
-
 print(f"An error occurred: {e}")
 else:
-
 print("No errors occurred")
 finally:
-
 print("This always executes")
-#### Custom exceptions
+# Custom exceptions
 class CustomError(Exception):
 def __init__(self, message):
 self.message = message
@@ -531,15 +538,15 @@ print(f"Validation error: {e.message}")
 ## ️ Best Practices
 ### Code Style (PEP 8)
 ```python
-#### Good practices
-#### Imports at the top
+# Good practices
+# Imports at the top
 import os
 import sys
 from collections import defaultdict
-#### Constants in UPPERCASE
+# Constants in UPPERCASE
 MAX_CONNECTIONS = 100
 DEFAULT_TIMEOUT = 30
-#### Function and variable names in snake_case 
+# Function and variable names in snake_case 
 def calculate_total_price(items, tax_rate=0.08):
 """Calculate total price including tax.
 
@@ -552,7 +559,7 @@ float: Total price including tax
 subtotal = sum(items)
 tax_amount = subtotal * tax_rate
 return subtotal + tax_amount
-#### Class names in PascalCase
+# Class names in PascalCase
 class ShoppingCart:
 
 def __init__(self):
@@ -569,58 +576,72 @@ raise ValueError("Item price must be positive")
 ```
 ### Testing
 ```python
-#### test_calculator.py 
+# test_calculator.py 
 import unittest
+from calculator import add, subtract, multiply, divide
 
-def add(a, b):
-return a + b
-
-def divide(a, b):
-if b == 0:
-raise ValueError("Cannot divide by zero")
-return a / b
 class TestCalculator(unittest.TestCase):
-
-def test_add_positive_numbers(self):
-self.assertEqual(add(2, 3), 5)
-
-def test_add_negative_numbers(self):
-self.assertEqual(add(-1, -1), -2)
-
-def test_divide_normal(self):
-self.assertEqual(divide(10, 2), 5)
-
-def test_divide_by_zero(self):
-with self.assertRaises(ValueError):
-
-divide(10, 0)
+# Test addition
+    def test_add_positive_numbers(self):
+        self.assertEqual(add(2, 3), 5)
+    def test_add_negative_numbers(self):
+        self.assertEqual(add(-2, -3), -5)
+    def test_add_mixed_numbers(self):
+        self.assertEqual(add(-2, 3), 1)
+    # Test subtraction
+    def test_subtract_positive_numbers(self):
+        self.assertEqual(subtract(5, 3), 2)
+    def test_subtract_negative_numbers(self):
+        self.assertEqual(subtract(-2, -3), 1)
+    # Test multiplication
+    def test_multiply_positive_numbers(self):
+        self.assertEqual(multiply(2, 3), 6)
+    def test_multiply_by_zero(self):
+        self.assertEqual(multiply(5, 0), 0)
+    # Test division
+    def test_divide_positive_numbers(self):
+        self.assertEqual(divide(6, 3), 2)
+    def test_divide_by_zero(self):
+        with self.assertRaises(ValueError):
+            divide(10, 0)
 if __name__ == '__main__':
-unittest.main()
+    unittest.main()
 ```
 ### Performance Tips
 ```python
-#### List comprehensions vs loops 
-##### Faster 
-squares = [x**2 for x in range(1000)]
-##### Slower 
-squares = []
-for x in range(1000):
-squares.append(x**2)
-#### Use built-in functions 
-##### Faster 
-total = sum(numbers)
-maximum = max(numbers)
-##### Slower
-total = 0
-for num in numbers:
-total += num
-#### String concatenation 
-##### Faster for multiple strings
-result = ''.join(string_list)
-#### Slower for multiple strings
-result = ''
-for s in string_list:
-result += s
+# Efficient dictionary usage 
+# Bad: Multiple lookups
+if 'key' in my_dict:
+    value = my_dict['key']
+    process(value)
+
+# Good: Single lookup with get()
+value = my_dict.get('key')
+if value is not None:
+    process(value)
+# Efficient list operations 
+# Bad: Shifting elements
+my_list = [1, 2, 3, 4, 5]
+my_list.insert(0, 0) # O(n) operation
+
+# Good: Use deque for frequent insertions
+from collections import deque
+my_deque = deque([1, 2, 3, 4, 5])
+my_deque.appendleft(0) # O(1) operation
+# Efficient string concatenation 
+# Bad: Creates new string objects
+result = ""
+for i in range(1000):
+    result += str(i) # O(n²) time complexity
+
+# Good: Uses list join
+parts = []
+for i in range(1000):
+    parts.append(str(i))
+result = "".join(parts) # O(n) time complexity
+
+# Even better: Generator expression
+result = "".join(str(i) for i in range(1000))
 ```
 ---
 ## Practice Projects
@@ -629,105 +650,105 @@ result += s
 ```python
 import random
 def number_guessing_game():
-number = random.randint(1, 100)
-attempts = 0
-max_attempts = 7
-print(" Welcome to the Number Guessing Game!")
-print(f"I'm thinking of a number between 1 and 100.")
-print(f"You have {max_attempts} attempts to guess it!")
+    number = random.randint(1, 100)
+    attempts = 0
+    max_attempts = 7
+    print(" Welcome to the Number Guessing Game!")
+    print(f"I'm thinking of a number between 1 and 100.")
+    print(f"You have {max_attempts} attempts to guess it!")
 
-while attempts < max_attempts:
-try:
-guess = int(input(f"\nAttempt {attempts + 1}: Enter your guess: "))
-attempts += 1
-if guess == number:
-print(f" Congratulations! You guessed it in {attempts} attempts!")
-break
-elif guess < number:
-print(" Too low! Try a higher number.")
-else:
-print(" Too high! Try a lower number.")
-except ValueError:
-print(" Please enter a valid number!")
-else:
-print(f" Game over! The number was {number}")
+    while attempts < max_attempts:
+        try:
+            guess = int(input(f"\nAttempt {attempts + 1}: Enter your guess: "))
+            attempts += 1
+            if guess == number:
+                print(f" Congratulations! You guessed it in {attempts} attempts!")
+                break
+            elif guess < number:
+                print(" Too low! Try a higher number.")
+            else:
+                print(" Too high! Try a lower number.")
+        except ValueError:
+            print(" Please enter a valid number!")
+    else:
+        print(f" Game over! The number was {number}")
 
 if __name__ == "__main__":
-number_guessing_game()
+    number_guessing_game()
 ```
 #### **2. Todo List Manager**
 ```python
 class TodoList:
-def __init__(self):
-self.tasks = []
+    def __init__(self):
+        self.tasks = []
 
-def add_task(self, task):
-self.tasks.append({"task": task, "completed": False})
-print(f" Added: {task}")
-def complete_task(self, index):
-if 0 <= index < len(self.tasks):
-self.tasks[index]["completed"] = True
-print(f" Completed: {self.tasks[index]['task']}")
-else:
-print(" Invalid task number")
-def show_tasks(self):
-if not self.tasks:
-print(" No tasks yet!")
-return
-print("\n Your Tasks:")
+    def add_task(self, task):
+        self.tasks.append({"task": task, "completed": False})
+        print(f" Added: {task}")
+    def complete_task(self, index):
+        if 0 <= index < len(self.tasks):
+            self.tasks[index]["completed"] = True
+            print(f" Completed: {self.tasks[index]['task']}")
+        else:
+            print(" Invalid task number")
+    def show_tasks(self):
+        if not self.tasks:
+            print(" No tasks yet!")
+            return
+        print("\n Your Tasks:")
 
-for i, task in enumerate(self.tasks):
-status = "" if task["completed"] else "⏳"
-print(f"{i + 1}. {status} {task['task']}")
+        for i, task in enumerate(self.tasks):
+            status = "" if task["completed"] else "⏳"
+            print(f"{i + 1}. {status} {task['task']}")
 
-def remove_task(self, index):
-if 0 <= index < len(self.tasks):
-removed = self.tasks.pop(index)
-print(f"️ Removed: {removed['task']}")
-else:
-print(" Invalid task number")
+    def remove_task(self, index):
+        if 0 <= index < len(self.tasks):
+            removed = self.tasks.pop(index)
+            print(f"️ Removed: {removed['task']}")
+        else:
+            print(" Invalid task number")
 
 def main():
-todo = TodoList()
-while True:
-print("\n Todo List Manager")
-print("1. Add task")
-print("2. Show tasks")
-print("3. Complete task")
-print("4. Remove task")
-print("5. Exit")
+    todo = TodoList()
+    while True:
+        print("\n Todo List Manager")
+        print("1. Add task")
+        print("2. Show tasks")
+        print("3. Complete task")
+        print("4. Remove task")
+        print("5. Exit")
 
-choice = input("Choose an option: ")
-if choice == "1":
-task = input("Enter task: ")
-todo.add_task(task)
-elif choice == "2":
-todo.show_tasks()
-elif choice == "3":
-todo.show_tasks()
-try:
-index = int(input("Enter task number to complete: ")) - 1
+        choice = input("Choose an option: ")
+        if choice == "1":
+            task = input("Enter task: ")
+            todo.add_task(task)
+        elif choice == "2":
+            todo.show_tasks()
+        elif choice == "3":
+            todo.show_tasks()
+            try:
+                index = int(input("Enter task number to complete: ")) - 1
 
-todo.complete_task(index)
-except ValueError:
-print(" Please enter a valid number")
-elif choice == "4":
+                todo.complete_task(index)
+            except ValueError:
+                print(" Please enter a valid number")
+        elif choice == "4":
 
-todo.show_tasks()
-try:
-index = int(input("Enter task number to remove: ")) - 1
+            todo.show_tasks()
+            try:
+                index = int(input("Enter task number to remove: ")) - 1
 
-todo.remove_task(index)
-except ValueError:
-print(" Please enter a valid number")
-elif choice == "5":
-print(" Goodbye!")
-break
-else:
-print(" Invalid choice")
+                todo.remove_task(index)
+            except ValueError:
+                print(" Please enter a valid number")
+        elif choice == "5":
+            print(" Goodbye!")
+            break
+        else:
+            print(" Invalid choice")
 
 if __name__ == "__main__":
-main()
+    main()
 ```
 ### Intermediate Projects
 #### **3. Web Scraper**
@@ -737,60 +758,152 @@ from bs4 import BeautifulSoup
 import csv
 
 class WebScraper:
-def __init__(self, base_url):
-self.base_url = base_url
-self.session = requests.Session()
-self.session.headers.update({
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-})
+    def __init__(self, base_url):
+        self.base_url = base_url
+        self.session = requests.Session()
+        self.session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        })
 
-def scrape_quotes(self):
-"""Scrape quotes from quotes.toscrape.com"""
-quotes = []
-page = 1
-while True:
-url = f"{self.base_url}/page/{page}/"
-response = self.session.get(url)
-if response.status_code!= 200:
-break
-soup = BeautifulSoup(response.content, 'html.parser')
-quote_elements = soup.find_all('div', class_='quote')
-if not quote_elements:
-break
+    def scrape_quotes(self):
+        """Scrape quotes from quotes.toscrape.com"""
+        quotes = []
+        page = 1
+        while True:
+            url = f"{self.base_url}/page/{page}/"
+            response = self.session.get(url)
+            if response.status_code != 200:
+                break
+            soup = BeautifulSoup(response.content, 'html.parser')
+            quote_elements = soup.find_all('div', class_='quote')
+            if not quote_elements:
+                break
 
-for quote_elem in quote_elements:
-text = quote_elem.find('span', class_='text').text
-author = quote_elem.find('small', class_='author').text
-tags = [tag.text for tag in quote_elem.find_all('a', class_='tag')]
-quotes.append({
-'text': text,
-'author': author,
-'tags': ', '.join(tags)
-})
-page += 1
-print(f"Scraped page {page - 1}...")
-return quotes
+            for quote_elem in quote_elements:
+                text = quote_elem.find('span', class_='text').text
+                author = quote_elem.find('small', class_='author').text
+                tags = [tag.text for tag in quote_elem.find_all('a', class_='tag')]
+                quotes.append({
+                    'text': text,
+                    'author': author,
+                    'tags': ', '.join(tags)
+                })
+            page += 1
+            print(f"Scraped page {page - 1}...")
+        return quotes
 
-def save_to_csv(self, quotes, filename='quotes.csv'):
-"""Save quotes to CSV file"""
-with open(filename, 'w', newline='', encoding='utf-8') as file:
-writer = csv.DictWriter(file, fieldnames=['text', 'author', 'tags'])
-writer.writeheader()
-writer.writerows(quotes)
-print(f" Saved {len(quotes)} quotes to {filename}")
+    def save_to_csv(self, quotes, filename='quotes.csv'):
+        """Save quotes to CSV file"""
+        with open(filename, 'w', newline='', encoding='utf-8') as file:
+            writer = csv.DictWriter(file, fieldnames=['text', 'author', 'tags'])
+            writer.writeheader()
+            writer.writerows(quotes)
+        print(f" Saved {len(quotes)} quotes to {filename}")
 
 def main():
-scraper = WebScraper('http://quotes.toscrape.com')
-print("️ Starting web scraping...")
-quotes = scraper.scrape_quotes()
-if quotes:
-scraper.save_to_csv(quotes)
-print(f" Successfully scraped {len(quotes)} quotes!")
-else:
-print(" No quotes found")
+    scraper = WebScraper('http://quotes.toscrape.com')
+    print(" Starting web scraping...")
+    quotes = scraper.scrape_quotes()
+    if quotes:
+        scraper.save_to_csv(quotes)
+        print(f" Successfully scraped {len(quotes)} quotes!")
+    else:
+        print(" No quotes found")
 
 if __name__ == "__main__":
-main()
+    main()
+```
+
+#### **4. Contact Book Application**
+```python
+class Contact:
+    def __init__(self, name, phone, email=""):
+        self.name = name
+        self.phone = phone
+        self.email = email
+    def __str__(self):
+        return f"{self.name}: {self.phone} ({self.email})"
+
+class ContactBook:
+    def __init__(self):
+        self.contacts = {}
+    def add_contact(self, name, phone, email=""):
+        if name in self.contacts:
+            print(f"Contact '{name}' already exists!")
+            return False
+        self.contacts[name] = Contact(name, phone, email)
+        print(f"Contact '{name}' added successfully!")
+        return True
+    def find_contact(self, name):
+        return self.contacts.get(name)
+    def update_contact(self, name, phone=None, email=None):
+        contact = self.find_contact(name)
+        if contact:
+            if phone:
+                contact.phone = phone
+            if email:
+                contact.email = email
+            print(f"Contact '{name}' updated!")
+            return True
+        print(f"Contact '{name}' not found!")
+        return False
+    def delete_contact(self, name):
+        if name in self.contacts:
+            del self.contacts[name]
+            print(f"Contact '{name}' deleted!")
+            return True
+        print(f"Contact '{name}' not found!")
+        return False
+    def list_contacts(self):
+        if not self.contacts:
+            print("No contacts found!")
+            return
+        print("\nContact List:")
+        for contact in self.contacts.values():
+            print(contact)
+    def save_to_file(self, filename):
+        try:
+            with open(filename, 'w') as f:
+                for contact in self.contacts.values():
+                    f.write(f"{contact.name},{contact.phone},{contact.email}\n")
+            print(f"Contacts saved to '{filename}'!")
+            return True
+        except Exception as e:
+            print(f"Error saving contacts: {e}")
+            return False
+    def load_from_file(self, filename):
+        try:
+            with open(filename, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        parts = line.split(',')
+                        if len(parts) >= 2:
+                            name, phone = parts[0], parts[1]
+                            email = parts[2] if len(parts) > 2 else ""
+                            self.add_contact(name, phone, email)
+            print(f"Contacts loaded from '{filename}'!")
+            return True
+        except FileNotFoundError:
+            print(f"File '{filename}' not found!")
+            return False
+        except Exception as e:
+            print(f"Error loading contacts: {e}")
+            return False
+
+# Usage example
+book = ContactBook()
+book.add_contact("Alice", "123-456-7890", "alice@email.com")
+book.add_contact("Bob", "987-654-3210")
+book.list_contacts()
+# Find a contact
+contact = book.find_contact("Alice")
+if contact:
+    print(f"Found: {contact}")
+# Update contact
+book.update_contact("Alice", email="alice.smith@email.com")
+# Save to file
+book.save_to_file("contacts.txt")
 ```
 ---
 ## Next Steps
@@ -824,5 +937,4 @@ main()
 ---
 
 @Th3viousGameus
-
 
