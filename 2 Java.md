@@ -24,11 +24,11 @@ Java is a **high-level**, **object-oriented** programming language designed for 
 - **Multithreading**: Concurrent programming support
 ### Setting Up Java
 ```bash
-# Check if Java is installed 
+## Check if Java is installed 
 java -version
 javac -version
-# Download from Oracle or use OpenJDK 
-# Set JAVA_HOME environment variable
+## Download from Oracle or use OpenJDK 
+## Set JAVA_HOME environment variable
 ```
 ### Your First Java Program
 ```java
@@ -97,7 +97,7 @@ int blockVariable = 40; // Block scope
 ---
 ## Control Flow
 ### Conditional Statements
-#### if-else Statement
+### if-else Statement
 ```java
 int score = 85;
 if (score >= 90) {
@@ -110,7 +110,7 @@ System.out.println("Grade: C ");
 System.out.println("Grade: F ");
 }
 ```
-#### switch Statement
+### switch Statement
 ```java
 int day = 3;
 String dayName;
@@ -130,7 +130,7 @@ default -> "Invalid day";
 };
 ```
 ### Loops
-#### for Loop
+### for Loop
 ```java
 // Traditional for loop
 for (int i = 0; i < 5; i++) {
@@ -142,7 +142,7 @@ for (int num: numbers) {
 System.out.println("Number: " + num);
 }
 ```
-#### while Loop
+### while Loop
 ```java
 int count = 0;
 while (count < 5) {
@@ -150,7 +150,7 @@ System.out.println("Count: " + count);
 count++;
 }
 ```
-#### do-while Loop
+### do-while Loop
 ```java
 int num = 0;
 do {
@@ -173,7 +173,7 @@ System.out.println(i);
 ---
 ## Data Structures
 ### Arrays
-#### One-Dimensional Arrays
+### One-Dimensional Arrays
 ```java
 // Declaration and initialization
 int[] numbers = new int[5];
@@ -189,7 +189,7 @@ for (int i = 0; i < scores.length; i++) {
 System.out.println("Score " + i + ": " + scores[i]);
 }
 ```
-#### Multi-Dimensional Arrays
+### Multi-Dimensional Arrays
 ```java
 // 2D Array
 int[][] matrix = {
@@ -208,7 +208,7 @@ System.out.println();
 }
 ```
 ### Strings
-#### String Basics
+### String Basics
 ```java
 // String creation
 String str1 = "Hello"; // String literal
@@ -217,7 +217,7 @@ String str2 = new String("World"); // String object
 String original = "Java";
 String modified = original + " Programming"; // Creates new string
 ```
-#### Essential String Methods
+### Essential String Methods
 ```java
 String text = " Java Programming ";
 // Length and character access
@@ -240,7 +240,7 @@ String replaced = text.replace("Java", "Python");
 // Splitting
 String[] words = "apple,banana,orange".split(",");
 ```
-#### StringBuilder for Efficiency
+### StringBuilder for Efficiency
 ```java
 // Efficient string building
 StringBuilder sb = new StringBuilder();
@@ -261,7 +261,7 @@ return value; // if return_type is not void
 }
 ```
 ### Method Examples
-#### Basic Methods
+### Basic Methods
 ```java
 public class Calculator {
 // Method with return value
@@ -278,7 +278,7 @@ return Math.PI * radius * radius;
 }
 }
 ```
-#### Method Overloading
+### Method Overloading
 ```java
 public class MathUtils {
 // Same method name, different parameters
@@ -293,7 +293,7 @@ return a * b * c;
 }
 }
 ```
-#### Variable Arguments (Varargs)
+### Variable Arguments (Varargs)
 ```java
 public class VarargsExample {
 public int sum(int... numbers) {
@@ -312,9 +312,9 @@ int result2 = example.sum(1, 2, 3, 4, 5); // 15
 }
 ```
 ---
-## Object-Oriented Programming
-### ️ Classes and Objects
-#### Class Definition
+# Object-Oriented Programming
+## ️ Classes and Objects
+### Class Definition
 ```java
 public class Car {
 // Instance variables (attributes)
@@ -342,7 +342,7 @@ System.out.printf("%d %s %s - $%.2f%n", year, brand, model, price);
 }
 }
 ```
-#### Object Creation and Usage
+### Object Creation and Usage
 ```java
 public class CarDemo {
 public static void main(String[] args) {
@@ -355,14 +355,14 @@ car1.displayInfo();
 }
 }
 ```
-### Encapsulation
-#### Access Modifiers
+## Encapsulation
+### Access Modifiers
 - `private`: Only within the same class
 - `protected`: Same package + subclasses
 - `public`: Accessible everywhere
 - (default): Same package only
 
-#### Getters and Setters
+## Getters and Setters
 ```java
 public class Student {
 private String name;
@@ -396,8 +396,8 @@ this.gpa = gpa;
 }
 }
 ```
-### Inheritance
-#### Basic Inheritance
+## Inheritance
+### Basic Inheritance
 ```java
 // Parent class (Superclass)
 public class Animal {
@@ -431,8 +431,8 @@ System.out.println(name + " the " + breed + " is eating dog food ");
 }
 }
 ```
-### Polymorphism
-#### Method Overriding
+## Polymorphism
+### Method Overriding
 ```java
 public class Shape {
 public double getArea() {
@@ -472,7 +472,7 @@ System.out.println("Drawing a rectangle ⬜");
 }
 }
 ```
-#### Polymorphic Behavior
+### Polymorphic Behavior
 ```java
 public class PolymorphismDemo {
 public static void main(String[] args) {
@@ -489,8 +489,8 @@ System.out.println();
 }
 }
 ```
-### Interfaces
-#### Interface Definition
+## Interfaces
+### Interface Definition
 ```java
 public interface Drawable {
 // Abstract methods (implicitly public abstract)
@@ -508,7 +508,7 @@ System.out.println("This is a drawable interface");
 String TYPE = "DRAWABLE";
 }
 ```
-#### Interface Implementation
+### Interface Implementation
 ```java
 public class Button implements Drawable {
 private String text;
@@ -564,9 +564,9 @@ return batteryCapacity * 3.5; // miles per kWh
 }
 ```
 ---
-## ️ Advanced Topics
-### Packages
-#### Package Declaration
+# ️ Advanced Topics
+## Packages
+### Package Declaration
 ```java
 // File: com/company/utils/MathUtils.java
 package com.company.utils;
@@ -576,7 +576,7 @@ return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
 }
 ```
-#### Importing Packages
+### Importing Packages
 ```java
 // Import specific class
 import com.company.utils.MathUtils;
@@ -590,8 +590,8 @@ return PI * pow(radius, 2); // Using static import
 }
 }
 ```
-### Generics
-#### Generic Classes
+## Generics
+### Generic Classes
 ```java
 public class Box<T> {
 private T content;
@@ -610,7 +610,7 @@ Box<Integer> intBox = new Box<>();
 intBox.setContent(42);
 Integer number = intBox.getContent();
 ```
-#### Generic Methods
+### Generic Methods
 ```java
 public class GenericUtils {
 public static <T> void swap(T[] array, int i, int j) {
@@ -629,8 +629,8 @@ return max;
 }
 }
 ```
-### Exception Handling
-#### Try-Catch-Finally
+## Exception Handling
+### Try-Catch-Finally
 ```java
 public class ExceptionExample {
 public static void main(String[] args) {
@@ -653,7 +653,7 @@ return a / b;
 }
 }
 ```
-#### Custom Exceptions
+### Custom Exceptions
 ```java
 public class InvalidAgeException extends Exception {
 public InvalidAgeException(String message) {
@@ -670,8 +670,8 @@ this.age = age;
 }
 }
 ```
-### File I/O
-#### Reading Files
+## File I/O
+### Reading Files
 ```java
 import java.io.*;
 import java.nio.file.*;
@@ -697,7 +697,7 @@ System.out.println("Error reading file: " + e.getMessage());
 }
 }
 ```
-#### Writing Files
+### Writing Files
 ```java
 import java.io.*;
 import java.nio.file.*;
@@ -718,8 +718,8 @@ System.out.println("Error writing file: " + e.getMessage());
 }
 }
 ```
-### Multithreading Basics
-#### Creating Threads
+## Multithreading Basics
+### Creating Threads
 ```java
 // Method 1: Extending Thread class
 class MyThread extends Thread {
@@ -814,9 +814,9 @@ String input = scanner.nextLine();
 } // Scanner automatically closed
 ```
 ---
-## Practice Projects 
-### Beginner Projects
-#### 1. Calculator Application
+# Practice Projects 
+## Beginner Projects
+### 1. Calculator Application
 ```java
 import java.util.Scanner;
 public class Calculator {
@@ -843,7 +843,7 @@ default: return Double.NaN;
 }
 }
 ```
-#### 2. Student Grade Manager
+### 2. Student Grade Manager
 ```java
 import java.util.*;
 class Student {
@@ -875,8 +875,8 @@ return String.format("%s: %.1f%% (%s)", name, getAverage(), getLetterGrade());
 }
 }
 ```
-### Intermediate Projects
-#### 3. Library Management System
+## Intermediate Projects
+### 3. Library Management System
 ```java
 import java.util.*;
 import java.time.LocalDate;
@@ -960,3 +960,4 @@ books.values().forEach(System.out::println);
 ---
 
 @Th3viousGameus
+
