@@ -1,5 +1,4 @@
 # Java Programming Guide
----
 
 ## Getting Started
 ### What is Java?
@@ -12,12 +11,12 @@ Java is a **high-level**, **object-oriented** programming language designed for 
 - **Multithreading**: Concurrent programming support
 ### Setting Up Java
 ```bash
-## Check if Java is installed 
+### Check if Java is installed 
 java -version
 javac -version
-## Download from Oracle or use OpenJDK 
-## Set JAVA_HOME environment variable
 ```
+## Download from Oracle or use OpenJDK 
+### Set JAVA_HOME environment variable
 ### Your First Java Program
 ```java
 public class HelloWorld {
@@ -948,6 +947,7 @@ books.values().forEach(System.out::println);
 ---
 
 @Th3viousGameus
+
 
 
 
