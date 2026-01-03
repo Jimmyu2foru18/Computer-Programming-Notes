@@ -15,26 +15,28 @@ Java is a **high-level**, **object-oriented** programming language designed for 
 java -version
 javac -version
 ```
-## Download from Oracle or use OpenJDK 
-### Set JAVA_HOME environment variable
+- Download from Oracle or use OpenJDK 
+- Set JAVA_HOME environment variable
+
 ### Your First Java Program
 ```java
-public class HelloWorld {
-public static void main(String[] args) {
-System.out.println("Hello, World! ");
-}
+public class HelloWorld 
+{
+  public static void main(String[] args) 
+  {
+  System.out.println("Hello, World! ");
+  }
 }
 ```
 **Compilation & Execution:**
 ```bash
-javac HelloWorld.java # Compile to bytecode
-java HelloWorld # Run the program
+javac HelloWorld.java             # Compile to bytecode
+java HelloWorld                   # Run the program
 ```
 ---
 ## Variables & Data Types
 ### ️ Primitive Data Types
 | Type | Size | Range | Example |
-|------|------|-------|----------|
 | `byte` | 8-bit | -128 to 127 | `byte age = 25;` |
 | `short` | 16-bit | -32,768 to 32,767 | `short year = 2024;` |
 | `int` | 32-bit | -2³¹ to 2³¹-1 | `int count = 100;` |
@@ -947,6 +949,7 @@ books.values().forEach(System.out::println);
 ---
 
 @Th3viousGameus
+
 
 
 
