@@ -31,10 +31,10 @@ Python is **dynamically typed** - no need to declare variable types!
 
 ### Variable assignment 
 ```python
-name = "Alice" # String
-age = 25 # Integer
-height = 5.6 # Float
-is_student = True # Boolean
+name = "Alice"         # String
+age = 25               # Integer
+height = 5.6           # Float
+is_student = True      # Boolean
 ```
 
 ### Multiple assignment 
@@ -1115,4 +1115,5 @@ book.save_to_file("contacts.txt")
 ---
 
 @Th3viousGameus
+
 
