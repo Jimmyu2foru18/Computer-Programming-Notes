@@ -250,7 +250,7 @@ function getPageName(fileName) {
 }
 
 /**
- * Fallback markdown to HTML converter when marked.js fails
+ * Improved fallback markdown to HTML converter
  */
 function fallbackMarkdownToHtml(markdown) {
     if (typeof markdown !== 'string') {
@@ -261,67 +261,113 @@ function fallbackMarkdownToHtml(markdown) {
     try {
         let html = markdown;
         
-        // Escape HTML entities first to prevent injection
-        html = html.replace(/&/g, '&amp;')
-                   .replace(/</g, '&lt;')
-                   .replace(/>/g, '&gt;');
-        
-        // Convert code blocks FIRST (before other conversions)
-        html = html.replace(/```(\w+)?\n([\s\S]*?)```/gim, function(match, lang, code) {
-            const language = lang ? lang.replace(/^-/, '') : '';
-            const langClass = language ? ` class="language-${language}"` : '';
-            const langAttr = language ? ` data-language="${language}"` : '';
-            return `<pre${langAttr}><code${langClass}>${code.trim()}</code></pre>`;
+        // Step 1: Protect code blocks from further processing
+        const codeBlocks = [];
+        html = html.replace(/```(\w+)?\s*\n([\s\S]*?)```/gm, function(match, lang, code) {
+            const index = codeBlocks.length;
+            const language = lang || '';
+            codeBlocks.push({ lang: language, code: code });
+            return `__CODEBLOCK_${index}__`;
         });
         
-        // Convert inline code
-        html = html.replace(/`([^`]+)`/gim, '<code>$1</code>');
-        
-        // Convert headers
-        html = html.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
-        html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-        html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-        html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-        
-        // Convert bold and italic
-        html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
-        html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
-        
-        // Convert links
-        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>');
-        
-        // Convert lists - handle both * and - bullet points
-        html = html.replace(/^[-*] (.*$)/gim, '<li>$1</li>');
-        
-        // Group consecutive list items together
-        html = html.replace(/(<li>.*?<\/li>\s*)+/g, function(match) {
-            return '<ul>' + match + '</ul>';
+        // Step 2: Protect inline code
+        const inlineCodes = [];
+        html = html.replace(/`([^`]+)`/g, function(match, code) {
+            const index = inlineCodes.length;
+            inlineCodes.push(code);
+            return `__INLINECODE_${index}__`;
         });
         
-        // Convert line breaks to paragraphs
-        const lines = html.split('\n\n');
-        html = lines.map(line => {
-            line = line.trim();
-            if (line && !line.startsWith('<')) {
-                return '<p>' + line + '</p>';
+        // Step 3: Convert headers (must be at start of line)
+        html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+        html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+        html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+        html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+        
+        // Step 4: Convert bold and italic (non-greedy)
+        html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        
+        // Step 5: Convert links
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+        
+        // Step 6: Convert ordered lists
+        html = html.replace(/^\d+\.\s+(.+)$/gm, '<___OLI___>$1</___OLI___>');
+        html = html.replace(/(<___OLI___>[\s\S]+?<\/___OLI___>\s*)+/g, function(match) {
+            return '<ol>' + match.replace(/<___OLI___>/g, '<li>').replace(/<\/___OLI___>/g, '</li>') + '</ol>';
+        });
+        
+        // Step 7: Convert unordered lists
+        html = html.replace(/^[-*+]\s+(.+)$/gm, '<___ULI___>$1</___ULI___>');
+        html = html.replace(/(<___ULI___>[\s\S]+?<\/___ULI___>\s*)+/g, function(match) {
+            return '<ul>' + match.replace(/<___ULI___>/g, '<li>').replace(/<\/___ULI___>/g, '</li>') + '</ul>';
+        });
+        
+        // Step 8: Convert blockquotes
+        html = html.replace(/^>\s+(.+)$/gm, '<blockquote>$1</blockquote>');
+        html = html.replace(/(<blockquote>[\s\S]+?<\/blockquote>\s*)+/g, function(match) {
+            return '<blockquote>' + match.replace(/<\/?blockquote>/g, '') + '</blockquote>';
+        });
+        
+        // Step 9: Convert horizontal rules
+        html = html.replace(/^[-*_]{3,}$/gm, '<hr>');
+        
+        // Step 10: Convert paragraphs (split by double newlines)
+        const sections = html.split(/\n\n+/);
+        html = sections.map(section => {
+            section = section.trim();
+            if (!section) return '';
+            
+            // Don't wrap already formatted elements
+            if (section.match(/^<(h[1-6]|ul|ol|pre|blockquote|hr|table)/i)) {
+                return section;
             }
-            return line;
+            
+            // Wrap in paragraph
+            return '<p>' + section.replace(/\n/g, '<br>') + '</p>';
         }).join('\n');
         
-        // Clean up
-        html = html.replace(/<p><\/p>/gim, '');
-        html = html.replace(/<p>(<[hH][1-6]>)/gim, '$1');
-        html = html.replace(/(<\/[hH][1-6]>)<\/p>/gim, '$1');
-        html = html.replace(/<p>(<pre>)/gim, '$1');
-        html = html.replace(/(<\/pre>)<\/p>/gim, '$1');
-        html = html.replace(/<p>(<ul>)/gim, '$1');
-        html = html.replace(/(<\/ul>)<\/p>/gim, '$1');
+        // Step 11: Restore inline code
+        inlineCodes.forEach((code, index) => {
+            html = html.replace(`__INLINECODE_${index}__`, `<code>${escapeHtml(code)}</code>`);
+        });
+        
+        // Step 12: Restore code blocks
+        codeBlocks.forEach((block, index) => {
+            const langClass = block.lang ? ` class="language-${block.lang}"` : '';
+            const langAttr = block.lang ? ` data-language="${block.lang}"` : '';
+            const escapedCode = escapeHtml(block.code.trim());
+            html = html.replace(`__CODEBLOCK_${index}__`, 
+                `<pre${langAttr}><code${langClass}>${escapedCode}</code></pre>`);
+        });
+        
+        // Step 13: Final cleanup
+        html = html.replace(/<p>\s*<\/p>/g, '');
+        html = html.replace(/<p>(<h[1-6]>)/g, '$1');
+        html = html.replace(/(<\/h[1-6]>)<\/p>/g, '$1');
+        html = html.replace(/<p>(<(?:ul|ol|pre|blockquote|hr)>)/g, '$1');
+        html = html.replace(/(<\/(?:ul|ol|pre|blockquote)>)<\/p>/g, '$1');
+        html = html.replace(/<br>\s*<\/p>/g, '</p>');
         
         return html;
     } catch (error) {
         console.error('Fallback markdown conversion failed:', error);
         return '<div class="error">Content conversion failed: ' + error.message + '</div>';
     }
+}
+
+/**
+ * Escape HTML special characters
+ */
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
 }
 
 /**
@@ -375,7 +421,7 @@ function removeEmojis(text) {
 }
 
 /**
- * Main markdown file loader with enhanced error handling
+ * Main markdown file loader - uses fallback parser by default
  */
 function loadMarkdownFile(fileName) {
     const contentDiv = document.getElementById('markdown-content');
@@ -397,7 +443,6 @@ function loadMarkdownFile(fileName) {
         .then(response => {
             console.log('Response status:', response.status);
             console.log('Response ok:', response.ok);
-            console.log('Content-Type:', response.headers.get('content-type'));
             
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -415,44 +460,17 @@ function loadMarkdownFile(fileName) {
             // Remove emojis
             text = removeEmojis(text);
             
-            // Try marked.js first
-            let html;
-            try {
-                console.log('Attempting marked.js parse...');
-                
-                // Configure marked with safe options
-                marked.setOptions({
-                    breaks: true,
-                    gfm: true,
-                    headerIds: true,
-                    mangle: false,
-                    sanitize: false,
-                    pedantic: false
-                });
-                
-                html = marked.parse(text);
-                
-                // Validate the output
-                if (!html || typeof html !== 'string' || html.includes('[object Object]')) {
-                    throw new Error('Invalid HTML output from marked.js');
-                }
-                
-                console.log('✓ marked.js successful');
-                console.log('HTML length:', html.length);
-                console.log('HTML preview:', html.substring(0, 200));
-                
-            } catch (markedError) {
-                console.warn('marked.js failed:', markedError.message);
-                console.log('Falling back to custom parser...');
-                
-                html = fallbackMarkdownToHtml(text);
-                console.log('✓ Fallback parser successful');
+            // Use fallback parser directly to avoid marked.js issues
+            console.log('Using fallback markdown parser...');
+            const html = fallbackMarkdownToHtml(text);
+            
+            // Validate output
+            if (!html || html.trim() === '' || html.includes('[object Object]')) {
+                throw new Error('Parsing produced invalid output');
             }
             
-            // Final validation
-            if (!html || html.trim() === '') {
-                throw new Error('Parsing produced empty output');
-            }
+            console.log('✓ Fallback parser successful');
+            console.log('HTML length:', html.length);
             
             // Store filename for PDF generation
             contentDiv.setAttribute('data-current-file', fileName);
