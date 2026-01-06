@@ -666,6 +666,7 @@ function loadMarkdownFile(fileName) {
                 };
                 
                 // Try to parse with marked.js
+                console.log('Attempting to parse with marked.js for file:', fileName);
                 let parsedHtml = marked.parse(markdownString, markedOptions);
                 
                 // Validate that html is not [object Object] or invalid
@@ -682,12 +683,12 @@ function loadMarkdownFile(fileName) {
                 
                 html = parsedHtml;
             } catch (error) {
-                console.error('Error parsing markdown with marked.js:', error);
+                console.error('Error parsing markdown with marked.js for file:', fileName, error);
                 
                 // If marked.js fails completely, switch to direct loader
                 if (error.message.includes('Markdown parser returned invalid content') || 
                     error.message.includes('Markdown parsing produced invalid content')) {
-                    console.log('Switching to direct markdown loader...');
+                    console.log('Marked.js failed for file:', fileName, 'Switching to direct markdown loader...');
                     loadMarkdownFileDirect(fileName);
                     return; // Exit this function to prevent double execution
                 }
