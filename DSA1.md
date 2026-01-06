@@ -1,5 +1,4 @@
 # Data Structures and Algorithms:
----
 
 ## Introduction
 
