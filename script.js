@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = [
         {
             name: 'Python',
-            files: ['1.0 Python.md', '2 Python.md']
+            files: ['Python1.md', 'Python2.md']
         },
         {
             name: 'Java',
