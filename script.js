@@ -751,118 +751,49 @@ function loadMarkdownFile(fileName) {
         });
 }
 
-/**
- * Generates a PDF from the current markdown content
- */
 function generatePDF() {
     const contentDiv = document.getElementById('markdown-content');
-    
-    // Check if content is loaded
     if (!contentDiv || contentDiv.children.length === 0 || contentDiv.querySelector('.welcome-message')) {
         alert('Please load a document before generating a PDF.');
         return;
     }
-    
     const currentFile = contentDiv.getAttribute('data-current-file') || 'document';
     const fileName = currentFile.replace(/\.md$/, '.pdf');
-    
-    console.log('Generating PDF for file:', currentFile);
-    console.log('Content div innerHTML:', contentDiv.innerHTML);
-    
-    // Create a clone of the content to avoid modifying the displayed content
-    const contentClone = contentDiv.cloneNode(true);
-    
-    // Remove the page TOC from the clone to avoid duplication in the PDF
-    const pageTOC = contentClone.querySelector('.page-toc');
+    const pageTOC = contentDiv.querySelector('.page-toc');
+    let originalPageTOCDisplay = null;
     if (pageTOC) {
-        contentClone.removeChild(pageTOC);
+        originalPageTOCDisplay = pageTOC.style.display;
+        pageTOC.style.display = 'none';
     }
-    
-    // Make sure all content is visible in the clone
-    const allElements = contentClone.querySelectorAll('*');
-    allElements.forEach(el => {
-        if (el.style) {
-            el.style.display = '';
-            el.style.visibility = 'visible';
-            el.style.opacity = '1';
-        }
-    });
-    
-    // Ensure the clone itself is visible and has proper styling for PDF
-    contentClone.style.display = 'block';
-    contentClone.style.visibility = 'visible';
-    contentClone.style.opacity = '1';
-    contentClone.style.position = 'relative';
-    contentClone.style.width = '100%';
-    contentClone.style.maxWidth = 'none';
-    contentClone.style.margin = '0';
-    contentClone.style.padding = '20px';
-    contentClone.style.backgroundColor = 'white';
-    contentClone.style.color = 'black';
-    
-    // Add to body temporarily for debugging
-    contentClone.style.position = 'absolute';
-    contentClone.style.left = '-9999px';
-    contentClone.style.top = '-9999px';
-    document.body.appendChild(contentClone);
-    
-    console.log('Content clone appended to body for debugging');
-    console.log('Clone dimensions:', contentClone.offsetWidth, 'x', contentClone.offsetHeight);
-    
-    // Configure PDF options with better settings
     const options = {
-        margin: [15, 15, 15, 15],
+        margin: 10,
         filename: fileName,
-        image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { 
-            scale: 1, 
-            logging: true, 
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+            scale: 2,
             useCORS: true,
-            backgroundColor: '#ffffff',
-            width: 794, // A4 width in pixels at 96 DPI
-            height: 1123, // A4 height in pixels at 96 DPI
-            windowWidth: 794
+            backgroundColor: '#ffffff'
         },
-        jsPDF: { 
-            unit: 'px', 
-            format: [794, 1123], // A4 size in pixels
-            orientation: 'portrait',
-            compress: true
+        jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
         }
     };
-    
-    // Show a loading message
-    const savingMessage = document.createElement('div');
-    savingMessage.className = 'saving-message';
-    savingMessage.textContent = 'Generating PDF...';
-    document.body.appendChild(savingMessage);
-    
-    // Generate the PDF with better error handling
     html2pdf()
         .set(options)
-        .from(contentClone)
-        .toPdf()
-        .get('pdf')
-        .then(function (pdf) {
-            console.log('PDF object created successfully');
-            console.log('PDF has', pdf.internal.getNumberOfPages(), 'pages');
-        })
+        .from(contentDiv)
         .save()
         .then(() => {
-            console.log('PDF saved successfully');
-            // Remove the temporary clone and loading message
-            document.body.removeChild(contentClone);
-            document.body.removeChild(savingMessage);
+            if (pageTOC) {
+                pageTOC.style.display = originalPageTOCDisplay;
+            }
         })
         .catch(error => {
             console.error('Error generating PDF:', error);
-            console.error('Error stack:', error.stack);
-            // Remove the temporary clone and loading message
-            document.body.removeChild(contentClone);
-            document.body.removeChild(savingMessage);
-            
-            // Try the fallback method
-            console.log('Trying fallback PDF generation method...');
+            if (pageTOC) {
+                pageTOC.style.display = originalPageTOCDisplay;
+            }
             generatePDFFallback();
         });
 }
