@@ -1,5 +1,4 @@
 # Internet & Web: HTML, CSS, JS, PHP, Hosting (AWS/XAMPP)
----
 
 ## HTML: Structuring the Web
 HTML (HyperText Markup Language) is the foundation of all web pages. It provides the structure and content that users see in their browsers.
@@ -561,5 +560,6 @@ Examples include Cloudflare and AWS CloudFront.
 ---
 
 @Th3viousGameus
+
 
 
