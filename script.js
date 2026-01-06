@@ -26,47 +26,43 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: 'Java',
-            files: ['1.0 Java.md', '2 Java.md']
+            files: ['Java1.md', 'Java2.md']
         },
         {
             name: 'C#',
-            files: ['1.0 C#.md', '2 C#.md']
+            files: ['C#1.md', 'C#2.md']
         },
         {
             name: 'Software Engineering',
-            files: ['1.0 Soft Eng.md', '2 Soft Eng.md']
+            files: ['Soft1.md', 'Soft2.md']
         },
         {
             name: 'Data Structures & Algorithms',
-            files: ['1.0 DSA_Guide.md']
-        },
-        {
-            name: 'Test',
-            files: ['test_language_labels.md', 'test_headers_tables.md']
+            files: ['DSA1.md']
         },
         {
             name: 'Database Management Systems',
-            files: ['1.0 DBMS.md', '2 DBMS.md']
+            files: ['DBMS1.md', 'DBMS2.md']
         },
         {
             name: 'Internet & Web',
-            files: ['1.0 Int & web.md', '2 Int & web.md']
+            files: ['Int1.md', 'Int2.md']
         },
         {
             name: 'Computer Networks',
-            files: ['1.0 Computer Networks.md', '2 Computer Networks.md']
+            files: ['Networks1.md', 'Networks2.md']
         },
         {
             name: 'OSI Model',
-            files: ['1.0 OSI.md', '2 OSI.md']
+            files: ['OSI1.md', 'OSI2.md']
         },
         {
             name: 'System Design',
-            files: ['1.0 systm.md', '2 systm.md', '3 System.md']
+            files: ['Systm1.md', 'Systm2.md', 'System3.md']
         },
         {
             name: 'Linux',
-            files: ['1.0 linux.md', '2 linux.md']
+            files: ['Linux1.md', 'Linux2.md']
         }
     ];
 
