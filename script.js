@@ -628,7 +628,7 @@ function loadMarkdownFile(fileName) {
                 // Generate an ID from the clean text
                 const id = cleanText.toLowerCase().replace(/[^\w]+/g, '-');
                 
-                return `<h${level} id="${id}">${cleanText}</h${level}>`;
+             return `<h${level} id="${id}"><a href="#${id}">${cleanText}</a></h${level}>`;
             };
             
             // Override list item renderer to handle both * and - bullets
