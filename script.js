@@ -768,7 +768,7 @@ function generatePDF() {
     const previousStyle = contentDiv.getAttribute('style') || '';
     contentDiv.style.maxWidth = '210mm';
     contentDiv.style.margin = '0 auto';
-    contentDiv.style.padding = '10mm';
+    contentDiv.style.padding = '0 10mm 10mm 10mm';
     contentDiv.style.backgroundColor = '#ffffff';
     contentDiv.style.color = '#000000';
     contentDiv.style.boxSizing = 'border-box';
