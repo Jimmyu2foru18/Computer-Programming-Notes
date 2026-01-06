@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: 'System Design',
-            files: ['Systm1.md', 'Systm2.md', 'System3.md']
+            files: ['System1.md', 'System2.md', 'System3.md']
         },
         {
             name: 'Linux',
