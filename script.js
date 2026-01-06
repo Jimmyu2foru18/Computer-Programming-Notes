@@ -87,47 +87,50 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Alternative PDF generation using a more robust method
- * Creates a proper HTML document for PDF generation
+ * generatePDFFallback
+ * -------------------
+ * Alternative PDF generation for Markdown content.
+ * Uses a robust approach with html2pdf to create a printable PDF.
+ *
+ * Steps:
+ * 1. Check if content is loaded and valid.
+ * 2. Clone the content to avoid modifying the live DOM.
+ * 3. Remove unwanted elements like table of contents (TOC) or welcome messages.
+ * 4. Fix styling for visibility.
+ * 5. Append the clone to a hidden container in the DOM.
+ * 6. Use html2pdf to generate and download a PDF.
+ * 7. Clean up temporary DOM elements after generation.
+ *
+ * Dependencies:
+ * - html2pdf.js (https://github.com/eKoopmans/html2pdf)
  */
 function generatePDFFallback() {
+    // 1. Select the Markdown content container
     const contentDiv = document.getElementById('markdown-content');
-    
-    // Check if content is loaded
+
+    // 2. Validate content
     if (!contentDiv || contentDiv.children.length === 0 || contentDiv.querySelector('.welcome-message')) {
         alert('Please load a document before generating a PDF.');
         return;
     }
-    
+
     const currentFile = contentDiv.getAttribute('data-current-file') || 'document';
     const fileName = currentFile.replace(/\.md$/, '.pdf');
-    
-    console.log('Using fallback PDF generation for:', currentFile);
-    
-    // Create a proper HTML document for PDF generation
-    const pdfContent = document.createElement('div');
-    pdfContent.style.cssText = `
-        width: 794px;
-        min-height: 1123px;
-        background: white;
-        color: black;
-        padding: 50px;
-        font-family: Arial, sans-serif;
-        font-size: 12pt;
-        line-height: 1.6;
-        box-sizing: border-box;
-    `;
-    
-    // Clone the content (without TOC)
-    const contentClone = contentDiv.cloneNode(true);
-    const pageTOC = contentClone.querySelector('.page-toc');
-    if (pageTOC) {
-        contentClone.removeChild(pageTOC);
-    }
-    
-    // Fix any styling issues
-    const allElements = contentClone.querySelectorAll('*');
-    allElements.forEach(el => {
+
+    console.log('Generating PDF for:', currentFile);
+
+    // 3. Clone the content to avoid modifying live DOM
+    const clone = contentDiv.cloneNode(true);
+
+    // 4. Remove elements that should not appear in PDF
+    const pageTOC = clone.querySelector('.page-toc');
+    if (pageTOC) pageTOC.remove();
+
+    const welcomeMessage = clone.querySelector('.welcome-message');
+    if (welcomeMessage) welcomeMessage.remove();
+
+    // 5. Fix styles on all elements to ensure visibility in PDF
+    clone.querySelectorAll('*').forEach(el => {
         if (el.style) {
             el.style.display = '';
             el.style.visibility = 'visible';
@@ -136,136 +139,46 @@ function generatePDFFallback() {
             el.style.color = '';
         }
     });
-    
-    pdfContent.innerHTML = contentClone.innerHTML;
-    
-    // Create a complete HTML document
-    const htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>${currentFile}</title>
-            <style>
-                body {
-                    margin: 0;
-                    padding: 0;
-                    font-family: Arial, sans-serif;
-                    font-size: 12pt;
-                    line-height: 1.6;
-                    color: #000;
-                    background: #fff;
-                }
-                h1, h2, h3, h4, h5, h6 {
-                    color: #000;
-                    margin: 20px 0 10px 0;
-                    page-break-after: avoid;
-                }
-                h1 { font-size: 24pt; }
-                h2 { font-size: 20pt; }
-                h3 { font-size: 16pt; }
-                pre, code {
-                    background: #f5f5f5;
-                    border: 1px solid #ddd;
-                    padding: 10px;
-                    font-family: 'Courier New', monospace;
-                    font-size: 10pt;
-                    page-break-inside: avoid;
-                }
-                pre { margin: 15px 0; }
-                code { padding: 2px 4px; }
-                a { color: #0066cc; text-decoration: underline; }
-                ul, ol { margin: 10px 0; padding-left: 30px; }
-                li { margin: 5px 0; }
-                p { margin: 10px 0; }
-                blockquote {
-                    border-left: 4px solid #ddd;
-                    margin: 15px 0;
-                    padding-left: 20px;
-                    color: #555;
-                }
-                img { max-width: 100%; height: auto; }
-                table {
-                    border-collapse: collapse;
-                    width: 100%;
-                    margin: 15px 0;
-                }
-                th, td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
-                    text-align: left;
-                }
-                th {
-                    background: #f5f5f5;
-                    font-weight: bold;
-                }
-                .page-break { page-break-before: always; }
-                .no-break { page-break-inside: avoid; }
-            </style>
-        </head>
-        <body>
-            ${pdfContent.innerHTML}
-        </body>
-        </html>
-    `;
-    
-    // Create a blob and download link
-    const blob = new Blob([htmlContent], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    
-    // Create a temporary iframe to render the HTML for PDF generation
-    const iframe = document.createElement('iframe');
-    iframe.style.position = 'absolute';
-    iframe.style.left = '-9999px';
-    iframe.style.top = '-9999px';
-    iframe.style.width = '794px';
-    iframe.style.height = '1123px';
-    
-    document.body.appendChild(iframe);
-    
-    iframe.onload = function() {
-        try {
-            // Use html2pdf on the iframe content
-            html2pdf()
-                .set({
-                    margin: 20,
-                    filename: fileName,
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { 
-                        scale: 1,
-                        width: 794,
-                        height: 1123,
-                        windowWidth: 794,
-                        backgroundColor: '#ffffff'
-                    },
-                    jsPDF: { 
-                        unit: 'px', 
-                        format: [794, 1123], 
-                        orientation: 'portrait' 
-                    }
-                })
-                .from(iframe.contentDocument.body)
-                .save()
-                .then(() => {
-                    console.log('PDF generated successfully using fallback method');
-                    document.body.removeChild(iframe);
-                    URL.revokeObjectURL(url);
-                })
-                .catch(error => {
-                    console.error('Error with fallback PDF generation:', error);
-                    document.body.removeChild(iframe);
-                    URL.revokeObjectURL(url);
-                    alert('Error generating PDF: ' + error.message);
-                });
-        } catch (error) {
-            console.error('Error in iframe onload:', error);
-            document.body.removeChild(iframe);
-            URL.revokeObjectURL(url);
-            alert('Error generating PDF: ' + error.message);
+
+    // 6. Create a hidden container to hold the clone
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.left = '-9999px';
+    container.style.top = '0';
+    container.appendChild(clone);
+    document.body.appendChild(container);
+
+    // 7. Configure html2pdf options
+    const options = {
+        margin: 10,                        // Page margins in mm
+        filename: fileName,                 // Output file name
+        image: { type: 'jpeg', quality: 0.98 }, // Image quality for screenshots
+        html2canvas: {
+            scale: 2,                      // Higher scale for better quality
+            backgroundColor: '#ffffff',    // White background
+        },
+        jsPDF: {
+            unit: 'mm',                     // Units in millimeters
+            format: 'a4',                   // A4 paper size
+            orientation: 'portrait'         // Portrait orientation
         }
     };
-    
-    iframe.srcdoc = htmlContent;
+
+    // 8. Generate the PDF from the cloned content
+    html2pdf()
+        .set(options)
+        .from(clone)
+        .save()
+        .finally(() => {
+            // 9. Cleanup temporary elements
+            document.body.removeChild(container);
+            console.log('PDF generated successfully');
+        })
+        .catch(error => {
+            console.error('Error generating PDF:', error);
+            alert('An error occurred while generating the PDF. See console for details.');
+            document.body.removeChild(container);
+        });
 }
 
 /**
