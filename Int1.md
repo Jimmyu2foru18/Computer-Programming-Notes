@@ -5,20 +5,27 @@
 HTML (HyperText Markup Language) is the foundation of all web pages. It provides the structure and content that users see in their browsers.
 
 ### Core Concepts
-- **Tags**: HTML uses tags, enclosed in angle brackets (< >), to define elements. Most tags come in pairs: an opening tag (<p>) and a closing tag (</p>).
-- **Elements**: An element is a combination of an opening tag, content, and a closing tag (e.g., <p>This is a paragraph.</p>).
-- **Attributes**: Attributes provide additional information about HTML elements. They are specified within the opening tag (e.g., <a href="https://www.example.com">).
+
+- **Tags**: HTML uses tags, enclosed in angle brackets (`< >`), to define elements. Most tags come in pairs: an opening tag (`<p>`) and a closing tag (`</p>`).
+
+- **Elements**: An element is a combination of an opening tag, content, and a closing tag  
+  (e.g., `<p>This is a paragraph.</p>`).
+
+- **Attributes**: Attributes provide additional information about HTML elements. They are specified within the opening tag  
+  (e.g., `<a href="https://www.example.com">`).
+
 - **Document Structure**: A basic HTML document has the following structure:
+
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<title>Page Title</title>
-</head>
-<body>
-<h1>Main Heading</h1>
-<p>This is a paragraph of text.</p>
-</body>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <h1>Main Heading</h1>
+    <p>This is a paragraph of text.</p>
+  </body>
 </html>
 ```
 - **`<!DOCTYPE html>`**: Declares the document type and version of HTML.
@@ -554,4 +561,5 @@ Examples include Cloudflare and AWS CloudFront.
 ---
 
 @Th3viousGameus
+
 
