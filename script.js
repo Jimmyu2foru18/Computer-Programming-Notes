@@ -765,6 +765,13 @@ function generatePDF() {
         originalPageTOCDisplay = pageTOC.style.display;
         pageTOC.style.display = 'none';
     }
+    const previousStyle = contentDiv.getAttribute('style') || '';
+    contentDiv.style.maxWidth = '210mm';
+    contentDiv.style.margin = '0 auto';
+    contentDiv.style.padding = '10mm';
+    contentDiv.style.backgroundColor = '#ffffff';
+    contentDiv.style.color = '#000000';
+    contentDiv.style.boxSizing = 'border-box';
     const options = {
         margin: 10,
         filename: fileName,
@@ -788,11 +795,21 @@ function generatePDF() {
             if (pageTOC) {
                 pageTOC.style.display = originalPageTOCDisplay;
             }
+            if (previousStyle) {
+                contentDiv.setAttribute('style', previousStyle);
+            } else {
+                contentDiv.removeAttribute('style');
+            }
         })
         .catch(error => {
             console.error('Error generating PDF:', error);
             if (pageTOC) {
                 pageTOC.style.display = originalPageTOCDisplay;
+            }
+             if (previousStyle) {
+                contentDiv.setAttribute('style', previousStyle);
+            } else {
+                contentDiv.removeAttribute('style');
             }
             generatePDFFallback();
         });
