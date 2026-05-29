@@ -1,0 +1,69 @@
+<article>
+    <h1>Computer Networks: Advanced Services, Modern Security, and Automation</h1>
+
+    <section>
+        <h2>1. Core Network Services: Deep Dive into DNS and DHCP</h2>
+        <p>Core network services are the invisible pillars supporting global connectivity.</p>
+        
+        <h3>DNS Internals: Hierarchical Resolution and Security</h3>
+        <p>DNS resolution is a distributed lookup process. <strong>Recursive resolvers</strong> query a hierarchy: Root servers (providing TLD addresses), TLD servers (providing Authoritative Name Server addresses), and finally Authoritative Name Servers for the domain. DNS responses are cached to reduce latency. To prevent DNS spoofing and cache poisoning, <strong>DNSSEC</strong> adds digital signatures (RRSIG records) and public keys (DNSKEY) to DNS records, allowing clients to cryptographically verify the authenticity of the data.</p>
+        
+        <h3>DHCP: DORA Process and Address Lease</h3>
+        <p>DHCP automates IP assignment via the <strong>DORA</strong> handshake: <strong>D</strong>iscover (broadcast), <strong>O</strong>ffer (server proposal), <strong>R</strong>equest (client request), <strong>A</strong>cknowledge (server confirmation). Once an IP is leased, the client must periodically renew the lease before expiration, typically at 50% of the lease time.</p>
+    </section>
+
+    <section>
+        <h2>2. Advanced Network Security Protocols</h2>
+        <p>Modern network security demands high performance without compromising privacy.</p>
+        
+        <h3>TLS 1.3: Efficiency and Security</h3>
+        <p>TLS 1.3 is a major refinement over 1.2. It removes weak cryptographic algorithms and reduces the handshake to a single round trip (1-RTT). It also enforces Perfect Forward Secrecy (PFS), ensuring that even if a server's long-term private key is compromised in the future, past traffic cannot be decrypted.</p>
+        
+        <h3>WireGuard vs. IPsec: Cryptographic Modernization</h3>
+        <p>Traditional IPsec is powerful but notoriously complex, leading to configuration vulnerabilities. <strong>WireGuard</strong> introduces a modern, opinionated cryptographic design. It uses the <strong>Noise Protocol Framework</strong> for key exchange and <strong>ChaCha20-Poly1305</strong> for symmetric encryption, providing high-performance, auditable security in a fraction of the code footprint.</p>
+    </section>
+
+    <section>
+        <h2>3. Modernizing Web Protocols and Network Automation</h2>
+        <h3>HTTP/3 (QUIC) and Connection Migration</h3>
+        <p>HTTP/3 leverages QUIC (built over UDP) to solve <strong>Head-of-Line Blocking</strong>. Unlike TCP, where one dropped packet stalls the entire stream, QUIC manages independent streams. Furthermore, QUIC supports <strong>Connection Migration</strong>: if a client changes their IP (e.g., switching from Wi-Fi to 4G), the connection remains alive using a unique Connection ID, avoiding costly re-handshakes.</p>
+        
+        <h3>Network Automation and YANG Data Modeling</h3>
+        <p>Modern network operations utilize Infrastructure as Code (IaC). <strong>NetConf</strong> is a network configuration protocol that provides mechanisms to install, manipulate, and delete configuration of network devices. <strong>YANG</strong> is the data modeling language used with NetConf to describe the configuration and state of devices in a machine-readable format, enabling robust, idempotent automation via tools like Ansible.</p>
+    </section>
+
+    <section>
+        <h2>4. Bridging the Gap: Expert Insights</h2>
+        <p>To transition from beginner to expert, you must understand how layers interact.</p>
+        
+        <h3>TCP vs. UDP in Java</h3>
+        <ul>
+            <li><strong>TCP (java.net.Socket)</strong>: Guaranteed delivery. Used for HTTP, FTP, and databases.</li>
+            <li><strong>UDP (java.net.DatagramSocket)</strong>: No guarantee, low latency. Used for streaming, VoIP, and gaming.</li>
+        </ul>
+
+        <h3>Key Networking Concepts for Experts</h3>
+        <ul>
+            <li><strong>Latency</strong>: Delay before data transfer begins.</li>
+            <li><strong>Throughput</strong>: Amount of data moved successfully in a given time.</li>
+            <li><strong>Socket Timeouts</strong>: Configure <code>socket.setSoTimeout()</code> to prevent hanging.</li>
+            <li><strong>Buffer Sizes</strong>: Adjust <code>setReceiveBufferSize</code> for high-volume streams.</li>
+            <li><strong>Non-blocking I/O (NIO)</strong>: Use <code>java.nio</code> to handle thousands of concurrent connections.</li>
+            <li><strong>Connection Pooling</strong>: Reuse sockets to avoid constant TCP handshakes.</li>
+        </ul>
+
+        <h3>Essential Troubleshooting Checklist</h3>
+        <ul>
+            <li><strong>Layer 1/2</strong>: Cables plugged in? Switch port active?</li>
+            <li><strong>Layer 3</strong>: Ping destination IP? Routing table correct?</li>
+            <li><strong>Layer 4</strong>: Port open? Firewall blocking the Java process?</li>
+            <li><strong>Layer 7</strong>: Service returning 200 OK or 5xx?</li>
+            <li><strong>Performance</strong>: Excessive TCP retransmissions in Wireshark?</li>
+            <li><strong>Resources</strong>: JVM running out of file descriptors due to unclosed sockets?</li>
+            <li><strong>Latency</strong>: Synchronous blocking I/O on the main thread?</li>
+            <li><strong>Security</strong>: Expired SSL/TLS certificates?</li>
+            <li><strong>Compatibility</strong>: Mismatched protocol versions (e.g., HTTP/1.1 vs HTTP/2)?</li>
+            <li><strong>Data Integrity</strong>: Checksums used for large file transfers?</li>
+        </ul>
+    </section>
+</article>

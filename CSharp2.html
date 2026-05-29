@@ -1,0 +1,55 @@
+<article>
+    <h1>C# Programming: Advanced Language Features, Performance, and Memory Safety</h1>
+
+    <section>
+        <h2>1. Advanced Generics: Covariance and Contravariance</h2>
+        <p>Generics ensure type safety. Beyond basic parameters, C# supports variance, allowing type flexibility in interfaces and delegates.</p>
+        
+        <h3>Variance Keywords</h3>
+        <ul>
+            <li><strong>Covariance (<code>out T</code>)</strong>: Allows usage of a more derived type than originally specified. Common in producer interfaces (e.g., <code>IEnumerable&lt;out T&gt;</code>).</li>
+            <li><strong>Contravariance (<code>in T</code>)</strong>: Allows usage of a less derived type. Common in consumer interfaces (e.g., <code>IComparer&lt;in T&gt;</code>).</li>
+        </ul>
+        <pre><code class="language-csharp">
+// Covariant interface
+public interface IProducer&lt;out T&gt; { T Get(); }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Reflection: Internals and Performance</h2>
+        <p>Reflection allows inspecting assemblies, types, and members at runtime. While powerful, reflection is significantly slower than direct invocation because it involves metadata lookup, type checks, and dynamic method binding.</p>
+        
+        <h3>Optimizing Reflection</h3>
+        <p>In high-performance scenarios, avoid reflection in hot paths. If necessary, use <strong>Delegate.CreateDelegate</strong> or <strong>Expression Trees</strong> to pre-compile the invocation, making subsequent calls nearly as fast as direct method calls.</p>
+    </section>
+
+    <section>
+        <h2>3. High-Performance Memory: Unsafe Code, Pointers, and Pinning</h2>
+        <p>Managed code is typically safe, but high-performance requirements (e.g., parsing binary formats) often necessitate direct memory manipulation.</p>
+        
+        <h3>The <code>fixed</code> Statement and Pinning</h3>
+        <p>The GC periodically moves objects in memory to reduce fragmentation (compaction). If you are using native pointers to access managed heap objects, you must <strong>pin</strong> them using the <code>fixed</code> statement to prevent the GC from moving them while native code is accessing that memory address.</p>
+        <pre><code class="language-csharp">
+byte[] data = ...;
+fixed (byte* p = data) {
+    // GC cannot move 'data' while 'p' points to it
+    NativeMethod(p);
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>4. Modern Performance: ValueTask and Channels</h2>
+        <p>For high-throughput applications, minimizing allocations is essential.</p>
+        <ul>
+            <li><strong><code>ValueTask&lt;T&gt;</code></strong>: A value type alternative to <code>Task&lt;T&gt;</code>. Useful when an asynchronous operation often completes synchronously, avoiding heap allocation for the returned task.</li>
+            <li><strong><code>Channels</code></strong>: High-performance, thread-safe asynchronous messaging queues designed for producer/consumer patterns within a single process.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Professional Performance Benchmarking</h2>
+        <p>Never guess performance. Use <strong>BenchmarkDotNet</strong> to get accurate measurements, handling JIT warmup, dead code elimination, and timing accuracy automatically. Always include the <code>[MemoryDiagnoser]</code> attribute to track heap allocations, which are often the true cause of performance degradation in .NET applications.</p>
+    </section>
+</article>

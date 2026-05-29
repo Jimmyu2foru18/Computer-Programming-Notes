@@ -1,0 +1,74 @@
+<article>
+    <h1>Java Programming: Comprehensive Technical Reference</h1>
+
+    <section>
+        <h2>1. The JVM and Memory Architecture</h2>
+        <p>The Java Virtual Machine (JVM) is a sophisticated virtual machine that enables platform-independent execution of Java bytecode. Understanding its internals is mandatory for performance-critical systems.</p>
+        
+        <h3>JIT Compilation and Tiers</h3>
+        <p>Java is not truly interpreted; it is JIT-compiled. The JVM profiles code in real-time, compiling frequently executed bytecode (hot spots) into optimized native machine code. It uses Tiered Compilation: C1 compiler (for fast startup) and the C2 compiler (for long-running, aggressive optimization).</p>
+        
+        <h3>Garbage Collection (GC) Generations</h3>
+        <p>Java’s GC assumes the <em>weak generational hypothesis</em>: most objects die young. The heap is divided into:
+        <ul>
+            <li><strong>Young Generation</strong>: Eden space and two Survivor spaces (S0/S1). New objects are allocated in Eden. Frequent, fast "Minor GC" occurs here.</li>
+            <li><strong>Old Generation (Tenured)</strong>: Objects that survive multiple Minor GC cycles are promoted here. Infrequent, slow "Major/Full GC" occurs here.</li>
+        </ul>
+        Tuning is vital. For example, the <strong>G1 GC</strong> targets large heaps by partitioning memory into small regions, allowing it to collect regions with the most garbage first, minimizing pause times.</p>
+    </section>
+
+    <section>
+        <h2>2. Mastering Java: Foundational to Expert OOP</h2>
+        <p>Java operates on the paradigm of "Write Once, Run Anywhere" (WORA). To transition from a beginner to an expert, you must internalize the principles of Object-Oriented Programming (OOP) to structure complex systems in a modular, reusable, and maintainable manner.</p>
+        
+        <h3>The Four Pillars of OOP</h3>
+        <ul>
+            <li><strong>Encapsulation</strong>: Bundling data (fields) and methods (logic) into a single unit called a class. It restricts direct access to an object's internal state using access modifiers like <code>private</code>.</li>
+            <li><strong>Inheritance</strong>: Allowing a class to derive properties and behaviors from a parent class using the <code>extends</code> keyword to promote code reuse.</li>
+            <li><strong>Polymorphism</strong>: Allowing objects to take on many forms. Through method overriding and overloading, a single interface can represent different underlying data types.</li>
+            <li><strong>Abstraction</strong>: Hiding complex implementation details and exposing only the necessary interface, achieved through abstract classes and interface definitions.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Advanced Generics and PECS</h2>
+        <p>Generics ensure type safety at compile time. A critical concept is the <strong>PECS</strong> principle: <strong>P</strong>roducer <strong>E</strong>xtends, <strong>C</strong>onsumer <strong>S</strong>uper.</p>
+        <pre><code class="language-java">
+// Producer Extends: List produces Number objects
+public void printNumbers(List<? extends Number> list) {
+    for (Number n : list) { System.out.println(n); }
+}
+
+// Consumer Super: List consumes Number objects (and its superclasses)
+public void addNumbers(List<? super Integer> list) {
+    list.add(10);
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>4. Exception Handling Best Practices</h2>
+        <p>Avoid <code>catch (Exception e)</code>. Always catch the most specific exception first. Use <strong>Try-With-Resources</strong> (available since Java 7) to ensure <code>AutoCloseable</code> resources (like files or database connections) are automatically closed.</p>
+        <pre><code class="language-java">
+try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+    return br.readLine();
+} catch (IOException e) {
+    // Handle specific IO error
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>5. The Java Collections Framework (Internals)</h2>
+        <p>Java's collections are highly optimized for specific access patterns.</p>
+        <ul>
+            <li><strong>ArrayList</strong>: Backed by a dynamic array. Resizes by 1.5x capacity when full. Excellent for random access, poor for middle-of-list insertion.</li>
+            <li><strong>HashMap</strong>: Backed by an array of "buckets." Collisions are handled via linked lists (or Red-Black trees in modern Java to improve worst-case O(n) search to O(log n)).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Interface Evolution</h2>
+        <p>Interfaces can now contain <code>default</code> and <code>static</code> methods, facilitating API evolution without forcing breaking changes on existing implementations.</p>
+    </section>
+</article>

@@ -1,0 +1,55 @@
+<article>
+    <h1>OSI Model: Deep Dive and Protocol Analysis</h1>
+
+    <section>
+        <h2>1. OSI Model vs. Real-World Implementation (TCP/IP)</h2>
+        <p>While the OSI model is a foundational reference model, modern networking is based on the TCP/IP stack. Understanding the mapping is crucial.</p>
+        
+        <h3>Protocol Stack Mapping</h3>
+        <ul>
+            <li><strong>OSI Layers 5-7</strong>: Application Layer (HTTP, DNS, SMTP).</li>
+            <li><strong>OSI Layer 4 (Transport)</strong>: TCP (Reliable, connection-oriented) or UDP (Unreliable, speed-focused).</li>
+            <li><strong>OSI Layer 3 (Network)</strong>: Internet Layer (IP, ICMP routing).</li>
+            <li><strong>OSI Layers 1-2</strong>: Network Access Layer (Ethernet, Wi-Fi).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Deep Dive: Layer 5-7 (Session, Presentation, Application)</h2>
+        <p>These layers handle high-level communication services and data formatting.</p>
+        
+        <h3>Session Layer (L5)</h3>
+        <p>Manages dialogs and connection states between endpoints. It handles session setup, checkpointing, and recovery, ensuring that a long-running transfer can resume from a specific point if interrupted.</p>
+        
+        <h3>Presentation Layer (L6)</h3>
+        <p>Responsible for translation (e.g., ASCII to EBCDIC, or JSON to XML), encryption (e.g., TLS/SSL), and compression (e.g., GZIP). It ensures that data received by the application layer is in a readable format.</p>
+    </section>
+
+    <section>
+        <h2>3. Case Study: A Request for "google.com"</h2>
+        <p>When you type "google.com" into your browser, the OSI process unfolds:</p>
+        <ol>
+            <li><strong>Application Layer</strong>: Browser generates an HTTP request.</li>
+            <li><strong>Presentation/Session</strong>: Data is encrypted via TLS and a secure session is established.</li>
+            <li><strong>Transport Layer</strong>: TCP performs a 3-way handshake.</li>
+            <li><strong>Network Layer</strong>: DNS resolution finds the IP; IP packets are routed.</li>
+            <li><strong>Data Link Layer</strong>: ARP resolves the next-hop MAC address; frames are constructed.</li>
+            <li><strong>Physical Layer</strong>: Bits are transmitted across the medium.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>4. Practical Network Analysis</h2>
+        <p>Mastering networking requires proficiency with protocol analyzers and CLI tools.</p>
+        
+        <h3>Advanced Traffic Capture (tcpdump)</h3>
+        <p>CLI packet capturing is essential for troubleshooting headless servers.</p>
+        <pre><code class="language-bash">
+# Capture 100 packets on eth0 for port 80
+sudo tcpdump -i eth0 port 80 -c 100 -w capture.pcap
+        </code></pre>
+        
+        <h3>MTR: Diagnostics Path Analysis</h3>
+        <p><code>mtr</code> combines traceroute and ping, providing a real-time statistical analysis of latency and packet loss per hop, making it vastly superior to static tools for diagnosing intermittent network issues.</p>
+    </section>
+</article>

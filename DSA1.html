@@ -1,0 +1,86 @@
+<article>
+    <h1>Data Structures and Algorithms: Advanced Analysis and Design</h1>
+
+    <section>
+        <h2>0. Introduction: The Bedrock of Engineering</h2>
+        <p>Data structures and algorithms (DSA) form the bedrock of efficient software engineering. A data structure is a specialized format for organizing, processing, retrieving, and storing data, while an algorithm is a step-by-step procedure to perform a calculation or solve a problem. Mastering these concepts requires moving beyond basic implementation to understanding the underlying memory management, time complexity (Big O notation), and the trade-offs between space and speed. This guide provides a roadmap from foundational basics to expert-level deep dives, focusing on the mechanics that separate mediocre code from high-performance systems.</p>
+    </section>
+
+    <section>
+        <h2>1. Fundamentals and Asymptotic Analysis</h2>
+        <p>The efficiency of an algorithm is described using Big O notation, which defines the upper bound of time or space complexity as input size <em>n</em> grows. Understanding this is critical for designing scalable systems.</p>
+        
+        <h3>Big O Notation Simplified</h3>
+        <p>Big O quantifies the worst-case scenario. When analyzing code, ignore constants and focus on the growth rate:</p>
+        <ul>
+            <li><strong>O(1) - Constant</strong>: Execution time is independent of input size. Example: Hash table lookup or direct array access.</li>
+            <li><strong>O(log n) - Logarithmic</strong>: Performance improves as the problem size is halved. Example: Binary Search in a sorted array.</li>
+            <li><strong>O(n) - Linear</strong>: Execution time grows directly with input size. Example: Iterating through an array once.</li>
+            <li><strong>O(n log n) - Linearithmic</strong>: The standard for efficient sorting algorithms like Merge Sort.</li>
+            <li><strong>O(n²) - Quadratic</strong>: Nested loops, often seen in simple sorting algorithms.</li>
+        </ul>
+        <p>To analyze recursive algorithms, we use the <strong>Master Theorem</strong>: For a recurrence <em>T(n) = aT(n/b) + f(n)</em>, the theorem provides a direct method to determine the asymptotic complexity based on the relationship between <em>f(n)</em> and <em>n<sup>log_b a</sup></em>.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Structures: Linear to Complex</h2>
+        <p>Choosing the right data structure requires evaluating time complexity (access, insertion, deletion) against space complexity constraints.</p>
+        
+        <h3>Linear Data Structures</h3>
+        <p><strong>Linked Lists</strong>: Nodes containing data and references. They provide O(1) insertions/deletions at the head but O(n) access time. They are superior to arrays when the data size changes frequently.</p>
+        <p><strong>Stacks (LIFO) & Queues (FIFO)</strong>: Abstract Data Types (ADTs) facilitating specific access patterns. Stacks are essential for call-stack management and recursive function implementation.</p>
+        
+        <h3>Hash Tables</h3>
+        <p>Hash tables map keys to values using a hash function. They provide O(1) average time complexity for access. <strong>Collision Resolution</strong> is the key design consideration—using chaining (linked lists) or open addressing (linear/quadratic probing).</p>
+        
+        <h3>Balanced Search Trees (AVL)</h3>
+        <p>While a BST can degrade to O(n) (a linked list), a balanced BST like an <strong>AVL Tree</strong> ensures O(log n) performance for all operations by maintaining a strict balance factor (height difference of subtrees $\leq$ 1) and performing rotations during insertion/deletion.</p>
+    </section>
+
+    <section>
+        <h2>3. Sorting, Searching, and Advanced Algorithms</h2>
+        <h3>Searching: Binary Search</h3>
+        <p>Binary search operates on sorted data. By comparing the target to the middle element, it eliminates half the search space in each step, achieving O(log n) performance.</p>
+
+        <h3>Sorting: Merge Sort</h3>
+        <p>Merge sort is a stable, divide-and-conquer algorithm. It divides the array into halves, recursively sorts them, and then merges the sorted halves. It guarantees O(n log n) time complexity, making it highly reliable for large datasets.</p>
+        
+        <h3>Graph Algorithms</h3>
+        <p>Graphs represent complex relationships (nodes and edges).</p>
+        <ul>
+            <li><strong>Dijkstra’s Algorithm</strong>: Finds the shortest path in a weighted graph by greedily selecting the lowest-cost edge. It requires a <strong>Priority Queue</strong> to achieve O((V+E) log V) complexity.</li>
+            <li><strong>Kruskal's Algorithm</strong>: Finds the Minimum Spanning Tree (MST). It sorts all edges by weight and uses a <strong>Disjoint Set (Union-Find)</strong> data structure to efficiently detect cycles when adding edges.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Dynamic Programming (DP)</h2>
+        <p>Dynamic programming is used for optimization problems with overlapping subproblems and optimal substructure.</p>
+        <ul>
+            <li><strong>Memoization (Top-Down)</strong>: Storing results of recursive function calls.</li>
+            <li><strong>Tabulation (Bottom-Up)</strong>: Filling an iterative table to solve the problem from base cases upwards.</li>
+        </ul>
+        <p>Classic example: <strong>The Knapsack Problem</strong>. Given items with weights and values, maximize the total value without exceeding capacity. The DP table <code>dp[i][w]</code> stores the max value using a subset of the first <em>i</em> items with weight capacity <em>w</em>.</p>
+    </section>
+
+    <section>
+        <h2>5. Top Concepts for Interviews</h2>
+        <ul>
+            <li><strong>Two-Pointer Technique</strong>: Efficiently searching arrays.</li>
+            <li><strong>Sliding Window</strong>: Optimizing subarray problems.</li>
+            <li><strong>Recursion vs. Iteration</strong>: When to use which for tree traversals.</li>
+            <li><strong>Hash Map Optimization</strong>: Solving O(n²) problems in O(n) time.</li>
+            <li><strong>Breadth-First Search (BFS)</strong>: Shortest path in unweighted graphs.</li>
+            <li><strong>Depth-First Search (DFS)</strong>: Exploring hierarchical or graph data.</li>
+            <li><strong>Binary Search on Answer</strong>: Applying binary search to optimization problems.</li>
+            <li><strong>Union-Find</strong>: Efficiently tracking sets and connectivity.</li>
+            <li><strong>Bit Manipulation</strong>: Using XOR and shifts for O(1) space optimizations.</li>
+            <li><strong>Monotonic Queues/Stacks</strong>: Maintaining sorted elements for range queries.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Conclusion: Continuous Refinement</h2>
+        <p>Transitioning from beginner to expert is not about memorizing implementations but understanding <em>why</em> a specific structure is chosen over another. Always analyze the constraints (data size, memory limits, frequency of reads vs. writes) before writing code. Practice by implementing structures from scratch without helper libraries, then analyze their performance under varying load conditions. Mastery lies in the intuition built through consistent application of these fundamental principles.</p>
+    </section>
+</article>

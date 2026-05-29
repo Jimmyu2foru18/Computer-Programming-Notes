@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+      TECHNICAL ARCHITECTURE DOCUMENTATION:
+      This file acts as the primary viewer for coding-specific notes within the project.
+      
+      ARCHITECTURAL DECISIONS:
+      1. Dynamic Rendering: Similar to the root index, this page uses `marked.js` for
+         client-side Markdown parsing.
+      2. Enhanced Features: Unlike the root page, this template includes:
+         - Syntax Highlighting: Provided by `highlight.js` to improve code readability.
+         - PDF Export: Enabled by `html2pdf.js`, allowing users to convert notes to portable documents.
+      3. Semantic structure: Main content is contained within a `<main>` tag, and navigation
+         is encapsulated in a `<nav>` element.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed coding and implementation notes.">
+    
+    <title>Coding Notes Viewer</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Dependencies for Advanced Features -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container" role="document">
+        <header role="banner">
+            <h1>Coding Notes</h1>
+        </header>
+        
+        <div class="main-content" style="display: flex;">
+            <!-- Sidebar for navigation -->
+            <nav class="sidebar" role="navigation" aria-label="Coding Topics">
+                <div class="toc-container">
+                    <h2>Table of Contents</h2>
+                    <ul id="toc-list">
+                        <li id="loading-toc">Loading table of contents...</li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <!-- Main content area -->
+            <main class="content" role="main" aria-live="polite">
+                <div class="content-actions">
+                    <button id="save-pdf-btn" class="action-button">Save as PDF</button>
+                </div>
+                <div id="markdown-content">
+                    <div class="welcome-message">
+                        <h2>Welcome to Coding Notes</h2>
+                        <p>Select a topic from the table of contents to get started.</p>
+                    </div>
+                </div>
+                <div id="loading-content" style="display: none;">Loading content...</div>
+            </main>
+        </div>
+        
+        <footer role="contentinfo">
+            <p>&copy; 2026 Coding Notes | Advanced View & Export Enabled</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

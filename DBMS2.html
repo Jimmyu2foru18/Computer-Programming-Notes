@@ -1,0 +1,55 @@
+<article>
+    <h1>Database Management Systems: Advanced Topics in Distributed and Analytical Systems</h1>
+
+    <section>
+        <h2>1. Distributed Databases, Consensus, and PACELC</h2>
+        <p>Distributed databases achieve scale by spreading data across nodes. The CAP Theorem is the baseline, but <strong>PACELC</strong> is more comprehensive: if there is a <strong>P</strong>artition, how does the system trade-off between <strong>A</strong>vailability and <strong>C</strong>onsistency; <strong>E</strong>lse (when running normally), how does it trade-off between <strong>L</strong>atency and <strong>C</strong>onsistency?</p>
+        
+        <h3>Consensus Algorithms: Raft Deep Dive</h3>
+        <p>In CP (Consistent and Partition-tolerant) systems, consensus algorithms like <strong>Raft</strong> enable nodes to agree on state. Raft decomposes consensus into leader election, log replication, and safety, ensuring only the most up-to-date node can become the new leader.</p>
+    </section>
+
+    <section>
+        <h2>2. NoSQL: Storage Engine Internals and Bloom Filters</h2>
+        <p>LSM-Trees are optimized for write-heavy workloads. To optimize read performance, DBMSs use <strong>Bloom Filters</strong>—a probabilistic structure that tells you if an element is *definitely not* in a set, preventing unnecessary disk I/O.</p>
+    </section>
+
+    <section>
+        <h2>3. Scaling Strategies</h2>
+        <p>As applications grow, single-node databases become bottlenecks.</p>
+        <ul>
+            <li><strong>Vertical Scaling</strong>: Increasing CPU/RAM on one machine.</li>
+            <li><strong>Horizontal Scaling (Sharding)</strong>: Distributing data across multiple machines using a shard key.</li>
+            <li><strong>Replication</strong>: Using read-replicas to offload query traffic.</li>
+            <li><strong>Connection Pooling</strong>: Reusing connections to reduce latency.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Top Concepts for Backend Interviews</h2>
+        <ul>
+            <li><strong>B-Tree vs. Hash Indexes</strong>: Equality vs. Range Scans.</li>
+            <li><strong>N+1 Query Problem</strong>: Performance pitfalls in ORMs.</li>
+            <li><strong>Deadlocks</strong>: Prevention via consistent locking order.</li>
+            <li><strong>Primary/Foreign Keys</strong>: Referential integrity.</li>
+            <li><strong>Query Execution Plans</strong>: Debugging with <code>EXPLAIN</code>.</li>
+            <li><strong>Caching</strong>: Using Redis/Memcached.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. The Expert Mindset: Query Optimization</h2>
+        <p>Expert developers treat performance as an iterative process:</p>
+        <ol>
+            <li><strong>Identify</strong>: Use <code>EXPLAIN ANALYZE</code> to find slow components.</li>
+            <li><strong>Evaluate</strong>: Check if the query performs sequential scans (bad) or index scans (good).</li>
+            <li><strong>Refine</strong>: Add indexes, optimize joins, and avoid <code>SELECT *</code>.</li>
+            <li><strong>Monitor</strong>: Proactively track slow query logs.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>6. OLTP vs. OLAP: The Storage Divide</h2>
+        <p>The architecture changes based on transactional vs. analytical workloads. <strong>OLAP (Columnar)</strong> storage is dramatically faster for analytical aggregates as only required columns are read from disk.</p>
+    </section>
+</article>

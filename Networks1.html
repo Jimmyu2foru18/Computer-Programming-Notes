@@ -1,0 +1,74 @@
+<article>
+    <h1>Computer Networks: Advanced Architectural Guide</h1>
+
+    <section>
+        <h2>0. Mastering the OSI Model: From Beginner to Expert</h2>
+        <p>The Open Systems Interconnection (OSI) model is the conceptual framework used to understand how network communications occur. By abstracting the complex process of sending data across a wire into seven distinct layers, the model allows developers and engineers to troubleshoot, design, and optimize network protocols independently.</p>
+        
+        <h3>The 7 Layers of the OSI Model</h3>
+        <p>The OSI model follows a top-down approach for data transmission (encapsulation) and a bottom-up approach for reception (decapsulation).</p>
+        <ol>
+            <li><strong>Physical Layer</strong>: Raw transmission over physical medium.</li>
+            <li><strong>Data Link Layer</strong>: Node-to-node transfer and MAC addressing.</li>
+            <li><strong>Network Layer</strong>: Logical addressing and routing (IP).</li>
+            <li><strong>Transport Layer</strong>: End-to-end communication, flow control (TCP/UDP).</li>
+            <li><strong>Session Layer</strong>: Connection establishment, maintenance, and termination.</li>
+            <li><strong>Presentation Layer</strong>: Translation, encryption, and compression.</li>
+            <li><strong>Application Layer</strong>: Direct user services (HTTP, FTP, SMTP).</li>
+        </ol>
+
+        <h3>Java Networking Implementation</h3>
+        <p>In the Java ecosystem, understanding these layers is critical for building scalable applications, as Java’s networking libraries abstract much of this complexity while exposing necessary controls for high-performance communication.</p>
+        <pre><code class="language-java">
+// Basic TCP Client Socket (Transport Layer)
+try (Socket socket = new Socket("example.com", 80)) {
+    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+    out.println("GET / HTTP/1.1");
+    out.println("Host: example.com");
+    out.println();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>1. Networking Paradigms: From LANs to SDN</h2>
+        <p>A computer network is not just a collection of devices; it is a complex infrastructure designed to balance throughput, latency, reliability, and security. Modern networking has shifted from static, hardware-defined architectures to <strong>Software-Defined Networking (SDN)</strong>.</p>
+        
+        <h3>SDN Principles and Control Plane Separation</h3>
+        <p>SDN decouples the network control plane (decision-making logic) from the data plane (packet forwarding hardware). The <strong>control plane</strong>, managed by a central controller (e.g., OpenDaylight, ONOS), provides a holistic, global view of the network topology. The <strong>data plane</strong> consists of commodity hardware (switches) that blindly forward packets based on forwarding rules pushed by the controller. This allows dynamic traffic steering, rapid orchestration, and improved network security.</p>
+        
+        <h3>Cloud Networking: Overlay Networks</h3>
+        <p>In cloud environments, <strong>Virtual Private Clouds (VPCs)</strong> utilize overlay networking—specifically <strong>VXLAN (Virtual Extensible LAN)</strong>—to create virtual Layer 2 networks over a shared Layer 3 physical infrastructure, ensuring isolation and security for multi-tenant environments.</p>
+    </section>
+
+    <section>
+        <h2>2. Protocol Internals: TCP/IP Stack</h2>
+        <p>The TCP/IP model is the practical implementation of network communication.</p>
+        
+        <h3>TCP Congestion Control and Reliability</h3>
+        <p>TCP's reliability requires careful congestion management. <strong>Slow Start</strong> exponentially increases the congestion window (CWND) to discover bandwidth capacity. Once the slow-start threshold is reached, TCP switches to <strong>Congestion Avoidance</strong> (linear growth) to prevent overwhelming network buffers. If packet loss is detected (via timeout), TCP enters <strong>Fast Retransmit/Fast Recovery</strong> to quickly recover without restarting Slow Start.</p>
+        
+        <h3>OSPF and BGP Routing Protocols</h3>
+        <ul>
+            <li><strong>OSPF (Open Shortest Path First)</strong>: An Interior Gateway Protocol (IGP) that uses Dijkstra's algorithm to compute the shortest path within an Autonomous System (AS) based on link-state advertisements (LSAs). Routers form adjacencies, exchange link states, and build a unified topological map.</li>
+            <li><strong>BGP (Border Gateway Protocol)</strong>: The routing protocol of the Internet, utilizing path-vector routing between ASes. It uses <strong>Path Attributes</strong> (like <code>AS_PATH</code>, <code>LOCAL_PREF</code>) to implement complex routing policies rather than simple shortest-path metrics.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Advanced Performance Optimization</h2>
+        <p>Networking performance is quantified by throughput, latency, jitter, and packet loss.</p>
+        
+        <h3>Troubleshooting Workflow</h3>
+        <ol>
+            <li><strong>L1/L2 Verification</strong>: Ensure physical integrity, inspect link-layer errors (CRC errors on switch ports indicating bad cabling).</li>
+            <li><strong>Path Analysis (`mtr`)</strong>: Use <code>mtr</code> to observe which hop introduces latency. Unlike <code>traceroute</code>, <code>mtr</code> aggregates statistics over time to provide a clearer picture of jitter and intermittent loss.</li>
+            <li><strong>Packet Capture (`tcpdump`)</strong>: Capture traffic at source/destination. Analyze TCP retransmissions, out-of-order packets, and handshake latency in Wireshark.</li>
+        </ol>
+        
+        <h3>Performance Optimization</h3>
+        <p><strong>MTU (Maximum Transmission Unit) Optimization</strong>: Mismatched MTU settings lead to packet fragmentation, significantly decreasing throughput. Ensuring Path MTU Discovery (PMTUD) functions correctly is critical.</p>
+    </section>
+</article>

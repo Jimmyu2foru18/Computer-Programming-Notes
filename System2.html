@@ -1,0 +1,67 @@
+<article>
+    <h1>System Design: Backend Architecture and Data Strategy</h1>
+
+    <section>
+        <h2>1. Backend Development: Architecting for Scale</h2>
+        <p>The backend is the brain of the system, handling business logic, data persistence, and service orchestration. Choosing the right architectural pattern directly dictates the system's ability to evolve and handle load.</p>
+        
+        <h3>Server Architecture Patterns</h3>
+        <ul>
+            <li><strong>MVC (Model-View-Controller)</strong>: Separates Model (Data), View (UI/Presentation), and Controller (Logic). While simple, it can become bloated.</li>
+            <li><strong>Repository Pattern</strong>: Creates an abstraction layer between domain logic and data access, facilitating testing.</li>
+            <li><strong>Event-Driven Architecture (EDA)</strong>: Decouples services via events (Kafka/RabbitMQ), enabling asynchronous processing and scalability.</li>
+        </ul>
+
+        <h3>Asynchronous vs. Synchronous I/O</h3>
+        <p>Asynchronous models (<code>async/await</code>, event loops) allow the server to handle multiple requests without spawning a thread for every connection, drastically increasing throughput.</p>
+    </section>
+
+    <section>
+        <h2>2. Server-Side Logic: PHP and SQL</h2>
+        <p>PHP processes data, manages sessions, and interacts with databases. Always use <strong>PHP Data Objects (PDO)</strong> to prevent SQL injection.</p>
+        <pre><code class="language-php">
+$pdo = new PDO("mysql:host=$host;dbname=$db", 'user', 'password');
+$stmt = $pdo->prepare('SELECT * FROM users WHERE id = ?');
+$stmt->execute([1]);
+        </code></pre>
+
+        <h3>The Web Server: Apache</h3>
+        <p>Apache serves files, interprets requests, triggers PHP, and sends HTML back. Use <code>.htaccess</code> for URL rewriting (SEO-friendly) and security headers.</p>
+    </section>
+
+    <section>
+        <h2>3. Hosting Strategies: InfinityFree vs. AWS</h2>
+        <ul>
+            <li><strong>InfinityFree (Beginner)</strong>: Free, easy to deploy small PHP/MySQL projects. Good for understanding CPanel and basic deployment.</li>
+            <li><strong>AWS (Expert)</strong>: Production-grade. Use <strong>EC2</strong> for flexible server configuration and <strong>RDS</strong> for managed, scalable databases. Mastery of <strong>Security Groups</strong> (firewalls) and <strong>IAM roles</strong> is critical.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Roadmap to Expert-Level Backend Development</h2>
+        <ul>
+            <li><strong>MVC Patterns</strong>: Move from procedural code to frameworks like Laravel to improve maintainability.</li>
+            <li><strong>Security</strong>: Implement CSRF protection, sanitize all user inputs, and use <code>password_hash()</code>.</li>
+            <li><strong>Version Control</strong>: Use Git/GitHub for collaboration and change tracking.</li>
+            <li><strong>API Development</strong>: Transition from server-side rendered HTML to RESTful APIs (JSON) consumed by frontend frameworks.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Top 12 Interview Topics for Backend Developers</h2>
+        <ul>
+            <li>GET vs POST.</li>
+            <li>SQL Injection prevention (PDO/Prepared Statements).</li>
+            <li>Responsive Design principles.</li>
+            <li>PHP session management (<code>session_start()</code>).</li>
+            <li>Laravel/Frameworks vs Vanilla PHP.</li>
+            <li>CSS Box Model.</li>
+            <li>JS: <code>var</code> vs <code>let</code> vs <code>const</code>.</li>
+            <li>API Development and JSON structure.</li>
+            <li>Website performance optimization strategies.</li>
+            <li>XSS mitigation.</li>
+            <li>Database migrations in production.</li>
+            <li>Shared Hosting vs. Cloud Computing (AWS).</li>
+        </ul>
+    </section>
+</article>

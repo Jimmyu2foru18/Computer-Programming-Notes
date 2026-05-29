@@ -1,0 +1,76 @@
+<article>
+    <h1>Internet & Web: Core Technologies</h1>
+
+    <section>
+        <h2>1. The Comprehensive Path to Frontend Mastery</h2>
+        <p>The journey from a complete novice to a proficient frontend engineer is a structured evolution. It is the art and science of building the user-facing portion of websites, transitioning from basic markup to advanced application architecture.</p>
+        
+        <h3>Phase 1: The Foundations (HTML5 & CSS3)</h3>
+        <p>Before writing dynamic code, you must master the building blocks. HTML defines the skeleton (structural integrity), and CSS provides the presentation.</p>
+        <ul>
+            <li><strong>Semantic HTML5</strong>: Use tags that describe content meaning (e.g., `<header>`, `<nav>`, `<main>`), crucial for Accessibility (A11y) and SEO.</li>
+            <li><strong>Forms & Validation</strong>: Understand input types (email, password, date) and client-side validation.</li>
+            <li><strong>CSS Box Model</strong>: Margins, borders, padding, and content are the fundamental way CSS calculates space.</li>
+            <li><strong>Layouts</strong>: Master <strong>Flexbox</strong> for one-dimensional layouts and <strong>CSS Grid</strong> for powerful two-dimensional grid-based layouts.</li>
+        </ul>
+        <pre><code class="language-css">
+/* Essential Flexbox for a centered navigation bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. JavaScript: Interactivity</h2>
+        <p>JavaScript (JS) is the engine of the frontend. It transforms static pages into dynamic applications.</p>
+        
+        <h3>Core Concepts</h3>
+        <ul>
+            <li><strong>Variables and Types</strong>: <code>let</code>, <code>const</code>, and the difference between primitives and objects.</li>
+            <li><strong>DOM Manipulation</strong>: Selecting, modifying, and deleting HTML elements.</li>
+            <li><strong>Functions</strong>: Arrow functions, scope, and closures.</li>
+            <li><strong>Asynchronous JS</strong>: Mastering Promises and <code>async/await</code> to fetch data from APIs without freezing the browser.</li>
+            <li><strong>ES6+ Features</strong>: Destructuring, spread operators, and modules are mandatory for modern workflows.</li>
+        </ul>
+        <pre><code class="language-javascript">
+// Fetching data from a public API
+async function getUserData(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+}
+        </code></pre>
+    </section>
+
+    <!-- Original content preserved below -->
+    <section>
+        <h2>3. HTML: Structuring the Web (Detailed)</h2>
+        <p>HTML (HyperText Markup Language) provides the structural foundation for web content. It uses a tag-based system to define document structure, which browsers then render.</p>
+        
+        <h3>Semantic HTML</h3>
+        <p>Semantic tags (e.g., `<article>`, `<nav>`, `<footer>`) are crucial for Accessibility (A11y) and SEO. They tell screen readers and search engines the *meaning* of content rather than just its appearance.</p>
+    </section>
+
+    <section>
+        <h2>4. CSS: Presentation and Layout</h2>
+        <p>CSS (Cascading Style Sheets) enables separation of content from presentation. This is vital for maintaining consistent branding and improving maintainability.</p>
+        
+        <h3>The Box Model</h3>
+        <p>Every element is a rectangular box. Understanding <code>content</code>, <code>padding</code>, <code>border</code>, and <code>margin</code> is essential. The <code>box-sizing: border-box;</code> property is a best practice, ensuring padding and border are included in the element's total width/height.</p>
+        
+        <h3>Modern Layout: Flexbox and Grid</h3>
+        <p>Flexbox is ideal for one-dimensional layouts (rows or columns), while CSS Grid provides robust, two-dimensional layout capabilities, allowing complex, responsive grid systems without heavy reliance on frameworks.</p>
+    </section>
+
+    <section>
+        <h2>5. JavaScript: Interactivity</h2>
+        <p>JavaScript transforms static HTML into dynamic, interactive web applications.</p>
+        
+        <h3>DOM Manipulation</h3>
+        <p>The Document Object Model (DOM) is an object-oriented representation of the web page. JS interacts with the DOM to dynamically update content, modify CSS, or respond to user events.</p>
+    </section>
+</article>

@@ -1,0 +1,84 @@
+<article>
+    <h1>Java: Advanced Development, Performance, Concurrency, and Design Patterns</h1>
+
+    <section>
+        <h2>1. The Java Virtual Machine (JVM) Internals</h2>
+        <p>The JVM is highly optimized, but understanding its mechanics is essential for high-performance applications.</p>
+        
+        <h3>Just-In-Time (JIT) Compilation</h3>
+        <p>The JIT compiler profiles running code. It identifies "hot spots" (frequently executed methods) and compiles them into highly optimized machine code. It uses multiple tiers of compilation (C1 for fast startup, C2 for aggressive optimization).</p>
+        
+        <h3>Garbage Collection (GC) Tuning</h3>
+        <p>GC performance often defines application latency. The heap is divided into generations: <strong>Young Generation</strong> (Eden + Survivor spaces, where short-lived objects reside) and <strong>Old Generation</strong> (tenured objects). Fine-tuning is done using JVM arguments, for example, <code>-XX:MaxGCPauseMillis=200</code> to set a target for G1 GC pause times.</p>
+    </section>
+
+    <section>
+        <h2>2. Advancing to Intermediate OOP</h2>
+        <p>Once the pillars are mastered, focus on how classes interact. This is where architectural patterns begin to emerge.</p>
+        
+        <h3>Composition vs. Inheritance</h3>
+        <p>Avoid the "fragile base class" problem by favoring composition. Instead of asking "is-a," ask "has-a." If an Engine is a part of a Car, don't inherit; store an Engine object inside the Car class.</p>
+
+        <h3>Interfaces and Default Methods</h3>
+        <p>Modern Java interfaces are powerful. Since Java 8, interfaces can contain default methods, allowing you to add functionality to existing interfaces without breaking implementing classes.</p>
+        <pre><code class="language-java">
+public interface Payable {
+    void processPayment();
+    default void logReceipt() {
+        System.out.println("Receipt generated.");
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Expert-Level Design Patterns</h2>
+        <p>Expert-level Java development relies on Design Patterns—proven solutions to recurring problems.</p>
+        <ul>
+            <li><strong>Singleton</strong>: Ensures a class has only one instance and provides a global point of access.</li>
+            <li><strong>Factory</strong>: Creates objects without specifying the exact class of the object that will be created.</li>
+            <li><strong>Builder</strong>: Simplifies the construction of complex objects with many optional parameters.</li>
+            <li><strong>Observer</strong>: Defines a subscription mechanism to notify multiple objects about events.</li>
+            <li><strong>Strategy</strong>: Enables selecting an algorithm's behavior at runtime.</li>
+        </ul>
+        
+        <h3>Solid Principles for Expert Architecture</h3>
+        <p>To write professional-grade code, adhere to the SOLID acronym, which governs class design: <strong>S</strong>ingle Responsibility, <strong>O</strong>pen/Closed, <strong>L</strong>iskov Substitution, <strong>I</strong>nterface Segregation, and <strong>D</strong>ependency Inversion.</p>
+    </section>
+
+    <section>
+        <h2>4. Advanced Concurrency</h2>
+        <p>Managing shared state in multi-threaded applications requires robust mechanisms.</p>
+        
+        <h3>Synchronization vs. Locks</h3>
+        <ul>
+            <li><strong>`synchronized`</strong>: Implicit locking, simple, but less flexible.</li>
+            <li><strong>`ReentrantLock`</strong>: Explicit locking with advanced features like fairness, tryLock (non-blocking), and multiple Condition variables.</li>
+            <li><strong>`volatile`</strong>: Ensures memory visibility across threads, preventing CPU cache issues.</li>
+        </ul>
+        
+        <h3>Executor Framework</h3>
+        <p>Don't manage <code>Thread</code> objects directly. Use <code>ExecutorService</code> (via <code>Executors.newFixedThreadPool()</code> or <code>ThreadPoolExecutor</code>) to reuse threads and manage task queues, preventing resource exhaustion.</p>
+    </section>
+
+    <section>
+        <h2>5. Functional Programming and Annotation Processing</h2>
+        <p>Java 8 introduced functional programming features to reduce boilerplate and enable powerful data manipulation.</p>
+        
+        <h3>Lambda Expressions and Streams</h3>
+        <p>Lambdas provide a concise way to express instances of functional interfaces. Streams enable declarative data processing pipelines (filter, map, reduce). Parallel Streams leverage the <code>ForkJoinPool</code> for automatic task splitting across CPU cores.</p>
+        
+        <h3>Project Lombok</h3>
+        <p>Lombok utilizes annotation processing to reduce boilerplate code (e.g., automatically generating getters, setters, <code>equals</code>, <code>hashCode</code>, and <code>toString</code> methods) during compilation.</p>
+    </section>
+
+    <section>
+        <h2>6. Performance Profiling</h2>
+        <p>Measuring performance is necessary for optimization.</p>
+        <ul>
+            <li><strong>JVisualVM/JConsole</strong>: Standard GUI tools for monitoring heap usage, thread status, and CPU load.</li>
+            <li><strong>JMC (Java Mission Control)</strong>: Low-overhead production profiling, essential for debugging latency issues in production.</li>
+            <li><strong>Heap Dumps</strong>: Use <code>jmap</code> to analyze heap contents and detect memory leaks.</li>
+        </ul>
+    </section>
+</article>

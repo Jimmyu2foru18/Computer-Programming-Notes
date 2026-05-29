@@ -1,0 +1,36 @@
+<article>
+    <h1>System Administration: Deep Dive into OS and Infrastructure</h1>
+
+    <section>
+        <h2>1. Operating System Internals</h2>
+        <p>Operating systems act as the abstraction layer between hardware and user applications. The core components must be finely tuned for performance and stability.</p>
+
+        <h3>Process Management</h3>
+        <p>The scheduler determines which process gets CPU time. Modern schedulers (like Linux's CFS) are designed for fairness and responsiveness. <strong>Context switching</strong> (saving/loading process state) is expensive; minimizing context switches is a key performance optimization goal in high-throughput systems.</p>
+
+        <h3>Memory Management</h3>
+        <p>Virtual memory allows applications to address more memory than is physically available by mapping logical addresses to physical RAM. <strong>Paging</strong> and <strong>Segmentation</strong> are the primary techniques here. Page faults are costly, so maximizing the "cache hit rate" for memory access is crucial.</p>
+    </section>
+
+    <section>
+        <h2>2. Linux System Administration</h2>
+        <p>Linux administration requires deep knowledge of system services and automation.</p>
+
+        <h3>Service Management with systemd</h3>
+        <p><code>systemd</code> manages services through unit files (e.g., <code>.service</code>, <code>.timer</code>, <code>.target</code>). It handles parallel service startup, dependency tracking, and resource isolation (using <code>cgroups</code>). Administrators should master <code>journalctl</code> to query logs across reboots, which is superior to traditional flat-file log analysis.</p>
+
+        <h3>Automated Storage Management</h3>
+        <p>LVM (Logical Volume Management) allows for flexible partition resizing, snapshotting, and striping across physical disks without the need to unmount the filesystem, which is essential for zero-downtime maintenance.</p>
+    </section>
+
+    <section>
+        <h2>3. Windows System Administration</h2>
+        <p>Windows environments rely heavily on PowerShell and Group Policy for automation and centralized configuration.</p>
+        
+        <h3>PowerShell for Automation</h3>
+        <p>PowerShell is an object-oriented shell. Unlike Bash, which passes text streams, PowerShell passes <code>.NET</code> objects between cmdlets. This allows for incredibly powerful data manipulation and system inspection without needing complex parsing tools like `awk`.</p>
+        
+        <h3>Security Management</h3>
+        <p>Modern Windows security involves hardening through Group Policy Objects (GPO), configuring Windows Defender Advanced Threat Protection, and utilizing <strong>BitLocker</strong> for full-disk encryption, integrated with TPM for hardware-backed security.</p>
+    </section>
+</article>

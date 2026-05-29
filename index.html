@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+      TECHNICAL ARCHITECTURE DOCUMENTATION:
+      This file serves as the main entry point for the static Study Notes site.
+      
+      ARCHITECTURAL DECISIONS:
+      1. Client-Side Rendering (CSR): To keep this a static site without a backend, 
+         we utilize `marked.js` to parse Markdown files directly in the user's browser.
+         This minimizes server-side complexity and allows hosting on platforms like GitHub Pages.
+         
+      2. Asynchronous Loading: The `script.js` uses `fetch()` to retrieve Markdown files 
+         on-demand based on user interaction (event delegation). This ensures only the 
+         requested content is loaded, improving initial page load time.
+         
+      3. Semantic HTML5: We utilize tags like <nav>, <main>, and <footer> to provide 
+         clear structural context for both search engines (SEO) and screen readers (Accessibility).
+         
+      ACCESSIBILITY (A11y):
+      - We employ ARIA roles implicitly through semantic tags.
+      - The layout is designed to be responsive, utilizing Flexbox media queries to 
+        adjust the sidebar for mobile devices.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A comprehensive, statically generated programming study guide.">
+    <meta name="author" content="Th3viousGameus">
+    
+    <title>Programming Study Notes</title>
+    
+    <!-- External Stylesheet: Focuses on modern typography and responsive flexbox layouts -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" role="document">
+        <header role="banner">
+            <h1>Programming Study Notes</h1>
+        </header>
+        
+        <div class="main-layout">
+            <!-- Navigation Area: Accessible list structure -->
+            <nav id="sidebar" role="navigation" aria-label="Study Topics">
+                <h3>Foundations</h3>
+                <ul>
+                    <li><a href="#" data-file="OSI1.html">OSI Model</a></li>
+                    <li><a href="#" data-file="Int1.html">Internet & Web</a></li>
+                    <li><a href="#" data-file="DSA1.html">Data Structures & Algorithms</a></li>
+                </ul>
+                <h3>Languages</h3>
+                <ul>
+                    <li><a href="#" data-file="Python1.html">Python</a></li>
+                    <li><a href="#" data-file="Java1.html">Java</a></li>
+                    <li><a href="#" data-file="CSharp1.html">C#</a></li>
+                </ul>
+                <h3>Systems</h3>
+                <ul>
+                    <li><a href="#" data-file="System1.html">System Design</a></li>
+                    <li><a href="#" data-file="Linux1.html">Linux Administration</a></li>
+                    <li><a href="#" data-file="Networks1.html">Computer Networks</a></li>
+                    <li><a href="#" data-file="DBMS1.html">DBMS</a></li>
+                    <li><a href="#" data-file="Soft1.html">Software Engineering</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content Area: Content is injected here dynamically -->
+            <main id="content" role="main" aria-live="polite">
+                <h2>Welcome</h2>
+                <p>Select a topic from the sidebar to view the technical notes.</p>
+                <section>
+                    <h3>Technical Overview</h3>
+                    <p>This site is built using a clean, static architecture. Notes are written in 
+                       Markdown for readability and portability, then rendered into HTML 
+                       on-the-fly using <code>marked.js</code>.</p>
+                </section>
+            </main>
+        </div>
+        
+        <footer role="contentinfo">
+            <p>&copy; 2026 Programming Study Notes | Built with semantic HTML & Modern CSS</p>
+        </footer>
+    </div>
+    
+    <!-- 
+      DEPENDENCIES:
+      - script.js: Handles the asynchronous fetching and parsing of markdown files.
+      - marked.min.js: Library used to transform Markdown text into DOM-compliant HTML.
+    -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<article>
+    <h1>C# Programming: Comprehensive .NET Technical Guide</h1>
+
+    <section>
+        <h2>1. The .NET Ecosystem and CLR Internals</h2>
+        <p>C# is built on the .NET framework, managed by the Common Language Runtime (CLR). The CLR provides JIT compilation (converting Intermediate Language (IL) to machine code), type safety, and automatic memory management.</p>
+        
+        <h3>Advanced Memory Management and the GC</h3>
+        <p>The Garbage Collector (GC) uses a generational approach to maximize performance. <strong>Generation 0</strong> stores short-lived objects; <strong>Generation 1</strong> acts as a buffer; <strong>Generation 2</strong> stores long-lived objects. The <strong>Large Object Heap (LOH)</strong> is dedicated to objects > 85,000 bytes; these are never compacted (moved) because the cost is prohibitive, which can lead to memory fragmentation over time.</p>
+        <p><strong>Performance Tip</strong>: For memory-constrained, high-performance scenarios, use <code>Span&lt;T&gt;</code> and <code>Memory&lt;T&gt;</code> to perform memory slicing and manipulation without triggering heap allocations or copying.</p>
+    </section>
+
+    <section>
+        <h2>2. LINQ Mechanics and Expression Trees</h2>
+        <p>LINQ is a powerful set of extension methods (<code>System.Linq</code>). Understanding the difference between <code>IEnumerable</code> and <code>IQueryable</code> is essential for database performance.</p>
+        
+        <h3>Expression Trees</h3>
+        <p>When using <code>IQueryable</code>, LINQ creates an <strong>Expression Tree</strong>—a data structure that represents code as data. This allows providers like Entity Framework Core to inspect the query and translate it into a specific database language, such as SQL, rather than executing the logic locally in .NET.</p>
+        <pre><code class="language-csharp">
+// Expression tree example (represented as data)
+Expression&lt;Func&lt;User, bool&gt;&gt; expr = user => user.Age > 18;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. The Async/Await State Machine</h2>
+        <p>When you mark a method as <code>async</code>, the C# compiler generates a hidden state machine implementing <code>IAsyncStateMachine</code>. This state machine manages the execution flow, saving the method's local state before an <code>await</code> call and restoring it when the awaited <code>Task</code> completes, all without blocking the underlying thread.</p>
+        <p><strong>Avoid Async Void</strong>: Always return <code>Task</code> or <code>Task&lt;T&gt;</code> from asynchronous methods. Async void methods cannot be tracked, exceptions cannot be caught, and they can lead to application crashes.</p>
+    </section>
+
+    <section>
+        <h2>4. Interoperability (P/Invoke)</h2>
+        <p>C# can call native C/C++ libraries using Platform Invoke (P/Invoke). This involves defining a static external method with the <code>DllImport</code> attribute, which instructs the runtime to map the C# call to a native function exported by a DLL or shared object.</p>
+    </section>
+</article>

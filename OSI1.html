@@ -1,0 +1,59 @@
+<article>
+    <h1>OSI Model: Comprehensive Technical Reference</h1>
+
+    <section>
+        <h2>1. Introduction</h2>
+        <p>The Open Systems Interconnection (OSI) model, standardized by the ISO in 1984, is the fundamental conceptual framework for understanding network communication. While modern networking predominantly relies on the TCP/IP stack, the OSI model serves as the essential pedagogical tool for architectural design, protocol development, and systematic troubleshooting.</p>
+        <p>The model organizes communication into seven hierarchical layers. Each layer performs specific, well-defined functions and provides services to the layer above it while using the services of the layer below. This modularity ensures interoperability between heterogeneous hardware and software.</p>
+        
+        <h3>The PDU Concept</h3>
+        <p>At every layer, data is encapsulated with control information, forming a Protocol Data Unit (PDU). This encapsulation is vital for data integrity and correct routing.</p>
+        <ul>
+            <li><strong>Layer 7-5 (Data)</strong>: The raw application information.</li>
+            <li><strong>Layer 4 (Segment/Datagram)</strong>: Adds port information and sequence numbers.</li>
+            <li><strong>Layer 3 (Packet)</strong>: Adds logical source/destination addresses.</li>
+            <li><strong>Layer 2 (Frame)</strong>: Adds physical addressing (MAC) and error-checking bits (FCS).</li>
+            <li><strong>Layer 1 (Bit)</strong>: The physical signaling representation of data.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Layer 1: The Physical Layer</h2>
+        <p>The Physical Layer defines the mechanical, electrical, and procedural specifications for the physical link between devices. It is the only layer that deals with the physical medium.</p>
+        
+        <h3>Signal Transmission and Modulation</h3>
+        <p>This layer converts binary data into electrical, optical, or radio-frequency (RF) signals. Modulation techniques (e.g., ASK, FSK, PSK, QAM) enable data transmission over continuous waves. <strong>Bit Synchronization</strong> is crucial here to ensure the sender and receiver are synchronized in terms of timing, preventing data corruption.</p>
+
+        <h3>Troubleshooting Physical Issues</h3>
+        <ul>
+            <li><strong>Attenuation</strong>: Signal loss over distance; corrected by repeaters/switches.</li>
+            <li><strong>Noise/Interference</strong>: EMI/RFI issues; resolved by shielding (STP vs UTP).</li>
+            <li><strong>Mismatch</strong>: Mismatched speed or duplex settings (e.g., half-duplex vs. full-duplex).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Layer 2: The Data Link Layer</h2>
+        <p>This layer is responsible for the reliable transfer of data frames between directly connected nodes. It provides the mechanism for <strong>media access control</strong> and <strong>error detection</strong>.</p>
+        
+        <h3>MAC and Framing</h3>
+        <p>The <strong>Media Access Control (MAC)</strong> layer determines how devices share the transmission medium (e.g., CSMA/CD in Ethernet). Frames include a <strong>Frame Check Sequence (FCS)</strong> using CRC (Cyclic Redundancy Check) to detect corruption. If the CRC fails, the frame is discarded, allowing higher-level protocols to handle retransmission.</p>
+    </section>
+
+    <section>
+        <h2>4. Layer 3: The Network Layer</h2>
+        <p>The Network Layer handles logical addressing and packet routing across different networks.</p>
+        
+        <h3>Routing Protocols</h3>
+        <ul>
+            <li><strong>Distance Vector (e.g., RIP)</strong>: Routers share tables with neighbors.</li>
+            <li><strong>Link-State (e.g., OSPF)</strong>: Routers build a full topological map to compute the shortest path.</li>
+            <li><strong>Path-Vector (e.g., BGP)</strong>: Used for inter-domain routing, focusing on policy-based paths over Autonomous Systems.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Layer 4: The Transport Layer</h2>
+        <p>Ensures reliable, end-to-end communication via TCP (connection-oriented, with 3-way handshake, flow control, retransmission) or UDP (connectionless, speed-focused for real-time traffic).</p>
+    </section>
+</article>

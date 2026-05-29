@@ -1,0 +1,72 @@
+<article>
+    <h1>Database Management Systems: Core Principles and Internals</h1>
+
+    <section>
+        <h2>0. The Relational Model and SQL Foundations</h2>
+        <p>RDBMSs serve as the structured bridge between raw application data and user interaction. Data is organized into tables (relations) with predefined schemas. SQL is divided into three functional pillars:</p>
+        <ul>
+            <li><strong>DDL (Data Definition Language)</strong>: Defines structure (e.g., <code>CREATE</code>, <code>ALTER</code>).</li>
+            <li><strong>DML (Data Manipulation Language)</strong>: Manages data (e.g., <code>SELECT</code>, <code>INSERT</code>).</li>
+            <li><strong>DCL/TCL (Control/Transaction Language)</strong>: Manages access and integrity (e.g., <code>GRANT</code>, <code>COMMIT</code>).</li>
+        </ul>
+        <pre><code class="language-sql">
+SELECT users.username, orders.total 
+FROM users 
+JOIN orders ON users.id = orders.user_id 
+WHERE orders.status = 'completed'
+ORDER BY orders.total DESC;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>1. Transaction Management, ACID, and Durability</h2>
+        <p>A transaction is a logical unit of work in a DBMS. ACID properties are the baseline for data integrity.</p>
+        
+        <h3>Durability via Write-Ahead Logging (WAL)</h3>
+        <p>Durability is typically achieved via <strong>Write-Ahead Logging (WAL)</strong>. Before applying changes to the actual database files, the DBMS writes these changes to a sequential log file on disk. If a crash occurs before the data files are updated, the DBMS can replay the log upon restart to restore the committed state.</p>
+        
+        <h3>Isolation Levels and MVCC</h3>
+        <p>Most modern RDBMS (e.g., PostgreSQL, MySQL/InnoDB) implement <strong>Multi-Version Concurrency Control (MVCC)</strong>. Transactions read a snapshot of data at a specific timestamp, allowing readers and writers to operate concurrently without blocking, vastly improving performance.</p>
+    </section>
+
+    <section>
+        <h2>2. Database Normalization</h2>
+        <p>Normalization reduces redundancy and improves data integrity by structuring tables.</p>
+        
+        <h3>Normal Forms</h3>
+        <ul>
+            <li><strong>1NF</strong>: Atomic values, no repeating groups.</li>
+            <li><strong>2NF</strong>: 1NF + All non-key attributes are fully dependent on the primary key.</li>
+            <li><strong>3NF</strong>: 2NF + No transitive dependencies (every non-key attribute must depend only on the primary key).</li>
+            <li><strong>4NF</strong>: Handles multi-valued dependencies.</li>
+            <li><strong>5NF</strong>: Handles join dependencies.</li>
+        </ul>
+        <p><strong>Expert Tip</strong>: Expert designers sometimes use <strong>denormalization</strong>—intentionally adding redundancy—to optimize complex read operations in high-traffic applications.</p>
+    </section>
+
+    <section>
+        <h2>3. SQL Internals: Indexing and Query Processing</h2>
+        <p>Efficient retrieval relies on understanding underlying physical storage and query processing.</p>
+        
+        <h3>B+Tree Mechanics</h3>
+        <p>Most DBs use <strong>B+Trees</strong> for indexes. In B+Trees, all actual data is stored in the leaf nodes, and leaf nodes are linked together. This enables extremely fast <strong>range scans</strong> because you only need to reach the first leaf node and then traverse the linked list.</p>
+
+        <h3>Query Optimization and Execution Plans</h3>
+        <p>The query optimizer uses <strong>table statistics</strong> to estimate cost. It considers:</p>
+        <ul>
+            <li><strong>Scan Type</strong>: Full table scan vs. index seek.</li>
+            <li><strong>Join Order</strong>: Join reordering impacts intermediate result sizes.</li>
+            <li><strong>Access Path</strong>: Choosing the right index to minimize page I/O.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Security and Maintenance</h2>
+        <p>Expert backend management involves proactive security and system health monitoring.</p>
+        <ul>
+            <li><strong>SQL Injection Prevention</strong>: Always use parameterized queries or Prepared Statements. Never concatenate user input directly into strings.</li>
+            <li><strong>Principle of Least Privilege</strong>: Create specialized database users (e.g., a "read-only" user for dashboard services and a separate "write" user).</li>
+            <li><strong>Backups</strong>: Implement consistent Snapshot and WAL backups to ensure Point-in-Time Recovery (PITR).</li>
+        </ul>
+    </section>
+</article>

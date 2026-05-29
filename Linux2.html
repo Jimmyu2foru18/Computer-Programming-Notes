@@ -1,0 +1,45 @@
+<article>
+    <h1>Linux: Advanced Administration, Performance, and Security</h1>
+
+    <section>
+        <h2>1. Text Processing Powerhouses: Advanced awk & sed</h2>
+        <p>Text processing is the cornerstone of Linux automation. <code>awk</code> and <code>sed</code> allow for sophisticated stream manipulation without needing to compile external applications.</p>
+        
+        <h3>Deep Dive: <code>awk</code></h3>
+        <p><code>awk</code> treats input as a series of records (default is newline) and fields (default is whitespace). It has built-in variables like <code>NR</code> (number of records), <code>NF</code> (number of fields), and <code>FS</code> (input field separator). Using <code>BEGIN</code> and <code>END</code> blocks allows you to initialize variables and print summaries after the main processing loop finishes.</p>
+        <pre><code class="language-bash">
+# Complex awk: Summing specific fields with conditions
+awk -F, 'BEGIN {print "Report Start"} $3 > 1000 {sum += $4; count++} END {print "Total:", sum, "Avg:", sum/count}' data.csv
+        </code></pre>
+        
+        <h3>Deep Dive: <code>sed</code> (Regex and Addresses)</h3>
+        <p><code>sed</code> (Stream Editor) uses regular expressions to perform text transformations in a pipeline. You can use address ranges (e.g., <code>/start/,/end/</code>) to apply commands only to specific sections of a file, making it ideal for automating config file updates.</p>
+    </section>
+
+    <section>
+        <h2>2. Systemd: Orchestration and Advanced Unit Files</h2>
+        <p>Systemd is more than an init system; it is a suite of integrated services for system orchestration.</p>
+        
+        <h3>Unit File Dependencies and Targets</h3>
+        <p>Managing service startup order is critical. You use dependency directives to control this: <code>After=</code> (ordering constraint), <code>Requires=</code> (strict dependency), and <code>Wants=</code> (soft dependency). <strong>Targets</strong> are equivalent to runlevels in SysVinit (e.g., <code>multi-user.target</code>, <code>graphical.target</code>) and are used to group units together for system state management.</p>
+        
+        <h3>Socket Activation</h3>
+        <p>Systemd can perform <strong>socket activation</strong>, where systemd opens a network port and passes the file descriptor to the service when it starts. This allows for faster startup and cleaner dependency management, as a service only starts when it actually receives traffic.</p>
+    </section>
+
+    <section>
+        <h2>3. Rigorous Performance Monitoring</h2>
+        <p>Effective administration relies on identifying bottlenecks before they cause downtime.</p>
+        
+        <h3>Using <code>sar</code> (System Activity Report)</h3>
+        <p>The <code>sysstat</code> package provides <code>sar</code>, which is vital for historical performance analysis. It can track CPU, memory, I/O, and network activity over long periods, allowing admins to correlate spikes with specific timeframes.</p>
+        
+        <h3>Deep System Analysis with <code>vmstat</code></h3>
+        <p><code>vmstat</code> provides a high-level view of process activity, memory usage, swap usage, and CPU activity. Crucial metrics include <strong>context switches (cs)</strong> and <strong>interrupts (in)</strong>; high numbers can indicate system thrashing or inefficient driver interaction.</p>
+    </section>
+
+    <section>
+        <h2>4. Modern Networking Security: <code>nftables</code> Architecture</h2>
+        <p><code>nftables</code> replaces the legacy <code>iptables</code>. It uses a different internal architecture based on <strong>tables</strong>, <strong>chains</strong>, and <strong>rules</strong>. Unlike <code>iptables</code>, which required separate tools for IPv4, IPv6, ARP, and bridging, <code>nftables</code> handles all families in a single framework. Its rule evaluation engine uses efficient set-based matching instead of the linear rule matching of <code>iptables</code>, drastically improving performance in complex firewall configurations.</p>
+    </section>
+</article>

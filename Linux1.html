@@ -1,0 +1,33 @@
+<article>
+    <h1>Linux Guide: Deep Dive into Kernel and System Internals</h1>
+
+    <section>
+        <h2>1. The Linux Kernel and Architecture</h2>
+        <p>The Linux kernel is a <strong>monolithic kernel</strong>, meaning core services, drivers, and the network stack reside within the kernel address space, enabling high performance through direct hardware access. To manage different hardware, it utilizes a modular approach where drivers can be loaded/unloaded as modules.</p>
+
+        <h3>The Virtual Filesystem (VFS) Switch</h3>
+        <p>A crucial architectural feature is the <strong>VFS</strong>. It provides an abstraction layer that allows the kernel to interact with various physical filesystems (ext4, XFS, Btrfs, NFS) through a unified set of operations (open, read, write). User-space applications do not need to know the underlying filesystem type; the VFS handles the translation.</p>
+
+        <h3>Kernel vs. User Space</h3>
+        <p>User-space applications cannot access hardware directly. When a program needs to perform I/O, allocate memory, or spawn a process, it issues a <strong>system call (syscall)</strong>. This triggers a hardware interrupt, switching the processor from User Mode to Kernel Mode, executing the privileged kernel function, and then switching back.</p>
+    </section>
+
+    <section>
+        <h2>2. Process Scheduling: CFS and Interrupt Handling</h2>
+        <p>At the heart of process management is the <strong>Completely Fair Scheduler (CFS)</strong>. CFS utilizes a Red-Black tree to maintain a balance of "virtual runtime" (vruntime) across all tasks. Processes with lower vruntime are prioritized to ensure fairness over long-term execution.</p>
+        
+        <h3>Interrupts and SoftIRQs</h3>
+        <p>Hardware devices issue <strong>hard interrupts</strong>, forcing the CPU to immediately stop the current task to handle device input (e.g., a packet arriving on a NIC). To keep systems responsive, the kernel immediately performs only the most critical work in the <em>Top Half</em> (Interrupt Handler) and schedules the remainder of the work in the <em>Bottom Half</em> using <strong>SoftIRQs</strong> or <strong>Tasklets</strong>, which are processed later in kernel context.</p>
+    </section>
+
+    <section>
+        <h2>3. Advanced Filesystem Mechanics and Inodes</h2>
+        <p>Filesystems are the structures used to store and organize data on block devices.</p>
+        
+        <h3>Inode Structures</h3>
+        <p>An <strong>inode</strong> (index node) is a data structure on the filesystem that stores all metadata about a file (permissions, owner, file size, timestamps, and pointers to the physical data blocks), but <em>not</em> the filename or the file data itself. Filenames are stored in directory files, which map names to inode numbers.</p>
+        
+        <h3>Journaling (ext4) and CoW (Btrfs)</h3>
+        <p>Journaling (ext4) ensures integrity by logging changes before committing them to the filesystem metadata. Conversely, Btrfs uses <strong>Copy-on-Write (CoW)</strong>. Instead of updating data in place, it writes the new data to a new block, then atomically updates the metadata pointer. This enables efficient, read-only snapshots and instant backups.</p>
+    </section>
+</article>
