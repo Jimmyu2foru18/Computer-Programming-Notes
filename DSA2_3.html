@@ -16,10 +16,16 @@
             <li><strong>Depth:</strong> The number of edges from the root to a node.</li>
             <li><strong>Height:</strong> The number of edges from a node to the deepest leaf.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Visual diagram: A labeled tree showing Root, Parent, Child, Leaf, Depth, and Height">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA2_3_html()">Run Simulation</button>
+            <div id="sim-output-DSA2_3_html" class="sim-output"></div>
+            <script>
+            function runSimDSA2_3_html() {
+                const out = document.getElementById('sim-output-DSA2_3_html');
+                const out = document.getElementById('sim-output-DSA2_3_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

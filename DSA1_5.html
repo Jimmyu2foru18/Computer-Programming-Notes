@@ -32,10 +32,16 @@ queue.pop(0)      # Dequeue
             <li><strong>Message Queues:</strong> Distributed systems (like RabbitMQ or Kafka) use queues to buffer messages between services, ensuring data is processed reliably.</li>
             <li><strong>Breadth-First Search (BFS):</strong> A graph traversal algorithm that uses a queue to visit all neighbors at a given distance before moving to the next level.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Visual diagram: A queue showing items being enqueued at the rear and dequeued from the front">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA1_5_html()">Run Simulation</button>
+            <div id="sim-output-DSA1_5_html" class="sim-output"></div>
+            <script>
+            function runSimDSA1_5_html() {
+                const out = document.getElementById('sim-output-DSA1_5_html');
+                const out = document.getElementById('sim-output-DSA1_5_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

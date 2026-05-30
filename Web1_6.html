@@ -31,10 +31,16 @@ score = 10;              // Allowed
             <li><strong>Array:</strong> Ordered list (e.g., <code>[1, 2, "three"]</code>).</li>
             <li><strong>Object:</strong> Key-value pairs (e.g., <code>{name: "John", age: 30}</code>).</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1507721999472-8ed442169afb?q=80&w=600&auto=format&fit=crop" alt="Visual table: String, Number, Boolean, Array, Object">
-            </div>
+        <div class="interactive-sim">
+            <h3>DOM Simulator</h3>
+            <button class="sim-button" onclick="runSimWeb1_6_html()">Run Simulation</button>
+            <div id="sim-output-Web1_6_html" class="sim-output"></div>
+            <script>
+            function runSimWeb1_6_html() {
+                const out = document.getElementById('sim-output-Web1_6_html');
+                const out = document.getElementById('sim-output-Web1_6_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
+            }
+            </script>
         </div>
     </section>
 

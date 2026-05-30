@@ -24,10 +24,16 @@
             <li><strong>O(n) - Linear:</strong> Time increases proportionally with data size (e.g., scanning an array).</li>
             <li><strong>O(n²) - Quadratic:</strong> Time increases exponentially with data size (e.g., nested loops).</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Graph: Time complexity curves (O(1), O(log n), O(n), O(n log n), O(n^2))">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA1_1_html()">Run Simulation</button>
+            <div id="sim-output-DSA1_1_html" class="sim-output"></div>
+            <script>
+            function runSimDSA1_1_html() {
+                const out = document.getElementById('sim-output-DSA1_1_html');
+                const out = document.getElementById('sim-output-DSA1_1_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

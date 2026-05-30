@@ -22,10 +22,16 @@ iptables -A INPUT -s 192.168.100.0/24 -j DROP
     <section>
         <h2>2. VPNs: Secure Remote Access</h2>
         <p>A <strong>VPN (Virtual Private Network)</strong> creates a secure, encrypted "tunnel" over a public, insecure network like the internet. This allows remote employees to access corporate resources as if they were physically inside the office. It provides <strong>Confidentiality</strong> (no one can read the data in the tunnel) and <strong>Integrity</strong> (no one can tamper with it).</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Illustration showing an encrypted 'Tunnel' passing through a 'Public Internet' cloud, connecting a remote user to the office network">
-            </div>
+        <div class="interactive-sim">
+            <h3>Packet Flow Simulator</h3>
+            <button class="sim-button" onclick="runSimNetworks2_9_html()">Run Simulation</button>
+            <div id="sim-output-Networks2_9_html" class="sim-output"></div>
+            <script>
+            function runSimNetworks2_9_html() {
+                const out = document.getElementById('sim-output-Networks2_9_html');
+                const out = document.getElementById('sim-output-Networks2_9_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
+            }
+            </script>
         </div>
     </section>
 

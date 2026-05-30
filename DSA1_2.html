@@ -29,10 +29,16 @@
     <section>
         <h2>2. Why Random Access is Fast</h2>
         <p>Because arrays are stored in a contiguous block of memory, the computer knows the memory address of every element just by using math: <code>Address = BaseAddress + (Index * ElementSize)</code>. This calculation takes constant time, making <strong>O(1) access</strong> the defining superpower of the array.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Visual diagram: Memory addresses of an array showing Base Address + Index calculation">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA1_2_html()">Run Simulation</button>
+            <div id="sim-output-DSA1_2_html" class="sim-output"></div>
+            <script>
+            function runSimDSA1_2_html() {
+                const out = document.getElementById('sim-output-DSA1_2_html');
+                const out = document.getElementById('sim-output-DSA1_2_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

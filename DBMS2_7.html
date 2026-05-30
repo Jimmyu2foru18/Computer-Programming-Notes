@@ -28,10 +28,16 @@ EXPLAIN SELECT name, salary FROM employees WHERE dept_id = 10;
             <li><strong>Covering Indexes:</strong> An index that contains all the columns requested in the <code>SELECT</code> clause. This allows the DBMS to answer the query using only the index, without ever touching the actual table (very fast).</li>
             <li><strong>Functional Indexes:</strong> An index on the result of a function (e.g., <code>UPPER(email)</code>).</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=600&auto=format&fit=crop" alt="Illustration showing a Query Optimizer choosing between three different 'Paths' through a maze of data, with one path marked as 'Lowest Cost'">
-            </div>
+        <div class="interactive-sim">
+            <h3>SQL Query Simulator</h3>
+            <button class="sim-button" onclick="runSimDBMS2_7_html()">Run Simulation</button>
+            <div id="sim-output-DBMS2_7_html" class="sim-output"></div>
+            <script>
+            function runSimDBMS2_7_html() {
+                const out = document.getElementById('sim-output-DBMS2_7_html');
+                const out = document.getElementById('sim-output-DBMS2_7_html'); out.innerHTML = 'SELECT * FROM users;<br>'; setTimeout(() => out.innerHTML += '>> Returning 3 rows', 1000);
+            }
+            </script>
         </div>
     </section>
 

@@ -28,10 +28,16 @@ $stmt = $db-&gt;prepare("SELECT * FROM users WHERE email = ?");
 $stmt-&gt;execute([$email]);
 $user = $stmt-&gt;fetch();
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1507721999472-8ed442169afb?q=80&w=600&auto=format&fit=crop" alt="Flowchart: HTML Form &rarr; PHP Processing &rarr; Database Insert &rarr; Success Message">
-            </div>
+        <div class="interactive-sim">
+            <h3>DOM Simulator</h3>
+            <button class="sim-button" onclick="runSimWeb2_2_html()">Run Simulation</button>
+            <div id="sim-output-Web2_2_html" class="sim-output"></div>
+            <script>
+            function runSimWeb2_2_html() {
+                const out = document.getElementById('sim-output-Web2_2_html');
+                const out = document.getElementById('sim-output-Web2_2_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
+            }
+            </script>
         </div>
     </section>
 

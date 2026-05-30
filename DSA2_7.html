@@ -23,10 +23,16 @@
             <li><strong>Adjacency Matrix:</strong> A 2D array (V x V). <code>matrix[i][j] = 1</code> if there's an edge between vertex i and j, <code>0</code> otherwise. Best for <strong>dense graphs</strong>.</li>
             <li><strong>Adjacency List:</strong> An array of lists. Each vertex has a list of its neighbors. Best for <strong>sparse graphs</strong> (most real-world graphs).</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Visual comparison: Adjacency Matrix (grid) vs. Adjacency List (linked lists)">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA2_7_html()">Run Simulation</button>
+            <div id="sim-output-DSA2_7_html" class="sim-output"></div>
+            <script>
+            function runSimDSA2_7_html() {
+                const out = document.getElementById('sim-output-DSA2_7_html');
+                const out = document.getElementById('sim-output-DSA2_7_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

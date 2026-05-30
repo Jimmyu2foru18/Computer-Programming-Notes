@@ -27,10 +27,16 @@
     <section>
         <h2>2. Mobile-First Development</h2>
         <p>The most effective workflow for RWD is <strong>Mobile-First</strong>. You design and code the styles for the smallest mobile screens <em>first</em>, then use media queries to add complexity for larger screens. This makes your mobile site faster (fewer styles to load) and forces you to prioritize the essential content for the most constrained users.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1507721999472-8ed442169afb?q=80&w=600&auto=format&fit=crop" alt="Visual comparison: Layout adapting from a vertical phone view to a horizontal desktop view">
-            </div>
+        <div class="interactive-sim">
+            <h3>DOM Simulator</h3>
+            <button class="sim-button" onclick="runSimWeb1_5_html()">Run Simulation</button>
+            <div id="sim-output-Web1_5_html" class="sim-output"></div>
+            <script>
+            function runSimWeb1_5_html() {
+                const out = document.getElementById('sim-output-Web1_5_html');
+                const out = document.getElementById('sim-output-Web1_5_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
+            }
+            </script>
         </div>
     </section>
 

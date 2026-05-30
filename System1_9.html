@@ -13,10 +13,16 @@
             <li><strong>Microservices:</strong> Decomposes the application into small, independent services, each handling a specific business function (e.g., User Service, Order Service). Highly scalable, but introduces massive operational complexity (inter-service communication, distributed consistency).</li>
             <li><strong>Serverless:</strong> You deploy individual functions that trigger on events (e.g., an AWS Lambda function running when an image is uploaded). You don't manage servers, just code. Extremely cost-effective for event-driven tasks, but can have "cold start" latency issues.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Visual: Diagram: Monolithic (all in one box) vs. Microservices (many interconnected small boxes)">
-            </div>
+        <div class="interactive-sim">
+            <h3>Architecture Simulator</h3>
+            <button class="sim-button" onclick="runSimSystem1_9_html()">Run Simulation</button>
+            <div id="sim-output-System1_9_html" class="sim-output"></div>
+            <script>
+            function runSimSystem1_9_html() {
+                const out = document.getElementById('sim-output-System1_9_html');
+                const out = document.getElementById('sim-output-System1_9_html'); out.innerHTML = 'Scaling horizontally...<br>'; setTimeout(() => out.innerHTML += '>> Server 2 added', 1000);
+            }
+            </script>
         </div>
     </section>
 

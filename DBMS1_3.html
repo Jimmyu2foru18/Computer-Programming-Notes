@@ -44,10 +44,16 @@ CREATE TABLE employees (
         <pre><code class="language-sql">
 CREATE INDEX idx_employee_name ON employees(name);
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=600&auto=format&fit=crop" alt="Illustration showing a 'Primary Key' as a unique fingerprint and a 'Foreign Key' as a chain connecting two separate tables">
-            </div>
+        <div class="interactive-sim">
+            <h3>SQL Query Simulator</h3>
+            <button class="sim-button" onclick="runSimDBMS1_3_html()">Run Simulation</button>
+            <div id="sim-output-DBMS1_3_html" class="sim-output"></div>
+            <script>
+            function runSimDBMS1_3_html() {
+                const out = document.getElementById('sim-output-DBMS1_3_html');
+                const out = document.getElementById('sim-output-DBMS1_3_html'); out.innerHTML = 'SELECT * FROM users;<br>'; setTimeout(() => out.innerHTML += '>> Returning 3 rows', 1000);
+            }
+            </script>
         </div>
     </section>
 

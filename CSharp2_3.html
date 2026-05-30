@@ -46,10 +46,16 @@ public abstract class Shape {
             <li><strong>Use an Interface</strong> if you want to define a <em>capability</em> (an "-able" trait) that many unrelated classes might share (e.g., <code>IDisposable</code>, <code>ICloneable</code>).</li>
             <li><strong>Use an Abstract Class</strong> if you want to share <em>code and state</em> among a group of closely related classes (e.g., all <code>Shapes</code> have a color and basic display logic).</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=600&auto=format&fit=crop" alt="Comparison table showing 'Abstract Class' (Partial Logic, Single Inheritance) vs 'Interface' (Pure Contract, Multiple Inheritance)">
-            </div>
+        <div class="interactive-sim">
+            <h3>C# LINQ Simulator</h3>
+            <button class="sim-button" onclick="runSimCSharp2_3_html()">Run Simulation</button>
+            <div id="sim-output-CSharp2_3_html" class="sim-output"></div>
+            <script>
+            function runSimCSharp2_3_html() {
+                const out = document.getElementById('sim-output-CSharp2_3_html');
+                const out = document.getElementById('sim-output-CSharp2_3_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
+            }
+            </script>
         </div>
     </section>
 

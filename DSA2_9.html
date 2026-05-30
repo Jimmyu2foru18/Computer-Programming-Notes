@@ -37,10 +37,16 @@ def fib(n, memo={}):
             <li><strong>Longest Common Subsequence:</strong> Comparing DNA strands or text diffing.</li>
             <li><strong>Shortest Path (e.g., Bellman-Ford):</strong> Finding paths in graphs with negative weights.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Visual: The reduction of recursive branches using memoization">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA2_9_html()">Run Simulation</button>
+            <div id="sim-output-DSA2_9_html" class="sim-output"></div>
+            <script>
+            function runSimDSA2_9_html() {
+                const out = document.getElementById('sim-output-DSA2_9_html');
+                const out = document.getElementById('sim-output-DSA2_9_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

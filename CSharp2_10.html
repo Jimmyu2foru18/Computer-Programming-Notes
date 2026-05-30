@@ -40,10 +40,16 @@ unsafe {
     <section>
         <h2>3. The Future: .NET MAUI, Blazor, and Beyond</h2>
         <p>C# is no longer just for Windows. With <strong>Blazor</strong>, you can run C# in the web browser using WebAssembly. With <strong>.NET MAUI</strong>, you can build a single app that runs on Android, iOS, and Desktop. The language continues to evolve, adding "Functional" features like Records and Pattern Matching to keep you productive in the modern era.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=600&auto=format&fit=crop" alt="Roadmap diagram showing C# evolution: from Web/Desktop &rarr; Mobile &rarr; Games &rarr; Cloud &rarr; WebAssembly">
-            </div>
+        <div class="interactive-sim">
+            <h3>C# LINQ Simulator</h3>
+            <button class="sim-button" onclick="runSimCSharp2_10_html()">Run Simulation</button>
+            <div id="sim-output-CSharp2_10_html" class="sim-output"></div>
+            <script>
+            function runSimCSharp2_10_html() {
+                const out = document.getElementById('sim-output-CSharp2_10_html');
+                const out = document.getElementById('sim-output-CSharp2_10_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
+            }
+            </script>
         </div>
     </section>
 

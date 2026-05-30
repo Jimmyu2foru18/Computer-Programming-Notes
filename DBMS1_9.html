@@ -31,10 +31,16 @@
     <section>
         <h2>3. Fifth Normal Form (5NF): Join Dependencies</h2>
         <p>A table is in 5NF (also known as Project-Join Normal Form) if it cannot be broken into smaller tables without losing information when those tables are joined back together. It deals with complex cases where information is only revealed by the <strong>combination</strong> of three or more entities. 5NF is the "Final Form" of normalization, where every piece of data is so atomic that further decomposition is impossible.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=600&auto=format&fit=crop" alt="Hierarchy diagram showing the Normal Forms from 1NF up to 5NF, illustrating how each level builds upon the constraints of the previous one">
-            </div>
+        <div class="interactive-sim">
+            <h3>SQL Query Simulator</h3>
+            <button class="sim-button" onclick="runSimDBMS1_9_html()">Run Simulation</button>
+            <div id="sim-output-DBMS1_9_html" class="sim-output"></div>
+            <script>
+            function runSimDBMS1_9_html() {
+                const out = document.getElementById('sim-output-DBMS1_9_html');
+                const out = document.getElementById('sim-output-DBMS1_9_html'); out.innerHTML = 'SELECT * FROM users;<br>'; setTimeout(() => out.innerHTML += '>> Returning 3 rows', 1000);
+            }
+            </script>
         </div>
     </section>
 

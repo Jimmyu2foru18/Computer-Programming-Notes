@@ -26,10 +26,16 @@ $user = $stmt-&gt;fetch();
     <section>
         <h2>2. Security: Preventing SQL Injection</h2>
         <p><strong>SQL Injection</strong> occurs when a malicious user inputs SQL commands into a form field, potentially allowing them to dump your entire database. <strong>Never</strong> insert user input directly into a SQL query string. Always use <strong>Prepared Statements</strong>, which treat user input as <em>data</em>, not as part of the <em>command</em> to be executed.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1507721999472-8ed442169afb?q=80&w=600&auto=format&fit=crop" alt="Visual comparison: 'Unsafe' query (String concatenation) vs. 'Safe' query (Prepared Statement/Placeholder)">
-            </div>
+        <div class="interactive-sim">
+            <h3>DOM Simulator</h3>
+            <button class="sim-button" onclick="runSimWeb2_4_html()">Run Simulation</button>
+            <div id="sim-output-Web2_4_html" class="sim-output"></div>
+            <script>
+            function runSimWeb2_4_html() {
+                const out = document.getElementById('sim-output-Web2_4_html');
+                const out = document.getElementById('sim-output-Web2_4_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
+            }
+            </script>
         </div>
     </section>
 

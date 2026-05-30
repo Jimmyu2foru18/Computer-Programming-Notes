@@ -70,10 +70,16 @@ var ratio = 0.5;         // Inferred as double
 const double PI = 3.14159;
 // PI = 3.15; // ERROR: Cannot change a constant
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=600&auto=format&fit=crop" alt="Illustration showing variables as labeled bins of different sizes—small for bool, large for decimal">
-            </div>
+        <div class="interactive-sim">
+            <h3>C# LINQ Simulator</h3>
+            <button class="sim-button" onclick="runSimCSharp1_2_html()">Run Simulation</button>
+            <div id="sim-output-CSharp1_2_html" class="sim-output"></div>
+            <script>
+            function runSimCSharp1_2_html() {
+                const out = document.getElementById('sim-output-CSharp1_2_html');
+                const out = document.getElementById('sim-output-CSharp1_2_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
+            }
+            </script>
         </div>
     </section>
 

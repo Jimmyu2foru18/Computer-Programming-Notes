@@ -13,10 +13,16 @@
             <li><strong>Microservices:</strong> Decomposed into small, independent services. Enables independent scaling and technology choices, but introduces massive overhead in networking and data consistency.</li>
             <li><strong>Serverless (FaaS):</strong> You write functions; the cloud provider manages the infrastructure. Perfect for event-driven tasks, but watch out for cold-start latency.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Visual: Diagram: Monolith vs. Microservices vs. Serverless">
-            </div>
+        <div class="interactive-sim">
+            <h3>Architecture Simulator</h3>
+            <button class="sim-button" onclick="runSimSystem2_1_html()">Run Simulation</button>
+            <div id="sim-output-System2_1_html" class="sim-output"></div>
+            <script>
+            function runSimSystem2_1_html() {
+                const out = document.getElementById('sim-output-System2_1_html');
+                const out = document.getElementById('sim-output-System2_1_html'); out.innerHTML = 'Scaling horizontally...<br>'; setTimeout(() => out.innerHTML += '>> Server 2 added', 1000);
+            }
+            </script>
         </div>
     </section>
 

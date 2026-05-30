@@ -28,10 +28,16 @@ Client              DHCP Server
     <section>
         <h2>2. Lease Times and Address Pools</h2>
         <p>DHCP servers maintain a <strong>Pool</strong> of available IP addresses. When a server gives an address to a client, it "leases" it. The client must renew this lease periodically (usually when 50% of the lease time has passed). If the client leaves the network or stops renewing, the server marks that IP as "Available" and adds it back to the pool to be used by a new device.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Illustration showing a 'DHCP Server' handing out addresses from a 'Pool' of IP numbers to various devices (Laptop, Phone, Smart TV)">
-            </div>
+        <div class="interactive-sim">
+            <h3>Packet Flow Simulator</h3>
+            <button class="sim-button" onclick="runSimNetworks2_4_html()">Run Simulation</button>
+            <div id="sim-output-Networks2_4_html" class="sim-output"></div>
+            <script>
+            function runSimNetworks2_4_html() {
+                const out = document.getElementById('sim-output-Networks2_4_html');
+                const out = document.getElementById('sim-output-Networks2_4_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
+            }
+            </script>
         </div>
     </section>
 

@@ -16,10 +16,16 @@
             <li><strong>Firewall:</strong> A security device that sits between networks (e.g., between the internet and your home network) and blocks traffic based on predefined security rules.</li>
             <li><strong>Modem:</strong> Modulates and demodulates signals. It translates the digital data from your network into a format that can travel over the physical medium provided by your ISP (e.g., cable, DSL, fiber).</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Visual comparison of a Hub vs. a Switch vs. a Router, highlighting the different data forwarding paths">
-            </div>
+        <div class="interactive-sim">
+            <h3>Packet Flow Simulator</h3>
+            <button class="sim-button" onclick="runSimNetworks1_4_html()">Run Simulation</button>
+            <div id="sim-output-Networks1_4_html" class="sim-output"></div>
+            <script>
+            function runSimNetworks1_4_html() {
+                const out = document.getElementById('sim-output-Networks1_4_html');
+                const out = document.getElementById('sim-output-Networks1_4_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
+            }
+            </script>
         </div>
     </section>
 

@@ -29,10 +29,16 @@
     <section>
         <h2>2. HTTPS: Encryption and Security</h2>
         <p>HTTP is "cleartext"—if you send a password over HTTP, anyone on the same public Wi-Fi can see it. <strong>HTTPS</strong> solves this by using <strong>TLS (Transport Layer Security)</strong>, which encrypts the entire HTTP conversation. Before any data is sent, the client and server perform a "Handshake" to verify certificates and exchange encryption keys.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Illustration showing an HTTP 'Unsecured' message vs. an HTTPS 'Locked' secure tunnel">
-            </div>
+        <div class="interactive-sim">
+            <h3>Packet Flow Simulator</h3>
+            <button class="sim-button" onclick="runSimNetworks2_5_html()">Run Simulation</button>
+            <div id="sim-output-Networks2_5_html" class="sim-output"></div>
+            <script>
+            function runSimNetworks2_5_html() {
+                const out = document.getElementById('sim-output-Networks2_5_html');
+                const out = document.getElementById('sim-output-Networks2_5_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
+            }
+            </script>
         </div>
     </section>
 

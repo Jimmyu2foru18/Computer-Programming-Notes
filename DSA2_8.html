@@ -27,10 +27,16 @@ def bfs(graph, start):
         <h2>2. DFS: Depth-First Search</h2>
         <p>DFS explores the graph by going <strong>as deep as possible</strong> down one branch before backtracking. It is implemented using a <strong>Stack</strong> (or recursion), which naturally tracks the path backwards.</p>
         <p><strong>Use Case:</strong> Cycle detection, solving mazes, topological sorting.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Visual comparison: BFS (level-by-level circles) vs. DFS (deep dive down a single branch)">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA2_8_html()">Run Simulation</button>
+            <div id="sim-output-DSA2_8_html" class="sim-output"></div>
+            <script>
+            function runSimDSA2_8_html() {
+                const out = document.getElementById('sim-output-DSA2_8_html');
+                const out = document.getElementById('sim-output-DSA2_8_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

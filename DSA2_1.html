@@ -32,10 +32,16 @@ def quick_sort(arr):
             <li><strong>Average Case:</strong> O(n log n). If the pivot consistently divides the array into relatively equal halves, it is extremely fast.</li>
             <li><strong>Worst Case:</strong> O(n²). This occurs if you pick a poor pivot (like the smallest or largest element) every time, leaving one side of the partition empty.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Visual diagram: Pivot selection, partitioning into left/right subarrays, and recursive sorting">
-            </div>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="runSimDSA2_1_html()">Run Simulation</button>
+            <div id="sim-output-DSA2_1_html" class="sim-output"></div>
+            <script>
+            function runSimDSA2_1_html() {
+                const out = document.getElementById('sim-output-DSA2_1_html');
+                const out = document.getElementById('sim-output-DSA2_1_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
+            }
+            </script>
         </div>
     </section>
 

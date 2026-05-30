@@ -21,10 +21,16 @@ Network: 11000000.10101000.00000001.00000000 (192.168.1.0)
     <section>
         <h2>2. Borrowing Host Bits</h2>
         <p>To create subnets, you "borrow" bits from the host portion and turn them into network bits. If you have a <code>/24</code> network and need 4 subnets, you borrow 2 bits (since 2^2 = 4). Your new prefix becomes <code>/26</code>.</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Visual table showing host bits borrowed vs. new subnet mask, number of subnets created, and usable hosts per subnet">
-            </div>
+        <div class="interactive-sim">
+            <h3>Packet Flow Simulator</h3>
+            <button class="sim-button" onclick="runSimNetworks1_9_html()">Run Simulation</button>
+            <div id="sim-output-Networks1_9_html" class="sim-output"></div>
+            <script>
+            function runSimNetworks1_9_html() {
+                const out = document.getElementById('sim-output-Networks1_9_html');
+                const out = document.getElementById('sim-output-Networks1_9_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
+            }
+            </script>
         </div>
     </section>
 

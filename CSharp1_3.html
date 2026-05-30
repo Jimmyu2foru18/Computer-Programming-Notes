@@ -46,10 +46,16 @@ bool canDrive = (age >= 18) && hasLicense; // true
     <section>
         <h2>3. Short-Circuit Evaluation</h2>
         <p>C# uses <strong>Short-Circuiting</strong> for its logical operators. If the result of an expression can be determined by evaluating the first part, the second part is never even looked at. This is a massive performance boost and can prevent errors (e.g., checking if an object is not NULL before accessing its property in the same line).</p>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=600&auto=format&fit=crop" alt="Flowchart showing Short-Circuiting: If (A is False) in (A AND B), Skip B and return False">
-            </div>
+        <div class="interactive-sim">
+            <h3>C# LINQ Simulator</h3>
+            <button class="sim-button" onclick="runSimCSharp1_3_html()">Run Simulation</button>
+            <div id="sim-output-CSharp1_3_html" class="sim-output"></div>
+            <script>
+            function runSimCSharp1_3_html() {
+                const out = document.getElementById('sim-output-CSharp1_3_html');
+                const out = document.getElementById('sim-output-CSharp1_3_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
+            }
+            </script>
         </div>
     </section>
 

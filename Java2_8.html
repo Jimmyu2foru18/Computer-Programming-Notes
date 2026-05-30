@@ -43,10 +43,16 @@ Files.write(path, content.getBytes());
 // Reading all at once (into a List)
 List<String> lines = Files.readAllLines(path);
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=600&auto=format&fit=crop" alt="Illustration showing the difference between a Stream (a pipe of water) and a Block (a shipping container of data)">
-            </div>
+        <div class="interactive-sim">
+            <h3>Java Object Simulator</h3>
+            <button class="sim-button" onclick="runSimJava2_8_html()">Run Simulation</button>
+            <div id="sim-output-Java2_8_html" class="sim-output"></div>
+            <script>
+            function runSimJava2_8_html() {
+                const out = document.getElementById('sim-output-Java2_8_html');
+                const out = document.getElementById('sim-output-Java2_8_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
+            }
+            </script>
         </div>
     </section>
 

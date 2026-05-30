@@ -23,10 +23,16 @@
             <li><strong>Caching (Redis):</strong> Storing the results of expensive database queries or API calls in memory (like Redis) so they can be retrieved in milliseconds instead of seconds.</li>
             <li><strong>Query Optimization:</strong> Avoiding "N+1" query problems (where you perform one query to get a list, and then N queries to get related data) by using proper SQL <code>JOIN</code>s.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1507721999472-8ed442169afb?q=80&w=600&auto=format&fit=crop" alt="Visual: Frontend performance (fast load) + Backend performance (low latency)">
-            </div>
+        <div class="interactive-sim">
+            <h3>DOM Simulator</h3>
+            <button class="sim-button" onclick="runSimWeb2_9_html()">Run Simulation</button>
+            <div id="sim-output-Web2_9_html" class="sim-output"></div>
+            <script>
+            function runSimWeb2_9_html() {
+                const out = document.getElementById('sim-output-Web2_9_html');
+                const out = document.getElementById('sim-output-Web2_9_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
+            }
+            </script>
         </div>
     </section>
 
