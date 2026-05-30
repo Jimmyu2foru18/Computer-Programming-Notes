@@ -1,0 +1,103 @@
+<article>
+    <h1>Python I: Page 7 - Collection Types: Dictionaries (dict)</h1>
+
+    <section>
+        <h2>Labeled Data: The Python Dictionary</h2>
+        <p>In our previous pages, we looked at collections that are ordered by their position (Lists and Tuples) or defined by their uniqueness (Sets). However, in many real-world scenarios, we need to store data with <strong>labels</strong>. For example, if you are storing information about a student, a list like <code>["Alice", 20, "Computer Science"]</code> is hard to read—you have to remember that index 1 is the age. A <strong>Dictionary</strong> solves this by storing data in <strong>Key-Value Pairs</strong>.</p>
+        <p>Dictionaries are unordered (in older Python versions) or order-preserving (in Python 3.7+), and they are optimized for extremely fast data retrieval. You look up a value using its unique "key," just like you'd look up a word in a physical dictionary.</p>
+        <pre><code class="language-python">
+# Creating a dictionary
+student = {
+    "name": "Alice",
+    "age": 20,
+    "major": "Computer Science"
+}
+
+# Accessing values
+print(student["name"])  # Output: Alice
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Safe Lookups and Manipulation</h2>
+        <p>One common problem with dictionaries is trying to access a key that doesn't exist, which causes a <code>KeyError</code>. Python provides the <code>.get()</code> method for "safe" access.</p>
+        <pre><code class="language-python">
+# Safe access with a default value
+email = student.get("email", "No email provided")
+print(email)  # Output: No email provided
+
+# Adding or updating data
+student["email"] = "alice@university.edu"
+student["age"] = 21
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual representation of a Hash Map—Keys pointing to Values]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Dictionary Comprehensions</h2>
+        <p>Just like lists, you can create dictionaries using a concise, one-line syntax. This is perfect for transforming data, such as creating a lookup table of squares or converting temperatures.</p>
+        <pre><code class="language-python">
+# Syntax: {key_expression: value_expression for item in iterable}
+squares_dict = {x: x**2 for x in range(5)}
+# Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Iterating Through Dictionaries</h2>
+        <p>You can loop through a dictionary in several ways, depending on whether you need the keys, the values, or both.</p>
+        <ul>
+            <li><code>for key in student:</code> Loops through only the keys.</li>
+            <li><code>for value in student.values():</code> Loops through only the values.</li>
+            <li><code>for key, value in student.items():</code> The most common way—loops through both simultaneously.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the power of Python dictionaries with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Dictionaries in Python (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=daefaLgNkw0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into working with key-value pairs and common methods.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Dictionary Comprehensions Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=pDInX8Y20Yg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to build complex dictionaries in a single line.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Hash Maps and Python Dictionaries</strong><br>
+                <a href="https://www.youtube.com/watch?v=9HFbhPscPU0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The computer science behind why dictionaries are so fast.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Library Catalog and the Smartphone Contact List</h2>
+        <p>Think of a <strong>Dictionary</strong> like a <strong>Library Catalog</strong>. You don't walk through the library counting books until you find "Moby Dick" (that would be a List search). Instead, you look up the unique ISBN number (the Key), and it tells you exactly which shelf the book (the Value) is on. Another example is your <strong>Smartphone Contact List</strong>. You don't remember people by their index number ("Friend #42"); you remember them by their <strong>Name</strong> (the Key). When you tap a name, the phone "returns" their phone number, email, and photo (the Values). Dictionaries allow you to organize your data logically so that you can find what you need instantly, no matter how large the collection becomes.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries" target="_blank">Official Python Docs: Dictionaries</a></li>
+            <li><a href="https://realpython.com/python-dicts/" target="_blank">Real Python: Dictionaries in Python Guide</a></li>
+            <li><a href="https://www.w3schools.com/python/python_dictionaries.asp" target="_blank">W3Schools: Python Dictionaries</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-dictionary/" target="_blank">Python Tutorial: Comprehensive Dictionary Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Tuples & Sets</a>
+            <a href="#" data-file="Python1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Conditionals & Logic &rarr;</a>
+        </div>
+    </footer>
+</article>

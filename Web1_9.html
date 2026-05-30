@@ -1,0 +1,88 @@
+<article>
+    <h1>Web Technologies I: Page 9 - JavaScript: Modern Features (ES6+)</h1>
+
+    <section>
+        <h2>The Modern JS Toolbox</h2>
+        <p>JavaScript has evolved rapidly since 2015 (ES6). These "Modern" features aren't just syntactic sugar—they are powerful tools that make your code more concise, readable, and less prone to errors. While older JavaScript (ES5) is still valid, you will almost exclusively encounter ES6+ syntax in modern development, frameworks (React/Vue/Angular), and professional codebases. Mastering these features is essential for becoming a modern JavaScript developer.</p>
+    </section>
+
+    <section>
+        <h2>1. Productivity Powerhouses</h2>
+        <ul>
+            <li><strong>Destructuring:</strong> A clean way to unpack values from arrays or properties from objects into distinct variables.</li>
+            <li><strong>Spread/Rest Operator (<code>...</code>):</strong> Used to expand arrays/objects or collect multiple arguments into an array.</li>
+            <li><strong>Template Literals:</strong> Uses backticks (<code>`</code>) for cleaner string concatenation with embedded expressions (<code>${}</code>).</li>
+            <li><strong>Arrow Functions:</strong> A shorter, cleaner syntax for functions with implicit returns and lexical `this` binding.</li>
+        </ul>
+        <pre><code class="language-javascript">
+// Destructuring
+const { name, age } = user;
+
+// Template Literals
+const message = `Hello ${name}, you are ${age}.`;
+
+// Arrow Functions
+const sum = (a, b) => a + b;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Object-Oriented JS: Classes</h2>
+        <p>Before ES6, JS used complex prototype chains for object-oriented programming. Now, we use <code>class</code> syntax, which is much more intuitive and similar to other languages like Java or C#.</p>
+        <pre><code class="language-javascript">
+class Animal {
+  constructor(name) { this.name = name; }
+  speak() { console.log(`${this.name} makes a sound`); }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Mapping ES5 prototype chains vs. ES6 Class syntax]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master modern JavaScript with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. ES6+ Features Crash Course</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A fast-paced overview of the most essential updates.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Arrow Functions Deep Dive</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why and how to use arrow functions correctly.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. ES6 Classes Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Object-oriented programming in modern JS.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Swiss Army Knife</h2>
+        <p>Think of <strong>Modern JavaScript features</strong> like a <strong>Swiss Army Knife</strong> compared to the old <strong>Kitchen Knife</strong>. In the old days (ES5), you only had a basic, sharp knife for everything. It worked, but it was tedious for complex tasks. Modern JavaScript gives you specialized tools: a corkscrew for opening specific types of data (Destructuring), a small scissor for trimming strings (Template Literals), and a durable blade for structural work (Classes). You're still building the same things, but you are now far faster, more precise, and far less likely to accidentally cut yourself (create bugs) while working.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank">MDN: ES6 Modules</a></li>
+            <li><a href="https://javascript.info/es6-modern-javascript" target="_blank">JavaScript.info: Modern JS</a></li>
+            <li><a href="https://www.w3schools.com/js/js_es6.asp" target="_blank">W3Schools: ES6 Features</a></li>
+            <li><a href="https://eloquentjavascript.net/06_object.html" target="_blank">Book: Eloquent JavaScript (Classes Chapter)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: JS: Async & Fetch</a>
+            <a href="#" data-file="Web1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Project: Portfolio &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,100 @@
+<article>
+    <h1>Java I: Page 3 - Operators & Boolean Logic</h1>
+
+    <section>
+        <h2>The Engine of Calculation</h2>
+        <p>In the previous page, we learned how to store data. Now, we must learn how to manipulate it. <strong>Operators</strong> are special symbols in Java that perform specific operations on one, two, or three operands and return a result. From basic math to complex logical checks, operators are the engine that drives your program's logic. Java's operators are highly optimized and follow strict rules of precedence, similar to the order of operations you learned in algebra.</p>
+    </section>
+
+    <section>
+        <h2>1. Arithmetic Operators</h2>
+        <p>Java supports the standard mathematical operators you would expect, along with some powerful shortcuts for modifying variables.</p>
+        <ul>
+            <li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>: Standard math.</li>
+            <li><code>%</code>: Modulo (returns the remainder of division).</li>
+            <li><code>++</code> / <code>--</code>: Increment and Decrement. These are used to increase or decrease a variable's value by 1.</li>
+        </ul>
+        <pre><code class="language-java">
+int x = 10;
+int y = 3;
+System.out.println(x % y);  // Output: 1 (Remainder)
+
+x++; // x is now 11
+y--; // y is now 2
+        </code></pre>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>Expert Note:</strong> In Java, <code>10 / 3</code> will return <code>3</code>, not <code>3.33</code>. This is because both operands are integers, so Java performs <strong>Integer Division</strong>. To get a decimal, at least one number must be a <code>double</code>: <code>10.0 / 3</code>.
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Comparison & Logical Operators</h2>
+        <p>Comparison operators compare two values and return a <code>boolean</code> (true or false). Logical operators are used to combine multiple boolean expressions.</p>
+        
+        <h3>Short-Circuit Evaluation</h3>
+        <p>Java uses <strong>Short-Circuit</strong> operators (<code>&&</code> and <code>||</code>). This means that if the result of a logic chain can be determined by the first part, Java won't even look at the second part. This is highly efficient and prevents many errors.</p>
+        <pre><code class="language-java">
+int age = 25;
+boolean hasLicense = true;
+
+// Both must be true
+if (age >= 18 && hasLicense) {
+    System.out.println("You can drive!");
+}
+
+// Only one needs to be true
+if (age < 18 || !hasLicense) {
+    System.out.println("You cannot drive alone.");
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Operator Precedence</h2>
+        <p>Like PEMDAS in math, Java evaluates operators in a specific order. Postfix operators (<code>x++</code>) have the highest priority, followed by multiplicative (<code>*</code>, <code>/</code>, <code>%</code>), additive (<code>+</code>, <code>-</code>), comparison, and finally logical operators. When in doubt, <strong>always use parentheses</strong> to make your intent clear to other developers.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java logic and calculation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Arithmetic & Comparison Operators</strong><br>
+                <a href="https://www.youtube.com/watch?v=N6O_M5vXWIA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the basics of math and checks in Java.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Logical Operators && Short-Circuiting</strong><br>
+                <a href="https://www.youtube.com/watch?v=9OK32jb_ZlA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Deep dive into &&, ||, and why they save performance.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Modulo and Increment/Decrement</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Essential patterns for loops and data processing.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Calculator and the Security Guard</h2>
+        <p>Think of <strong>Arithmetic Operators</strong> like the <strong>Mechanical Gears</strong> in a physical calculator. Every rotation (operation) produces a predictable, physical result. Think of <strong>Logical Operators</strong> like a <strong>Security Guard</strong> at a gate. The guard has a checklist: <code>(Has Ticket OR Is Employee) AND (Is Not Banned)</code>. The <strong>Short-Circuit (&&)</strong> is like the guard stopping the moment they see you don't have a ticket—they don't even bother checking if you're banned because the result is already "No Entry." This efficiency is what allows Java applications to process millions of transactions per second without wasting a single CPU cycle.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html" target="_blank">Official Java Docs: Summary of Operators</a></li>
+            <li><a href="https://www.baeldung.com/java-operators" target="_blank">Baeldung: Guide to Java Operators</a></li>
+            <li><a href="https://www.w3schools.com/java/java_operators.asp" target="_blank">W3Schools: Java Operators</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-operators/" target="_blank">Java Tutorial: Precedence and Logic</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Variables & Primitives</a>
+            <a href="#" data-file="Java1_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Control Flow: If & Switch &rarr;</a>
+        </div>
+    </footer>
+</article>

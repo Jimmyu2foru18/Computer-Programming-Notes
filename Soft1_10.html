@@ -1,0 +1,84 @@
+<article>
+    <h1>Software Engineering I: Page 10 - Patterns in Practice: Architectural Strategy</h1>
+
+    <section>
+        <h2>Beyond the Catalog</h2>
+        <p>In the previous three pages, we explored the "Gang of Four" design patterns—Creational, Structural, and Behavioral. However, being a great software engineer isn't just about memorizing these patterns; it's about knowing <strong>when</strong> to use them and, more importantly, when <strong>not</strong> to. Design patterns are tools, not goals. A common mistake for junior developers is "Pattern Overkill," where they try to force every problem into a complex pattern, resulting in over-engineered, unreadable code. Professional engineering is the art of balancing flexibility with simplicity.</p>
+    </section>
+
+    <section>
+        <h2>1. The Decision Matrix: Choosing a Pattern</h2>
+        <p>How do you know which pattern to reach for? You must first identify the <strong>Axis of Change</strong>. What part of your system is likely to change or grow in the future?</p>
+        <ul>
+            <li><strong>If the variety of objects will grow:</strong> Use a Factory or Builder.</li>
+            <li><strong>If you need to connect legacy code:</strong> Use an Adapter or Facade.</li>
+            <li><strong>If you need to add features dynamically:</strong> Use a Decorator.</li>
+            <li><strong>If you need to react to events:</strong> Use an Observer.</li>
+            <li><strong>If the business rules/algorithms will change:</strong> Use a Strategy.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Patterns in the Wild</h2>
+        <p>You are already using design patterns every day, even if you don't realize it. Modern frameworks are built entirely on these concepts:</p>
+        <ul>
+            <li><strong>Spring Framework (Java):</strong> Uses the <strong>Singleton</strong> pattern for its Beans and <strong>Dependency Injection</strong> (a form of Strategy/Factory) to manage objects.</li>
+            <li><strong>React (JavaScript):</strong> Uses the <strong>Observer</strong> pattern to update the UI when state changes.</li>
+            <li><strong>Django (Python):</strong> Uses the <strong>Facade</strong> pattern to simplify complex database queries into simple model methods.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Venn diagram showing the overlap between SOLID Principles and Design Patterns—how patterns are the concrete implementations of SOLID theory]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. The Dangers of Over-Engineering</h2>
+        <p>Following the <strong>KISS</strong> and <strong>YAGNI</strong> principles is crucial when applying patterns. If you only have two types of payments, a simple <code>if-else</code> is perfectly fine. Don't build a complex "PaymentStrategy" system until you actually have enough complexity to justify it. Every pattern adds a layer of <strong>Indirection</strong>, which makes the code harder to follow for someone who just wants to see the main logic.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the strategic application of patterns with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Design Patterns in Plain English</strong><br>
+                <a href="https://www.youtube.com/watch?v=tv-_1er1mWI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A great summary of when and why to use patterns.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The Dangers of Design Patterns</strong><br>
+                <a href="https://www.youtube.com/watch?v=0vXv62_j0tA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to avoid over-engineering and 'Pattern-itis'.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Real-World Examples of Design Patterns</strong><br>
+                <a href="https://www.youtube.com/watch?v=vNHpsC5nd_Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>See how professional frameworks use patterns under the hood.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Toolbelt and the Over-Built Bridge</h2>
+        <p>Think of <strong>Design Patterns</strong> like a <strong>Master Carpenter's Toolbelt</strong>. A beginner only has a hammer and sees every problem as a nail. A master has 50 specialized tools. They don't use all 50 on every job; they know exactly when to pull out the "dovetail saw" and when to just use a "standard screwdriver." Think of <strong>Over-Engineering</strong> like building a <strong>Golden Bridge</strong> to cross a 2-foot wide stream. It's beautiful, it follows all the rules of engineering, and it will last 1,000 years—but it was a waste of time and money when a simple wooden plank (Clean, Simple Code) would have worked just as well. Use the pattern only when the "stream" of your data is too deep for a plank.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://refactoring.guru/design-patterns/catalog" target="_blank">Refactoring Guru: Full Design Patterns Catalog</a></li>
+            <li><a href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612" target="_blank">Book: Design Patterns (Gang of Four)</a></li>
+            <li><a href="https://www.baeldung.com/category/design-patterns/" target="_blank">Baeldung: Practical Java Pattern Guides</a></li>
+            <li><a href="https://sourcemaking.com/design_patterns" target="_blank">SourceMaking: Design Patterns and Refactoring</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Behavioral Design Patterns</a>
+            <a href="#" data-file="Soft2_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Soft II - UML: Structural Modeling &rarr;</a>
+        </div>
+    </footer>
+</article>

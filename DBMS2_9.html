@@ -1,0 +1,81 @@
+<article>
+    <h1>DBMS II: Page 9 - Modern Infrastructure: Cloud Databases & Data Migration</h1>
+
+    <section>
+        <h2>Databases in the Sky</h2>
+        <p>In the traditional model, a company had to buy expensive servers, install a DBMS, and hire a team to manage the hardware and cooling. Today, most modern software engineering happens in the <strong>Cloud</strong>. Services like AWS, Google Cloud, and Azure allow you to spin up a professional database in seconds with <strong>Managed Services</strong>. This shift has changed the role of the database engineer from "Hardware Manager" to "Architecture Orchestrator." This page explores the benefits of cloud databases, the different types of cloud offerings, and the complex process of <strong>Data Migration</strong>—moving data between systems without downtime.</p>
+    </section>
+
+    <section>
+        <h2>1. Cloud Database Models</h2>
+        <ul>
+            <li><strong>Managed Relational (RDS/SQL Database):</strong> You get a standard SQL database (MySQL, Postgres, etc.) but the cloud provider handles backups, patching, and scaling.</li>
+            <li><strong>Cloud-Native NoSQL (DynamoDB/Firestore):</strong> Highly scalable databases designed specifically for the cloud. They are often "Serverless," meaning you only pay for the exact number of reads and writes you perform.</li>
+            <li><strong>Data Warehouses (Redshift/BigQuery):</strong> Specialized cloud engines for petabyte-scale analytics.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Data Migration & ETL</h2>
+        <p>Moving data is never as simple as copy-paste. <strong>ETL (Extract, Transform, Load)</strong> is the standard process for migration:</p>
+        <ol>
+            <li><strong>Extract:</strong> Pull data from the source (e.g., an old local SQL server).</li>
+            <li><strong>Transform:</strong> Clean the data and change its format to match the new schema (e.g., changing date formats or splitting names).</li>
+            <li><strong>Load:</strong> Write the processed data into the target cloud database.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>3. Benefits: Scalability & Availability</h2>
+        <p>Cloud databases offer <strong>Multi-AZ (Availability Zone)</strong> deployment. The cloud provider keeps a live copy of your database in a different physical building. If a lightning strike hits the first building, the system automatically switches to the second building (Failover) in seconds, and your users never notice.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Local Data Center' being migrated into a 'Cloud Cloud' with an ETL pipeline as the bridge]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the modern cloud data stack with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. AWS RDS vs. DynamoDB</strong><br>
+                <a href="https://www.youtube.com/watch?v=rv4LlmLU69g" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to choose between SQL and NoSQL in the cloud.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Data Migration Strategies (Zero Downtime)</strong><br>
+                <a href="https://www.youtube.com/watch?v=mFFXuXjVgkU" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to move terabytes of data while the app is still running.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. What is Serverless Database?</strong><br>
+                <a href="https://www.youtube.com/watch?v=S7v_lX8I_Yc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the 'Pay-as-you-go' model for modern data.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Home Generator and the Power Plant</h2>
+        <p>Think of a <strong>Local Database</strong> like having a <strong>Generator in your Backyard</strong>. You own it, you have to buy the fuel, you have to fix it when it breaks, and if it's too small, you can't just "stretch" it to power your whole neighborhood. Think of a <strong>Cloud Database</strong> like being connected to the <strong>City Power Grid</strong>. You just plug in (Connect) and pay for what you use. If you suddenly need 10x more power (a Traffic Spike), the grid handles it automatically. Think of <strong>ETL Migration</strong> like <strong>Moving to a New House</strong>. You don't just throw everything in a truck. You sort through your junk (Extract), pack things into specific boxes that fit the new closets (Transform), and then unpack them in their new designated spots (Load).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://aws.amazon.com/rds/" target="_blank">AWS: Relational Database Service (RDS)</a></li>
+            <li><a href="https://cloud.google.com/learn/what-is-a-cloud-database" target="_blank">Google Cloud: What is a Cloud Database?</a></li>
+            <li><a href="https://www.baeldung.com/cs/etl-vs-elt" target="_blank">Baeldung: ETL vs ELT Explained</a></li>
+            <li><a href="https://www.geeksforgeeks.org/cloud-databases/" target="_blank">GeeksforGeeks: Cloud Database Tutorial</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Warehousing & OLAP</a>
+            <a href="#" data-file="DBMS2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Admin & Security &rarr;</a>
+        </div>
+    </footer>
+</article>

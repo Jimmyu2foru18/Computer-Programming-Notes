@@ -1,0 +1,99 @@
+<article>
+    <h1>C# I: Page 3 - Operators & Boolean Logic</h1>
+
+    <section>
+        <h2>The Engine of Calculation</h2>
+        <p>In the previous page, we learned how to store data in variables. But a program that only stores data is just a static list. To create an <strong>Application</strong>, you must be able to manipulate that data—add numbers, compare values, and combine logical conditions. In C#, this is done through <strong>Operators</strong>. These special symbols tell the compiler to perform specific mathematical or logical tasks. C# operators are highly optimized and follow strict rules of "Precedence," ensuring that your calculations are predictable and accurate.</p>
+    </section>
+
+    <section>
+        <h2>1. Arithmetic & Assignment Operators</h2>
+        <p>C# supports all standard mathematical operations, along with "Compound Assignment" operators that make your code more concise.</p>
+        
+        <ul>
+            <li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>: Addition, Subtraction, Multiplication, Division, and Modulo (remainder).</li>
+            <li><code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>: Performs the operation and assigns the result back to the variable.</li>
+            <li><code>++</code>, <code>--</code>: Increments or decrements a value by exactly 1.</li>
+        </ul>
+        <pre><code class="language-csharp">
+int balance = 100;
+balance += 50; // balance is now 150
+balance++;     // balance is now 151
+        </code></pre>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>Expert Note:</strong> In C#, dividing two integers results in an integer (e.g., <code>10 / 3 = 3</code>). If you need a decimal result, at least one number must be a <code>double</code> or <code>decimal</code> (e.g., <code>10.0 / 3 = 3.333</code>).
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Comparison & Logical Operators</h2>
+        <p>Comparison operators compare two values and return a <code>bool</code>. Logical operators are used to combine multiple boolean checks.</p>
+        
+        <ul>
+            <li><code>==</code> (Equal to), <code>!=</code> (Not equal to)</li>
+            <li><code>></code>, <code><</code>, <code>>=</code>, <code><=</code></li>
+            <li><code>&&</code> (Logical AND): Both sides must be true.</li>
+            <li><code>||</code> (Logical OR): At least one side must be true.</li>
+            <li><code>!</code> (Logical NOT): Reverses the boolean value.</li>
+        </ul>
+        <pre><code class="language-csharp">
+int age = 20;
+bool hasLicense = true;
+bool canDrive = (age >= 18) && hasLicense; // true
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Short-Circuit Evaluation</h2>
+        <p>C# uses <strong>Short-Circuiting</strong> for its logical operators. If the result of an expression can be determined by evaluating the first part, the second part is never even looked at. This is a massive performance boost and can prevent errors (e.g., checking if an object is not NULL before accessing its property in the same line).</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Flowchart showing Short-Circuiting: If (A is False) in (A AND B), Skip B and return False]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master C# operators and logic with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Arithmetic Operators</strong><br>
+                <a href="https://www.youtube.com/watch?v=N6O_M5vXWIA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the basics of math and variable modification.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Logical Operators && Short-Circuiting</strong><br>
+                <a href="https://www.youtube.com/watch?v=9OK32jb_ZlA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Deep dive into &&, ||, and ! for complex logic.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. C# Operator Precedence</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the order in which C# calculates your code.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Cashier and the Bouncer</h2>
+        <p>Think of <strong>Arithmetic Operators</strong> like a <strong>Cashier at a Grocery Store</strong>. They take items (Variables), add them up (<code>+</code>), apply a discount (<code>-</code>), and give you a total (Assignment). Think of <strong>Logical Operators</strong> like a <strong>Bouncer at a Club</strong>. The bouncer has a two-step check: <code>(Has ID AND Is Over 21)</code>. The <strong>Short-Circuit</strong> is the bouncer saying, "I don't even need to see your ID if you're wearing a high school uniform." He stops the check early (efficiency). This logical "filtering" is what allows software to handle complex real-world rules with speed and accuracy.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/" target="_blank">Official Microsoft: C# Operators Reference</a></li>
+            <li><a href="https://www.baeldung.com/cs/operators" target="_blank">Baeldung: Guide to Operators in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_operators.php" target="_blank">W3Schools: C# Operators</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-operators/" target="_blank">Operators Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Variables & Primitives</a>
+            <a href="#" data-file="CSharp1_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Control Flow: Conditionals &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,67 @@
+<article>
+    <h1>DSA II: Page 5 - Balanced Trees</h1>
+
+    <section>
+        <h2>The Danger of Unbalanced Trees</h2>
+        <p>A Binary Search Tree (BST) is incredibly efficient <em>if it stays balanced</em>. But if you insert data that is already sorted (e.g., 1, 2, 3, 4, 5), your BST turns into a straight line—effectively becoming a Linked List! In this "unbalanced" state, searching takes <strong>O(n)</strong> time instead of <strong>O(log n)</strong>. <strong>Balanced Trees</strong> are self-correcting data structures that detect this imbalance and automatically restructure themselves to keep the height logarithmic, guaranteeing peak performance.</p>
+    </section>
+
+    <section>
+        <h2>1. AVL Trees: Strict Balance</h2>
+        <p>An <strong>AVL Tree</strong> is a self-balancing BST where the height difference between left and right subtrees (the "balance factor") can never be more than 1. If it exceeds this, the tree performs a <strong>Rotation</strong> (Left, Right, or Double Rotations) to restore balance. This strictness makes AVL trees perfect for scenarios where you need fast searching and don't modify the tree quite as often.</p>
+    </section>
+
+    <section>
+        <h2>2. Red-Black Trees: Balanced by Rule</h2>
+        <p><strong>Red-Black Trees</strong> are slightly more relaxed than AVL trees. They assign a color (Red or Black) to each node and follow a set of rules to ensure the path from the root to any leaf is no more than twice as long as the path to any other leaf. They are more complex to implement but often perform better in scenarios involving many insertions and deletions.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: Unbalanced BST (linked list shape) vs. Balanced AVL/Red-Black Tree]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master balanced trees with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Why Balanced Trees Matter</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The problem of unbalanced trees and O(n) degradation.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. AVL Tree Rotations</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Visualizing how trees rebalance themselves.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Red-Black Tree Rules</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the color-coding rules for balance.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Balanced Scale</h2>
+        <p>Think of a <strong>BST</strong> like a <strong>Scale for weighing objects</strong>. If you put all the weight on one side (unbalanced tree), the scale tips over and is useless. You need to keep the weight distributed evenly on both sides to keep the scale level (Balanced Tree). <strong>AVL trees</strong> are like a precision scale that triggers an automatic mechanism to shift counter-weights (Rotations) the moment it detects even a slight tilt. <strong>Red-Black trees</strong> are like a more sophisticated system that uses color-coded weights to ensure the scale remains stable even if you are constantly adding or removing objects.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/AVL_tree" target="_blank">Wikipedia: AVL Tree</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree" target="_blank">Wikipedia: Red-Black Tree</a></li>
+            <li><a href="https://www.geeksforgeeks.org/introduction-to-avl-tree/" target="_blank">GeeksforGeeks: AVL Intro</a></li>
+            <li><a href="https://visualgo.net/en/bst" target="_blank">Tool: Tree Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Binary Search Trees</a>
+            <a href="#" data-file="DSA2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Heaps &rarr;</a>
+        </div>
+    </footer>
+</article>

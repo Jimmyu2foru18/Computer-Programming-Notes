@@ -1,0 +1,78 @@
+<article>
+    <h1>DBMS II: Page 8 - Business Intelligence: Data Warehousing & OLAP</h1>
+
+    <section>
+        <h2>Analyzing the Past to Predict the Future</h2>
+        <p>Most of the databases we've studied so far are **OLTP (Online Transactional Processing)** systems. They are designed for fast, frequent updates (like a customer buying a shirt). However, large corporations also need **OLAP (Online Analytical Processing)**. They need to analyze 10 years of sales data to find trends. Running these massive, complex queries on a live transactional database would slow down the store for everyone. To solve this, engineers build a **Data Warehouse**—a central repository of integrated data from one or more disparate sources. Data warehouses are optimized for reading and analysis rather than writing.</p>
+    </section>
+
+    <section>
+        <h2>1. Dimensional Modeling: Star & Snowflake Schemas</h2>
+        <p>In a Data Warehouse, we don't use standard normalization. Instead, we use **Dimensional Modeling** to make queries faster and easier to understand for business analysts.</p>
+        <ul>
+            <li><strong>Fact Table:</strong> The center of the model. It contains quantitative measurements (e.g., total sales amount, quantity sold) and foreign keys to dimensions.</li>
+            <li><strong>Dimension Tables:</strong> The "points" of the star. They contain descriptive context (e.g., Product name, Store location, Date details).</li>
+        </ul>
+        <p>A <strong>Star Schema</strong> is the simplest form, where fact tables connect directly to dimensions. A <strong>Snowflake Schema</strong> is more normalized, where dimensions themselves are broken down into sub-dimensions (e.g., Product points to Category, which points to Department).</p>
+    </section>
+
+    <section>
+        <h2>2. OLAP Operations: Slicing and Dicing</h2>
+        <p>Analysts use specialized operations to explore the "Data Cube":</p>
+        <ol>
+            <li><strong>Roll-up:</strong> Summarizing data to a higher level (e.g., viewing sales by Year instead of by Month).</li>
+            <li><strong>Drill-down:</strong> Moving from a summary to more detail (e.g., viewing sales for a specific Store after looking at the whole Region).</li>
+            <li><strong>Slice:</strong> Picking a single dimension for a view (e.g., "All sales in 2023").</li>
+            <li><strong>Dice:</strong> Picking a specific sub-cube (e.g., "Sales of Shoes in New York during January").</li>
+        </ol>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of a 'Data Cube' being rotated and sliced to show different perspectives of business data]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the world of Big Data and Analytics with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Data Warehouse vs Database (OLTP vs OLAP)</strong><br>
+                <a href="https://www.youtube.com/watch?v=J326afatZ7w" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the core differences in purpose and design.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Star Schema vs Snowflake Schema</strong><br>
+                <a href="https://www.youtube.com/watch?v=R0S2s2H6I6w" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual guide to dimensional modeling for BI.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. What is ETL? (Extract, Transform, Load)</strong><br>
+                <a href="https://www.youtube.com/watch?v=MInZ6E2A-lM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how data moves from apps into the warehouse.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Cash Register and the Corporate Report</h2>
+        <p>Think of an <strong>OLTP Database</strong> like a <strong>Cash Register</strong>. It needs to be incredibly fast and reliable for every single transaction. It doesn't care about what happened last year; it only cares about the customer standing in front of it right now. Think of a <strong>Data Warehouse (OLAP)</strong> like the <strong>CEO's Year-End Report</strong>. The CEO doesn't want to see every single receipt from every store. They want to see a chart showing "Revenue by Region" or "Profit by Product Category." The Data Warehouse takes all the messy register receipts, cleans them up, and organizes them so the CEO can "Drill-down" into why one specific region is underperforming.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Data_warehouse" target="_blank">Wikipedia: Data Warehousing</a></li>
+            <li><a href="https://www.baeldung.com/cs/olap-vs-oltp" target="_blank">Baeldung: OLAP vs OLTP Comparison</a></li>
+            <li><a href="https://www.geeksforgeeks.org/star-and-snowflake-schema-in-data-warehouse/" target="_blank">GeeksforGeeks: Star and Snowflake Schemas</a></li>
+            <li><a href="https://www.guru99.com/olap-tutorial.html" target="_blank">Guru99: Comprehensive OLAP Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Query Optimization</a>
+            <a href="#" data-file="DBMS2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Cloud & Migration &rarr;</a>
+        </div>
+    </footer>
+</article>

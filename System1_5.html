@@ -1,0 +1,79 @@
+<article>
+    <h1>System Design I: Page 5 - State Management</h1>
+
+    <section>
+        <h2>Managing Complexity</h2>
+        <p>In a large application, data is shared between dozens of components. Keeping that data in sync—ensuring a change in the user profile updates the navbar, the profile page, and the settings page simultaneously—is the central challenge of <strong>State Management</strong>. As applications grow, passing data down through nested components (prop drilling) becomes impossible. State management libraries provide a centralized store, allowing any component to access or update global state efficiently.</p>
+    </section>
+
+    <section>
+        <h2>1. The State Management Pattern</h2>
+        <p>Modern state management (like Redux or Zustand) often follows a <strong>Unidirectional Data Flow</strong>: Actions trigger state changes, which update the store, and the store updates the UI.</p>
+        <pre><code class="language-javascript">
+// Example: Simple store with Zustand
+import create from 'zustand';
+const useStore = create((set) => ({
+  count: 0,
+  inc: () => set((state) => ({ count: state.count + 1 })),
+}));
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why Centralized State?</h2>
+        <ul>
+            <li><strong>Consistency:</strong> The "source of truth" is in one place.</li>
+            <li><strong>Predictability:</strong> State changes are usually traced and logged (e.g., Redux DevTools).</li>
+            <li><strong>Performance:</strong> Only components that explicitly "subscribe" to a piece of state re-render when it changes.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: Centralized Store &rarr; Subscribing Components]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master state management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Why State Management?</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Solving the prop-drilling problem.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Intro to Redux</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Predictable state management patterns.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Zustand: Simple State</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A modern, lightweight alternative to Redux.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Central Warehouse</h2>
+        <p>Think of <strong>Component-level state</strong> like a <strong>Small Kitchen Pantry</strong> in each apartment of a building. It's fast, but you have to go to every single apartment to check if they have milk. Think of <strong>Centralized State Management</strong> like a <strong>Central Warehouse for the whole building</strong>. Every apartment (component) just checks the central warehouse (the Store) to see how much milk is available. If an apartment buys more milk, they update the warehouse records, and every other apartment immediately sees the updated inventory count.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://redux.js.org/" target="_blank">Redux Documentation</a></li>
+            <li><a href="https://docs.pmnd.rs/zustand/getting-started/introduction" target="_blank">Zustand Documentation</a></li>
+            <li><a href="https://react.dev/learn/managing-state" target="_blank">React: Managing State</a></li>
+            <li><a href="https://www.freecodecamp.org/news/what-is-state-management/" target="_blank">FreeCodeCamp: State Management</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Frontend: Components</a>
+            <a href="#" data-file="System1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Frontend: Build Tools &rarr;</a>
+        </div>
+    </footer>
+</article>

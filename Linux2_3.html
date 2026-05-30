@@ -1,0 +1,79 @@
+<article>
+    <h1>Linux II: Page 3 - System Information</h1>
+
+    <section>
+        <h2>Knowing Your System</h2>
+        <p>A good administrator knows their system inside and out. When you SSH into a server, the first thing you need to do is assess its state: Is it running the correct kernel? What is its hostname? How much RAM is left? Is the disk nearly full? Linux provides a set of lightweight, standardized CLI commands that allow you to answer these questions instantly, ensuring you have the baseline information needed before making any configuration changes or troubleshooting performance issues.</p>
+    </section>
+
+    <section>
+        <h2>1. Key Assessment Commands</h2>
+        <ul>
+            <li><strong><code>uname -a</code>:</strong> Displays kernel version, architecture, and system information. Essential for verifying system compatibility.</li>
+            <li><strong><code>hostname</code>:</strong> Shows the system's network name, crucial for distinguishing between production, staging, and development servers.</li>
+            <li><strong><code>uptime</code>:</strong> Tells you how long the system has been running since the last reboot.</li>
+            <li><strong><code>free -h</code>:</strong> Shows memory usage in a human-readable format. The <code>-h</code> flag is key!</li>
+            <li><strong><code>df -h</code>:</strong> Shows disk space usage for all mounted filesystems.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Get system health snapshot
+uname -a
+free -h
+df -h
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why Assessment Matters</h2>
+        <p>Running commands without knowing the system's status is like flying a plane without checking the fuel gauge or altitude. Before you install a new package, update the kernel, or clear a log file, these commands tell you if you have the resources to do it safely.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: A terminal screenshot showing the output of 'free -h' and 'df -h']</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master system monitoring commands with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Essential System Info Commands</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Uname, hostname, and uptime basics.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Checking RAM with free</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding memory management and buffers.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Disk Space with df and du</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to find out where your disk space went.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Pilot's Dashboard</h2>
+        <p>Think of these <strong>System Information Commands</strong> like the <strong>Dashboard of an Airplane</strong>. When a pilot enters the cockpit, they don't guess—they look at the gauges: Altitude (<code>uname</code>), Speed (<code>uptime</code>), Fuel Gauge (<code>free</code>), and Cargo Weight (<code>df</code>). Before they take off, they ensure all gauges are in the green. As a Linux admin, you are the pilot. Before you "take off" (run a complex command), you check your system's "gauges" to ensure the system is stable and prepared for the task ahead.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://linux.die.net/man/1/uname" target="_blank">Man Page: uname</a></li>
+            <li><a href="https://linux.die.net/man/1/free" target="_blank">Man Page: free</a></li>
+            <li><a href="https://linux.die.net/man/1/df" target="_blank">Man Page: df</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: System Info</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Process Management</a>
+            <a href="#" data-file="Linux2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Shell Scripting Basics &rarr;</a>
+        </div>
+    </footer>
+</article>

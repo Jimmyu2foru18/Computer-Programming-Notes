@@ -1,0 +1,100 @@
+<article>
+    <h1>Python II: Page 9 - Advanced Topics: Context Managers & File Handling</h1>
+
+    <section>
+        <h2>Responsible Resource Management</h2>
+        <p>In programming, many tasks involve interacting with external resources: opening files on your hard drive, connecting to a database, or making a request to a web server. These resources are limited and must be handled with care. If you open a file and forget to close it, your program might "leak" memory or prevent other programs from accessing that file. <strong>Context Managers</strong> are Python's way of ensuring that resources are automatically cleaned up, even if your code encounters an error.</p>
+    </section>
+
+    <section>
+        <h2>The <code>with</code> Statement: Safe File Handling</h2>
+        <p>The most common way to use a context manager is with the <code>with</code> keyword. When you use <code>with open(...)</code>, Python automatically closes the file for you as soon as the indented block of code finishes. This is the professional standard for file interaction.</p>
+        <pre><code class="language-python">
+# Safe way to write to a file
+with open("data.txt", "w") as file:
+    file.write("Hello, World!\n")
+    file.write("Python handles the closing automatically.")
+
+# Safe way to read from a file
+with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a file being 'unlocked' at the start of a 'with' block and 'locked' automatically at the end]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Custom Context Managers: <code>__enter__</code> and <code>__exit__</code></h2>
+        <p>You can create your own context managers by defining a class with two special methods. This is incredibly useful for timing operations, managing database transactions, or setting up temporary environments.</p>
+        <ul>
+            <li><code>__enter__</code>: Runs at the start of the <code>with</code> block. It sets up the resource.</li>
+            <li><code>__exit__</code>: Runs at the end of the block. It cleans up the resource, even if an error occurred inside the block.</li>
+        </ul>
+        
+        <h3>Example: A Performance Timer</h3>
+        <pre><code class="language-python">
+import time
+
+class Timer:
+    def __enter__(self):
+        self.start = time.time()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.end = time.time()
+        print(f"Execution time: {self.end - self.start:.4f} seconds")
+
+with Timer():
+    # Simulate a time-consuming operation
+    sum(range(10000000))
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of resource management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. File Objects - Reading and Writing (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Uh2ebFW8OYM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn every way to interact with the filesystem safely.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Context Managers and the 'with' Statement</strong><br>
+                <a href="https://www.youtube.com/watch?v=-aKFBoZpiqA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how context managers prevent memory leaks.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Writing Custom Context Managers</strong><br>
+                <a href="https://www.youtube.com/watch?v=mD0m7mYfA_E" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to use __enter__ and __exit__ for your own projects.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Rental Car and the Surgery</h2>
+        <p>Think of a <strong>Context Manager</strong> like a <strong>Rental Car Agreement</strong>. When you sign the agreement (<code>__enter__</code>), they hand you the keys. You use the car for your trip (the Code Block). When you return the keys (<code>__exit__</code>), the rental company automatically handles the inspection and the cleaning so the next person can use it. You don't have to worry about the car's maintenance once you've handed back the keys. Another example is <strong>Hospital Surgery</strong>: the surgical team has a strict "Check-in" (Sterilization, counting tools) and "Check-out" (Ensuring no tools are left behind, cleaning). Even if the surgery is difficult or has complications, the "Check-out" protocol must always be followed to ensure the operating room is safe for the next patient. This is exactly what the <code>with</code> statement does for your data.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers" target="_blank">Official Python Docs: Context Managers</a></li>
+            <li><a href="https://realpython.com/python-with-statement/" target="_blank">Real Python: The Python with Statement Guide</a></li>
+            <li><a href="https://www.w3schools.com/python/python_file_handling.asp" target="_blank">W3Schools: Python File Handling</a></li>
+            <li><a href="https://pythontutorial.net/advanced-python/python-context-managers/" target="_blank">Python Tutorial: Comprehensive Context Managers</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Iterators & Generators</a>
+            <a href="#" data-file="Python2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Handling & Testing &rarr;</a>
+        </div>
+    </footer>
+</article>

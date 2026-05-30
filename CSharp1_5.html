@@ -1,0 +1,108 @@
+<article>
+    <h1>C# I: Page 5 - Control Flow: Iteration with Loops (For & Foreach)</h1>
+
+    <section>
+        <h2>The Power of Automation</h2>
+        <p>In programming, we rarely perform an action just once. We process lists of 10,000 customers, update every pixel on a screen 60 times per second, or wait for a user to enter the correct password. Doing this manually is impossible. <strong>Loops</strong> allow us to write a block of code once and tell the computer to repeat it as many times as necessary. C# provides several distinct types of loops, each designed for a specific scenario. Mastering these is the key to writing efficient code that can handle large amounts of data without repeating yourself.</p>
+    </section>
+
+    <section>
+        <h2>1. The <code>for</code> Loop: Definite Iteration</h2>
+        <p>The traditional <code>for</code> loop is used when you know exactly how many times you want the code to run. It consists of three parts: initialization, condition, and iteration (increment/decrement).</p>
+        <pre><code class="language-csharp">
+for (int i = 0; i < 5; i++) {
+    Console.WriteLine($"Iteration number: {i}");
+}
+        </code></pre>
+        <p><strong>Common Use Case:</strong> Stepping through a numeric range or accessing array elements by their index.</p>
+    </section>
+
+    <section>
+        <h2>2. The <code>foreach</code> Loop: The Collection Standard</h2>
+        <p>In C#, the <code>foreach</code> loop is the preferred way to iterate over a collection (like an array or a list). It is cleaner and safer than a standard <code>for</code> loop because you don't have to manage a counter variable or worry about "Off-by-one" errors.</p>
+        <pre><code class="language-csharp">
+string[] names = { "Alice", "Bob", "Charlie" };
+
+foreach (string name in names) {
+    Console.WriteLine($"Hello, {name}!");
+}
+        </code></pre>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>Expert Note:</strong> In a <code>foreach</code> loop, the iteration variable (<code>name</code> in the example above) is <strong>read-only</strong>. If you need to modify the items in the collection while looping, you must use a standard <code>for</code> loop.
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Indefinite Iteration: <code>while</code> and <code>do-while</code></h2>
+        <p>These loops repeat as long as a condition remains true. Use them when you don't know the end point in advance.</p>
+        <ul>
+            <li><strong>while:</strong> Checks the condition <em>before</em> running the block. If it's false at the start, the loop never runs.</li>
+            <li><strong>do-while:</strong> Runs the block <em>first</em>, then checks the condition. This guarantees the code will run <strong>at least once</strong>.</li>
+        </ul>
+        <pre><code class="language-csharp">
+int count = 0;
+while (count < 3) {
+    Console.WriteLine(count);
+    count++;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>4. Loop Control: <code>break</code> and <code>continue</code></h2>
+        <p>Sometimes you need to change the flow of a loop from the inside.</p>
+        <ul>
+            <li><strong>break:</strong> Immediately exits the loop entirely.</li>
+            <li><strong>continue:</strong> Skips the <em>rest</em> of the current iteration and jumps back to the top to start the next one.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of an Assembly Line—the For Loop is the robotic arm doing 100 repetitions; the Break is the Emergency Stop button]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of iteration with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# For & Foreach Loops</strong><br>
+                <a href="https://www.youtube.com/watch?v=Sba7V_mG83k" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The most common ways to iterate in C#.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. While vs Do-While in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=D-z_N7S8_z8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the differences between pre-check and post-check loops.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Nested Loops & Performance</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to use loops inside loops for complex data structures.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Assembly Line and the Loading Screen</h2>
+        <p>Think of a <strong>For Loop</strong> like an <strong>Industrial Assembly Line</strong>. You have 1,000 cars (the sequence) on a conveyor belt. The robotic arm (your code) does the same job on every car that passes. It knows exactly when the shift is over because it knows how many cars were scheduled. Think of a <strong>While Loop</strong> like a <strong>Loading Screen</strong> in a video game. The screen keeps spinning <code>while</code> the game data is still loading. The computer doesn't know if it will take 5 seconds or 50, so it just keeps looping until the "loading finished" flag is True. Finally, think of <strong>break</strong> like an <strong>Emergency Stop Button</strong> on that assembly line—if a sensor detects a fire (a specific condition), the whole machine stops immediately, no matter how many cars are left.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements" target="_blank">Official Microsoft: Iteration Statements (Loops)</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-foreach" target="_blank">Baeldung: Guide to C# Foreach</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_while_loop.php" target="_blank">W3Schools: C# While Loop</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-for-loop/" target="_blank">Loop Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Control Flow: Conditionals</a>
+            <a href="#" data-file="CSharp1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Arrays & Collections &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,106 @@
+<article>
+    <h1>C# II: Page 6 - Modern Logic: Delegates & Events</h1>
+
+    <section>
+        <h2>The Architecture of Notification</h2>
+        <p>In standard programming, Object A calls a method on Object B directly. But what if Object A doesn't know who Object B is? What if 10 different objects need to know when a specific button is clicked? Direct method calls would create a "Spaghetti" of dependencies. C# solves this using <strong>Delegates</strong> and <strong>Events</strong>. A Delegate is a type-safe "Function Pointer"—it is a variable that holds a reference to a method. An Event is a way for a class to provide notifications to "Subscribers" without knowing who they are. This is the foundation of <strong>Decoupled Architecture</strong> and is essential for building UI systems, game engines, and asynchronous workflows.</p>
+    </section>
+
+    <section>
+        <h2>1. Delegates: Methods as Variables</h2>
+        <p>You can think of a delegate as a "Contract" for a method. It defines what the input and output must be. You can then pass any method that matches that contract into a variable.</p>
+        <pre><code class="language-csharp">
+// Define the contract: takes a string, returns nothing
+public delegate void NotificationHandler(string message);
+
+public class Notifier {
+    public void SendEmail(string msg) { Console.WriteLine("Email: " + msg); }
+    public void SendSMS(string msg) { Console.WriteLine("SMS: " + msg); }
+}
+
+// Usage
+Notifier n = new Notifier();
+NotificationHandler handler = n.SendEmail;
+handler += n.SendSMS; // Multicast: now it calls BOTH!
+handler("Hello World!");
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Events: The Publisher-Subscriber Model</h2>
+        <p>Events are a safer, specialized version of delegates. A class "Publishes" an event, and other classes "Subscribe" to it. The publisher doesn't need to know anything about the subscribers.</p>
+        <pre><code class="language-csharp">
+public class Button {
+    // Define the event
+    public event Action OnClick;
+
+    public void Press() {
+        // Trigger the event if anyone is listening
+        OnClick?.Invoke();
+    }
+}
+
+// Subscriber
+Button btn = new Button();
+btn.OnClick += () => Console.WriteLine("Button was clicked!");
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Action and Func: Built-in Delegates</h2>
+        <p>Modern C# developers rarely define their own <code>delegate</code> types. Instead, they use the built-in generic delegates provided by .NET:</p>
+        <ul>
+            <li><strong>Action:</strong> For methods that return <code>void</code>.</li>
+            <li><strong>Func:</strong> For methods that return a value.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of the Publisher-Subscriber model: a radio tower (the Event) broadcasting to many different houses (Subscribers)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the communication between objects with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Delegates Explained (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the foundation of method references.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Events in C#: Publisher/Subscriber</strong><br>
+                <a href="https://www.youtube.com/watch?v=jQgwEsJISy0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to decouple your system architecture.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Func and Action Delegates</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master the modern way to pass logic around in C#.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Radio Station and the Remote Control</h2>
+        <p>Think of a <strong>Delegate</strong> like a <strong>Universal Remote Control</strong>. The remote has a "Volume Up" button. You can "Point" that button to control your TV, or your Stereo, or your Soundbar. The remote doesn't know how the volume works on those devices; it just holds a "Reference" to the Volume method. Think of an <strong>Event</strong> like a <strong>Radio Station</strong>. The station broadcasts a signal (Publishes) into the air. They don't know who is listening. One person might be listening in their car, another in their kitchen (Subscribers). If the radio station stops broadcasting, the listeners don't crash—they just stop hearing the music. This decoupling is what allows you to add new "Listeners" (Features) to your software without ever changing the "Station" (the Core Logic).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/" target="_blank">Official Microsoft: Delegates Guide</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/" target="_blank">Official Microsoft: Events Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-delegates-events" target="_blank">Baeldung: Delegates vs Events in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_delegates.php" target="_blank">W3Schools: C# Delegates Tutorial</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: File I/O & Streams</a>
+            <a href="#" data-file="CSharp2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: LINQ: Power Queries &rarr;</a>
+        </div>
+    </footer>
+</article>

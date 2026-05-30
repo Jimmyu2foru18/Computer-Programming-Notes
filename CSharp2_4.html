@@ -1,0 +1,94 @@
+<article>
+    <h1>C# II: Page 4 - Robustness: Exception Handling & Defensive Coding</h1>
+
+    <section>
+        <h2>Expecting the Unexpected</h2>
+        <p>In the real world, things go wrong. A user might enter a word when a number was expected, a file you're trying to read might have been deleted, or a website you're scraping might be down. If your program doesn't know how to handle these situations, it will "Crash"—terminate abruptly with an ugly error message. <strong>Exception Handling</strong> is C#'s mechanism for catching these errors at runtime and deciding how to recover. A professional engineer writes "Defensive" code, assuming that every external input is potentially broken and every network call might fail.</p>
+    </section>
+
+    <section>
+        <h2>1. The <code>try-catch-finally</code> Structure</h2>
+        <p>This is the standard block for handling errors. You "Try" a block of code, "Catch" specific errors if they happen, and use "Finally" for cleanup logic that must run no matter what.</p>
+        <pre><code class="language-csharp">
+try {
+    int x = int.Parse(Console.ReadLine());
+    int result = 100 / x;
+}
+catch (DivideByZeroException ex) {
+    Console.WriteLine("You cannot divide by zero!");
+}
+catch (FormatException ex) {
+    Console.WriteLine("That was not a valid number.");
+}
+finally {
+    Console.WriteLine("Calculation attempt finished."); // Always runs
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Throwing and Custom Exceptions</h2>
+        <p>Sometimes, you want to trigger an error manually if a business rule is broken. You use the <code>throw</code> keyword for this. In large projects, you can even create your own custom exception classes by inheriting from the base <code>Exception</code> class.</p>
+        <pre><code class="language-csharp">
+public void SetAge(int age) {
+    if (age < 0) {
+        throw new ArgumentException("Age cannot be negative.");
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. The <code>using</code> Statement: Automatic Cleanup</h2>
+        <p>Many objects (like files or database connections) use limited system resources. C# provides the <code>using</code> statement as a "Shortcut" for a try-finally block. It ensures that the object is "Disposed" (cleaned up) the moment the code block ends, even if an error occurs. This prevents memory leaks and file locks.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of the 'Safety Net' analogy: the Try block is the trapeze artist, and the Catch block is the net that prevents a fatal fall]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master error handling and system stability with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Exception Handling (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=NIWwJbo-9_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive look at try/catch and global error handling.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Custom Exceptions in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to signal errors specific to your business logic.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The 'using' Statement & IDisposable</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master resource management and avoid memory leaks.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Safety Net and the Hospital Protocol</h2>
+        <p>Think of <strong>Exception Handling</strong> like a <strong>Trapeze Safety Net</strong>. The circus performers (your Code) are doing dangerous, high-stakes work. Most of the time they land perfectly. But if they slip (an Error), the net (the <code>try-catch</code>) catches them so the show can go on, rather than letting them hit the ground (Crashing the program). Think of <strong>Custom Exceptions</strong> like <strong>Medical Codes</strong> in a hospital (e.g., "Code Blue" or "Code Red"). Every doctor knows exactly what each code means and has a specific plan to handle it. Finally, think of the <strong><code>finally</code> block</strong> like <strong>Surgical Sterilization</strong>: no matter if the surgery was a success or had complications, the room <em>must</em> be cleaned and tools sterilized for the next patient. This cleanup is non-negotiable for the health of the system.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/" target="_blank">Official Microsoft: Exceptions and Error Handling</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-exception-handling" target="_blank">Baeldung: Guide to C# Exception Handling</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_exceptions.php" target="_blank">W3Schools: C# Try...Catch</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-exception-handling/" target="_blank">Exception Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Interfaces & Abstraction</a>
+            <a href="#" data-file="CSharp2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: File I/O & Streams &rarr;</a>
+        </div>
+    </footer>
+</article>

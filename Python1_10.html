@@ -1,0 +1,104 @@
+<article>
+    <h1>Python I: Page 10 - Organizing Logic: Functions: The Core</h1>
+
+    <section>
+        <h2>The Architecture of Action</h2>
+        <p>In the first nine pages, we've built a solid foundation of data types and control flow. However, if we simply kept writing code in one long sequence, our programs would quickly become unmanageable "spaghetti code." To build large, professional software, we need a way to group related logic into reusable components. This is the role of <strong>Functions</strong>.</p>
+        <p>A function is a named block of code that performs a specific task. By using functions, you follow the <strong>DRY (Don't Repeat Yourself)</strong> principle, which makes your code cleaner, easier to test, and simple to maintain.</p>
+    </section>
+
+    <section>
+        <h2>Defining and Calling: The Two Stages</h2>
+        <p>There are two distinct parts to working with functions: <strong>Definition</strong> (where you write the instructions) and <strong>Calling</strong> (where you tell Python to actually execute those instructions).</p>
+        <pre><code class="language-python">
+# 1. Definition
+def greet_user(name):
+    """A simple function to greet a user."""
+    return f"Hello, {name}! Welcome to the project."
+
+# 2. Call
+message = greet_user("Alice")
+print(message)
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing a 'Call' passing data into a 'Definition' and receiving a 'Return' value back]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Parameters vs. Arguments</h2>
+        <p>While the terms are often used interchangeably, there is a technical difference:</p>
+        <ul>
+            <li><strong>Parameters:</strong> The variables listed in the function's definition (the "holes" in the recipe).</li>
+            <li><strong>Arguments:</strong> The actual values you pass into the function when you call it (the "ingredients" you use).</li>
+        </ul>
+        
+        <h3>Default Parameters</h3>
+        <p>You can provide a fallback value for a parameter. If the user doesn't provide an argument, Python will use the default.</p>
+        <pre><code class="language-python">
+def greet_with_title(name, title="Mr./Ms."):
+    return f"Hello, {title} {name}!"
+
+print(greet_with_title("Smith"))          # Hello, Mr./Ms. Smith!
+print(greet_with_title("Smith", "Dr."))   # Hello, Dr. Smith!
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Understanding Scope: Local vs. Global</h2>
+        <p>Scope determines where a variable can be seen and used. This is one of the most important concepts for writing bug-free code.</p>
+        <ul>
+            <li><strong>Local Variables:</strong> Variables created inside a function only exist within that function. They are deleted as soon as the function finishes.</li>
+            <li><strong>Global Variables:</strong> Variables created outside of any function can be read from anywhere, but should be modified with caution.</li>
+        </ul>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>The Golden Rule:</strong> Always prefer passing variables as arguments rather than relying on global variables. This makes your functions "pure" and easy to move between projects.
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the core of Python logic with these three essential videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Functions (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=9Os0o3wzS_I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into arguments, returns, and best practices.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Variable Scope: Local, Global, and Enclosed</strong><br>
+                <a href="https://www.youtube.com/watch?v=QVdf0LgmICw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the LEGB rule and avoid variable name collisions.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Why Functions Matter (Socratica)</strong><br>
+                <a href="https://www.youtube.com/watch?v=ascv0Gndu-U" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear look at the philosophy and power of modular code.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Recipe and the Blueprint</h2>
+        <p>Think of a <strong>Function</strong> as a <strong>Master Recipe</strong> in a professional kitchen. The recipe is written once and stored in a book (Definition). It has generic placeholders like "Choice of protein" (Parameters). When an order comes into the kitchen for "Chicken" (the Argument), the chef "calls" the recipe and executes the steps. The resulting meal is the <strong>Return Value</strong>. Another example is a <strong>Blueprint</strong> for a house: the blueprint defines where the doors and windows go. You can use that one blueprint to build 100 identical houses (Function Calls), but you only had to do the hard work of designing it once. Finally, think of <strong>Scope</strong> like a <strong>Private conversation</strong>: what is said inside the kitchen (Local Variables) stays in the kitchen, but everyone in the restaurant can hear the music playing over the speakers (Global Variables).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions" target="_blank">Official Python Docs: Defining Functions</a></li>
+            <li><a href="https://realpython.com/defining-your-own-python-function/" target="_blank">Real Python: Defining Your Own Python Function</a></li>
+            <li><a href="https://www.w3schools.com/python/python_functions.asp" target="_blank">W3Schools: Python Functions</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-functions/" target="_blank">Python Tutorial: Comprehensive Functions Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Loops & Iteration</a>
+            <a href="#" data-file="Python2_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Python II - Advanced Functions &rarr;</a>
+        </div>
+    </footer>
+</article>

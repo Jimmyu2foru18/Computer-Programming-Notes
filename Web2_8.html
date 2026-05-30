@@ -1,0 +1,82 @@
+<article>
+    <h1>Web Technologies II: Page 8 - Professional Deployment & CI/CD</h1>
+
+    <section>
+        <h2>From Code to Production</h2>
+        <p>In the early days, "deployment" meant manually copying files from your laptop to a server using FTP. If you made a mistake, you had to manually fix it on the live server. Today, this is unacceptable. <strong>Professional Deployment</strong> relies on <strong>Automation</strong> to ensure that your code is tested, built, and deployed consistently every single time. This is achieved through a <strong>CI/CD Pipeline</strong> (Continuous Integration / Continuous Deployment). Furthermore, you must manage <strong>Environment Variables</strong> to ensure that sensitive information—like database passwords—never accidentally ends up in your public code repository.</p>
+    </section>
+
+    <section>
+        <h2>1. The CI/CD Pipeline</h2>
+        <p>A CI/CD pipeline automates the steps between writing code and deploying it:</p>
+        <ul>
+            <li><strong>Continuous Integration (CI):</strong> Every time you push code to Git, the pipeline automatically runs tests. If tests fail, the build is stopped.</li>
+            <li><strong>Continuous Deployment (CD):</strong> If the tests pass, the code is automatically built and shipped to the live server.</li>
+        </ul>
+        <pre><code class="language-yaml">
+# Example GitHub Actions pipeline snippet
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm test
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Managing Secrets (.env)</h2>
+        <p>Never hardcode API keys or database passwords. Use <strong>Environment Variables</strong>. Store them in a local <code>.env</code> file (which you <strong>add to .gitignore</strong> so it's never committed to Git) and access them in your code via `process.env` (Node) or `getenv()` (PHP).</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Developer commits code &rarr; CI/CD Pipeline (Test/Build) &rarr; Deployment to Production]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master automated deployment with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. CI/CD Explained for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why automation is essential for modern teams.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. GitHub Actions Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Build your first automated deployment pipeline.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Managing Secrets with .env</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Protect your sensitive keys and passwords.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Automated Manufacturing Line</h2>
+        <p>Think of <strong>Manual Deployment</strong> like a <strong>Craftsman building a car entirely by hand</strong>. If the craftsman makes a mistake, the car is flawed. If they are tired, they make mistakes. Think of <strong>CI/CD</strong> like an <strong>Automated Robotic Assembly Line</strong>. Every single car is built using the exact same process. If a part doesn't meet quality standards (tests fail), the robot stops the line. The car never leaves the factory until it is perfectly built and tested. <strong>Environment Variables</strong> are like the <strong>Secret Recipes</strong> kept in a locked safe—the factory workers know how to *use* the ingredients to make the product, but they don't know the exact chemical formula, ensuring that the company's secret competitive advantage stays safe.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions Documentation</a></li>
+            <li><a href="https://www.atlassian.com/continuous-delivery/ci-cd" target="_blank">Atlassian: CI/CD Explained</a></li>
+            <li><a href="https://dotenv.org/" target="_blank">Dotenv (Environment Variable Library)</a></li>
+            <li><a href="https://www.geeksforgeeks.org/introduction-to-ci-cd/" target="_blank">GeeksforGeeks: CI/CD Intro</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Hosting: AWS/XAMPP</a>
+            <a href="#" data-file="Web2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Performance Optimization &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,87 @@
+<article>
+    <h1>DSA I: Page 7 - Binary Search</h1>
+
+    <section>
+        <h2>The Power of Divide and Conquer</h2>
+        <p><strong>Binary Search</strong> is a vastly more efficient search algorithm than linear search, but it comes with one strict requirement: <strong>the dataset must be sorted</strong>. Instead of checking every element one by one, binary search uses a "divide and conquer" approach, repeatedly splitting the search range in half. This dramatically reduces the number of comparisons needed, turning an O(n) task into an O(log n) task.</p>
+    </section>
+
+    <section>
+        <h2>1. The Algorithm</h2>
+        <p>The core logic is to ignore half the remaining search space with each comparison:</p>
+        <ol>
+            <li>Find the middle element of the current range.</li>
+            <li>If the middle element is the target, you're done!</li>
+            <li>If the target is <em>less than</em> the middle element, repeat the search in the <strong>left</strong> half.</li>
+            <li>If the target is <em>greater than</em> the middle element, repeat the search in the <strong>right</strong> half.</li>
+            <li>If the search range is empty and you haven't found the target, it's not in the array.</li>
+        </ol>
+        <pre><code class="language-python">
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why It Scales So Well (O(log n))</h2>
+        <p>Because you cut the search space in half with every single step, the number of steps required grows very slowly. For an array of 1,000,000 items, Linear Search might take 1,000,000 checks, but Binary Search will take at most 20 (because 2^20 is approx. 1,000,000). This exponential reduction in steps is what makes it so fast.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Array being repeatedly halved to find the target]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master binary search with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Binary Search Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The intuitive 'divide and conquer' strategy.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Binary Search Time Complexity</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how log n leads to massive performance gains.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Binary Search Code Walkthrough</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step implementation in Python.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Finding a Name in a Phonebook</h2>
+        <p>Think of <strong>Binary Search</strong> like finding a name in a <strong>Physical Phonebook</strong>. Because the names are already sorted alphabetically, you don't start at the very first page and read every single name (Linear Search). Instead, you open the book to the middle. If the name you are looking for is later in the alphabet, you ignore the entire first half and open the remaining half to its middle. You repeat this, cutting the book in half each time, until you find the name. The sorted order is what makes this "divide and conquer" approach possible.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank">Wikipedia: Binary Search</a></li>
+            <li><a href="https://www.geeksforgeeks.org/binary-search/" target="_blank">GeeksforGeeks: Binary Search</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_binarysearch.php" target="_blank">W3Schools: DSA Binary Search</a></li>
+            <li><a href="https://visualgo.net/en/searching" target="_blank">Tool: Searching Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Linear Search</a>
+            <a href="#" data-file="DSA1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Bubble Sort &rarr;</a>
+        </div>
+    </footer>
+</article>

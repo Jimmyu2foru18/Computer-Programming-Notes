@@ -1,0 +1,105 @@
+<article>
+    <h1>Python I: Page 9 - Control Flow: Loops & Iteration</h1>
+
+    <section>
+        <h2>Automating the Mundane</h2>
+        <p>In programming, we rarely do something just once. We process thousands of database records, loop through every pixel in an image, or wait for a user to enter the correct password. Doing this manually would be impossible. <strong>Loops</strong> allow us to write a block of code once and tell Python to repeat it as many times as necessary. This is the essence of automation.</p>
+    </section>
+
+    <section>
+        <h2>Definite Iteration: The <code>for</code> Loop</h2>
+        <p>The <code>for</code> loop is used when you know in advance how many times you want to run a block of code, or when you want to iterate over a sequence (like a List, Tuple, or String).</p>
+        
+        <h3>1. The <code>range()</code> Function</h3>
+        <p><code>range()</code> is a generator that produces a sequence of numbers. It is incredibly versatile:</p>
+        <ul>
+            <li><code>range(5)</code>: 0, 1, 2, 3, 4</li>
+            <li><code>range(1, 6)</code>: 1, 2, 3, 4, 5 (Start at 1, stop <em>before</em> 6)</li>
+            <li><code>range(0, 10, 2)</code>: 0, 2, 4, 6, 8 (Step by 2)</li>
+        </ul>
+
+        <h3>2. Simultaneous Index and Value: <code>enumerate()</code></h3>
+        <p>If you need to know <em>where</em> you are in a list while you're processing it, <code>enumerate()</code> is the professional choice. It returns both the index and the item.</p>
+        <pre><code class="language-python">
+fruits = ["apple", "banana", "cherry"]
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram of a 'for' loop walking through a list, pointing to index and value]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Indefinite Iteration: The <code>while</code> Loop</h2>
+        <p>A <code>while</code> loop keeps running <strong>as long as</strong> a condition remains <code>True</code>. This is perfect for scenarios where you don't know the end point, such as a game loop or waiting for user input.</p>
+        <pre><code class="language-python">
+while True:
+    user_input = input("Enter 'quit' to exit: ")
+    if user_input.lower() == 'quit':
+        break
+    print(f"You entered: {user_input}")
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Loop Control: <code>break</code> and <code>continue</code></h2>
+        <p>Sometimes you need to change the flow of a loop from the inside.</p>
+        <ul>
+            <li><strong>break:</strong> Immediately exits the loop entirely.</li>
+            <li><strong>continue:</strong> Skips the <em>rest</em> of the current iteration and jumps back to the top to start the next one.</li>
+        </ul>
+        <pre><code class="language-python">
+for i in range(10):
+    if i == 3: continue  # Skip the number 3
+    if i == 7: break     # Stop the loop at 7
+    print(i)             # Output: 0, 1, 2, 4, 5, 6
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of iteration with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Loops - For/While & break/continue</strong><br>
+                <a href="https://www.youtube.com/watch?v=6iF8Xb7Z3wQ" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive guide to all loop types in Python.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The range() and enumerate() Functions</strong><br>
+                <a href="https://www.youtube.com/watch?v=uKEnKxW7280" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the right way to iterate over sequences with indices.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Nested Loops and Grids</strong><br>
+                <a href="https://www.youtube.com/watch?v=19EfbW5M_S8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to use loops inside loops for complex data structures.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Assembly Line and the Loading Screen</h2>
+        <p>Think of a <strong>For Loop</strong> like an <strong>Industrial Assembly Line</strong>. You have 1,000 cars (the sequence) on a conveyor belt. The robotic arm (your code) does the same job on every car that passes. It knows exactly when the shift is over because it knows how many cars were scheduled. Think of a <strong>While Loop</strong> like a <strong>Loading Screen</strong> in a video game. The screen keeps spinning <code>while</code> the game data is still loading. The computer doesn't know if it will take 5 seconds or 50, so it just keeps looping until the "loading finished" flag is True. Finally, think of <strong>break</strong> like an <strong>Emergency Stop Button</strong> on that assembly line—if a sensor detects a fire (a specific condition), the whole machine stops immediately, no matter how many cars are left.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/controlflow.html#for-statements" target="_blank">Official Python Docs: For Statements</a></li>
+            <li><a href="https://realpython.com/python-while-loop/" target="_blank">Real Python: While Loops Guide</a></li>
+            <li><a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank">W3Schools: Python For Loops</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-range/" target="_blank">Python Tutorial: Comprehensive range() Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Conditionals & Logic</a>
+            <a href="#" data-file="Python1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Functions: The Core &rarr;</a>
+        </div>
+    </footer>
+</article>

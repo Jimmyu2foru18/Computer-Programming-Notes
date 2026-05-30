@@ -1,0 +1,99 @@
+<article>
+    <h1>C# I: Page 7 - Text Manipulation: Strings & Interpolation</h1>
+
+    <section>
+        <h2>The Power of Text</h2>
+        <p>In almost every application, you will work with text. From user names to log files, <strong>Strings</strong> are the primary way we represent textual data. In C#, a <code>string</code> is an object, not a primitive, and it comes with a vast array of built-in methods for searching, splitting, and transforming text. One of the most important concepts to understand is that strings are <strong>immutable</strong>—once created, they cannot be changed. This unique design choice has massive implications for performance and safety in professional software development.</p>
+    </section>
+
+    <section>
+        <h2>1. String Immutability</h2>
+        <p>When you "change" a string in C#, you aren't actually modifying the original text in memory. Instead, the CLR creates a <strong>brand new string object</strong> and points your variable to the new location. The old string is left for the Garbage Collector to clean up.</p>
+        <pre><code class="language-csharp">
+string s = "Hello";
+s = s + " World"; // "Hello" is abandoned, a NEW "Hello World" is created
+        </code></pre>
+        <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin: 20px 0;">
+            <strong>Performance Warning:</strong> If you are concatenating strings thousands of times (e.g., in a loop), use <code>StringBuilder</code>. Standard string concatenation in a loop is extremely slow and memory-intensive.
+        </div>
+    </section>
+
+    <section>
+        <h2>2. String Interpolation & Verbatim Strings</h2>
+        <p>Modern C# provides two specialized ways to define strings that make your code much cleaner.</p>
+        
+        <h3>String Interpolation (The <code>$</code> operator)</h3>
+        <p>This allows you to embed variables directly into the string using curly braces <code>{}</code>. It is much more readable than old-fashioned concatenation.</p>
+        <pre><code class="language-csharp">
+string name = "Alice";
+int age = 30;
+string greeting = $"Hello, {name}! You are {age} years old.";
+        </code></pre>
+
+        <h3>Verbatim Strings (The <code>@</code> operator)</h3>
+        <p>This tells C# to ignore escape characters like <code>\n</code> or <code>\t</code> and preserve line breaks exactly as they appear. It is essential for file paths and multi-line text.</p>
+        <pre><code class="language-csharp">
+string path = @"C:\Users\Documents\data.txt";
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Essential String Methods</h2>
+        <ul>
+            <li><code>Length</code>: Property that returns the number of characters.</li>
+            <li><code>ToUpper()</code> / <code>ToLower()</code>: Changes the case of the text.</li>
+            <li><code>Replace(old, new)</code>: Swaps all occurrences of a substring.</li>
+            <li><code>Substring(start, length)</code>: Extracts a portion of the string.</li>
+            <li><code>Contains()</code>: Checks if a substring exists (returns a bool).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the 'String Pool' in memory, where identical immutable strings are shared to save space]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master C# string handling with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Strings Deep Dive (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn all the essential methods for text manipulation.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. String Interpolation vs. Old Formats</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why $"" is the modern standard for building messages.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. StringBuilder for High Performance</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Avoid common memory traps when building large strings.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Printing Press and the Fill-in-the-Blank Form</h2>
+        <p>Think of a <strong>C# String</strong> like a <strong>Printed Book</strong>. Once the ink is dry, you can't reach in and change one letter. If there's a typo, you have to print a completely new edition of the book (Immutability). This ensures that once someone reads a page, the information won't change while they're looking at it (Safety). Think of <strong>String Interpolation</strong> like a <strong>Mad Libs Form</strong>. You have a static template with specific holes (<code>{}</code>). You drop in your nouns and verbs (Variables) to create a custom story on the fly. Finally, think of <strong>Verbatim Strings</strong> like a <strong>"Do Not Disturb" sign</strong>: you're telling the C# compiler, "Don't touch my text, don't interpret my backslashes, just leave it exactly as it is."</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/" target="_blank">Official Microsoft: C# Strings Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/string-interpolation" target="_blank">Baeldung: Guide to String Interpolation</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_strings.php" target="_blank">W3Schools: C# Strings</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-strings/" target="_blank">String Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Arrays & Collections</a>
+            <a href="#" data-file="CSharp1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Methods: The Basics &rarr;</a>
+        </div>
+    </footer>
+</article>

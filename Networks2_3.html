@@ -1,0 +1,86 @@
+<article>
+    <h1>Networks II: Page 3 - DNS: The Internet's Phonebook</h1>
+
+    <section>
+        <h2>Mapping Names to Numbers</h2>
+        <p>Computers communicate using IP addresses (e.g., <code>142.250.190.46</code>). Humans communicate using domain names (e.g., <code>google.com</code>). Remembering millions of IP addresses would be impossible, and changing an IP address for a site would break every link on the web. The <strong>Domain Name System (DNS)</strong> is the decentralized, hierarchical system that acts as the "Phonebook of the Internet." It dynamically maps human-friendly domain names to machine-friendly IP addresses, making the internet navigable for users and manageable for administrators.</p>
+    </section>
+
+    <section>
+        <h2>1. The Hierarchical Structure</h2>
+        <p>DNS is not a single database; it is a global, hierarchical system of servers:</p>
+        <ul>
+            <li><strong>Root Servers:</strong> The "top" of the hierarchy. They know where to find the servers for specific Top-Level Domains (TLDs).</li>
+            <li><strong>TLD Servers (.com, .org, .edu):</strong> They know where to find the Authoritative server for a specific domain name.</li>
+            <li><strong>Authoritative Servers:</strong> The final authority that holds the actual IP address for a specific domain (e.g., <code>google.com</code>).</li>
+        </ul>
+        <pre><code class="language-text">
+[User Request: google.com]
+      ↓
+[Recursive Resolver (ISP)]
+      ↓
+[Root Server] &lt;-- "Ask the .com server"
+      ↓
+[.com TLD Server] &lt;-- "Ask the google.com authoritative server"
+      ↓
+[Authoritative Server] &lt;-- "google.com is at 142.250.190.46"
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Recursive vs. Iterative Queries</h2>
+        <p>A <strong>Recursive Query</strong> is when your computer asks the ISP's DNS server to "find the address and bring it back to me." The ISP server does all the heavy lifting. An <strong>Iterative Query</strong> is when a DNS server says, "I don't know the answer, but try asking this other server," and your local resolver must continue the search itself.</p>
+        
+        <h3>3. Caching: The Performance Lifesaver</h3>
+        <p>If every browser request had to query the Root, TLD, and Authoritative servers, the internet would grind to a halt. DNS <strong>Caching</strong> solves this: once a DNS server resolves a domain, it stores the IP address for a set time (called <strong>TTL - Time To Live</strong>), so subsequent requests are answered instantly without repeating the long, hierarchical search.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram showing a local DNS cache vs. the network-wide DNS query process]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master DNS with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. How DNS Works (Cloudflare)</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A simple explanation of the hierarchical resolution process.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. DNS Recursive vs. Iterative Queries</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the dialogue between DNS servers.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. What is DNS Caching?</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How caching makes your web browsing fast.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Phonebook and the Operator</h2>
+        <p>Think of <strong>DNS</strong> like a <strong>Global Phonebook</strong>. You don't want to memorize 1,000 phone numbers; you look up the person's name (Domain Name) and get the number (IP Address). Think of <strong>Recursive Resolution</strong> like calling an <strong>Operator</strong>. You tell the operator, "I need to talk to Bob," and the operator figures out the number and connects you directly. You don't need to know how they found the number. Think of <strong>DNS Caching</strong> like a <strong>Speed-Dial List</strong> on your phone. The first time you call someone, it takes a while to look up the number. But once you save it to Speed-Dial, every subsequent call is instant. If you change the number (TTL expires), you delete the entry and re-lookup the new one.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Domain_Name_System" target="_blank">Wikipedia: Domain Name System</a></li>
+            <li><a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank">Cloudflare: What is DNS?</a></li>
+            <li><a href="https://www.geeksforgeeks.org/domain-name-system-dns-in-computer-network/" target="_blank">GeeksforGeeks: DNS Intro</a></li>
+            <li><a href="https://www.digwebinterface.com/" target="_blank">Tool: Dig Web Interface (Test live DNS lookups)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: UDP: Speed vs. Reliability</a>
+            <a href="#" data-file="Networks2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: DHCP & Dynamic Config &rarr;</a>
+        </div>
+    </footer>
+</article>

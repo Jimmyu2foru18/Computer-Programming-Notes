@@ -1,0 +1,48 @@
+<article>
+    <h1>System Design II: Page 2 - Backend: REST API Design</h1>
+
+    <section>
+        <h2>Standardizing Communication</h2>
+        <p><strong>REST (Representational State Transfer)</strong> is the standard architectural style for building web APIs. It leverages HTTP's built-in verbs (GET, POST, PUT, DELETE) to manage resources. A well-designed REST API is predictable, stateless, and cacheable, making it easy for frontend developers and third-party systems to consume.</p>
+    </section>
+
+    <section>
+        <h2>1. Key Principles</h2>
+        <ul>
+            <li><strong>Resources:</strong> Use nouns for URLs (e.g., <code>/users</code>, not <code>/getUsers</code>).</li>
+            <li><strong>Verbs:</strong> Use HTTP methods to define actions (GET = read, POST = create, PUT = update, DELETE = remove).</li>
+            <li><strong>Status Codes:</strong> Return proper codes: <code>200 OK</code>, <code>201 Created</code>, <code>400 Bad Request</code>, <code>404 Not Found</code>, <code>500 Server Error</code>.</li>
+        </ul>
+        <pre><code class="language-http">
+GET /api/products/123   # Get product
+POST /api/products      # Create product
+PUT /api/products/123   # Update product
+DELETE /api/products/123 # Delete product
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. What is REST?</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. RESTful API Design Best Practices</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Using HTTP Status Codes Correctly</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Server Paradigms</a>
+            <a href="#" data-file="System2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: GraphQL vs REST &rarr;</a>
+        </div>
+    </footer>
+</article>

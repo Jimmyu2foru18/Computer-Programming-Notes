@@ -1,0 +1,94 @@
+<article>
+    <h1>Java II: Page 3 - Object-Oriented Programming (OOP): Polymorphism & Overriding</h1>
+
+    <section>
+        <h2>The Art of Many Forms</h2>
+        <p>In the previous pages, we learned how objects are built and how they inherit traits. Now, we come to the crown jewel of Object-Oriented Programming: <strong>Polymorphism</strong>. The word comes from Greek, meaning "many forms." In Java, it refers to the ability of an object to take on multiple identities depending on the context. This allows you to write code that is incredibly flexible, scalable, and easy to extend without changing existing logic.</p>
+    </section>
+
+    <section>
+        <h2>1. Runtime Polymorphism: Method Overriding</h2>
+        <p>Runtime polymorphism (or Dynamic Method Dispatch) is achieved through <strong>Method Overriding</strong>. This occurs when a subclass provides a specific implementation for a method that is already defined in its superclass. The decision of which method to call is made by the JVM at <strong>runtime</strong>, based on the actual type of the object, not the type of the reference.</p>
+        <pre><code class="language-java">
+class Animal {
+    public void makeSound() { System.out.println("Generic sound"); }
+}
+
+class Dog extends Animal {
+    @Override // Good practice: catches typos!
+    public void makeSound() { System.out.println("Woof!"); }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() { System.out.println("Meow!"); }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Upcasting: Reference vs. Object</h2>
+        <p>The magic of polymorphism happens when we use a <strong>Superclass Reference</strong> to point to a <strong>Subclass Object</strong>. This is called <strong>Upcasting</strong>.</p>
+        <pre><code class="language-java">
+Animal myPet = new Dog(); // Upcasting
+myPet.makeSound();        // Output: Woof! (The JVM knows it's a Dog)
+
+Animal anotherPet = new Cat();
+anotherPet.makeSound();   // Output: Meow!
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing three different shapes (Circle, Square, Triangle) all being handled by a single 'Shape' tool]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Compile-time Polymorphism: Method Overloading</h2>
+        <p>As we saw in Module 1, <strong>Method Overloading</strong> allows multiple methods in the same class to have the same name but different signatures. This is "Static Polymorphism" because the compiler knows which method to call at <strong>compile-time</strong> based on the arguments provided.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the power of flexible interfaces with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Polymorphism Tutorial (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Jh5oX0GR9sM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how different objects can share the same interface.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Method Overriding in Java (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the rules and best practices for overriding parent behavior.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Upcasting vs Downcasting (Deep Dive)</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to safely move between superclass and subclass types.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Universal Remote and the Electrical Outlet</h2>
+        <p>Think of <strong>Polymorphism</strong> like a <strong>Universal TV Remote</strong>. The remote has a "Volume Up" button. It doesn't need to know if your TV is a Sony, a Samsung, or an LG—it just sends the "Volume Up" command (the Method Call), and each TV responds in its own specific way (the Overridden Implementation). Think of <strong>Method Overloading</strong> like a <strong>Swiss Army Knife</strong>: it's one tool, but it has different "forms" (a blade, a screwdriver, a saw). You "call" the knife based on which form you pull out (the Arguments). Finally, think of <strong>Method Overriding</strong> like <strong>Custom Car Tuning</strong>: the factory gives you a base engine (the Superclass), but you override the exhaust and the turbo (the Subclass) to give it a unique sound and performance, while still being able to drive it like any other car on the road.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html" target="_blank">Official Java Docs: Polymorphism</a></li>
+            <li><a href="https://www.baeldung.com/java-polymorphism" target="_blank">Baeldung: Guide to Polymorphism in Java</a></li>
+            <li><a href="https://www.w3schools.com/java/java_polymorphism.asp" target="_blank">W3Schools: Java Polymorphism</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-polymorphism/" target="_blank">Java Tutorial: Comprehensive Polymorphism Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Inheritance Basics</a>
+            <a href="#" data-file="Java2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Interfaces & Contracts &rarr;</a>
+        </div>
+    </footer>
+</article>

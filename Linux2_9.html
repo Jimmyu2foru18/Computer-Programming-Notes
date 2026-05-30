@@ -1,0 +1,79 @@
+<article>
+    <h1>Linux II: Page 9 - Security & Firewall</h1>
+
+    <section>
+        <h2>Proactive Defense</h2>
+        <p>Security in Linux is a proactive, multi-layered effort. You never rely on a single solution; instead, you build a "fortress" around your system. This involves controlling network traffic at the edge (Firewall), strictly limiting who can gain access and how they gain it (SSH Hardening), and constantly monitoring the system for signs of unauthorized activity (Auditing). These measures drastically reduce your attack surface and help detect potential breaches before they cause significant damage.</p>
+    </section>
+
+    <section>
+        <h2>1. Controlling Network Traffic (UFW)</h2>
+        <p>The <strong>Uncomplicated Firewall (UFW)</strong> is the easiest way to manage complex firewall rules. Its policy is simple: "Deny all incoming traffic, allow only what's necessary."</p>
+        <pre><code class="language-bash">
+# Basic UFW workflow
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh     # Allow incoming SSH (port 22)
+sudo ufw enable        # Turn it on
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Hardening SSH</h2>
+        <p>SSH is the most common target for attackers. You must disable password-based login and switch to <strong>SSH Key-based Authentication</strong>.</p>
+        <ul>
+            <li>Edit <code>/etc/ssh/sshd_config</code>.</li>
+            <li>Set <code>PermitRootLogin no</code> (Never allow root login directly).</li>
+            <li>Set <code>PasswordAuthentication no</code> (Forbid passwords entirely).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: The Firewall (UFW) blocking unwanted traffic + Secure SSH Key tunnel]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Linux security with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. UFW Firewall Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Securing your network traffic easily.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Hardening SSH Access</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Securing remote access with SSH keys.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Intro to Linux Security Auditing</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Monitoring system logs for unauthorized activity.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Gated Community</h2>
+        <p>Think of <strong>UFW</strong> like the <strong>Security Gate</strong> of a gated community. The gate stays closed by default (deny incoming), and only residents with a specific code (allowed ports) can enter. Think of <strong>SSH Hardening</strong> like requiring <strong>Biometric Scanners</strong> instead of simple PIN codes to enter the security office. Even if someone steals a "key," it's useless because it doesn't match the biometric profile (the SSH key). Think of <strong>Auditing</strong> like <strong>Security Cameras</strong>—they record everyone who enters and leaves, so if something goes missing, you have a record to investigate later.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://help.ubuntu.com/community/UFW" target="_blank">Ubuntu: UFW Community Guide</a></li>
+            <li><a href="https://www.ssh.com/academy/ssh/hardening" target="_blank">SSH Academy: Hardening Guide</a></li>
+            <li><a href="https://owasp.org/" target="_blank">OWASP (Web/Network Security)</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: Security</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Backups & Recovery</a>
+            <a href="#" data-file="Linux2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Troubleshooting & Optimization &rarr;</a>
+        </div>
+    </footer>
+</article>

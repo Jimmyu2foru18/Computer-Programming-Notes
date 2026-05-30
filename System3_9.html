@@ -1,0 +1,53 @@
+<article>
+    <h1>System Design III: Page 9 - Advanced Architecture Project</h1>
+
+    <section>
+        <h2>The Capstone Challenge</h2>
+        <p>You've learned the individual components: Frontend components, Backend APIs, SQL/NoSQL databases, Security, CI/CD, and Scalability. Now, it's time to <strong>synthesize</strong> everything. The goal of this capstone is to design a complex, scalable system—like a <strong>Global URL Shortener</strong> (e.g., bit.ly). This is a classic interview question that requires you to apply <em>every single concept</em> we've covered to handle massive traffic and data storage.</p>
+    </section>
+
+    <section>
+        <h2>1. The Challenge Requirements</h2>
+        <ul>
+            <li><strong>Functional:</strong> Shorten a long URL; redirect users to the original URL.</li>
+            <li><strong>Non-Functional:</strong> Handle 10,000 requests per second (RPS); <100ms latency; 99.99% availability.</li>
+        </ul>
+        <h3>Architectural Components:</h3>
+        <ul>
+            <li><strong>Frontend:</strong> Simple form to input URL, display shortened link.</li>
+            <li><strong>Backend API:</strong> Express.js or FastAPI (highly concurrent).</li>
+            <li><strong>Database:</strong> Needs massive scale for read-heavy operations (KV Store like Redis or Cassandra).</li>
+            <li><strong>Caching:</strong> Put Redis in front of the DB to avoid hits for popular URLs.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: The URL Shortener System Architecture Diagram: Client &rarr; LB &rarr; Gateway &rarr; API &rarr; Redis Cache &rarr; Database]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Designing a URL Shortener</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Scalable Caching Strategy</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Handling Massive Traffic</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System3_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Security: Auth/AuthZ</a>
+            <a href="#" data-file="System3_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Summary & Resources &rarr;</a>
+        </div>
+    </footer>
+</article>

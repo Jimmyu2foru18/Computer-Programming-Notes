@@ -1,0 +1,112 @@
+<article>
+    <h1>Software Engineering I: Page 8 - Design Patterns: Structural Patterns</h1>
+
+    <section>
+        <h2>The Architecture of Connection</h2>
+        <p>While Creational Patterns handle how objects are born, <strong>Structural Patterns</strong> deal with how objects and classes are composed to form larger, more complex structures. These patterns help ensure that when one part of a system changes, the entire structure doesn't collapse. They are the "connectors" and "wrappers" that allow incompatible systems to work together and allow for the dynamic expansion of functionality without massive rewrites.</p>
+    </section>
+
+    <section>
+        <h2>1. Adapter Pattern</h2>
+        <p>The Adapter allows classes with incompatible interfaces to work together. It acts as a bridge between two objects, converting the interface of one class into an interface expected by the client. This is essential for integrating third-party libraries or legacy code into a modern system.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+// Target interface
+interface MediaPlayer { void play(String fileName); }
+
+// Adaptee (Legacy/Incompatible)
+class VlcPlayer { void playVlc(String fileName) { /* logic */ } }
+
+// Adapter
+class MediaAdapter implements MediaPlayer {
+    VlcPlayer vlcPlayer = new VlcPlayer();
+    public void play(String fileName) { vlcPlayer.playVlc(fileName); }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Decorator Pattern</h2>
+        <p>The Decorator pattern allows you to attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors. This is a flexible alternative to subclassing (Inheritance) for extending functionality, following the <strong>OCP (Open/Closed Principle)</strong>.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+interface Coffee { double getCost(); }
+class SimpleCoffee implements Coffee { public double getCost() { return 2.0; } }
+
+// Decorator
+class MilkDecorator implements Coffee {
+    private Coffee coffee;
+    public MilkDecorator(Coffee c) { this.coffee = c; }
+    public double getCost() { return coffee.getCost() + 0.5; }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Facade Pattern</h2>
+        <p>The Facade pattern provides a simplified interface to a complex set of classes, a framework, or a library. Instead of a client having to interact with dozens of small, complex objects, they interact with one "Facade" object that handles the complexity behind the scenes.</p>
+        <pre><code class="language-java">
+class HomeTheaterFacade {
+    private Amp amp;
+    private Projector projector;
+
+    public void watchMovie() {
+        amp.on();
+        projector.on();
+        projector.wideScreenMode();
+    }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of the Facade Pattern—a clean dashboard (Facade) hiding a chaotic engine of 50 different parts (Subsystem)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the structure of complex systems with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Adapter Design Pattern</strong><br>
+                <a href="https://www.youtube.com/watch?v=2PKQtcJjTHE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to bridge incompatible interfaces.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Decorator Pattern in Java</strong><br>
+                <a href="https://www.youtube.com/watch?v=GCraGHx6gso" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand dynamic behavior addition without inheritance.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Facade Design Pattern Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=K4FkHVO5iac" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to simplify complex subsystems for the end-user.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Power Adapter and the Car Dashboard</h2>
+        <p>Think of the <strong>Adapter</strong> like a <strong>Physical Travel Plug</strong>. Your American hair dryer (the Client) can't plug into a European socket (the Service) directly because the pins don't match. You use an adapter that has American holes on one side and European pins on the other. Think of the <strong>Decorator</strong> like <strong>Ordering a Pizza</strong>. You start with a base (the Simple Object). Then you add pepperoni, then mushrooms, then extra cheese. Each topping is a "Decorator" that wraps the base pizza and adds "value" (Cost and Taste) without needing a separate class for "PizzaWithMushroomsAndCheese." Finally, think of the <strong>Facade</strong> like the <strong>Ignition Key</strong> in a car. To start a car, hundreds of things happen: fuel is injected, sparks fly, the battery engages, and the pistons move. You don't do those things individually. You just turn the key (the Facade), and the car handles the complex subsystem for you.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://refactoring.guru/design-patterns/structural-patterns" target="_blank">Refactoring Guru: Structural Patterns</a></li>
+            <li><a href="https://www.baeldung.com/java-adapter-pattern" target="_blank">Baeldung: Adapter Pattern in Java</a></li>
+            <li><a href="https://www.geeksforgeeks.org/structural-design-patterns/" target="_blank">GeeksforGeeks: Structural Patterns Guide</a></li>
+            <li><a href="https://pythontutorial.net/design-patterns/python-facade-pattern/" target="_blank">Python Tutorial: Facade Design Pattern</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Creational Design Patterns</a>
+            <a href="#" data-file="Soft1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Behavioral Design Patterns &rarr;</a>
+        </div>
+    </footer>
+</article>

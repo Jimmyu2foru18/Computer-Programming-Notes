@@ -1,0 +1,85 @@
+<article>
+    <h1>DSA II: Page 1 - Quick Sort</h1>
+
+    <section>
+        <h2>The Efficient "In-Place" Sorter</h2>
+        <p><strong>Quick Sort</strong> is one of the most popular and efficient sorting algorithms, frequently used in language standard libraries (like <code>sort()</code> in many languages). Like Merge Sort, it is a <strong>divide-and-conquer</strong> algorithm. However, unlike Merge Sort, Quick Sort is typically <strong>in-place</strong>—meaning it doesn't require massive extra memory to hold subarrays—which makes it highly efficient in memory-constrained environments.</p>
+    </section>
+
+    <section>
+        <h2>1. The Algorithm: Partitioning</h2>
+        <p>Quick Sort relies on a "partitioning" operation to sort data:</p>
+        <ol>
+            <li><strong>Pick a Pivot:</strong> Choose one element from the array to be the "pivot."</li>
+            <li><strong>Partitioning:</strong> Reorder the array so that all elements <em>less than</em> the pivot are on the left, and all elements <em>greater than</em> the pivot are on the right.</li>
+            <li><strong>Conquer:</strong> Recursively apply the same logic to the left and right subarrays.</li>
+        </ol>
+        <pre><code class="language-python">
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Complexity Analysis</h2>
+        <ul>
+            <li><strong>Average Case:</strong> O(n log n). If the pivot consistently divides the array into relatively equal halves, it is extremely fast.</li>
+            <li><strong>Worst Case:</strong> O(n²). This occurs if you pick a poor pivot (like the smallest or largest element) every time, leaving one side of the partition empty.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Pivot selection, partitioning into left/right subarrays, and recursive sorting]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master quick sort with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Quick Sort Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The intuitive 'divide and conquer' strategy with partitioning.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Quick Sort Time Complexity</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding the average vs. worst-case O(n²) behavior.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Quick Sort Code Walkthrough</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step coding implementation in Python.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Organizing a Bookshelf</h2>
+        <p>Think of <strong>Quick Sort</strong> like organizing a <strong>disorganized bookshelf</strong>. You pick a book from the shelf at random—let's call it the <strong>Pivot</strong>. You then go through all the other books and put every book that starts with a letter before the pivot's title on the left side of the table, and every book after on the right. Now, the pivot book is in its final, correct spot! You then repeat this exact same process for the pile of books on the left and the pile of books on the right. Because you are organizing them *around* a known reference point, the shelves fill up very quickly.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Quicksort" target="_blank">Wikipedia: Quick Sort</a></li>
+            <li><a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank">GeeksforGeeks: Quick Sort</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_quicksort.php" target="_blank">W3Schools: DSA Quick Sort</a></li>
+            <li><a href="https://visualgo.net/en/sorting" target="_blank">Tool: Sorting Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Merge Sort</a>
+            <a href="#" data-file="DSA2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Hash Tables &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,104 @@
+<article>
+    <h1>DBMS I: Page 10 - Data Integrity: Constraints, Triggers & Views</h1>
+
+    <section>
+        <h2>Guarding the Data</h2>
+        <p>In our final page of DBMS Foundations, we explore the mechanisms that ensure data remains <strong>Accurate, Consistent, and Secure</strong>. Simply having a normalized structure isn't enough; we need automated rules that prevent invalid data from entering the system and abstractions that hide complexity from the end user. <strong>Constraints</strong> define the "Rules of Engagement" for your tables, <strong>Triggers</strong> provide automated reactions to data changes, and <strong>Views</strong> offer a tailored, simplified perspective of the database. Together, these tools form the "Inner Circle" of database security and integrity.</p>
+    </section>
+
+    <section>
+        <h2>1. Entity and Referential Integrity</h2>
+        <p>We've already seen Primary and Foreign Keys, which enforce the most basic integrity rules. But SQL allows for even more granular control:</p>
+        <ul>
+            <li><strong>NOT NULL:</strong> Ensures a column must have a value (e.g., every user <em>must</em> have an email).</li>
+            <li><strong>UNIQUE:</strong> Prevents duplicate values in a column.</li>
+            <li><strong>CHECK Constraints:</strong> Enforces a specific condition on the data. For example, <code>CHECK (price > 0)</code> ensures you never have a negative price.</li>
+            <li><strong>DEFAULT:</strong> Provides a fallback value if none is provided.</li>
+        </ul>
+        <pre><code class="language-sql">
+CREATE TABLE products (
+    p_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) CHECK (price > 0),
+    stock INT DEFAULT 0
+);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Automation with Triggers</h2>
+        <p>A <strong>Trigger</strong> is a stored procedure that automatically runs in response to a specific event on a table (like an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>). Triggers are useful for maintaining audit logs, calculating derived values, or enforcing complex business rules that simple constraints can't handle.</p>
+        <pre><code class="language-sql">
+CREATE TRIGGER audit_salary_change
+AFTER UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO salary_history(emp_id, old_sal, new_sal)
+    VALUES (OLD.id, OLD.salary, NEW.salary);
+END;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Data Abstraction: Views</h2>
+        <p>A <strong>View</strong> is a virtual table based on the result-set of an SQL query. It doesn't store data itself; it just provides a window into one or more underlying tables. Views are essential for <strong>Security</strong> (you can show a user the names but hide the salaries) and <strong>Simplicity</strong> (you can hide a complex 5-table join behind a single view name).</p>
+        <pre><code class="language-sql">
+CREATE VIEW employee_summary AS
+SELECT e.name, d.dept_name, e.job_title
+FROM employees e
+JOIN departments d ON e.dept_id = d.id;
+
+-- Now users can just query the view!
+SELECT * FROM employee_summary;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'View' as a pair of filtered glasses looking at a messy room of data, seeing only the organized pieces]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master data guarding and automation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL Constraints: NOT NULL, UNIQUE, CHECK</strong><br>
+                <a href="https://www.youtube.com/watch?v=kR9-A_CstL4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to enforce rules at the database level.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Database Triggers Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=ScUJx4adZ_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how to automate your database workflows.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Creating Views in SQL (Why & How)</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Simplify complex queries and improve security with virtual tables.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Security Guard and the Secret Compartment</h2>
+        <p>Think of <strong>Constraints</strong> like the <strong>Rules at an Airport Security Gate</strong>. "No liquids over 3oz" (a CHECK constraint). "Everyone must have a ticket" (NOT NULL). If you try to break a rule, you aren't allowed through the gate (the Data is rejected). Think of a <strong>Trigger</strong> like a <strong>Security Camera</strong> that automatically sends an alert to the manager if it sees a door being forced open. It reacts instantly to the event. Finally, think of a <strong>View</strong> like a <strong>Secret Compartment in a Desk</strong>. You (the Admin) know exactly how the whole desk is built, but you only show your guest (the User) the one drawer they are allowed to use. They don't need to see the complex structural support or the private documents hidden in the other drawers.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_constraints.asp" target="_blank">W3Schools: SQL Constraints</a></li>
+            <li><a href="https://www.baeldung.com/sql-triggers" target="_blank">Baeldung: Guide to SQL Triggers</a></li>
+            <li><a href="https://www.geeksforgeeks.org/sql-views/" target="_blank">GeeksforGeeks: SQL Views</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-integrity-constraints/" target="_blank">Java Tutorial: Enforcing Integrity in the App Layer (For Comparison)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Normalization II (BCNF+)</a>
+            <a href="#" data-file="DBMS2_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: DBMS II - Transactions & ACID &rarr;</a>
+        </div>
+    </footer>
+</article>

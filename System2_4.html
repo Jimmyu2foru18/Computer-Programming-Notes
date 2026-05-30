@@ -1,0 +1,50 @@
+<article>
+    <h1>System Design II: Page 4 - DB: SQL Deep Dive</h1>
+
+    <section>
+        <h2>Relational Power</h2>
+        <p><strong>SQL (Structured Query Language)</strong> databases are the bedrock of reliable, consistent applications. They enforce rigid schemas to guarantee data integrity, making them ideal for systems where consistency is more important than raw speed (like banking, e-commerce, or user management). The power of SQL lies in its ability to manage complex relationships through <strong>Normalization</strong>—organizing data to reduce redundancy—and ensuring <strong>ACID</strong> compliance.</p>
+    </section>
+
+    <section>
+        <h2>1. Core Concepts</h2>
+        <ul>
+            <li><strong>Normalization:</strong> Breaking data into related tables to eliminate duplication (e.g., separating Users, Orders, and Products into distinct tables with foreign key links).</li>
+            <li><strong>ACID Properties:</strong> Atomicity (all or nothing), Consistency (valid state), Isolation (transactions don't interfere), and Durability (data survives crashes).</li>
+            <li><strong>Foreign Keys:</strong> Enforcing relationships between tables to ensure referential integrity.</li>
+        </ul>
+        <pre><code class="language-sql">
+-- Example: Foreign Key Relationship
+CREATE TABLE orders (
+  id INT PRIMARY KEY,
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Database Normalization</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Understanding ACID Properties</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. SQL JOINs Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: GraphQL vs REST</a>
+            <a href="#" data-file="System2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: DB: NoSQL Modeling &rarr;</a>
+        </div>
+    </footer>
+</article>

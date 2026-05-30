@@ -1,0 +1,97 @@
+<article>
+    <h1>C# II: Page 7 - Advanced Data Logic: LINQ (Language Integrated Query)</h1>
+
+    <section>
+        <h2>Data is Everywhere</h2>
+        <p>In modern software engineering, you spend a huge amount of time searching, filtering, and sorting data. You might be pulling a list of top-spending customers from a database, or finding all even numbers in a list of a million integers. Historically, you had to write complex <code>foreach</code> loops and <code>if</code> statements for every specific task. C# revolutionizes this with <strong>LINQ (Language Integrated Query)</strong>. LINQ allows you to write SQL-like queries directly in your C# code to manipulate data from any source—lists, databases, XML, or APIs. It is one of the most powerful features of the language and is a requirement for any professional .NET developer.</p>
+    </section>
+
+    <section>
+        <h2>1. The Two Faces of LINQ</h2>
+        <p>C# provides two different ways to write LINQ queries. They do the exact same thing under the hood, but one is more "Query-like" and the other is more "Functional."</p>
+        
+        <h3>Query Syntax (SQL Style)</h3>
+        <pre><code class="language-csharp">
+int[] numbers = { 1, 2, 3, 4, 5, 6 };
+var evens = from n in numbers
+            where n % 2 == 0
+            select n;
+        </code></pre>
+
+        <h3>Method Syntax (Lambda Style - Recommended)</h3>
+        <pre><code class="language-csharp">
+var evens = numbers.Where(n => n % 2 == 0);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Core LINQ Operators</h2>
+        <ul>
+            <li><strong>Where:</strong> Filters data based on a condition.</li>
+            <li><strong>Select:</strong> Transforms data (e.g., pulling just the names from a list of users).</li>
+            <li><strong>OrderBy / OrderByDescending:</strong> Sorts the data.</li>
+            <li><strong>First / FirstOrDefault:</strong> Grabs the first item that matches.</li>
+            <li><strong>Any / All:</strong> Checks if any (or all) items meet a condition (returns bool).</li>
+        </ul>
+        <pre><code class="language-csharp">
+List&lt;User&gt; users = GetUsers();
+var result = users.Where(u => u.Age > 18)
+                  .OrderBy(u => u.LastName)
+                  .Select(u => u.FullName);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Deferred Execution: The Silent Performance Boost</h2>
+        <p>One of the most important advanced concepts in LINQ is <strong>Deferred Execution</strong>. When you write a LINQ query, it doesn't actually run immediately. It only runs when you try to access the data (e.g., in a <code>foreach</code> loop or by calling <code>.ToList()</code>). This allows you to build complex queries in multiple steps without wasting CPU power until the very last second.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of a 'Sifter' or 'Filter'—pouring a bucket of raw data through multiple levels (Where, OrderBy, Select) to get a clean result]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the power of data queries with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. LINQ Tutorial for Beginners (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best introduction to method syntax and basic operators.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. How LINQ Works Under the Hood</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand deferred execution and IEnumerable.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Advanced LINQ: GroupBy and Joins</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to handle complex data transformations.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Executive Chef and the Sluice Box</h2>
+        <p>Think of <strong>LINQ</strong> like an <strong>Executive Chef</strong>. You don't tell the chef how to chop every onion or boil every pot (the Loop). You just give them an order: "Give me all the seafood dishes, ordered by price, with the sauce on the side." The chef handles the low-level work and hands you the result. Think of <strong>Deferred Execution</strong> like a <strong>Gold Sluice Box</strong>. You can set up the box and all its filters (the Query), but no gold is actually filtered until you pour the water and dirt (the Data) through it. You can change the angle of the box or add a new filter at any time <em>before</em> the water starts flowing, and the system is perfectly ready to react.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/" target="_blank">Official Microsoft: LINQ Overview</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-linq" target="_blank">Baeldung: Guide to LINQ in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_linq.php" target="_blank">W3Schools: C# LINQ Tutorial</a></li>
+            <li><a href="https://linqsamples.com/" target="_blank">LINQ Samples: Interactive Reference</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Delegates & Events</a>
+            <a href="#" data-file="CSharp2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Async & Multi-threading &rarr;</a>
+        </div>
+    </footer>
+</article>

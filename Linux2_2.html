@@ -1,0 +1,88 @@
+<article>
+    <h1>Linux II: Page 2 - Process Management</h1>
+
+    <section>
+        <h2>The Life of a Process</h2>
+        <p>In Linux, everything that is running is a <strong>Process</strong>. From the GUI desktop environment to the background services handling your web traffic, each process has a unique <strong>PID (Process ID)</strong>. Managing these processes—monitoring their CPU and memory usage, troubleshooting stalled or crashing programs, and terminating runaway processes—is a daily task for any Linux administrator. Improper process management can lead to system instability, so knowing how to control these tasks safely is vital.</p>
+    </section>
+
+    <section>
+        <h2>1. Monitoring Processes</h2>
+        <p>You can't manage what you can't see. Several tools allow you to peek into the system's activity:</p>
+        <ul>
+            <li><strong><code>ps</code>:</strong> Gives you a static snapshot of processes. Use <code>ps aux</code> for a comprehensive look.</li>
+            <li><strong><code>top</code>:</strong> Provides a real-time, dynamic view of processes, sorted by resource usage.</li>
+            <li><strong><code>htop</code>:</strong> An interactive, color-coded, and much more user-friendly alternative to <code>top</code> (you might need to install it).</li>
+        </ul>
+        <pre><code class="language-bash">
+# View all processes
+ps aux
+# Real-time monitoring
+top
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Controlling Processes (Signals)</h2>
+        <p>Linux manages processes by sending them <strong>Signals</strong>. The most important signals are:</p>
+        <ul>
+            <li><strong>SIGTERM (15):</strong> The polite request: "Please finish what you are doing and shut down gracefully."</li>
+            <li><strong>SIGKILL (9):</strong> The forced shutdown: "Stop immediately! No grace period." Use this only when a process is unresponsive.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Gracefully terminate
+kill PID
+# Forcefully kill
+kill -9 PID
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram showing a process being sent SIGTERM vs SIGKILL]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master process management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Monitoring Processes with top/htop</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Real-time system resource management.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Understanding Kill Signals</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>SIGTERM vs SIGKILL explained.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Using ps to Find Processes</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to find and identify running processes.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Office Manager</h2>
+        <p>Think of <strong>Process Management</strong> like an <strong>Office Manager</strong>. They have a list (<code>ps</code>) of all employees and what they are working on. When the office gets busy, they look at a real-time monitor (<code>top</code>) to see who is overloaded. If an employee (a process) is crashing and making a mess, the manager first asks them to clean up and go home (SIGTERM). If they refuse to leave and continue making a mess, the manager has to call security to escort them out immediately (SIGKILL).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://linux.die.net/man/1/ps" target="_blank">Man Page: ps</a></li>
+            <li><a href="https://linux.die.net/man/1/kill" target="_blank">Man Page: kill</a></li>
+            <li><a href="https://www.geeksforgeeks.org/process-management-in-linux/" target="_blank">GeeksforGeeks: Process Management</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: Processes</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Networking Commands</a>
+            <a href="#" data-file="Linux2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: System Info &rarr;</a>
+        </div>
+    </footer>
+</article>

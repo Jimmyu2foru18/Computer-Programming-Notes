@@ -1,0 +1,115 @@
+<article>
+    <h1>Java II: Page 1 - Object-Oriented Programming (OOP): Encapsulation</h1>
+
+    <section>
+        <h2>The Principle of Data Hiding</h2>
+        <p>In our first module, we learned how to build objects with data and behavior. Now, we must learn the most important rule of professional software design: <strong>Encapsulation</strong>. Encapsulation is the practice of bundling data (attributes) and methods that operate on that data into a single unit (a class) and <strong>restricting direct access</strong> to some of the object's components. In the professional world, we never allow outside code to reach in and change an object's internal state directly. Instead, we provide controlled "gates" for interaction.</p>
+    </section>
+
+    <section>
+        <h2>The Four Access Modifiers</h2>
+        <p>Java provides four levels of visibility to help you enforce encapsulation. Choosing the correct modifier is essential for security and maintenance.</p>
+        
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 10px; text-align: left;">Modifier</th>
+                <th style="padding: 10px; text-align: left;">Visibility</th>
+                <th style="padding: 10px; text-align: left;">Use Case</th>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>private</code></td>
+                <td style="padding: 10px;">Same class only</td>
+                <td style="padding: 10px;"><strong>The Default for Data.</strong> Hide all attributes here.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>default</code></td>
+                <td style="padding: 10px;">Same package only</td>
+                <td style="padding: 10px;">Used for classes that work closely together in one folder.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>protected</code></td>
+                <td style="padding: 10px;">Package + Subclasses</td>
+                <td style="padding: 10px;">Used when you want children to access parent data.</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><code>public</code></td>
+                <td style="padding: 10px;">Everywhere</td>
+                <td style="padding: 10px;"><strong>The Default for Methods.</strong> Your object's "Interface."</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Controlled Access: Getters & Setters</h2>
+        <p>If we make our data <code>private</code>, how does the rest of the program use it? We provide public <strong>Getter</strong> and <strong>Setter</strong> methods. This allows us to add <strong>Validation</strong> logic. For example, a <code>setAge()</code> method can check if the number is positive before saving it.</p>
+        <pre><code class="language-java">
+public class Student {
+    private String name; // Private data
+    private double gpa;
+
+    // Getter
+    public String getName() {
+        return name;
+    }
+
+    // Setter with Validation
+    public void setGpa(double gpa) {
+        if (gpa >= 0.0 && gpa <= 4.0) {
+            this.gpa = gpa;
+        } else {
+            System.out.println("Invalid GPA!");
+        }
+    }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing an Object as a fortress. The private data is in the center, and the public methods are the guarded gates.]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the security of encapsulation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Encapsulation & Getters/Setters</strong><br>
+                <a href="https://www.youtube.com/watch?v=S-I_vG8vU0c" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear guide to data hiding and validation.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Access Modifiers in Java (Public vs Private)</strong><br>
+                <a href="https://www.youtube.com/watch?v=4YmO-6vV4V8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to control who sees your code.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The Why of Encapsulation (Design Patterns)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Bj99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the engineering benefits of robust object boundaries.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The ATM and the Human Body</h2>
+        <p>Think of <strong>Encapsulation</strong> like an <strong>ATM</strong>. The bank doesn't let you walk into the vault and move money around by hand (Direct access to data). Instead, they provide a screen and buttons (The Interface). You can only <code>withdraw()</code> or <code>deposit()</code> by following the rules of the machine. The "Internal State" of the bank's ledger is hidden behind the machine's steel walls. Another example is the <strong>Human Body</strong>: your internal organs (Data) are encapsulated inside your skin. People can interact with you through your voice and hands (Public methods), but they can't directly reach in and change your heart rate or blood sugar. This "Black Box" design ensures that you can function safely without accidental interference from the outside world.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">Official Java Docs: Access Control</a></li>
+            <li><a href="https://www.baeldung.com/java-encapsulation" target="_blank">Baeldung: Guide to Encapsulation in Java</a></li>
+            <li><a href="https://www.w3schools.com/java/java_encapsulation.asp" target="_blank">W3Schools: Java Encapsulation</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-encapsulation/" target="_blank">Java Tutorial: Private Fields and Accessors</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Constructors & Static</a>
+            <a href="#" data-file="Java2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Inheritance Basics &rarr;</a>
+        </div>
+    </footer>
+</article>

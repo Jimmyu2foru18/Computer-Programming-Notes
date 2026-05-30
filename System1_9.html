@@ -1,0 +1,71 @@
+<article>
+    <h1>System Design I: Page 9 - Arch Patterns: High-Level</h1>
+
+    <section>
+        <h2>The Foundation of Scalability</h2>
+        <p>Before you implement a single feature, you must choose the right <strong>Architectural Pattern</strong>. This high-level structural decision defines how your system components are organized, how they communicate, and how they scale. A choice made here (e.g., Monolithic vs. Microservices) will be incredibly difficult—and expensive—to change later.</p>
+    </section>
+
+    <section>
+        <h2>1. Major Architecture Patterns</h2>
+        <ul>
+            <li><strong>Monolithic:</strong> The entire application is a single, self-contained unit. Simple to build and deploy for startups, but becomes difficult to scale and maintain as the app grows.</li>
+            <li><strong>Microservices:</strong> Decomposes the application into small, independent services, each handling a specific business function (e.g., User Service, Order Service). Highly scalable, but introduces massive operational complexity (inter-service communication, distributed consistency).</li>
+            <li><strong>Serverless:</strong> You deploy individual functions that trigger on events (e.g., an AWS Lambda function running when an image is uploaded). You don't manage servers, just code. Extremely cost-effective for event-driven tasks, but can have "cold start" latency issues.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: Monolithic (all in one box) vs. Microservices (many interconnected small boxes)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Choosing the Pattern</h2>
+        <p>There is no "best" pattern, only the pattern that best fits your requirements and team structure. Startups usually start Monolithic to move fast, then migrate parts of the application to Microservices only when scale necessitates it.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master architecture patterns with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Monolithic vs Microservices</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding when to use which.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Serverless Architecture Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How functions as a service change deployment.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Choosing the Right Architecture</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Balancing complexity against scalability needs.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Business Structure</h2>
+        <p>Think of a <strong>Monolithic architecture</strong> like a <strong>Small Business</strong> where everyone wears every hat. The accountant also does marketing, and the manager cleans the office. It works fine when there are 3 employees, but it's chaotic when there are 300. Think of <strong>Microservices</strong> like a <strong>Large Corporation</strong> with distinct departments (HR, Engineering, Sales). Each department is independent, handles its own hiring and budget, and they only interact through formal company procedures. It's much more scalable, but requires a complex management system to coordinate them.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://martinfowler.com/microservices/" target="_blank">Martin Fowler: Microservices</a></li>
+            <li><a href="https://aws.amazon.com/microservices/" target="_blank">AWS: Microservices Intro</a></li>
+            <li><a href="https://serverless-stack.com/" target="_blank">Serverless Stack: Architecture Guide</a></li>
+            <li><a href="https://www.oreilly.com/library/view/building-microservices/9781491950340/" target="_blank">Book: Building Microservices</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Frontend: Testing</a>
+            <a href="#" data-file="System1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Project: Frontend Blueprint &rarr;</a>
+        </div>
+    </footer>
+</article>

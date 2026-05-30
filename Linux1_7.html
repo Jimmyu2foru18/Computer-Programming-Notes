@@ -1,0 +1,89 @@
+<article>
+    <h1>Linux I: Page 7 - Permissions & Ownership</h1>
+
+    <section>
+        <h2>The Foundation of Linux Security</h2>
+        <p>Linux is inherently a <strong>multi-user operating system</strong>. This means security is built into the filesystem itself. Every file and directory has an <strong>Owner</strong> and a <strong>Group</strong> associated with it, and it has specific <strong>Permissions</strong> (Read, Write, Execute) that determine who can interact with it. Understanding these concepts is not optional—it is the single most important skill for securing your Linux machine and preventing accidental or malicious damage.</p>
+    </section>
+
+    <section>
+        <h2>1. The Permission Triad (rwx)</h2>
+        <p>Permissions are defined for three levels of users: <strong>User</strong> (owner), <strong>Group</strong>, and <strong>Others</strong>. Each can have:</p>
+        <ul>
+            <li><strong>r (Read):</strong> Ability to see file content or list directory files.</li>
+            <li><strong>w (Write):</strong> Ability to edit file content or create/delete files in a directory.</li>
+            <li><strong>x (Execute):</strong> Ability to run a file as a program or enter a directory.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Example: -rwxr-xr--
+# User: Read, Write, Execute
+# Group: Read, Execute
+# Others: Read
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Managing Access</h2>
+        <p>You use <code>chmod</code> to change permissions and <code>chown</code> to change ownership.</p>
+        <h3>Permissions (chmod):</h3>
+        <p>You can use symbolic mode (<code>u+x</code>) or numeric mode (<code>755</code>, where <code>r=4, w=2, x=1</code>).</p>
+        <pre><code class="language-bash">
+# Numeric mode (7 = 4+2+1, 5 = 4+0+1)
+chmod 755 script.sh # Owner: rwx, Group: r-x, Others: r-x
+
+# Symbolic mode
+chmod o-r file.txt # Remove read permission from Others
+        </code></pre>
+        <h3>Ownership (chown):</h3>
+        <p><code>chown user:group file.txt</code> changes the owner to 'user' and the group to 'group'.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: The permission string structure: Type | Owner (rwx) | Group (rwx) | Others (rwx)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master permissions and ownership with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Linux File Permissions Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The foundational concept of rwx.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. chmod Tutorial: Symbolic vs Numeric</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to change permissions like a pro.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Changing Ownership with chown</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn to manage who owns what.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Office Key Card</h2>
+        <p>Think of <strong>File Permissions</strong> like <strong>Key Cards in an Office Building</strong>. The <strong>Owner</strong> is the employee assigned to a specific office; they have full access (rwx). The <strong>Group</strong> is the department (e.g., Marketing); they have limited access (r-x) to shared folders. <strong>Others</strong> are visitors; they might only be allowed to read public documents in the lobby (r--). If you try to enter an office you don't belong to, your key card is rejected (Permission Denied). <code>chmod</code> is simply the security administrator changing your access level, and <code>chown</code> is assigning a different employee to that office.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/File_system_permissions" target="_blank">Wikipedia: File Permissions</a></li>
+            <li><a href="https://www.geeksforgeeks.org/permissions-in-linux/" target="_blank">GeeksforGeeks: Linux Permissions</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_permissions.php" target="_blank">W3Schools: Linux Basics</a></li>
+            <li><a href="https://chmod-calculator.com/" target="_blank">Tool: Online chmod Calculator</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: File Operations</a>
+            <a href="#" data-file="Linux1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Package Management &rarr;</a>
+        </div>
+    </footer>
+</article>

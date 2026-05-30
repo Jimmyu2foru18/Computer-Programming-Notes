@@ -1,0 +1,87 @@
+<article>
+    <h1>Web Technologies I: Page 8 - JavaScript: Async & Fetch</h1>
+
+    <section>
+        <h2>Handling the Wait</h2>
+        <p>In web development, you frequently need to do things that take time—fetching data from a server, reading a large file, or waiting for a timer. If JavaScript were strictly "synchronous" (doing one thing at a time, blocking everything else), the entire browser would freeze every time you made a network request. <strong>Asynchronous JavaScript</strong> allows you to start an operation and continue doing other things, only responding once the operation finishes. <strong>Promises</strong> and <strong>Async/Await</strong> are the modern tools used to manage these background tasks effectively.</p>
+    </section>
+
+    <section>
+        <h2>1. Promises: I Promise to Finish</h2>
+        <p>A <strong>Promise</strong> is an object representing the eventual completion (or failure) of an asynchronous operation. It can be in one of three states:</p>
+        <ul>
+            <li><strong>Pending:</strong> The operation is still running.</li>
+            <li><strong>Resolved (Fulfilled):</strong> The operation succeeded.</li>
+            <li><strong>Rejected:</strong> The operation failed.</li>
+        </ul>
+        <pre><code class="language-javascript">
+const myPromise = new Promise((resolve, reject) => {
+  // Simulate network request
+  setTimeout(() => resolve("Data loaded!"), 2000);
+});
+
+myPromise.then(data => console.log(data));
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Fetch API: Talking to Servers</h2>
+        <p>The <strong>Fetch API</strong> is the modern standard for making network requests (e.g., getting data from an API). It returns a Promise, making it incredibly easy to use with <code>async/await</code> syntax.</p>
+        <pre><code class="language-javascript">
+async function loadUserData() {
+  const response = await fetch("https://api.example.com/user/1");
+  const data = await response.json();
+  console.log(data);
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: The flow of an async request: Start Request &rarr; Wait/Continue doing other work &rarr; Event/Callback Triggered on Completion]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master async JavaScript with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. JavaScript Promises Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The foundational concept of asynchronous programming.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Async/Await Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to write cleaner asynchronous code.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The Fetch API</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Practical guide to interacting with web servers.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Restaurant Pager</h2>
+        <p>Think of <strong>Asynchronous JavaScript</strong> like a <strong>Restaurant Pager</strong>. You place your order (Start Request), and instead of standing at the counter blocking everyone else (Synchronous Blocking), you take a pager and go sit down to have a conversation (Continue Doing Other Work). When the kitchen finishes your order (Async Operation Completes), your pager goes off (Promise Resolves). You then walk up to the counter and collect your food. This allows the restaurant (the Browser) to serve hundreds of customers simultaneously without a massive bottleneck at the order counter.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous" target="_blank">MDN: Asynchronous JavaScript</a></li>
+            <li><a href="https://javascript.info/async-await" target="_blank">JavaScript.info: Async/Await</a></li>
+            <li><a href="https://www.w3schools.com/js/js_api_fetch.asp" target="_blank">W3Schools: Fetch API</a></li>
+            <li><a href="https://eloquentjavascript.net/11_async.html" target="_blank">Book: Eloquent JavaScript (Async Chapter)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: JS: DOM Manipulation</a>
+            <a href="#" data-file="Web1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: JS: Modern Features (ES6+) &rarr;</a>
+        </div>
+    </footer>
+</article>

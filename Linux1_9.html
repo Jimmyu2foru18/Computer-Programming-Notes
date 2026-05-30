@@ -1,0 +1,82 @@
+<article>
+    <h1>Linux I: Page 9 - Redirection & Piping</h1>
+
+    <section>
+        <h2>The Power of Chaining Commands</h2>
+        <p>In Linux, the true power of the command line lies in the ability to <strong>chain simple, single-purpose tools together</strong> to perform complex tasks. This is made possible by <strong>I/O Redirection</strong> and <strong>Piping</strong>. By default, every command takes input from your keyboard (Standard Input, or <em>stdin</em>) and sends its output to your screen (Standard Output, or <em>stdout</em>). Redirection and piping allow you to take that output and feed it into a file or another command instead, creating powerful automated workflows.</p>
+    </section>
+
+    <section>
+        <h2>1. Redirection Operators</h2>
+        <ul>
+            <li><code>&gt;</code>: Redirects output to a file (overwrites existing content).</li>
+            <li><code>&gt;&gt;</code>: Redirects output to a file (appends to existing content).</li>
+            <li><code>&lt;</code>: Takes input from a file instead of the keyboard.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Save file list to a document
+ls -l &gt; file_list.txt
+
+# Append current date to a log file
+date &gt;&gt; activity.log
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Piping (|)</h2>
+        <p>The <strong>Pipe (<code>|</code>)</strong> operator takes the <em>stdout</em> of the command on the left and sends it as the <em>stdin</em> to the command on the right. This is how you build complex workflows.</p>
+        <pre><code class="language-bash">
+# List files and immediately filter for those containing "log"
+ls -l | grep "log"
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: Command1 (stdout) | Command2 (stdin)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master redirection and piping with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Linux Redirection Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Using >, >>, and < to manage input/output.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The Power of Piping</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Chain commands to build automated workflows.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Real-world Pipeline Examples</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How professionals solve complex tasks with pipes.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Assembly Line</h2>
+        <p>Think of <strong>Redirection</strong> like sending a finished product (the command output) into a shipping container (the file) for later use. Think of <strong>Piping</strong> like a <strong>Continuous Assembly Line</strong>. The output of one machine (Command1) isn't finished—it's just the raw material needed for the next machine (Command2) on the line. You can have a whole factory floor where dozens of machines are chained together, with the raw material (Standard Input) going in one end, undergoing dozens of transformations, and finally emerging as a finished product at the end of the line.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.geeksforgeeks.org/redirection-in-unix/" target="_blank">GeeksforGeeks: Redirection</a></li>
+            <li><a href="https://ryanstutorials.net/linuxtutorial/piping.php" target="_blank">Ryan's Linux Tutorial: Piping</a></li>
+            <li><a href="https://www.gnu.org/software/bash/manual/bash.html#Redirections" target="_blank">Bash Manual: Redirections</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: Pipelines</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Package Management</a>
+            <a href="#" data-file="Linux1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Text Processing Tools &rarr;</a>
+        </div>
+    </footer>
+</article>

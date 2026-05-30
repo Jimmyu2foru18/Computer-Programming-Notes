@@ -1,0 +1,84 @@
+<article>
+    <h1>Linux I: Page 6 - File Operations</h1>
+
+    <section>
+        <h2>Managing Your Data</h2>
+        <p>Now that you can navigate the filesystem (using <code>cd</code>, <code>ls</code>, <code>pwd</code>) and understand where things go (FHS), it's time to learn how to actively manage those files. In the Linux terminal, you don't drag-and-drop to copy or move files; you use fast, powerful commands. Be careful: many of these commands, especially when combined with <code>rm</code>, are permanent and cannot be "undone" via a trash bin.</p>
+    </section>
+
+    <section>
+        <h2>1. The Fundamental Trio</h2>
+        <ul>
+            <li><strong><code>cp</code> (Copy):</strong> Creates a duplicate of a file or directory. To copy a directory, you <strong>must</strong> use the <code>-r</code> (recursive) flag.</li>
+            <li><strong><code>mv</code> (Move/Rename):</strong> Used to move a file from one place to another. Since "renaming" is just moving a file to the same location with a new name, <code>mv</code> is also used for renaming files.</li>
+            <li><strong><code>rm</code> (Remove):</strong> Deletes files. Use <code>rm -r</code> to delete a directory and all its contents. <strong>Caution:</strong> Deleting as root (or via <code>sudo</code>) can instantly destroy your entire system if misused.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Copying:
+cp file.txt backup.txt
+cp -r folder/ backup_folder/
+
+# Moving/Renaming:
+mv oldname.txt newname.txt
+mv file.txt /home/user/documents/
+
+# Removing:
+rm file.txt
+rm -rf directory_to_delete/ # Forceful recursive removal
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Safety First</h2>
+        <p>Always use the <code>-i</code> (interactive) flag when learning. It prompts you for confirmation before overwriting or deleting files, which is a lifesaver for beginners.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: A file being copied (cp) vs moved (mv) vs removed (rm)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master file operations with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Copy, Move, and Remove Files</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The essentials of managing files from the terminal.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The Dangers of rm -rf</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how to remove files safely.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Linux File Management Tricks</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Tips to work faster in the CLI.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Office Administrator</h2>
+        <p>Think of <strong><code>cp</code></strong> like a <strong>Photocopier</strong>—you make an identical copy of a document. Think of <strong><code>mv</code></strong> like a <strong>Filing Clerk</strong>—they take a folder from your desk and put it into the cabinet (moving), or they simply change the label on the folder (renaming). Think of <strong><code>rm</code></strong> like a <strong>Paper Shredder</strong>. When you put a document in the shredder, it's gone forever. The <code>-f</code> flag is like shredding without checking if you really meant to do it, and <code>-r</code> is like shredding an entire filing cabinet at once. Always check the label *before* you feed the paper into the machine.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.man7.org/linux/man-pages/man1/cp.1.html" target="_blank">Man Page: cp</a></li>
+            <li><a href="https://www.man7.org/linux/man-pages/man1/mv.1.html" target="_blank">Man Page: mv</a></li>
+            <li><a href="https://www.man7.org/linux/man-pages/man1/rm.1.html" target="_blank">Man Page: rm</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: File Manipulation</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: File System Hierarchy</a>
+            <a href="#" data-file="Linux1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Permissions & Ownership &rarr;</a>
+        </div>
+    </footer>
+</article>

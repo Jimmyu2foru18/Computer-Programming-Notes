@@ -1,0 +1,85 @@
+<article>
+    <h1>DSA I: Page 4 - Stacks: Ordered LIFO Processing</h1>
+
+    <section>
+        <h2>The Last-In-First-Out Data Structure</h2>
+        <p>A <strong>Stack</strong> is a linear data structure that follows the <strong>Last-In-First-Out (LIFO)</strong> principle. Think of it as a physical stack of plates: you can only add a plate to the top, and you can only take the top plate off. You cannot remove a plate from the middle without destabilizing the whole stack. This restricted access is not a limitation—it's exactly what makes stacks so powerful for managing ordered tasks and state.</p>
+    </section>
+
+    <section>
+        <h2>1. Core Stack Operations</h2>
+        <p>A stack is defined by a very limited set of operations, ensuring that the LIFO order is always maintained.</p>
+        <ul>
+            <li><strong>Push:</strong> Add an element to the top of the stack.</li>
+            <li><strong>Pop:</strong> Remove the top element from the stack.</li>
+            <li><strong>Peek/Top:</strong> View the top element without removing it.</li>
+            <li><strong>isEmpty:</strong> Check if the stack contains any elements.</li>
+        </ul>
+        <pre><code class="language-python">
+# A simple Python implementation
+stack = []
+stack.append(10) # Push
+stack.pop()      # Pop
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Real-World Stack Applications</h2>
+        <p>Because stacks perfectly manage "history" and "nesting," they are essential in many areas of computing:</p>
+        <ul>
+            <li><strong>Call Stack:</strong> Every time a function is called in your code, its state is "pushed" onto the call stack. When it finishes, it's "popped" off, returning control to the calling function.</li>
+            <li><strong>Undo/Redo:</strong> Text editors use a stack to keep track of your actions; "Undo" pops the last action off the stack.</li>
+            <li><strong>Expression Evaluation:</strong> Parsing mathematical expressions (e.g., checking for balanced parentheses).</li>
+            <li><strong>Backtracking:</strong> Algorithms like finding a path through a maze use a stack to keep track of visited intersections.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: A stack of items being pushed and popped]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master stacks with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Stacks Explained Simply</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The LIFO principle and basic operations.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The Call Stack in Programming</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How functions manage execution state.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Stack Implementation</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to implement a stack in code.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Cafeteria Tray Stack</h2>
+        <p>Think of a <strong>Stack</strong> like a <strong>Stack of Trays in a Cafeteria</strong>. A new tray is placed on top of the stack. When you need a tray, you *must* take the one from the top—you can't pull one from the bottom without making a mess. This is exactly how the <strong>Call Stack</strong> works: you must finish the most recently started function (top of the stack) before you can return to the function that called it (the one underneath).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" target="_blank">Wikipedia: Stack Overview</a></li>
+            <li><a href="https://www.geeksforgeeks.org/stack-data-structure/" target="_blank">GeeksforGeeks: Stack Basics</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_stacks.php" target="_blank">W3Schools: DSA Stacks</a></li>
+            <li><a href="https://visualgo.net/en/stack" target="_blank">Tool: Stack Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Linked Lists</a>
+            <a href="#" data-file="DSA1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Queues &rarr;</a>
+        </div>
+    </footer>
+</article>

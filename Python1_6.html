@@ -1,0 +1,106 @@
+<article>
+    <h1>Python I: Page 6 - Collection Types: Tuples & Sets</h1>
+
+    <section>
+        <h2>The Power of Constraints: Tuples (tuple)</h2>
+        <p>In our previous page, we learned that Lists are mutable—you can change them anytime. But what if you have data that <em>should not</em> change? For example, the latitude and longitude of a city, or the RGB values of a specific color. For these scenarios, Python provides the <strong>Tuple</strong>. A tuple is an ordered collection of items that is <strong>immutable</strong>. Once a tuple is created, it cannot be modified, which makes it safer and faster than a list.</p>
+        
+        <h3>Creating Tuples</h3>
+        <p>Tuples are defined using parentheses <code>()</code>. A common trap for beginners is creating a tuple with only one item—you <em>must</em> include a trailing comma, or Python will treat it as a regular variable in parentheses.</p>
+        <pre><code class="language-python">
+coordinates = (10, 20)
+colors = ("red", "green", "blue")
+single_item = (42,)  # Note the comma! Without it, this is just the number 42
+        </code></pre>
+
+        <h3>Tuple Unpacking: A Professional Shortcut</h3>
+        <p>Python allows you to "unpack" the contents of a tuple directly into variables in a single line. This is a very common pattern when functions return multiple values.</p>
+        <pre><code class="language-python">
+x, y = coordinates
+print(f"X: {x}, Y: {y}")
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Unique Collections: Sets (set)</h2>
+        <p>Imagine you have a list of 10,000 email addresses and you want to know how many <em>unique</em> users you have. A List would make you check every item manually. A <strong>Set</strong>, however, is an unordered collection of <strong>unique</strong> items. It automatically removes any duplicates you try to add to it.</p>
+        
+        <h3>Set Basics</h3>
+        <p>Sets are defined using curly braces <code>{}</code> (similar to dictionaries, but without key-value pairs) or the <code>set()</code> function.</p>
+        <pre><code class="language-python">
+# Automatic duplicate removal
+numbers = {1, 2, 2, 3, 3, 4}
+print(numbers)  # Output: {1, 2, 3, 4}
+
+fruits = {"apple", "banana"}
+fruits.add("orange")
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Venn Diagram illustrating Set Union, Intersection, and Difference]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Set Mathematics: Union, Intersection, and Difference</h2>
+        <p>Sets in Python are modeled after mathematical sets, allowing you to perform powerful comparisons between two groups of data instantly.</p>
+        <ul>
+            <li><strong>Union (<code>|</code>):</strong> Combines all items from both sets (no duplicates).</li>
+            <li><strong>Intersection (<code>&amp;</code>):</strong> Returns only the items found in <em>both</em> sets.</li>
+            <li><strong>Difference (<code>-</code>):</strong> Returns items in the first set that are <em>not</em> in the second.</li>
+        </ul>
+        <pre><code class="language-python">
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+print(set1 | set2)  # {1, 2, 3, 4, 5, 6} (Union)
+print(set1 & set2)  # {3, 4} (Intersection)
+print(set1 - set2)  # {1, 2} (Difference)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Deepen your knowledge of Tuples and Sets with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Tuples: Why Use Them?</strong><br>
+                <a href="https://www.youtube.com/watch?v=NI26dqHS2rk" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand immutability and why tuples are faster than lists.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Sets in Python - Unique Collections</strong><br>
+                <a href="https://www.youtube.com/watch?v=r3R3h5ly_8g" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to remove duplicates and manage unique data.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Set Math: Unions & Intersections</strong><br>
+                <a href="https://www.youtube.com/watch?v=C7wS_yE6tY0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master the powerful logic of set operations.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The GPS Coordinate and the Guest List</h2>
+        <p>Think of a <strong>Tuple</strong> as a <strong>GPS Coordinate</strong> printed on a stone tablet. You can read the North and East values (Unpacking), but you can't just chip away at the stone to change the numbers—if you want a new location, you need a new tablet (Immutability). Think of a <strong>Set</strong> as a <strong>VIP Guest List</strong> at a club. The bouncer (Python) checks every person trying to enter. If "Alice" is already in the club, he won't let another "Alice" in (Uniqueness). If you want to know which guests are both "VIPs" and "Early Birds," you look for the <strong>Intersection</strong> of those two lists. This ensures your data remains clean, unique, and organized without manual sorting.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences" target="_blank">Official Python Docs: Tuples</a></li>
+            <li><a href="https://realpython.com/python-sets/" target="_blank">Real Python: Sets in Python</a></li>
+            <li><a href="https://www.w3schools.com/python/python_tuples.asp" target="_blank">W3Schools: Python Tuples</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-tuple/" target="_blank">Python Tutorial: Comprehensive Tuple Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Lists & Comprehensions</a>
+            <a href="#" data-file="Python1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Dictionaries &rarr;</a>
+        </div>
+    </footer>
+</article>

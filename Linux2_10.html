@@ -1,0 +1,109 @@
+<article>
+    <h1>Linux II: Page 10 - Troubleshooting & Optimization</h1>
+
+    <section>
+        <h2>The Art of System Diagnosis</h2>
+        <p>Even the most meticulously managed Linux server will eventually encounter performance bottlenecks or mysterious service failures. Being a "senior" Linux administrator means not just knowing how to set up services, but knowing how to <strong>diagnose and fix them under pressure</strong>. Troubleshooting is the art of methodical elimination—identifying whether an issue is CPU-bound, memory-starved, I/O-blocked, or network-congested, and then using tuning parameters to optimize the system for your specific workload.</p>
+    </section>
+
+    <section>
+        <h2>1. Diagnostic Methodology</h2>
+        <p>When the system is slow, follow the <strong>USE method</strong> (Utilization, Saturation, Errors):</p>
+        <ul>
+            <li><strong>CPU:</strong> High utilization? Check <code>top</code>/<code>htop</code>.</li>
+            <li><strong>Memory:</strong> Swapping? Check <code>free -h</code>.</li>
+            <li><strong>I/O:</strong> Disk bottlenecks? Check <code>iostat</code> or <code>iotop</code>.</li>
+        </ul>
+        <p>For network issues, use the <strong>Layered Approach</strong>: Start with physical connectivity (cables/interface status), move to IP configuration, then DNS resolution, and finally the application layer port status.</p>
+    </section>
+
+    <section>
+        <h2>2. Performance Tuning</h2>
+        <p>Linux is highly tunable via the <code>/proc</code> and <code>/sys</code> filesystems, typically accessed through <code>sysctl</code>.</p>
+        <ul>
+            <li><strong>Kernel Parameters:</strong> Tweak <code>sysctl</code> (e.g., <code>vm.swappiness</code>, network buffer sizes) to optimize the system for your specific application load.</li>
+            <li><strong>I/O Schedulers:</strong> Choose the right I/O scheduler (e.g., <code>mq-deadline</code> for SSDs) to manage how disk read/write requests are prioritized.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: A dashboard view of system resource usage (CPU/RAM/IO/Network)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master troubleshooting and tuning with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Troubleshooting Linux Performance</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to find bottlenecks using standard tools.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Advanced Network Troubleshooting</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Solving complex connectivity problems.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Linux Kernel Tuning</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Tuning system behavior with sysctl.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Automotive Mechanic</h2>
+        <p>Think of <strong>Linux Troubleshooting</strong> like an <strong>Automotive Mechanic diagnosing a stalling engine</strong>. They don't just rip the engine out. They hook up a diagnostic computer (<code>top</code>/<code>iotop</code>/<code>strace</code>) to see which component is reporting errors. If the engine is overheating, they might improve the cooling system (Kernel Tuning). If it's struggling to shift gears, they might optimize the transmission schedule (I/O Scheduling). It's always a step-by-step process of observing, measuring, and tuning.</p>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
+        <h2>Series Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the 20-page Linux II Masterclass! To further expand your professional Linux admin skills, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. Linux Journey</strong><br>
+                <p><small>Highly interactive and beginner-friendly Linux learning.</small></p>
+                <a href="https://linuxjourney.com/" target="_blank">Visit Linux Journey &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. The Linux Command Line (Book)</strong><br>
+                <p><small>A comprehensive and freely available book on Linux CLI.</small></p>
+                <a href="http://linuxcommand.org/" target="_blank">Read for Free &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. OverTheWire (Wargames)</strong><br>
+                <p><small>Gamified Linux learning through security wargames.</small></p>
+                <a href="https://overthewire.org/wargames/bandit/" target="_blank">Start Playing &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. Linux Foundation Training</strong><br>
+                <p><small>Professional-grade training for Linux certification.</small></p>
+                <a href="https://training.linuxfoundation.org/" target="_blank">View Courses &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px; text-align: center;">
+        <h2>Total Curriculum Masterclass Complete!</h2>
+        <p>Congratulations! You have successfully completed the massive 130-page computer programming, web technologies, DSA, and Linux curriculum. You now have a comprehensive, verified foundation in:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>✅ Python (20 pages)</li>
+            <li>✅ Java (20 pages)</li>
+            <li>✅ Software Engineering (20 pages)</li>
+            <li>✅ DBMS (20 pages)</li>
+            <li>✅ Networks & Web Technologies (20 pages)</li>
+            <li>✅ Data Structures & Algorithms (20 pages)</li>
+            <li>✅ Linux Admin & Security (10 pages)</li>
+        </ul>
+        <p>You have built a massive foundation. Now, go build the future!</p>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Security & Firewall</a>
+            <span style="color: #28a745; font-weight: bold;">130-Page Masterclass Complete!</span>
+        </div>
+    </footer>
+</article>

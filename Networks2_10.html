@@ -1,0 +1,110 @@
+<article>
+    <h1>Networks II: Page 10 - Monitoring & Troubleshooting: The Pro's Toolkit</h1>
+
+    <section>
+        <h2>The Art of Network Diagnostics</h2>
+        <p>A network administrator spends more time troubleshooting than designing. Networks fail, congestion happens, security breaches occur, and configurations break. To be a successful network engineer, you must master the art of <strong>Network Troubleshooting</strong>. This is a scientific, methodical process: you define the problem, hypothesize the cause, test your hypothesis, and verify the solution. The most effective troubleshooters use the <strong>OSI Layer Approach</strong>: they start at the physical layer and work their way up, one layer at a time, to isolate where the communication chain is broken.</p>
+    </section>
+
+    <section>
+        <h2>1. The Network Admin's CLI Toolkit</h2>
+        <p>Every engineer needs to master these essential command-line tools:</p>
+        <ul>
+            <li><strong>Ping:</strong> Tests basic reachability (Does the destination respond?).</li>
+            <li><strong>Traceroute/Tracert:</strong> Identifies which router along the path is dropping the packet.</li>
+            <li><strong>Nslookup/Dig:</strong> Debugs DNS issues.</li>
+            <li><strong>Netstat/SS:</strong> Displays current active network connections.</li>
+            <li><strong>Tcpdump/Wireshark:</strong> Captures raw packets for deep protocol analysis.</li>
+            <li><strong>Nmap:</strong> Scans networks for discovered devices and open ports.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Troubleshooting example: Is the Google server reachable?
+ping google.com
+# Where is the path breaking?
+traceroute google.com
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Troubleshooting Methodology: OSI Top-Down</h2>
+        <p>When something breaks, don't guess. Start at the bottom:</p>
+        <ol>
+            <li><strong>Layer 1 (Physical):</strong> Is the cable plugged in? Are link lights flashing?</li>
+            <li><strong>Layer 2 (Data Link):</strong> Are MAC addresses correct? Is there a VLAN issue?</li>
+            <li><strong>Layer 3 (Network):</strong> Can you ping the Default Gateway? Is routing correct?</li>
+            <li><strong>Layer 4 (Transport):</strong> Is the correct port open? Is there a firewall blocking it?</li>
+            <li><strong>Layer 7 (Application):</strong> Is the application service running? Are logs reporting errors?</li>
+        </ol>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Flowchart showing the OSI top-down troubleshooting methodology]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master troubleshooting with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Essential CLI Troubleshooting Tools</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Practical tips for using ping, trace, and netstat.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. How to use Wireshark for Analysis</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Capturing and inspecting raw network traffic.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Network Troubleshooting Methodology</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A professional framework for isolating complex issues.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Automotive Mechanic</h2>
+        <p>Think of <strong>Network Troubleshooting</strong> like <strong>Car Repair</strong>. If your car won't start, a good mechanic doesn't immediately rip out the engine. They follow a step-by-step process. First, they check the battery (Physical Layer). Then, the starter motor (Layer 2). Then the fuel system (Layer 3). Then the spark plugs (Layer 4). Finally, the software/computer (Layer 7). They use diagnostic tools (Diagnostic Scanner) to look at the error codes (like `ping` or `traceroute`) to see what the car is telling them. Troubleshooting a network is exactly the same—a methodical elimination of possible failures, one system at a time.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Network_troubleshooting" target="_blank">Wikipedia: Troubleshooting Intro</a></li>
+            <li><a href="https://www.wireshark.org/" target="_blank">Tool: Wireshark (Industry Standard)</a></li>
+            <li><a href="https://nmap.org/" target="_blank">Tool: Nmap (Network Discovery)</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Advanced Management</a></li>
+        </ul>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
+        <h2>Series Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the 20-page Networks Masterclass! To further expand your professional networking skills, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. Cisco Networking Academy</strong><br>
+                <p><small>The industry standard for foundational and advanced networking certifications.</small></p>
+                <a href="https://www.netacad.com/" target="_blank">Visit NetAcad &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. GNS3 Academy</strong><br>
+                <p><small>Hands-on network simulation and virtual lab training.</small></p>
+                <a href="https://www.gns3.com/academy" target="_blank">View Courses &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. Juniper Networks Learning Portal</strong><br>
+                <p><small>High-quality training for enterprise and service provider networks.</small></p>
+                <a href="https://learningportal.juniper.net/" target="_blank">Read Articles &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. INE (Network Engineering Tracks)</strong><br>
+                <p><small>Deep-dive video training for CCIE and advanced network automation.</small></p>
+                <a href="https://ine.com/" target="_blank">Start Learning &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>

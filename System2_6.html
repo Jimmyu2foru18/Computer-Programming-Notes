@@ -1,0 +1,46 @@
+<article>
+    <h1>System Design II: Page 6 - DB: Indexing & Tuning</h1>
+
+    <section>
+        <h2>Optimizing for Speed</h2>
+        <p>A database can contain millions of records. Without <strong>Indexing</strong>, the database must perform a "full table scan" to find a specific row—reading every single entry from disk, which is incredibly slow. An <strong>Index</strong> is a data structure (like a B-Tree or Hash Table) that stores a small, sorted portion of the data, allowing the database to jump directly to the target record. <strong>Performance Tuning</strong> is the ongoing process of analyzing queries and creating the right indexes to ensure the system remains responsive as it grows.</p>
+    </section>
+
+    <section>
+        <h2>1. The Power of Indexes</h2>
+        <ul>
+            <li><strong>B-Trees:</strong> The standard index structure for SQL databases; allows for efficient range searches.</li>
+            <li><strong>Composite Indexes:</strong> Indexes on multiple columns (e.g., <code>(lastname, firstname)</code>). Order matters!</li>
+            <li><strong>Full-Text Indexes:</strong> Optimized for searching long text fields (e.g., article content).</li>
+        </ul>
+        <pre><code class="language-sql">
+-- Example: Creating an index
+CREATE INDEX idx_user_email ON users(email);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Database Indexing Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. B-Trees Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Query Tuning Strategies</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: DB: NoSQL Modeling</a>
+            <a href="#" data-file="System2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Integration: Gateways/Queues &rarr;</a>
+        </div>
+    </footer>
+</article>

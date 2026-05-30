@@ -1,0 +1,103 @@
+<article>
+    <h1>Java I: Page 10 - Deep Dive: Constructors & the Static Keyword</h1>
+
+    <section>
+        <h2>The Birth of an Object</h2>
+        <p>In our previous page, we learned that the <code>new</code> keyword creates an object instance from a class. But what happens at that exact moment of creation? How does the object get its initial data? This is the job of the <strong>Constructor</strong>. A constructor is a special "method" that has the same name as the class and no return type. Its sole purpose is to initialize the state of a new object. Additionally, we will explore the <code>static</code> keyword, which allows us to manage data at the <strong>Class level</strong> rather than the individual object level.</p>
+    </section>
+
+    <section>
+        <h2>1. Master of Initialization: Constructors</h2>
+        <p>If you don't write a constructor, Java provides a "Default Constructor" (with no parameters) that does nothing. However, in professional code, we usually write our own to ensure objects are valid the moment they are created.</p>
+        
+        <h3>Constructor Overloading</h3>
+        <p>Just like methods, you can have multiple constructors with different parameters. This gives you flexibility in how you create objects.</p>
+        <pre><code class="language-java">
+public class User {
+    String name;
+    int level;
+
+    // Parameterized Constructor
+    public User(String name, int level) {
+        this.name = name;
+        this.level = level;
+    }
+
+    // Overloaded Constructor (Default level to 1)
+    public User(String name) {
+        this(name, 1); // Calls the other constructor!
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Class-Level Logic: The <code>static</code> Keyword</h2>
+        <p>By default, attributes and methods belong to an <strong>Instance</strong> (each object has its own copy). When you use <code>static</code>, the member now belongs to the <strong>Class itself</strong>. There is only one copy in memory, no matter how many objects you create.</p>
+        
+        <ul>
+            <li><strong>Static Variables:</strong> Often used for counters or constants (e.g., tracking total users).</li>
+            <li><strong>Static Methods:</strong> Often used for utility functions that don't need object data (e.g., <code>Math.sqrt()</code>).</li>
+        </ul>
+        <pre><code class="language-java">
+public class MathUtils {
+    public static final double PI = 3.14159; // Global constant
+
+    public static int square(int n) {
+        return n * n;
+    }
+}
+// Called using the Class name, NOT an object:
+int result = MathUtils.square(5);
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing three separate Objects each with unique Instance data, all pointing to one shared Static memory block]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master initialization and class-level members with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Constructors (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=2ZPhxE90n9Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to properly initialize your objects.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Static Keyword in Java (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=6YvXvV9T1X4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Deep dive into static variables and static blocks.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. This vs Super in Constructors</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master the 'this()' and 'super()' constructor calls.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Birth Certificate and the Public Park</h2>
+        <p>Think of a <strong>Constructor</strong> like a <strong>Birth Certificate</strong>. When a new person is born, the hospital doesn't just create a blank human; they immediately record the name, parentage, and time of birth. Without this "initialization," the human wouldn't have a valid identity in the system. Think of <strong>Static Variables</strong> like a <strong>Public Park</strong> in a neighborhood. Every house (Object) in the neighborhood has its own private backyard (Instance variables), but there is only one park (Static variable) that everyone shares. If one person plants a tree in the park, everyone else sees it. If the neighborhood grows to 1,000 houses, there is still only one park. This is the ultimate tool for sharing data efficiently without wasting memory on 1,000 copies of the same information.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html" target="_blank">Official Java Docs: Constructors</a></li>
+            <li><a href="https://www.baeldung.com/java-static" target="_blank">Baeldung: Guide to the Static Keyword</a></li>
+            <li><a href="https://www.w3schools.com/java/java_constructors.asp" target="_blank">W3Schools: Java Constructors</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-constructor/" target="_blank">Java Tutorial: Overloading Constructors</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Classes & Objects</a>
+            <a href="#" data-file="Java2_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Java II - Encapsulation &rarr;</a>
+        </div>
+    </footer>
+</article>

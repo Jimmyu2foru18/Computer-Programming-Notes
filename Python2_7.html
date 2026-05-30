@@ -1,0 +1,98 @@
+<article>
+    <h1>Python II: Page 7 - Object-Oriented Programming (OOP): Polymorphism & ABCs</h1>
+
+    <section>
+        <h2>The Art of Many Forms</h2>
+        <p>In the previous pages, we learned how objects are built and how they inherit traits. Now, we come to one of the most powerful concepts in Object-Oriented Programming: <strong>Polymorphism</strong>. The word comes from Greek, meaning "many forms." In programming, it refers to the ability of different types of objects to be handled through a single, uniform interface. This allows you to write code that is flexible, scalable, and easy to extend without changing existing logic.</p>
+    </section>
+
+    <section>
+        <h2>Duck Typing: Python's Secret Sauce</h2>
+        <p>Most "strongly typed" languages (like Java or C++) require an object to explicitly inherit from a specific class to be considered compatible. Python, however, uses a concept called <strong>Duck Typing</strong>. The philosophy is simple: <em>"If it walks like a duck and it quacks like a duck, then it is a duck."</em></p>
+        <p>In other words, Python doesn't care about the object's <strong>type</strong>; it only cares about what the object can <strong>do</strong>. If an object has a <code>speak()</code> method, you can pass it to a function that needs to make entities speak, regardless of whether that object is a <code>Dog</code>, a <code>Cat</code>, or a <code>Robot</code>.</p>
+        <pre><code class="language-python">
+class Dog:
+    def speak(self): return "Woof!"
+class Cat:
+    def speak(self): return "Meow!"
+class Robot:
+    def speak(self): return "Beep Boop!"
+
+def animal_concert(animals):
+    for animal in animals:
+        # Polymorphic call: the correct speak() is chosen at runtime
+        print(f"{animal.__class__.__name__}: {animal.speak()}")
+
+animal_concert([Dog(), Cat(), Robot()])
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Abstract Base Classes (ABCs)</h2>
+        <p>While Duck Typing is flexible, sometimes you want to <strong>enforce</strong> that certain classes follow a specific "contract." For example, you might want to ensure that every <code>Shape</code> class <em>must</em> have an <code>area()</code> method. For this, Python provides the <code>abc</code> module to create <strong>Abstract Base Classes</strong>. You cannot create an object from an abstract class; it serves only as a template for other classes to follow.</p>
+        <pre><code class="language-python">
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        """This must be implemented by all children."""
+        pass
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+    def area(self):
+        return self.side * self.side
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing a generic 'Shape' interface and several concrete children: Circle, Square, Triangle]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the power of flexible interfaces with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Polymorphism in Python Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=P1v6B2A0F5c" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how different objects can share the same interface.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Duck Typing and EAFP in Python</strong><br>
+                <a href="https://www.youtube.com/watch?v=yYvT07v8D0s" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the core philosophy that makes Python dynamic.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Abstract Base Classes (ABCs) in Python</strong><br>
+                <a href="https://www.youtube.com/watch?v=3-E_fV_kMms" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to use the abc module to enforce code structure.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Universal Remote and the Electrical Outlet</h2>
+        <p>Think of <strong>Polymorphism</strong> like a <strong>Universal TV Remote</strong>. The remote has a "Volume Up" button. It doesn't need to know if your TV is a Sony, a Samsung, or an LG—it just sends the "Volume Up" command (the Method Call), and each TV responds in its own specific way (the Implementation). Think of <strong>Abstract Base Classes</strong> like the <strong>Standards for an Electrical Outlet</strong>. The government (the ABC) doesn't build the appliances, but it sets a rule: "If you want to be a toaster or a vacuum, you must have this specific three-prong plug." By following this "contract," any appliance can get power from any outlet, ensuring the whole system works together seamlessly.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/library/abc.html" target="_blank">Official Python Docs: abc module</a></li>
+            <li><a href="https://realpython.com/duck-typing-python/" target="_blank">Real Python: Duck Typing Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/polymorphism-in-python/" target="_blank">GeeksforGeeks: Polymorphism</a></li>
+            <li><a href="https://pythontutorial.net/python-oop/python-abstract-base-classes/" target="_blank">Python Tutorial: Abstract Base Classes Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Inheritance & MRO</a>
+            <a href="#" data-file="Python2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Iterators & Generators &rarr;</a>
+        </div>
+    </footer>
+</article>

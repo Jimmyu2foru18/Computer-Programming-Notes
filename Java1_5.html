@@ -1,0 +1,99 @@
+<article>
+    <h1>Java I: Page 5 - Control Flow: Iteration with Loops</h1>
+
+    <section>
+        <h2>The Power of Repetition</h2>
+        <p>In programming, we rarely perform an action just once. We process thousands of user records, update every pixel on a screen, or wait for a network connection to respond. Doing this manually would be impossible. <strong>Loops</strong> allow us to write a block of code once and tell the JVM to repeat it as many times as necessary. Java provides four distinct types of loops, each designed for specific iteration scenarios.</p>
+    </section>
+
+    <section>
+        <h2>1. The <code>for</code> Loop: Definite Iteration</h2>
+        <p>The traditional <code>for</code> loop is used when you know exactly how many times you want the code to run. It consists of three parts: initialization, condition, and increment/decrement.</p>
+        <pre><code class="language-java">
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteration number: " + i);
+}
+        </code></pre>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>Expert Note:</strong> The scope of the counter variable <code>i</code> is limited to the loop itself. This is a clean way to manage temporary variables without cluttering the rest of your method.
+        </div>
+    </section>
+
+    <section>
+        <h2>2. The <code>while</code> and <code>do-while</code> Loops</h2>
+        <p>These loops are used when you don't know the end point in advance. They repeat <strong>as long as</strong> a condition remains true.</p>
+        
+        <h3>The <code>while</code> Loop</h3>
+        <p>Checks the condition <em>before</em> executing the block. If the condition is false initially, the loop never runs.</p>
+        
+        <h3>The <code>do-while</code> Loop</h3>
+        <p>Executes the block <em>first</em>, then checks the condition. This guarantees the code will run <strong>at least once</strong>.</p>
+        <pre><code class="language-java">
+int count = 0;
+do {
+    System.out.println("This runs once no matter what!");
+    count++;
+} while (count < 0); // Condition is false, but it already ran once.
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Loop Control: <code>break</code> and <code>continue</code></h2>
+        <p>Sometimes you need to change the flow of a loop from the inside.</p>
+        <ul>
+            <li><strong>break:</strong> Immediately exits the loop entirely.</li>
+            <li><strong>continue:</strong> Skips the <em>rest</em> of the current iteration and jumps straight to the next check.</li>
+        </ul>
+        <pre><code class="language-java">
+for (int i = 0; i < 10; i++) {
+    if (i == 3) continue; // Skip 3
+    if (i == 7) break;    // Stop at 7
+    System.out.println(i);
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java iteration and loop control with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java For Loops (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Sba7V_mG83k" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Clear explanation of definite iteration and counters.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. While and Do-While Loops in Java</strong><br>
+                <a href="https://www.youtube.com/watch?v=D-z_N7S8_z8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the differences between pre-check and post-check loops.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Break and Continue in Java Loops</strong><br>
+                <a href="https://www.youtube.com/watch?v=Y3p8O-eXN2I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master the control keywords for fine-tuned iteration.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Assembly Line and the Loading Screen</h2>
+        <p>Think of a <strong>For Loop</strong> like an <strong>Industrial Assembly Line</strong>. You have 500 cars on a conveyor belt. The robot arm knows it has to perform the same task exactly 500 times before the shift is over. Think of a <strong>While Loop</strong> like a <strong>Loading Screen</strong> in a modern video game. The screen keeps spinning <code>while (dataLoading == true)</code>. The computer doesn't know if your internet is fast or slow, so it just keeps looping until the data is ready. Finally, think of a <strong>Do-While Loop</strong> like <strong>Entering a Password</strong>. You <em>must</em> enter the password at least once before the computer can check if it's correct. You "do" the input, then "while" it's wrong, you repeat.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html" target="_blank">Official Java Docs: The for Statement</a></li>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html" target="_blank">Official Java Docs: while and do-while</a></li>
+            <li><a href="https://www.baeldung.com/java-loops" target="_blank">Baeldung: Guide to Java Loops</a></li>
+            <li><a href="https://www.w3schools.com/java/java_while_loop.asp" target="_blank">W3Schools: Java While Loop</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Control Flow: If & Switch</a>
+            <a href="#" data-file="Java1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Arrays & Matrices &rarr;</a>
+        </div>
+    </footer>
+</article>

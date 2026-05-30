@@ -1,0 +1,84 @@
+<article>
+    <h1>Web Technologies I: Page 6 - JavaScript: Basics & Variables</h1>
+
+    <section>
+        <h2>The Brain of the Web</h2>
+        <p>HTML is the skeleton, CSS is the makeup, but <strong>JavaScript (JS)</strong> is the <em>brain</em>. JavaScript is the programming language of the web. It allows you to create dynamic, interactive content, respond to user actions (like clicking buttons or typing in forms), fetch data from servers, and update the UI without reloading the page. Learning JavaScript is the turning point where you stop just "designing" web pages and start building "web applications."</p>
+    </section>
+
+    <section>
+        <h2>1. Variables: Storing Data</h2>
+        <p>To do anything useful, a program must store information. We do this using <strong>Variables</strong>. In modern JavaScript (ES6+), you should almost always use <code>let</code> or <code>const</code>.</p>
+        <ul>
+            <li><code>let</code>: Use this when the value of the variable <strong>will change</strong> over time.</li>
+            <li><code>const</code>: Use this when the value <strong>should never be reassigned</strong>. (This is the default—start here!).</li>
+            <li><s><code>var</code></s>: Avoid using this. It has outdated scoping rules that cause bugs.</li>
+        </ul>
+        <pre><code class="language-javascript">
+const API_KEY = "12345"; // Never changes
+let score = 0;           // Will change
+score = 10;              // Allowed
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Core Data Types</h2>
+        <p>JavaScript is dynamically typed, meaning a variable can hold any type of data, and that type can change.</p>
+        <ul>
+            <li><strong>String:</strong> Text (e.g., <code>"Hello World"</code>).</li>
+            <li><strong>Number:</strong> Integers or floats (e.g., <code>42</code>, <code>3.14</code>).</li>
+            <li><strong>Boolean:</strong> True or False (<code>true</code>, <code>false</code>).</li>
+            <li><strong>Array:</strong> Ordered list (e.g., <code>[1, 2, "three"]</code>).</li>
+            <li><strong>Object:</strong> Key-value pairs (e.g., <code>{name: "John", age: 30}</code>).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual table: String, Number, Boolean, Array, Object]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master JavaScript basics with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. JavaScript Basics for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=yfoY53QXEnI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The most essential concepts in 10 minutes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Let vs Const vs Var</strong><br>
+                <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand modern variable scoping.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. JavaScript Data Types</strong><br>
+                <a href="https://www.youtube.com/watch?v=5fb2aPlgoys" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive look at storing data in JS.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Labelled Boxes</h2>
+        <p>Think of <strong>Variables</strong> like <strong>Cardboard Boxes in a Storage Unit</strong>. Each box has a <strong>Label</strong> (the variable name) that tells you what's inside. When you need to use the data later, you just find the box with the correct label. <code>const</code> is a box that you seal with superglue—once you put something in, you can't take it out or replace it. <code>let</code> is a box with a removable lid—you can take out what's inside and replace it with something else whenever you need to. Data Types are just the "type" of thing you put in the box (a "String" item vs. a "Number" item), and JavaScript doesn't care if you put a number in a box that used to hold a string!</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps" target="_blank">MDN: JS First Steps</a></li>
+            <li><a href="https://javascript.info/variables" target="_blank">JavaScript.info: Variables</a></li>
+            <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools: JavaScript Tutorial</a></li>
+            <li><a href="https://eloquentjavascript.net/" target="_blank">Book: Eloquent JavaScript (Advanced)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Responsive Design</a>
+            <a href="#" data-file="Web1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: JS: DOM Manipulation &rarr;</a>
+        </div>
+    </footer>
+</article>

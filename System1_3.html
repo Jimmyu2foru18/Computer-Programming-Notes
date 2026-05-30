@@ -1,0 +1,78 @@
+<article>
+    <h1>System Design I: Page 3 - Frontend: Web Basics</h1>
+
+    <section>
+        <h2>How the Browser Renders Content</h2>
+        <p>A website is just a collection of files downloaded from a server. But how does that text turn into a beautiful, interactive page? Understanding the <strong>Critical Rendering Path</strong> is the key to frontend performance. The browser must parse the HTML, download and parse CSS, execute JavaScript, build the DOM tree, build the CSSOM (CSS Object Model) tree, combine them into a Render Tree, and finally perform layout and paint. Any delay in this process directly impacts perceived load time.</p>
+    </section>
+
+    <section>
+        <h2>1. The Critical Rendering Path</h2>
+        <ul>
+            <li><strong>DOM Construction:</strong> Browser parses HTML.</li>
+            <li><strong>CSSOM Construction:</strong> Browser parses CSS.</li>
+            <li><strong>Render Tree:</strong> DOM + CSSOM = What should be visible on screen.</li>
+            <li><strong>Layout:</strong> Calculating the exact position and size of every element.</li>
+            <li><strong>Paint:</strong> Pixels are drawn on the screen.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: HTML/CSS/JS &rarr; DOM/CSSOM &rarr; Render Tree &rarr; Layout &rarr; Paint]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Optimization Basics</h2>
+        <p>To make pages load faster, you must minimize the time spent in the rendering path:</p>
+        <ul>
+            <li>Load critical CSS in the <code>&lt;head&gt;</code>.</li>
+            <li>Defer non-critical JavaScript.</li>
+            <li>Optimize images (format and size).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master browser rendering with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Critical Rendering Path</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How a browser turns code into pixels.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Optimizing Web Performance</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Techniques to make pages render faster.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Browser DevTools for Performance</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to profile page load times.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Construction Site</h2>
+        <p>Think of <strong>Browser Rendering</strong> like a <strong>Construction Site</strong>. The <strong>HTML</strong> is the blueprints for the house structure, the <strong>CSS</strong> is the list of interior design choices (paint colors, tile types), and the <strong>JavaScript</strong> is the team of workers adding smart-home features. The <strong>Critical Rendering Path</strong> is the schedule: if the blueprints (HTML) are missing or the interior designers (CSS) are late, the construction (Rendering) stops. You can't paint the walls before they are built, and you can't install the smart features before the electricity is wired.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance" target="_blank">MDN: Web Performance</a></li>
+            <li><a href="https://web.dev/critical-rendering-path/" target="_blank">web.dev: Critical Rendering Path</a></li>
+            <li><a href="https://developers.google.com/web/fundamentals/performance" target="_blank">Google: Web Performance Basics</a></li>
+            <li><a href="https://www.w3schools.com/js/js_performance.asp" target="_blank">W3Schools: JS Performance</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Requirements & Capacity</a>
+            <a href="#" data-file="System1_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Frontend: Components &rarr;</a>
+        </div>
+    </footer>
+</article>

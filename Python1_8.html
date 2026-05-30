@@ -1,0 +1,95 @@
+<article>
+    <h1>Python I: Page 8 - Control Flow: Conditionals & Logic</h1>
+
+    <section>
+        <h2>The Brain of Your Program</h2>
+        <p>In our previous pages, we learned how to store and organize data. Now, we need to learn how to make that data <strong>useful</strong>. Control flow is what allows a program to make decisions, execute different blocks of code based on conditions, and respond dynamically to user input. The most fundamental tool for this is the <strong>Conditional Statement</strong>.</p>
+    </section>
+
+    <section>
+        <h2>Decision Branches: <code>if</code>, <code>elif</code>, and <code>else</code></h2>
+        <p>Python uses a clean, indentation-based syntax to define logic branches. The <code>if</code> statement checks a condition; if it is true, the code inside the block runs. If not, Python moves to the <code>elif</code> (else if) blocks, and finally to the <code>else</code> block if no other conditions were met.</p>
+        <pre><code class="language-python">
+score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+
+print(f"Your grade is: {grade}")
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Flowchart diagram showing a decision tree for a grading system]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>The Ternary Operator: One-Line Logic</h2>
+        <p>Sometimes, an entire <code>if-else</code> block is overkill for a simple assignment. Python provides a "ternary operator" (or conditional expression) that allows you to make a decision in a single line. It follows the pattern: <code>value_if_true if condition else value_if_false</code>.</p>
+        <pre><code class="language-python">
+status = "Pass" if score >= 60 else "Fail"
+print(status)  # Output: Pass
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Logical Operators and Precedence</h2>
+        <p>You can combine multiple conditions using <code>and</code>, <code>or</code>, and <code>not</code>. However, you must be careful with <strong>Precedence</strong>—the order in which Python evaluates these operators. <code>not</code> is evaluated first, then <code>and</code>, and finally <code>or</code>. When in doubt, use parentheses <code>()</code> to make your logic explicit.</p>
+        <pre><code class="language-python">
+# Complex logic
+if (is_weekend or is_holiday) and not is_working:
+    print("Time to relax!")
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master conditional logic and the ternary operator with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Conditionals and Booleans (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=DZwmZ8271G8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into If/Else and Comparison operators.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The Python Ternary Operator</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to write concise, one-line conditional assignments.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Logical Operator Precedence</strong><br>
+                <a href="https://www.youtube.com/watch?v=pDInX8Y20Yg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Avoid logical bugs by understanding how Python evaluates complex checks.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Smart Thermostat and the Security Gate</h2>
+        <p>Think of <strong>Conditionals</strong> like a <strong>Smart Thermostat</strong>. It's constantly checking: <code>if</code> the temperature is below 68, turn on the heat. <code>elif</code> it's above 75, turn on the AC. <code>else</code>, do nothing. It makes real-time decisions based on sensor data. Think of the <strong>Ternary Operator</strong> like a <strong>Security Gate</strong> at a parking garage. There's no complex decision tree needed—it's a binary choice: <code>status = "Open" if ticket_valid else "Closed"</code>. Finally, <strong>Logical Precedence</strong> is like a <strong>Contract</strong>: the fine print (parentheses) and the specific order of clauses (and/or) determine whether the deal is valid or not. Misunderstanding one "and" could change the entire meaning of the agreement.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/controlflow.html#if-statements" target="_blank">Official Python Docs: If Statements</a></li>
+            <li><a href="https://realpython.com/python-conditional-statements/" target="_blank">Real Python: Conditional Statements in Python</a></li>
+            <li><a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank">W3Schools: Python Conditions</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-if/" target="_blank">Python Tutorial: Comprehensive Conditionals Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Dictionaries</a>
+            <a href="#" data-file="Python1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Loops & Iteration &rarr;</a>
+        </div>
+    </footer>
+</article>

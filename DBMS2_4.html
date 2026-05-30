@@ -1,0 +1,93 @@
+<article>
+    <h1>DBMS II: Page 4 - Beyond SQL: NoSQL Fundamentals - Document & Key-Value Stores</h1>
+
+    <section>
+        <h2>The Rise of Unstructured Data</h2>
+        <p>For decades, relational databases (SQL) were the only choice for data management. However, as the internet grew, engineers faced new challenges: massive scale (billions of users), high-velocity data (social media feeds), and semi-structured data (JSON). <strong>NoSQL (Not Only SQL)</strong> databases were designed to handle these modern requirements by sacrificing some ACID consistency for incredible performance and flexibility. NoSQL is not a single technology, but a category of diverse database models. This page explores the two most common types: <strong>Document Stores</strong> and <strong>Key-Value Stores</strong>.</p>
+    </section>
+
+    <section>
+        <h2>1. Document Databases: Schema-less Flexibility</h2>
+        <p>A Document Database stores data in documents, typically using formats like <strong>JSON</strong> or <strong>BSON</strong>. Unlike SQL, there is no fixed schema. You can add a new "field" to one record without changing every other record in the database. This is perfect for content management, product catalogs, and user profiles where the data structure is constantly evolving.</p>
+        
+        <h3>Example: MongoDB</h3>
+        <pre><code class="language-javascript">
+// MongoDB: No tables, just 'Collections'
+db.users.insertOne({
+    name: "Alice",
+    skills: ["Java", "SQL"], // Arrays are supported!
+    profile: { city: "New York", zip: 10001 } // Nested objects!
+});
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Key-Value Stores: Extreme Speed</h2>
+        <p>Key-Value Stores are the simplest and fastest form of NoSQL. Data is stored as a collection of unique "Keys" pointing to a "Value." They are typically <strong>In-Memory</strong>, meaning the data lives in the computer's RAM rather than on the hard drive. This makes them ideal for caching, session management, and real-time leaderboards.</p>
+        
+        <h3>Example: Redis</h3>
+        <pre><code class="language-bash">
+# Redis: Simple and lightning fast
+SET session:123 "user_logged_in"
+GET session:123
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Rigid Grid' (SQL) vs. a 'Collection of Loose Envelopes' (Document NoSQL)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Choosing NoSQL over SQL</h2>
+        <ul>
+            <li><strong>Scaling:</strong> NoSQL is designed for <strong>Horizontal Scaling</strong> (adding more cheap servers), whereas SQL is usually limited to <strong>Vertical Scaling</strong> (buying a more expensive server).</li>
+            <li><strong>Agility:</strong> If your data model changes every week, NoSQL allows you to move faster without complex migrations.</li>
+            <li><strong>Simplicity:</strong> If you just need a fast cache, a Key-Value store is much lighter than a full SQL engine.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Explore the non-relational world with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. NoSQL Databases in 10 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=0buKQHokLK8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best introduction to the 4 main types of NoSQL.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. MongoDB Tutorial for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=-56x56UppDU" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to work with documents instead of rows.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Redis in 100 Seconds</strong><br>
+                <a href="https://www.youtube.com/watch?v=G1rOthp6Sks" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the world's most popular in-memory database.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Filing Cabinet and the Bulletin Board</h2>
+        <p>Think of an <strong>SQL Database</strong> like a <strong>Rigid Filing Cabinet</strong>. Every drawer is labeled, and every folder inside must have the exact same tabs. It's very organized, but if you want to add a "Middle Name" tab to one folder, you have to do it for all 10,000 folders in the cabinet. Think of a <strong>Document Database (NoSQL)</strong> like a <strong>Bulletin Board</strong>. You just pin pieces of paper to it. One paper can be a long letter, another can be a tiny sticky note, and another can be a photo. They are all "Documents" in the same place (Collection), but they don't have to look the same. Finally, think of a <strong>Key-Value Store</strong> like a <strong>Coat Check</strong>. You give them your coat (the Value) and they give you a number (the Key). To get your coat back, you don't search; you just show the number, and the worker walks straight to your coat in seconds. It's built for speed, not for complex searching or relationships.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.mongodb.com/nosql-explained" target="_blank">MongoDB: What is NoSQL?</a></li>
+            <li><a href="https://redis.io/docs/about/" target="_blank">Redis Official Documentation</a></li>
+            <li><a href="https://www.baeldung.com/cs/nosql-vs-sql" target="_blank">Baeldung: NoSQL vs SQL Detailed Comparison</a></li>
+            <li><a href="https://www.geeksforgeeks.org/introduction-to-nosql/" target="_blank">GeeksforGeeks: NoSQL Overview</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Advanced SQL & Procs</a>
+            <a href="#" data-file="DBMS2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: NoSQL: Column & Graph &rarr;</a>
+        </div>
+    </footer>
+</article>

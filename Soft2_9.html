@@ -1,0 +1,85 @@
+<article>
+    <h1>Software Engineering II: Page 9 - Enterprise Standards: Security & Code Quality</h1>
+
+    <section>
+        <h2>The Fortress Mindset</h2>
+        <p>In modern software engineering, security is not a "feature" you add at the end; it must be built into the foundation of your code. Every line of code you write is a potential doorway for an attacker. <strong>Defensive Programming</strong> is the practice of writing code under the assumption that "things will go wrong" and "people will try to break it." Quality software is not just bug-free—it is secure, resilient, and adheres to strict professional standards that protect both the user's data and the company's integrity.</p>
+    </section>
+
+    <section>
+        <h2>1. Common Security Vulnerabilities</h2>
+        <p>To defend a system, you must first understand how it is attacked. The <strong>OWASP Top 10</strong> is the standard awareness document for developers about the most critical web application security risks.</p>
+        
+        <h3>SQL Injection (SQLi)</h3>
+        <p>This occurs when an attacker inserts malicious SQL code into an input field, allowing them to manipulate your database. <strong>Prevention:</strong> Never use string concatenation for queries. Always use <strong>Prepared Statements</strong> or an <strong>ORM</strong>.</p>
+        <pre><code class="language-java">
+// BAD: Vulnerable to SQLi
+String query = "SELECT * FROM users WHERE email = '" + userInput + "'";
+
+// GOOD: Secure parameterized query
+PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE email = ?");
+ps.setString(1, userInput);
+        </code></pre>
+        
+        <h3>Cross-Site Scripting (XSS)</h3>
+        <p>Attackers inject malicious scripts into web pages viewed by other users. <strong>Prevention:</strong> Always sanitize and escape user-provided data before displaying it on a page.</p>
+    </section>
+
+    <section>
+        <h2>2. Principles of Secure Design</h2>
+        <ul>
+            <li><strong>Least Privilege:</strong> Every module, process, or user should only have the minimum permissions necessary to do its job. A "Web Scraper" doesn't need "Delete" permissions on your main database.</li>
+            <li><strong>Defense in Depth:</strong> Layer your security. Don't just rely on a firewall; use encryption, input validation, and secure authentication at every level.</li>
+            <li><strong>Fail Securely:</strong> If an error occurs (e.g., an exception), the system should default to its most secure state (e.g., denying access) rather than leaving a "backdoor" open.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing 'Defense in Depth'—multiple layers of walls (Firewall, Auth, Encryption, Validation) protecting the 'Data' core]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the essentials of software security with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL Injection Explained in 4 Minutes</strong><br>
+                <a href="https://www.youtube.com/watch?v=_jKylhJtLKE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the most dangerous vulnerability and how to fix it.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The OWASP Top 10 for Developers</strong><br>
+                <a href="https://www.youtube.com/watch?v=R96-v7Yg-M0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A tour of the most common web security threats today.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Hashing Passwords Safely (BCrypt)</strong><br>
+                <a href="https://www.youtube.com/watch?v=8ZtInClXe1Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why you should never store passwords in plain text.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Bank Vault and the ID Check</h2>
+        <p>Think of <strong>Input Validation</strong> like a <strong>Security Guard at a Bank</strong>. If you try to hand the guard a grenade instead of a withdrawal slip, they stop you immediately. You don't let the "Grenade" (the Malicious Input) into the building. Think of <strong>Parameterized Queries</strong> like a <strong>Pre-Formatted Form</strong>. You can only write your name in the designated "Name" box. You can't write a command like "Give me everyone's money" in that box, because the system is only looking for characters that make up a name. Finally, think of <strong>Least Privilege</strong> like a <strong>Janitor's Keyring</strong>. The janitor has keys to the closets and the offices, but they don't have the keys to the main cash vault. They have exactly what they need to do their job, and nothing more, which limits the damage if their keys are stolen.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">Official OWASP Top 10 Documentation</a></li>
+            <li><a href="https://www.cisa.gov/news-events/news/defensive-programming-concepts" target="_blank">CISA: Defensive Programming Concepts</a></li>
+            <li><a href="https://www.baeldung.com/java-sql-injection" target="_blank">Baeldung: Preventing SQL Injection in Java</a></li>
+            <li><a href="https://cheatsheetseries.owasp.org/" target="_blank">OWASP Cheat Sheet Series (Highly Recommended)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: QA & Testing Pyramid</a>
+            <a href="#" data-file="Soft2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Professional Growth &rarr;</a>
+        </div>
+    </footer>
+</article>

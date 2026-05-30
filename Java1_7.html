@@ -1,0 +1,99 @@
+<article>
+    <h1>Java I: Page 7 - Text Manipulation: The String Class & StringBuilder</h1>
+
+    <section>
+        <h2>Strings: More Than Just Text</h2>
+        <p>In almost every Java application, you will spend a significant amount of time working with text. Whether it's processing user names, formatting data for a report, or building a SQL query, <strong>Strings</strong> are ubiquitous. In Java, unlike the numeric types we saw earlier, a <code>String</code> is not a primitive; it is a <strong>Class</strong> (an object). This means every string comes with a massive toolkit of built-in methods to help you search, split, and transform text.</p>
+    </section>
+
+    <section>
+        <h2>The Core Rule: Immutability</h2>
+        <p>One of the most important concepts to master in Java is that Strings are <strong>immutable</strong>. Once a String object is created in memory, its value can never be changed. When you "modify" a string (e.g., <code>str = str + "!"</code>), Java isn't changing the original object—it's creating a brand-new string in a special area of memory called the <strong>String Pool</strong> and pointing your variable label to the new location.</p>
+        <pre><code class="language-java">
+String s = "Hello";
+s = s.concat(" World"); // "Hello" is abandoned, a NEW "Hello World" is created
+        </code></pre>
+        <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin: 20px 0;">
+            <strong>Memory Alert:</strong> Because strings are immutable, concatenating strings in a loop (e.g., adding 1,000 items to a string) is extremely slow and wasteful. It creates 1,000 separate objects in memory!
+        </div>
+    </section>
+
+    <section>
+        <h2>Essential String Methods</h2>
+        <p>The <code>String</code> class provides dozens of methods. Here are the "Power Users" you'll use every day:</p>
+        <ul>
+            <li><code>length()</code>: Returns the number of characters.</li>
+            <li><code>equals()</code>: Used to compare the <strong>content</strong> of strings. (Never use <code>==</code> for strings!)</li>
+            <li><code>substring(start, end)</code>: Extracts a portion of the text.</li>
+            <li><code>trim()</code>: Removes leading and trailing whitespace.</li>
+            <li><code>split(",")</code>: Breaks a string into an array based on a delimiter.</li>
+        </ul>
+        <pre><code class="language-java">
+String data = " Apple,Banana,Orange ";
+String cleaned = data.trim();
+String[] fruits = cleaned.split(",");
+System.out.println(fruits[0].equals("Apple")); // true
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Efficient Building: <code>StringBuilder</code></h2>
+        <p>When you need to perform heavy text manipulation (like building a large HTML document or processing a file line-by-line), you should use <strong>StringBuilder</strong>. Unlike String, StringBuilder is <strong>mutable</strong>. It allows you to modify the content without creating new objects every time.</p>
+        <pre><code class="language-java">
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i < 100; i++) {
+    sb.append("Item ").append(i).append("\n");
+}
+String finalResult = sb.toString();
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing String Pool (multiple immutable objects) vs StringBuilder (one expanding object)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java text handling with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Strings Explained (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=kR9-A_CstL4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the String class and common methods.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Why Strings are Immutable (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Bj99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The engineering reason behind Java's string design.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. String vs StringBuilder vs StringBuffer</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Choose the right tool for performance and efficiency.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Book and the Chalkboard</h2>
+        <p>Think of a <strong>String</strong> like a <strong>Printed Book</strong>. Once the book is printed, the ink is dry (Immutability). If you want to change one sentence, you have to print a completely new edition of the book. The <strong>String Pool</strong> is like a <strong>Library</strong>: if 1,000 people want to read "The Great Gatsby," the library doesn't buy 1,000 copies; it just points all 1,000 people to the same shelf (Memory Efficiency). Think of <strong>StringBuilder</strong> like a <strong>Chalkboard</strong>. You can write something, erase it, and add to it as many times as you want without throwing away the board. You only take a photo of the board (<code>toString()</code>) when you're completely finished with your work.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" target="_blank">Official Java Docs: String Class</a></li>
+            <li><a href="https://www.baeldung.com/java-string-immutable" target="_blank">Baeldung: Guide to String Immutability</a></li>
+            <li><a href="https://www.w3schools.com/java/java_strings.asp" target="_blank">W3Schools: Java Strings</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-string-builder/" target="_blank">Java Tutorial: StringBuilder Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Arrays & Matrices</a>
+            <a href="#" data-file="Java1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Methods & Overloading &rarr;</a>
+        </div>
+    </footer>
+</article>

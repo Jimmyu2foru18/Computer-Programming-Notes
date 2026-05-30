@@ -1,0 +1,50 @@
+<article>
+    <h1>System Design II: Page 5 - DB: NoSQL Modeling</h1>
+
+    <section>
+        <h2>Flexibility at Scale</h2>
+        <p><strong>NoSQL</strong> databases (like MongoDB, Cassandra, DynamoDB) offer an alternative to the rigid structure of SQL. They are designed for <strong>flexibility, horizontal scalability, and high performance</strong>. By storing data as documents, key-value pairs, or graphs, NoSQL databases allow your schema to evolve rapidly as your application changes, making them the preferred choice for massive, distributed, and highly dynamic datasets.</p>
+    </section>
+
+    <section>
+        <h2>1. Why NoSQL?</h2>
+        <ul>
+            <li><strong>Schema-less:</strong> Documents can have different structures. You aren't stuck with fixed columns.</li>
+            <li><strong>Horizontal Scaling:</strong> Easily scale across hundreds of servers (sharding) without the complexity of SQL partitioning.</li>
+            <li><strong>Performance:</strong> Optimized for specific access patterns (e.g., massive key-value lookups).</li>
+        </ul>
+        <pre><code class="language-javascript">
+// Example: MongoDB Document
+{
+  "_id": 1,
+  "name": "User Name",
+  "preferences": { "theme": "dark" } // Embedded data
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL vs NoSQL Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. MongoDB Document Modeling</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Horizontal Scaling (Sharding)</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: DB: SQL Deep Dive</a>
+            <a href="#" data-file="System2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: DB: Indexing & Tuning &rarr;</a>
+        </div>
+    </footer>
+</article>

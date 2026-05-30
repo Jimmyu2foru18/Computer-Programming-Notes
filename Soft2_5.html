@@ -1,0 +1,80 @@
+<article>
+    <h1>Software Engineering II: Page 5 - Modern Operations: DevOps & CI/CD</h1>
+
+    <section>
+        <h2>The Velocity of Software</h2>
+        <p>In the past, developers would write code for months and then "throw it over the wall" to the Operations team, who were responsible for deploying and maintaining it. This created friction, as developers wanted new features while Operations wanted stability. <strong>DevOps</strong> is a cultural and professional movement that breaks down these silos. It combines Development (Dev) and IT Operations (Ops) to shorten the systems development life cycle and provide continuous delivery with high software quality. <strong>CI/CD</strong> is the technical engine that makes DevOps possible.</p>
+    </section>
+
+    <section>
+        <h2>1. Continuous Integration (CI)</h2>
+        <p>Continuous Integration is the practice of automating the integration of code changes from multiple contributors into a single software project. Whenever a developer "pushes" code to a shared repository (like GitHub), an automated system immediately builds the project and runs a suite of <strong>Unit Tests</strong>. If the tests fail, the developer is notified instantly, preventing "broken" code from ever reaching the main branch.</p>
+    </section>
+
+    <section>
+        <h2>2. Continuous Delivery & Deployment (CD)</h2>
+        <p>CD picks up where CI leaves off. It automates the delivery of integrated code to environments like testing or staging. <strong>Continuous Deployment</strong> goes one step further: every change that passes all stages of your production pipeline is released to your customers <strong>automatically</strong>, without human intervention. This allows companies like Netflix or Amazon to deploy code thousands of times per day.</p>
+        
+        <h3>The Pipeline Stages:</h3>
+        <ol>
+            <li><strong>Source:</strong> Code is committed to the repository.</li>
+            <li><strong>Build:</strong> The application is compiled and dependencies are gathered.</li>
+            <li><strong>Test:</strong> Automated tests (Unit, Integration, Security) are run.</li>
+            <li><strong>Deploy:</strong> The code is moved to a server (Staging or Production).</li>
+        </ol>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of the DevOps 'Infinity Loop' showing Plan, Code, Build, Test, Release, Deploy, Operate, and Monitor]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Infrastructure as Code (IaC)</h2>
+        <p>In a DevOps world, even the servers themselves are treated like software. Instead of manually clicking buttons in a cloud console, engineers write code (using tools like <strong>Terraform</strong> or <strong>Ansible</strong>) that describes the infrastructure. This makes server setup repeatable, version-controlled, and immune to human error.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the modern way of shipping software with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. What is DevOps? (A Simple Explanation)</strong><br>
+                <a href="https://www.youtube.com/watch?v=_GPE1MzPUn4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the history and philosophy of the DevOps movement.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. CI/CD Pipeline Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=scEDHsr3APg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual guide to automated building, testing, and shipping.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. GitHub Actions for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=mFFXuXjVgkU" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to set up your first automation pipeline.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Assembly Line and the Quality Inspector</h2>
+        <p>Think of <strong>CI/CD</strong> like a <strong>Modern Car Assembly Line</strong>. In the old days, you'd build a whole car and then check if it worked. In a modern factory, every single part is scanned by a laser (CI/Automated Testing) the second it is installed. If a bolt is loose, the line stops immediately. Once the car is finished, it is automatically driven onto a transport truck (CD/Deployment). Think of <strong>Infrastructure as Code</strong> like a <strong>3D Printer</strong>. Instead of manually carving a piece of wood, you write a digital file (the Code) that tells the printer exactly what to make. If you want 100 identical pieces, you just hit "Print" 100 times. You don't have to worry about one being slightly different than the other because the "Instructions" are perfectly preserved in the code.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://aws.amazon.com/devops/what-is-devops/" target="_blank">AWS: What is DevOps?</a></li>
+            <li><a href="https://www.atlassian.com/continuous-delivery/ci-vs-ci-vs-cd" target="_blank">Atlassian: CI vs. CD vs. CD</a></li>
+            <li><a href="https://www.redhat.com/en/topics/devops/what-is-ci-cd" target="_blank">RedHat: The Guide to CI/CD</a></li>
+            <li><a href="https://www.terraform.io/intro" target="_blank">Terraform: Intro to Infrastructure as Code</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Agile & Scrum</a>
+            <a href="#" data-file="Soft2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Socket Programming &rarr;</a>
+        </div>
+    </footer>
+</article>

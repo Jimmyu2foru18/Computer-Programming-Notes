@@ -1,0 +1,105 @@
+<article>
+    <h1>Python II: Page 4 - Object-Oriented Programming (OOP): Classes & Instances</h1>
+
+    <section>
+        <h2>The Blueprint for Reality</h2>
+        <p>In the first half of this course, we focused on "procedural" programming—writing functions that perform tasks. However, as software becomes more complex, it is often better to organize our code around <strong>Objects</strong>. Object-Oriented Programming (OOP) allows us to group data and the functions that work on that data into a single, cohesive unit. This approach makes code more intuitive, modular, and easier to reuse across different parts of a project.</p>
+    </section>
+
+    <section>
+        <h2>Defining a Class: The Blueprint</h2>
+        <p>A <strong>Class</strong> is a template or blueprint. It defines what attributes (data) and methods (behavior) an object will have. For example, a <code>Dog</code> class defines that every dog has a name, a breed, and the ability to bark.</p>
+        
+        <h3>The <code>__init__</code> Method and <code>self</code></h3>
+        <p>The <code>__init__</code> method is the <strong>Constructor</strong>. it runs automatically when you create a new object. The <code>self</code> parameter represents the specific instance of the class and allows you to assign data to that unique object.</p>
+        <pre><code class="language-python">
+class Dog:
+    # Class Variable (Shared by all dogs)
+    species = "Canis lupus"
+
+    def __init__(self, name, breed, age):
+        # Instance Variables (Unique to each dog)
+        self.name = name
+        self.breed = breed
+        self.age = age
+        self.tricks = []
+
+    def bark(self):
+        return f"{self.name} says: Woof!"
+
+    def learn_trick(self, trick):
+        self.tricks.append(trick)
+        return f"{self.name} learned {trick}!"
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Class Variables vs. Instance Variables</h2>
+        <p>Understanding the difference between these two is vital for managing state in your programs.</p>
+        <ul>
+            <li><strong>Instance Variables:</strong> Data that is unique to each object (e.g., each dog has a different name). These are defined inside <code>__init__</code> using <code>self</code>.</li>
+            <li><strong>Class Variables:</strong> Data that is shared by <em>all</em> instances of a class (e.g., all dogs belong to the same species). These are defined directly inside the class but outside any methods.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing one Class blueprint and three separate Object instances with unique data]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Custom Representation: The <code>__str__</code> Method</h2>
+        <p>By default, printing an object looks like <code>&lt;__main__.Dog object at 0x...&gt;</code>. You can make your objects "printable" and human-readable by defining the <code>__str__</code> dunder method.</p>
+        <pre><code class="language-python">
+    def __str__(self):
+        return f"{self.name} is a {self.age}-year-old {self.breed}"
+
+my_dog = Dog("Buddy", "Golden Retriever", 3)
+print(my_dog)  # Output: Buddy is a 3-year-old Golden Retriever
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the foundations of OOP with these three deep-dive videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python OOP Tutorial 1: Classes & Instances</strong><br>
+                <a href="https://www.youtube.com/watch?v=ZDa-Z5JzLYM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to create your first class and understand 'self'.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Class vs Instance Variables</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ-VvGyQxho" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear look at how data is shared or isolated in classes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The __init__ Method (Socratica)</strong><br>
+                <a href="https://www.youtube.com/watch?v=M1BAlDufqao" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Deep dive into object initialization and constructors.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Cookie Cutter and the Passport</h2>
+        <p>Think of a <strong>Class</strong> like a <strong>Cookie Cutter</strong>. The cutter itself defines the shape (Attributes and Methods) but isn't a cookie. Every <strong>Instance</strong> you bake from that cutter is an <strong>Object</strong>—they all have the same shape, but you can decorate each one differently (Instance Variables). Think of the <strong>Constructor (<code>__init__</code>)</strong> as the <strong>Passport Office</strong>. When a new person (Object) is born into the system, the office gives them a name, birthdate, and nationality (Attributes). Finally, think of <strong><code>self</code></strong> like a person's <strong>Identity</strong>: if I tell 100 people "Stand up," they all look at themselves (<code>self</code>) to see if they are the one being spoken to and then perform the action (the Method).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/classes.html" target="_blank">Official Python Docs: Classes</a></li>
+            <li><a href="https://realpython.com/python3-object-oriented-programming/" target="_blank">Real Python: Intro to OOP</a></li>
+            <li><a href="https://www.w3schools.com/python/python_classes.asp" target="_blank">W3Schools: Python Classes/Objects</a></li>
+            <li><a href="https://pythontutorial.net/python-oop/python-class-variables/" target="_blank">Python Tutorial: Class vs Instance Variables</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Ecosystem & Dependency</a>
+            <a href="#" data-file="Python2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Encapsulation &rarr;</a>
+        </div>
+    </footer>
+</article>

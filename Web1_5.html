@@ -1,0 +1,80 @@
+<article>
+    <h1>Web Technologies I: Page 5 - Responsive Design</h1>
+
+    <section>
+        <h2>Designing for Every Screen</h2>
+        <p>In the past, websites were designed for a single screen size—the desktop monitor. Today, users access the web from thousands of different devices with wildly varying screen sizes: smartphones, tablets, laptops, massive desktop monitors, and even smartwatches. <strong>Responsive Web Design (RWD)</strong> is the approach where a website automatically adjusts its layout and content to provide an optimal viewing experience on any device. It is no longer an "extra feature"—it is an absolute requirement for any professional web project.</p>
+    </section>
+
+    <section>
+        <h2>1. The Toolkit of Responsiveness</h2>
+        <p>Responsive design relies on three core techniques working in harmony:</p>
+        <ul>
+            <li><strong>Media Queries:</strong> CSS rules that apply specific styles only when the browser meets certain criteria (e.g., screen width). This is how we define "breakpoints."</li>
+            <li><strong>Flexible Grids:</strong> Using relative units (like <code>%</code>, <code>vw</code>, <code>vh</code>, <code>fr</code>) instead of fixed pixels (<code>px</code>), so layouts expand or shrink naturally.</li>
+            <li><strong>Flexible Images:</strong> Ensuring images don't overflow their containers by setting <code>max-width: 100%;</code>.</li>
+        </ul>
+        <pre><code class="language-css">
+/* Breakpoint: Switch from 1 column to 2 columns on tablets */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Mobile-First Development</h2>
+        <p>The most effective workflow for RWD is <strong>Mobile-First</strong>. You design and code the styles for the smallest mobile screens <em>first</em>, then use media queries to add complexity for larger screens. This makes your mobile site faster (fewer styles to load) and forces you to prioritize the essential content for the most constrained users.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: Layout adapting from a vertical phone view to a horizontal desktop view]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master responsive design with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Responsive Design Crash Course</strong><br>
+                <a href="https://www.youtube.com/watch?v=yfoY53QXEnI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The essential guide to breakpoints and fluid layouts.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Media Queries Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to target different screen sizes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Mobile-First CSS Strategy</strong><br>
+                <a href="https://www.youtube.com/watch?v=5fb2aPlgoys" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why designing for mobile first is the modern standard.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Folding Map</h2>
+        <p>Think of <strong>Responsive Design</strong> like a <strong>Professional Folding Map</strong>. When you are looking at the whole map (Desktop), it's a massive, detailed display. But when you want to take it with you in the car, you don't throw it away and get a different map—you fold it up. It’s the same information, just rearranged to fit the space available. If you didn't fold it (if you didn't have responsive design), it wouldn't fit in the car, and you couldn't use it. Responsive design ensures the "map" of your website works whether it's fully unfolded on a desk or folded into the tight constraints of a mobile phone.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank">MDN: Responsive Design</a></li>
+            <li><a href="https://www.w3schools.com/css/css_rwd_intro.asp" target="_blank">W3Schools: RWD Tutorial</a></li>
+            <li><a href="https://css-tricks.com/snippets/css/media-queries-for-standard-devices/" target="_blank">CSS-Tricks: Media Queries Guide</a></li>
+            <li><a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-indexing" target="_blank">Google: Mobile-First Indexing</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: CSS Box Model & Layout</a>
+            <a href="#" data-file="Web1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: JS: Basics & Variables &rarr;</a>
+        </div>
+    </footer>
+</article>

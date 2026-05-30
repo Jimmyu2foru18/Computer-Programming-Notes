@@ -1,0 +1,107 @@
+<article>
+    <h1>Software Engineering I: Page 9 - Design Patterns: Behavioral Patterns</h1>
+
+    <section>
+        <h2>The Architecture of Logic</h2>
+        <p>In our previous pages, we learned how objects are created and how they are structured. <strong>Behavioral Patterns</strong> focus on how objects <strong>communicate</strong> and distribute responsibilities. They are concerned with the assignment of responsibilities between objects and the algorithms used to accomplish complex tasks. By using behavioral patterns, you can make the workflow of your software more flexible, decoupled, and easy to change without having to rewrite the entire system logic.</p>
+    </section>
+
+    <section>
+        <h2>1. Observer Pattern</h2>
+        <p>The Observer pattern defines a one-to-many dependency between objects. When one object (the <strong>Subject</strong>) changes state, all its dependents (the <strong>Observers</strong>) are notified and updated automatically. This is the foundation of event-driven programming and modern UI frameworks like React or Vue.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+interface Observer { void update(String news); }
+
+class NewsAgency {
+    private List<Observer> observers = new ArrayList<>();
+    public void addObserver(Observer o) { observers.add(o); }
+    public void setNews(String news) {
+        for (Observer o : observers) o.update(news); // Notify everyone
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Strategy Pattern</h2>
+        <p>The Strategy pattern defines a family of algorithms, encapsulates each one, and makes them <strong>interchangeable</strong>. This allows the algorithm to vary independently from the clients that use it. Instead of a giant <code>if-else</code> block for different behaviors, you swap out the "Strategy" object at runtime.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+interface PaymentStrategy { void pay(int amount); }
+
+class CreditCardPay implements PaymentStrategy { public void pay(int a) { /* ... */ } }
+class CryptoPay implements PaymentStrategy { public void pay(int a) { /* ... */ } }
+
+class ShoppingCart {
+    private PaymentStrategy strategy;
+    public void setStrategy(PaymentStrategy s) { this.strategy = s; }
+    public void checkout(int a) { strategy.pay(a); }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Command Pattern</h2>
+        <p>The Command pattern encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support <strong>Undoable operations</strong>. It decouples the object that invokes the operation from the one that knows how to perform it.</p>
+        <pre><code class="language-java">
+interface Command { void execute(); void undo(); }
+
+class LightOnCommand implements Command {
+    private Light light;
+    public void execute() { light.turnOn(); }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the Observer Pattern—a central radio tower broadcasting to many different houses simultaneously]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the communication between objects with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Observer Design Pattern</strong><br>
+                <a href="https://www.youtube.com/watch?v=_BpmfnqjgzQ" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the secret behind event-driven software.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Strategy Pattern in Java</strong><br>
+                <a href="https://www.youtube.com/watch?v=v9ejT8FO-7I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best way to eliminate messy if/else chains.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Command Pattern Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=9qA5kw8DcSU" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to implement 'Undo' and 'Redo' like a professional.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Newspaper, the Payment App, and the Remote Control</h2>
+        <p>Think of the <strong>Observer</strong> like a <strong>Newspaper Subscription</strong>. The newspaper company (the Subject) doesn't care exactly what you're doing. Whenever they have a new edition (a State Change), they just send it to every person on the subscriber list (the Observers). If you want to stop getting news, you just "detach" from the list. Think of the <strong>Strategy</strong> like a <strong>Modern Payment App</strong>. When you go to pay, you choose a strategy: Apple Pay, Credit Card, or Bitcoin. The app (the Client) doesn't change its core logic; it just uses whichever "Plugin" (the Strategy) you selected for that specific transaction. Finally, think of the <strong>Command</strong> like a <strong>Universal Remote Control</strong>. Each button is a "Command Object." The remote doesn't know what "Channel Up" does; it just knows that when you press that button, it should tell the "TV" (the Receiver) to execute the command. This allows the remote to work with a TV, a Stereo, or a DVD player without needing separate logic for each.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://refactoring.guru/design-patterns/behavioral-patterns" target="_blank">Refactoring Guru: Behavioral Patterns</a></li>
+            <li><a href="https://www.baeldung.com/java-observer-pattern" target="_blank">Baeldung: Observer Pattern in Java</a></li>
+            <li><a href="https://www.geeksforgeeks.org/behavioral-design-patterns/" target="_blank">GeeksforGeeks: Behavioral Patterns Guide</a></li>
+            <li><a href="https://pythontutorial.net/design-patterns/python-strategy-pattern/" target="_blank">Python Tutorial: Strategy Design Pattern</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Structural Design Patterns</a>
+            <a href="#" data-file="Soft1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Patterns in Practice &rarr;</a>
+        </div>
+    </footer>
+</article>

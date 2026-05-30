@@ -1,0 +1,100 @@
+<article>
+    <h1>C# I: Page 6 - Collection Types: Arrays & Basic Collections</h1>
+
+    <section>
+        <h2>Storing Groups of Data</h2>
+        <p>Until now, we've used single variables to hold one piece of information. But what if you need to store 100 student scores, or a list of items in a shopping cart? In C#, we use <strong>Collections</strong> to manage groups of related objects. The most fundamental collection is the <strong>Array</strong>. While simple and fast, arrays have a fixed size. As you advance, you will also use dynamic collections like <strong>Lists</strong>, which can grow and shrink as needed. This page focuses on the core mechanics of storing and accessing sequences of data efficiently.</p>
+    </section>
+
+    <section>
+        <h2>1. The C# Array: Fixed-Size homogeneous Storage</h2>
+        <p>An array is a data structure that stores a fixed-size sequence of elements of the same type. Once an array is created, you cannot change its size. This makes it extremely memory-efficient but less flexible than other collections.</p>
+        
+        <h3>Declaration and Initialization</h3>
+        <pre><code class="language-csharp">
+// Declare and set size later
+int[] numbers = new int[5]; 
+numbers[0] = 10; // Zero-based indexing
+
+// Direct initialization (Array Literal)
+int[] scores = { 95, 87, 92, 78, 88 };
+        </code></pre>
+        <p><strong>Bounds Checking:</strong> C# is a safe language. If you try to access <code>numbers[10]</code> when the size is 5, the program will throw an <code>IndexOutOfRangeException</code> rather than corrupting memory.</p>
+    </section>
+
+    <section>
+        <h2>2. Multidimensional and Jagged Arrays</h2>
+        <p>C# supports 2D grids (Multidimensional) and "Arrays of Arrays" (Jagged).</p>
+        <ul>
+            <li><strong>Multidimensional:</strong> A perfect rectangle of data (e.g., <code>int[,] matrix = new int[3,3];</code>).</li>
+            <li><strong>Jagged:</strong> A collection where each "row" can have a different length. This is more flexible and often faster for large datasets.</li>
+        </ul>
+        <pre><code class="language-csharp">
+int[][] jagged = new int[3][];
+jagged[0] = new int[4]; // Row 0 has 4 items
+jagged[1] = new int[2]; // Row 1 has only 2 items
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Introduction to Lists (Dynamic Arrays)</h2>
+        <p>Because fixed-size arrays are often too restrictive, C# developers frequently use <code>List&lt;T&gt;</code>. Lists are "Dynamic Arrays"—they manage an internal array for you and automatically resize it when you add more items than it can currently hold.</p>
+        <pre><code class="language-csharp">
+using System.Collections.Generic;
+
+List&lt;string&gt; names = new List&lt;string&gt;();
+names.Add("Alice");
+names.Add("Bob");
+Console.WriteLine(names.Count); // 2
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison of an Array (a fixed egg carton) vs. a List (a magic bag that stretches as you add items)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master C# collections with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Arrays Tutorial (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=0A26Y_F_QyM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the basics of 1D and 2D arrays.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. List&lt;T&gt; vs. Arrays in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=L3-Ku9u8V6I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand when to use fixed vs. dynamic storage.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Jagged Arrays Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master complex data structures for memory efficiency.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Egg Carton and the Accordion Folder</h2>
+        <p>Think of an <strong>Array</strong> like an <strong>Egg Carton</strong>. When you buy a 12-egg carton, it has 12 physical slots (the Length). You can't suddenly add a 13th egg without getting a whole new carton. Every slot is designed for one egg (homogeneous data). Think of a <strong>List</strong> like an <strong>Accordion Folder</strong>. As you add more papers (data), the folder stretches and expands. You don't have to worry about the size when you start; the folder "manages" the physical space for you. This abstraction allows engineers to focus on the data logic rather than the low-level memory management of the computer.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/" target="_blank">Official Microsoft: C# Arrays Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-list" target="_blank">Baeldung: Guide to C# List&lt;T&gt;</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_arrays.php" target="_blank">W3Schools: C# Arrays</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-arrays/" target="_blank">Array Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Loops: For & Foreach</a>
+            <a href="#" data-file="CSharp1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Strings & Interpolation &rarr;</a>
+        </div>
+    </footer>
+</article>

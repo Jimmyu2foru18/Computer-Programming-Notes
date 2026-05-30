@@ -1,0 +1,102 @@
+<article>
+    <h1>Java II: Page 7 - Robustness: Exception Handling</h1>
+
+    <section>
+        <h2>Expecting the Unexpected</h2>
+        <p>In the real world, things go wrong. A user might enter text when a number was expected, a file you're trying to read might have been deleted, or a network connection might drop. If your program doesn't know how to handle these situations, it will "crash" (terminate abruptly with an error message). <strong>Exception Handling</strong> is Java's mechanism for catching these errors at runtime and deciding how to recover, ensuring your application remains stable and user-friendly.</p>
+    </section>
+
+    <section>
+        <h2>1. The Exception Hierarchy</h2>
+        <p>In Java, all exceptions are objects. They all descend from the <code>Throwable</code> class. There are two main categories of exceptions you must understand:</p>
+        <ul>
+            <li><strong>Checked Exceptions:</strong> These are checked at <strong>compile-time</strong>. Java forces you to handle them (e.g., <code>IOException</code>). Think of these as "recoverable" errors.</li>
+            <li><strong>Unchecked (Runtime) Exceptions:</strong> These occur during <strong>execution</strong> and are usually the result of programming bugs (e.g., <code>NullPointerException</code>, <code>ArrayIndexOutOfBoundsException</code>).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. The <code>try-catch-finally</code> Block</h2>
+        <p>To handle an exception, you "try" to run a block of code and "catch" any errors that occur. The <code>finally</code> block is optional and runs <strong>no matter what</strong>, making it perfect for cleanup tasks like closing a database connection.</p>
+        <pre><code class="language-java">
+try {
+    int result = 10 / 0; // Throws ArithmeticException
+} catch (ArithmeticException e) {
+    System.out.println("Error: Cannot divide by zero!");
+} finally {
+    System.out.println("Cleanup completed.");
+}
+        </code></pre>
+        
+        <h3>Try-with-resources (Java 7+)</h3>
+        <p>Modern Java allows you to declare "closable" resources directly in the <code>try</code> header. Java will automatically close them for you when the block finishes.</p>
+        <pre><code class="language-java">
+try (Scanner scanner = new Scanner(new File("test.txt"))) {
+    // Process file
+} catch (FileNotFoundException e) {
+    e.printStackTrace();
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Throwing & Custom Exceptions</h2>
+        <p>You can use the <code>throw</code> keyword to trigger an exception manually. If a method might throw a checked exception, it must declare it using the <code>throws</code> keyword in its signature. You can also create your own specialized exceptions by extending the <code>Exception</code> class.</p>
+        <pre><code class="language-java">
+public void setAge(int age) throws InvalidAgeException {
+    if (age < 0) {
+        throw new InvalidAgeException("Age cannot be negative!");
+    }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the 'Try' safety net catching a falling 'Error' object before it hits the ground]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master error handling and code robustness with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Exception Handling (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=NIWwJbo-9_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive look at try/catch and finally.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Checked vs Unchecked Exceptions</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn when to catch and when to throw.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Try-with-resources in Java</strong><br>
+                <a href="https://www.youtube.com/watch?v=L3-Ku9u8V6I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The modern, clean way to handle file and database resources.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Safety Net and the Hospital Backup</h2>
+        <p>Think of <strong>Exception Handling</strong> like a <strong>Trapeze Safety Net</strong>. The circus performers (your code) are doing dangerous, high-stakes work. Most of the time they land perfectly. But if they slip (an error), the net (the <code>try-catch</code>) catches them so the show can go on, rather than letting them hit the ground (Crashing the program). Think of <strong>Checked Exceptions</strong> like a <strong>Pre-Flight Checklist</strong> for a pilot: the system forces you to check for problems (fuel, engines, weather) before you are even allowed to take off. Finally, think of the <strong><code>finally</code> block</strong> like a <strong>Hospital's Sterilization Protocol</strong>: no matter if a surgery was a success or had complications, the room <em>must</em> be cleaned and tools sterilized for the next patient. This cleanup is non-negotiable for system health.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html" target="_blank">Official Java Docs: Exceptions</a></li>
+            <li><a href="https://www.baeldung.com/java-exceptions" target="_blank">Baeldung: Guide to Java Exceptions</a></li>
+            <li><a href="https://www.w3schools.com/java/java_try_catch.asp" target="_blank">W3Schools: Java Try...Catch</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-exception-handling/" target="_blank">Java Tutorial: Comprehensive Exception Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Packages & Access</a>
+            <a href="#" data-file="Java2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: File I/O & NIO &rarr;</a>
+        </div>
+    </footer>
+</article>

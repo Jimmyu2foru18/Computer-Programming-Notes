@@ -1,0 +1,100 @@
+<article>
+    <h1>Java I: Page 9 - Introduction to OOP: Classes & Objects</h1>
+
+    <section>
+        <h2>A New Way of Organizing: Objects</h2>
+        <p>So far, we have written code in a "procedural" way—writing individual instructions and methods that work on data. However, as software becomes more complex, it's often more natural to organize our code around <strong>Objects</strong>. This is known as <strong>Object-Oriented Programming (OOP)</strong>. In Java, everything revolves around objects. We group related data (State) and behaviors (Methods) together into a single unit. This allows us to model real-world things—like a Car, a Bank Account, or a User—directly in our code.</p>
+    </section>
+
+    <section>
+        <h2>The Blueprint vs. The Reality</h2>
+        <p>To create objects, we first need a <strong>Class</strong>. A class is a <strong>blueprint</strong> or a template. It defines what data an object will have and what it can do, but it doesn't contain the data itself. An <strong>Object</strong> (or <strong>Instance</strong>) is the actual thing built from that blueprint.</p>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #007bff; border-radius: 10px; background: #f0f7ff;">
+                <strong>CLASS:</strong> Car (Blueprint)<br>
+                Attributes: brand, color, speed<br>
+                Methods: accelerate(), brake()
+            </div>
+            <div style="display: inline-block; font-size: 2em; margin: 0 20px; vertical-align: middle;">&rarr;</div>
+            <div style="display: inline-block; padding: 20px; border: 2px solid #28a745; border-radius: 10px; background: #f0fff4;">
+                <strong>OBJECT:</strong> myToyota (Instance)<br>
+                brand: "Toyota"<br>
+                color: "Red"<br>
+                speed: 60
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Defining a Class and Creating Objects</h2>
+        <p>A class typically contains <strong>Instance Variables</strong> (to store the object's state) and <strong>Methods</strong> (to define the object's behavior).</p>
+        <pre><code class="language-java">
+public class Dog {
+    // State (Instance Variables)
+    String breed;
+    int age;
+
+    // Behavior (Method)
+    public void bark() {
+        System.out.println("Woof!");
+    }
+}
+
+// Creating and using an object
+Dog myDog = new Dog(); // The 'new' keyword creates the instance
+myDog.breed = "Golden Retriever";
+myDog.age = 3;
+myDog.bark(); // Output: Woof!
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>The <code>this</code> Keyword</h2>
+        <p>Within a class method, the <code>this</code> keyword refers to the <strong>current instance</strong> of the object. It is most commonly used to distinguish between instance variables and parameters with the same name.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the basics of Java classes and objects with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Classes and Objects (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=2ZPhxE90n9Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear guide to the foundation of Java OOP.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Instance Variables vs Local Variables</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ-VvGyQxho" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how data is stored within an object's memory.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The 'this' Keyword in Java (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how an object refers to itself.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Cookie Cutter and the Passport</h2>
+        <p>Think of a <strong>Class</strong> like a <strong>Cookie Cutter</strong>. The cutter itself defines the shape (the methods and the slots for data) but it isn't something you can eat. Every time you press that cutter into the dough (use the <code>new</code> keyword), you create a <strong>Cookie</strong> (an Object). You can decorate each cookie differently—one has sprinkles, one has chocolate chips (different instance variable values)—but they all share the same underlying shape. Another example is a <strong>Passport Office</strong>: the form you fill out is the Class. Once the office prints the actual <strong>Passport</strong> with your photo and name on it, that physical book is the Object. It has the structure of every other passport, but it belongs uniquely to you.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html" target="_blank">Official Java Docs: Classes</a></li>
+            <li><a href="https://www.baeldung.com/java-classes-objects" target="_blank">Baeldung: Guide to Classes and Objects</a></li>
+            <li><a href="https://www.w3schools.com/java/java_classes.asp" target="_blank">W3Schools: Java Classes/Objects</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-class/" target="_blank">Java Tutorial: Comprehensive Class Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Methods & Overloading</a>
+            <a href="#" data-file="Java1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Constructors & Static &rarr;</a>
+        </div>
+    </footer>
+</article>

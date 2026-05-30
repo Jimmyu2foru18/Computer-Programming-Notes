@@ -1,0 +1,78 @@
+<article>
+    <h1>System Design I: Page 6 - Frontend: Build Tools</h1>
+
+    <section>
+        <h2>Modern Web Workflow</h2>
+        <p>In the past, you simply wrote HTML, CSS, and JS and opened the file in a browser. Today, frontend code needs to be <strong>bundled</strong> (combined into efficient files), <strong>transpiled</strong> (converting modern JS into older JS that old browsers understand), and <strong>minified</strong> (stripping away whitespace to shrink file size). <strong>Build Tools</strong> (like Webpack, Vite, or Parcel) automate these tasks, turning your complex, modular source code into optimized production assets.</p>
+    </section>
+
+    <section>
+        <h2>1. Why Build Tools?</h2>
+        <ul>
+            <li><strong>Bundling:</strong> Combine dozens of small JS/CSS files into one or a few optimized files.</li>
+            <li><strong>Transpilation (Babel):</strong> Allows you to use the latest language features while ensuring compatibility with older browsers.</li>
+            <li><strong>Asset Optimization:</strong> Automatically compressing images, minifying code, and fingerprinting files for aggressive browser caching.</li>
+        </ul>
+        <pre><code class="language-javascript">
+// Example: Concept of importing modules (bundled by Webpack/Vite)
+import { Button } from './components/Button';
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Choosing Your Tooling</h2>
+        <ul>
+            <li><strong>Webpack:</strong> The industry standard. Highly configurable but can be complex.</li>
+            <li><strong>Vite:</strong> The modern favorite. Lightning-fast development speed because it doesn't bundle everything during development.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: Source Code (Modules/SCSS) &rarr; Build Tool (Bundler/Transpiler) &rarr; Production Assets]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master build tools with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Webpack Crash Course</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The standard bundler explained.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Intro to Vite</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why Vite is faster than Webpack.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Transpiling with Babel</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Ensuring modern JS works everywhere.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Printing Press</h2>
+        <p>Think of <strong>Build Tools</strong> like a <strong>Professional Printing Press</strong>. When an author writes a book, the manuscript is a messy, unformatted document (Source Code). The printing press (Build Tool) takes that manuscript, formats the layout, chooses the fonts, compresses the file size, checks for errors (Transpilation/Minification), and finally outputs a high-quality, professional book ready to be sold (Production Assets). You wouldn't try to photocopy each page by hand; you use the printing press to automate the production process.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://webpack.js.org/" target="_blank">Webpack Documentation</a></li>
+            <li><a href="https://vitejs.dev/" target="_blank">Vite Documentation</a></li>
+            <li><a href="https://babeljs.io/" target="_blank">Babel Documentation</a></li>
+            <li><a href="https://www.freecodecamp.org/news/why-do-we-need-build-tools/" target="_blank">FreeCodeCamp: Why Build Tools?</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Frontend: State Management</a>
+            <a href="#" data-file="System1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Frontend: Optimization &rarr;</a>
+        </div>
+    </footer>
+</article>

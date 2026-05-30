@@ -1,0 +1,85 @@
+<article>
+    <h1>DBMS I: Page 8 - Database Optimization: Normalization I (1NF, 2NF, 3NF)</h1>
+
+    <section>
+        <h2>Cleaning Your Data Structure</h2>
+        <p>In the previous page, we learned how to design a database from real-world entities. However, even a good ER diagram can lead to a "Messy" database if not properly refined. <strong>Normalization</strong> is the systematic process of organizing the columns and tables of a relational database to minimize <strong>Data Redundancy</strong> and eliminate <strong>Update Anomalies</strong>. A normalized database ensures that every piece of data is stored in exactly one place, making the system faster, smaller, and much more reliable. In software engineering, we aim for at least the "Third Normal Form" (3NF) for most transactional applications.</p>
+    </section>
+
+    <section>
+        <h2>1. The Problem: Database Anomalies</h2>
+        <p>If you store all your data in one giant, unnormalized table, you will encounter three major problems:</p>
+        <ul>
+            <li><strong>Insertion Anomaly:</strong> You can't add a new Department until you hire at least one Employee.</li>
+            <li><strong>Update Anomaly:</strong> If a Department changes its name, you have to update 1,000 rows in the Employee table. If you miss one, your data is inconsistent.</li>
+            <li><strong>Deletion Anomaly:</strong> If you delete the only employee in a department, you accidentally delete the department's information as well.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. The First Three Normal Forms</h2>
+        
+        <h3>First Normal Form (1NF): Atomicity</h3>
+        <p>A table is in 1NF if every cell contains a single, atomic value. No lists, no arrays, and no repeating groups in a single row.</p>
+        
+        <h3>Second Normal Form (2NF): No Partial Dependencies</h3>
+        <p>A table is in 2NF if it is in 1NF and <strong>all non-key attributes are fully dependent on the entire Primary Key</strong>. This only applies to tables with composite primary keys. You must move "partially dependent" columns to a new table.</p>
+
+        <h3>Third Normal Form (3NF): No Transitive Dependencies</h3>
+        <p>A table is in 3NF if it is in 2NF and <strong>no non-key attribute depends on another non-key attribute</strong>. Every column should depend on "the key, the whole key, and nothing but the key" (so help me Codd!).</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison of one 'Fat' table being broken into three 'Lean' tables through the normalization process]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Functional Dependencies (FD)</h2>
+        <p>Normalization is based on <strong>Functional Dependencies</strong>. We say "A determines B" (A &rarr; B) if, for any two rows, if they have the same value for A, they <em>must</em> have the same value for B. For example, <code>EmployeeID &rarr; EmployeeName</code>. Mastering FDs is the key to identifying where your table structure needs to be broken apart.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the levels of database normalization with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. 1NF, 2NF, 3NF Explained (Simply)</strong><br>
+                <a href="https://www.youtube.com/watch?v=UrYLYV7WSHM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best introduction to the first three normal forms.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Database Anomalies & Why We Normalize</strong><br>
+                <a href="https://www.youtube.com/watch?v=mAt6V-mreU8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>See the real-world disasters that happen in unnormalized databases.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Functional Dependencies Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the math behind how columns relate to one another.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Messy Closet and the Spreadsheet</h2>
+        <p>Think of an <strong>Unnormalized Database</strong> like a <strong>Messy Closet</strong>. You throw your shoes, your coats, and your tools all in one pile. To find your car keys (a piece of data), you have to dig through everything. If you add a new coat, you might bury the shoes. <strong>Normalization</strong> is like <strong>Organizing that Closet</strong>. You buy a shoe rack (a Shoe Table), a coat rack (a Coat Table), and a toolbox (a Tool Table). Each item is in its own logical place. If you get a new pair of shoes, you just put them on the rack without touching your coats. Think of <strong>3NF</strong> like <strong>The Rule of the Key</strong>: "The name depends on the ID, the ID depends on the person, and nothing else matters." This organization makes your home (your Database) much easier to manage and keep clean over time.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Database_normalization" target="_blank">Wikipedia: Database Normalization</a></li>
+            <li><a href="https://www.guru99.com/database-normalization.html" target="_blank">Guru99: Normalization Tutorial with Examples</a></li>
+            <li><a href="https://www.geeksforgeeks.org/normal-forms-in-dbms/" target="_blank">GeeksforGeeks: Normal Forms Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/database-normalization" target="_blank">Baeldung: Deep Dive into Normalization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: ER Modeling</a>
+            <a href="#" data-file="DBMS1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Normalization II (BCNF+) &rarr;</a>
+        </div>
+    </footer>
+</article>

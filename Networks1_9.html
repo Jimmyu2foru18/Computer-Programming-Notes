@@ -1,0 +1,84 @@
+<article>
+    <h1>Networks I: Page 9 - The Logic of Subdivision: Subnetting & CIDR</h1>
+
+    <section>
+        <h2>Dividing the Network</h2>
+        <p>In the previous page, we saw how IP addresses function as physical locations. However, putting all your devices on one massive, flat network is a recipe for disaster: it creates massive "Broadcast Traffic" that slows everyone down, and it makes security nearly impossible to manage. <strong>Subnetting</strong> is the process of dividing a single large network into smaller, logically independent subnetworks (subnets). This improves network performance, organization, and security. Subnetting relies heavily on the binary manipulation of <strong>Subnet Masks</strong> and is formalized by <strong>CIDR (Classless Inter-Domain Routing)</strong> notation.</p>
+    </section>
+
+    <section>
+        <h2>1. The Subnet Mask: The Binary Filter</h2>
+        <p>A subnet mask is a 32-bit number that masks an IP address and divides the IP address into the <strong>Network Address</strong> and <strong>Host Address</strong>. It works using binary <code>AND</code> operations. All '1's in the mask represent the network portion; all '0's represent the host portion.</p>
+        
+        <h3>Example: 192.168.1.0/24</h3>
+        <pre><code class="language-text">
+IP:      11000000.10101000.00000001.01100100 (192.168.1.100)
+Mask:    11111111.11111111.11111111.00000000 (/24)
+Network: 11000000.10101000.00000001.00000000 (192.168.1.0)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Borrowing Host Bits</h2>
+        <p>To create subnets, you "borrow" bits from the host portion and turn them into network bits. If you have a <code>/24</code> network and need 4 subnets, you borrow 2 bits (since 2^2 = 4). Your new prefix becomes <code>/26</code>.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual table showing host bits borrowed vs. new subnet mask, number of subnets created, and usable hosts per subnet]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Calculating Usable Hosts</h2>
+        <p>For any subnet, two addresses are always reserved and cannot be assigned to devices:</p>
+        <ul>
+            <li><strong>Network Address:</strong> The first address (all host bits set to 0).</li>
+            <li><strong>Broadcast Address:</strong> The last address (all host bits set to 1).</li>
+        </ul>
+        <p>Therefore, the number of usable hosts is always <strong>(2 ^ HostBits) - 2</strong>.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the math behind subnetting with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Binary Subnetting Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=s_m8_D_kY_o" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The most detailed walkthrough of binary math for networking.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Subnetting Made Easy</strong><br>
+                <a href="https://www.youtube.com/watch?v=UI6lqHOVHic" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn shortcuts for calculating masks and host ranges.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. CIDR and VLSM Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Advanced subnetting for enterprise network design.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Office Floorplan</h2>
+        <p>Think of <strong>Subnetting</strong> like <strong>Organizing an Office Floorplan</strong>. You have one large open-office space (the Network). If everyone is in one room, it's noisy and chaotic (Broadcast Traffic). So, you put up dividers (Subnet Masks) to create separate departments—Sales, Engineering, Finance. Now, people can talk loudly in their own department without bothering the Finance team. Each department has its own "Gatekeeper" (the Default Gateway) that manages who enters or leaves that department. This organizational structure is what keeps a business running smoothly and prevents noise (or data traffic) from overwhelming the entire organization.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Subnetwork" target="_blank">Wikipedia: Subnetwork</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html" target="_blank">Cisco: Subnetting Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/subnetting-in-computer-network/" target="_blank">GeeksforGeeks: Subnetting Explained</a></li>
+            <li><a href="https://www.calculator.net/ip-subnet-calculator.html" target="_blank">Tool: Online Subnet Calculator (Essential for validation)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: IPv4 Addressing Basics</a>
+            <a href="#" data-file="Networks1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: IPv6 Evolution &rarr;</a>
+        </div>
+    </footer>
+</article>

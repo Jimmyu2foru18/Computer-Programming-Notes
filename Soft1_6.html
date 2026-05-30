@@ -1,0 +1,95 @@
+<article>
+    <h1>Software Engineering I: Page 6 - The Engineering Mindset: Clean Code (DRY, KISS, YAGNI)</h1>
+
+    <section>
+        <h2>Beyond Syntax: Writing for Humans</h2>
+        <p>In the professional world, code is rarely written once and forgotten. It is read, maintained, and extended by dozens of people over many years. As Martin Fowler famously said: <em>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</em> This page explores the core design heuristics that separate professional software engineers from hobbyist programmers. These principles help us fight "Technical Debt" and "Complexity Bloat."</p>
+    </section>
+
+    <section>
+        <h2>1. DRY: Don't Repeat Yourself</h2>
+        <p>Every piece of knowledge or logic in a system should have a single, unambiguous representation. When you copy-paste code, you create a maintenance nightmare. If you find a bug in one copy, you have to remember to fix it in all five copies. DRY encourages <strong>Modularity</strong> and <strong>Abstaction</strong>.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+// BAD: Logic repeated in multiple places
+void validateUser(String email) {
+    if (email == null || !email.contains("@")) throw new Error();
+}
+void validateAdmin(String email) {
+    if (email == null || !email.contains("@")) throw new Error();
+}
+
+// GOOD: Single point of truth
+class Validator {
+    static void checkEmail(String email) {
+        if (email == null || !email.contains("@")) throw new Error();
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. KISS: Keep It Simple, Stupid</h2>
+        <p>Complexity is the enemy of reliability. Engineers should always strive for the simplest solution that solves the problem. Don't use a complex Design Pattern if a simple <code>if</code> statement will do. Simple code is easier to test, harder to break, and faster to explain to a teammate.</p>
+    </section>
+
+    <section>
+        <h2>3. YAGNI: You Aren't Gonna Need It</h2>
+        <p>Never add functionality until it is actually required. Developers often try to "future-proof" code by adding features they <em>think</em> they might need later. This leads to wasted time and a bloated codebase. Only build what you need <strong>now</strong>. If you need more later, the OCP (Open/Closed Principle) will help you extend it.</p>
+    </section>
+
+    <section>
+        <h2>4. SoC: Separation of Concerns</h2>
+        <p>A system should be organized so that each part addresses a separate concern. Your UI code should not know how the database works; your Database code should not know how to send emails. This results in <strong>Low Coupling</strong> and <strong>High Cohesion</strong>.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing 'Spaghetti Code' (all lines tangled) vs. 'Modular Code' (neatly organized separate blocks)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of clean code with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Clean Code in 10 Minutes</strong><br>
+                <a href="https://www.youtube.com/watch?v=UjhX2anPhLA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A high-speed summary of the most important habits.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. DRY vs WET Code</strong><br>
+                <a href="https://www.youtube.com/watch?v=IGHp8YV8S2s" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why "Write Everything Twice" is a dangerous path.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. KISS & YAGNI Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=pDInX8Y20Yg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to avoid over-engineering your software projects.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The IKEA Manual and the Professional Kitchen</h2>
+        <p>Think of <strong>Clean Code</strong> like a <strong>Good IKEA Manual</strong>. It uses simple diagrams (KISS) and clear steps. It doesn't tell you how to build a chair if you're currently building a desk (YAGNI). If a screw is used in 10 different places, they don't give it 10 different names; it's just "Part #101" (DRY). Think of <strong>SoC</strong> like a <strong>Professional Restaurant Kitchen</strong>. The pastry chef handles dessert, the saucier handles sauces, and the dishwasher handles cleanup. They don't switch roles in the middle of a rush. Each person (Module) has a specific "Concern," ensuring the kitchen functions like a well-oiled machine rather than a chaotic brawl.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.oreilly.com/library/view/clean-code/9780136083238/" target="_blank">Book: Clean Code by Robert C. Martin</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank">Wikipedia: DRY Principle</a></li>
+            <li><a href="https://www.baeldung.com/cs/kiss-software-design" target="_blank">Baeldung: KISS Principle in Design</a></li>
+            <li><a href="https://martinfowler.com/bliki/Yagni.html" target="_blank">Martin Fowler: YAGNI Deep Dive</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: SOLID: LSP, ISP & DIP</a>
+            <a href="#" data-file="Soft1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Creational Design Patterns &rarr;</a>
+        </div>
+    </footer>
+</article>

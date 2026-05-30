@@ -1,0 +1,101 @@
+<article>
+    <h1>Java II: Page 8 - Data Persistence: File I/O & NIO</h1>
+
+    <section>
+        <h2>Beyond Volatile Memory</h2>
+        <p>Until now, all the data we've worked with has been stored in <strong>RAM</strong>. The moment you close your program, that data is gone. To build useful applications, we must be able to save data permanently to the hard drive and read it back later. Java provides two primary ways to do this: the traditional <strong>IO (Input/Output)</strong> package, which uses streams, and the modern <strong>NIO (New I/O)</strong> package, which uses a more efficient, path-based approach.</p>
+    </section>
+
+    <section>
+        <h2>1. Traditional I/O: Streams and Readers</h2>
+        <p>Traditional Java I/O is based on <strong>Streams</strong>—a continuous flow of data. For text files, we use <code>Readers</code> and <code>Writers</code>. The <code>BufferedReader</code> is the professional choice because it buffers the data in memory, making it much faster than reading one character at a time from the disk.</p>
+        <pre><code class="language-java">
+// Writing to a file (Traditional)
+try (PrintWriter writer = new PrintWriter(new FileWriter("output.txt"))) {
+    writer.println("Hello from Java!");
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// Reading from a file (Traditional)
+try (BufferedReader reader = new BufferedReader(new FileReader("output.txt"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Modern NIO: The <code>Files</code> Utility</h2>
+        <p>Introduced in Java 7, the <code>java.nio</code> package is generally preferred for modern development. It is more concise and better at handling large files and complex metadata. It revolves around the <code>Path</code> and <code>Files</code> classes.</p>
+        <pre><code class="language-java">
+import java.nio.file.*;
+
+// Writing all at once
+Path path = Paths.get("modern.txt");
+String content = "This is a modern Java file.";
+Files.write(path, content.getBytes());
+
+// Reading all at once (into a List)
+List<String> lines = Files.readAllLines(path);
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the difference between a Stream (a pipe of water) and a Block (a shipping container of data)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Choosing the Right Tool</h2>
+        <p>Use <strong>BufferedReader</strong> if you are processing a massive file line-by-line and don't want to load the whole thing into RAM at once. Use <strong>Files.readAllLines()</strong> for smaller configuration or data files where convenience is more important than memory footprint.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the filesystem with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java File I/O Explained (Traditional)</strong><br>
+                <a href="https://www.youtube.com/watch?v=ScUJx4adZ_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to use BufferedReader and PrintWriter.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Modern Java NIO (Path & Files)</strong><br>
+                <a href="https://www.youtube.com/watch?v=pDInX8Y20Yg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The fast and modern way to handle files in Java 8+.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. File Handling Best Practices</strong><br>
+                <a href="https://www.youtube.com/watch?vScUJx4adZ_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why you must always close your streams.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Garden Hose and the Shipping Container</h2>
+        <p>Think of <strong>Traditional I/O Streams</strong> like a <strong>Garden Hose</strong>. Data flows character-by-character (or drop-by-drop). You can only see what is coming out of the nozzle at this exact second. This is great for continuous tasks like logging. Think of <strong>Modern NIO</strong> like a <strong>Shipping Container</strong>. You don't care about the individual drops; you just want to move the entire container from the ship (the Disk) to the warehouse (the RAM) in one highly efficient trip. Finally, think of <strong>try-with-resources</strong> like a <strong>Public Restroom with a Self-Closing Door</strong>. You don't have to remember to "close" the file when you're done; the system is designed to lock the door behind you automatically, ensuring the next person (or program) can use the resource safely.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/essential/io/index.html" target="_blank">Official Java Docs: Basic I/O</a></li>
+            <li><a href="https://www.baeldung.com/java-nio-2-file-api" target="_blank">Baeldung: Guide to Java NIO.2</a></li>
+            <li><a href="https://www.w3schools.com/java/java_files.asp" target="_blank">W3Schools: Java Files</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-file-io/" target="_blank">Java Tutorial: Comprehensive File I/O Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Exception Handling</a>
+            <a href="#" data-file="Java2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Multithreading Basics &rarr;</a>
+        </div>
+    </footer>
+</article>

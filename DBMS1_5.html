@@ -1,0 +1,93 @@
+<article>
+    <h1>DBMS I: Page 5 - SQL Basics: Aggregates, Grouping & Data Insights</h1>
+
+    <section>
+        <h2>Summarizing Data</h2>
+        <p>In our previous pages, we learned how to retrieve individual records. But in the world of business intelligence and data science, we often need to look at the <strong>Big Picture</strong>. How many customers do we have? What is our total revenue? Which department has the highest average salary? To answer these questions, we use <strong>Aggregate Functions</strong>. These functions perform a calculation on a set of values and return a single, summarized result. When combined with the <code>GROUP BY</code> clause, they become a powerful tool for generating insights and reports from raw data.</p>
+    </section>
+
+    <section>
+        <h2>1. The Core Aggregate Functions</h2>
+        <p>SQL provides five main functions that you will use in almost every analytical query:</p>
+        <ul>
+            <li><strong>COUNT():</strong> Returns the total number of rows or non-NULL values.</li>
+            <li><strong>SUM():</strong> Calculates the total of a numeric column.</li>
+            <li><strong>AVG():</strong> Calculates the arithmetic mean.</li>
+            <li><strong>MIN() / MAX():</strong> Returns the smallest and largest values in a set.</li>
+        </ul>
+        <pre><code class="language-sql">
+SELECT COUNT(*) AS total_employees, 
+       AVG(salary) AS average_salary, 
+       MAX(salary) AS highest_salary 
+FROM employees;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Organizing Results: <code>GROUP BY</code> and <code>HAVING</code></h2>
+        <p>The <code>GROUP BY</code> statement groups rows that have the same values into summary rows. For example, "find the number of employees in <em>each</em> department."</p>
+        
+        <h3>The <code>HAVING</code> Clause</h3>
+        <p>A common mistake is trying to use <code>WHERE</code> to filter aggregated results. Because <code>WHERE</code> filters data <em>before</em> it is grouped, we need the <code>HAVING</code> clause to filter <em>after</em> the groups are created.</p>
+        <pre><code class="language-sql">
+SELECT dept_id, COUNT(*) 
+FROM employees 
+GROUP BY dept_id 
+HAVING COUNT(*) > 10; -- Only show departments with more than 10 people
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual flowchart showing the SQL Execution Order: FROM &rarr; JOIN &rarr; WHERE &rarr; GROUP BY &rarr; HAVING &rarr; SELECT &rarr; ORDER BY]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Dealing with NULLs in Aggregates</h2>
+        <p>It is important to remember that most aggregate functions (except <code>COUNT(*)</code>) <strong>ignore NULL values</strong>. If you have a column for "Commission" and half the employees have NULL, <code>AVG(commission)</code> will only calculate the average of the people who actually received a commission, which might skew your results.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master data summarization and grouping with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL Aggregate Functions in 5 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=kR9-A_CstL4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn COUNT, SUM, AVG, MIN, and MAX.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. GROUP BY and HAVING Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=By2S-A-9yY8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how to slice and dice your data groups.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. SQL Order of Execution</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why 'HAVING' is different from 'WHERE'.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Classroom and the Grocery Store</h2>
+        <p>Think of <strong>Aggregate Functions</strong> like a <strong>Teacher Grading a Class</strong>. <code>COUNT</code> is the number of students. <code>AVG</code> is the class average. <code>MAX</code> is the "Valedictorian" score. Think of <strong>GROUP BY</strong> like a <strong>Grocery Store Checkout</strong>. The store has 10,000 individual items sold (Raw Data). <code>GROUP BY category</code> allows the manager to see the total sales for "Produce," "Dairy," and "Bakery." <strong>HAVING</strong> is like the manager saying, "Show me only the categories that sold more than $1,000 today." This high-level view is what allows businesses to make strategic decisions rather than getting lost in the details of every single receipt.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_groupby.asp" target="_blank">W3Schools: SQL GROUP BY</a></li>
+            <li><a href="https://www.baeldung.com/sql-having-vs-where" target="_blank">Baeldung: HAVING vs WHERE in SQL</a></li>
+            <li><a href="https://www.geeksforgeeks.org/aggregate-functions-in-sql/" target="_blank">GeeksforGeeks: SQL Aggregate Functions</a></li>
+            <li><a href="https://mode.com/sql-tutorial/sql-aggregate-functions/" target="_blank">Mode SQL Tutorial: Aggregates Deep Dive</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: SQL Basics: DML & Joins</a>
+            <a href="#" data-file="DBMS1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Subqueries & CTEs &rarr;</a>
+        </div>
+    </footer>
+</article>

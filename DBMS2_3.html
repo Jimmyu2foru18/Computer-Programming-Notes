@@ -1,0 +1,86 @@
+<article>
+    <h1>DBMS II: Page 3 - Advanced SQL: Programmatic Logic & Window Functions</h1>
+
+    <section>
+        <h2>Moving Logic to the Data</h2>
+        <p>In our earlier SQL lessons, we focused on simple data retrieval. However, as applications grow, we often need to perform complex calculations directly within the database engine for maximum performance. This page covers the programmatic side of SQL: <strong>Stored Procedures</strong>, <strong>Triggers</strong>, and the incredibly powerful <strong>Window Functions</strong>. By moving logic into the database, you reduce network traffic and ensure that business rules are enforced consistently, regardless of which application is accessing the data.</p>
+    </section>
+
+    <section>
+        <h2>1. Window Functions: Analytical Power</h2>
+        <p>Window functions perform a calculation across a set of table rows that are somehow related to the current row. Unlike aggregate functions, window functions do <strong>not</strong> group rows into a single output row. Each row retains its individual identity. This is essential for ranking, running totals, and moving averages.</p>
+        <pre><code class="language-sql">
+-- Ranking employees by salary within their department
+SELECT name, dept_id, salary,
+       RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) as rank
+FROM employees;
+        </code></pre>
+        <p>The <code>OVER</code> clause defines the "Window" of rows the function looks at. <code>PARTITION BY</code> is like a temporary GROUP BY that doesn't hide the rows.</p>
+    </section>
+
+    <section>
+        <h2>2. Stored Procedures: Precompiled Logic</h2>
+        <p>A Stored Procedure is a group of SQL statements that has been created and stored in the database. Procedures can accept parameters, perform complex logic (using <code>IF</code> and <code>WHILE</code>), and return results. They are <strong>Precompiled</strong>, meaning the database has already optimized the execution plan, making them much faster than sending long strings of SQL from your application.</p>
+        <pre><code class="language-sql">
+CREATE PROCEDURE GiveRaise(IN empId INT, IN amount DECIMAL)
+BEGIN
+    UPDATE employees SET salary = salary + amount WHERE id = empId;
+END;
+-- Call it with: CALL GiveRaise(101, 5000);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Triggers: Automatic Reactions</h2>
+        <p>As we saw in the foundations module, Triggers automatically respond to data changes. In an advanced context, triggers are used for <strong>Complex Auditing</strong> and <strong>Data Synchronization</strong>. For example, if you delete a user, a trigger can automatically move their data to an archive table or update a "Total Users" counter in a statistics table.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison of a 'Standard Query' (request/response) vs. a 'Stored Procedure' (stored logic) vs. a 'Window Function' (looking at neighbors)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master advanced SQL techniques with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL Window Functions in 10 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=Ww71knvhQ-s" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best guide to RANK, LEAD, LAG, and partitions.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Stored Procedures vs. Functions</strong><br>
+                <a href="https://www.youtube.com/watch?v=S7v_lX8I_Yc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to encapsulate business logic in the database.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Advanced Triggers & Audit Logs</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to build a bulletproof audit system using database events.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Leaderboard and the Scripted Robot</h2>
+        <p>Think of a <strong>Window Function</strong> like a <strong>Gaming Leaderboard</strong>. To show your rank, the system doesn't just look at you; it has to "look out the window" at all the other players in your region (the Partition) and see who has a higher score. It calculates your position relative to others while still showing your unique username. Think of a <strong>Stored Procedure</strong> like a <strong>Macro or a Scripted Robot</strong>. Instead of typing 50 commands to "Onboard a New Employee," you just press one button (Call the Procedure), and the robot performs all the steps (Update tables, create keys, send alerts) perfectly and fast. It's pre-trained (Precompiled) for the task, ensuring no steps are ever skipped.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.postgresqltutorial.com/postgresql-window-functions/" target="_blank">PostgreSQL Tutorial: Window Functions Guide</a></li>
+            <li><a href="https://www.baeldung.com/sql-stored-procedures" target="_blank">Baeldung: Guide to SQL Stored Procedures</a></li>
+            <li><a href="https://www.geeksforgeeks.org/window-functions-in-sql/" target="_blank">GeeksforGeeks: Window Functions Overview</a></li>
+            <li><a href="https://mode.com/sql-tutorial/sql-window-functions/" target="_blank">Mode SQL Tutorial: Advanced Windowing</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Concurrency Control</a>
+            <a href="#" data-file="DBMS2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: NoSQL: Document & KV &rarr;</a>
+        </div>
+    </footer>
+</article>

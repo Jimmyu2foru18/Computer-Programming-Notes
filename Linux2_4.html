@@ -1,0 +1,84 @@
+<article>
+    <h1>Linux II: Page 4 - Shell Scripting Basics</h1>
+
+    <section>
+        <h2>Automating the Routine</h2>
+        <p>If you find yourself typing the same series of commands every day, you are wasting time that could be better spent on more interesting problems. <strong>Shell Scripting</strong> allows you to bundle those commands into a single file and execute them all at once. A shell script is simply a text file containing a list of CLI commands, plus some basic programming logic like variables, loops, and conditional statements. It is the fundamental building block for server automation and administration.</p>
+    </section>
+
+    <section>
+        <h2>1. The Script Skeleton</h2>
+        <p>Every script starts with a <strong>Shebang</strong>—a special line that tells the system which interpreter to use (usually Bash). You also need to make the script <strong>executable</strong> using <code>chmod +x</code>.</p>
+        <pre><code class="language-bash">
+#!/bin/bash
+# A simple greeting script
+
+NAME="Admin"
+echo "Hello, $NAME!"
+        </code></pre>
+        <pre><code class="language-bash">
+# Make it executable
+chmod +x script.sh
+# Run it
+./script.sh
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Adding Logic</h2>
+        <p>Scripts are more than just lists of commands; they can make decisions and repeat tasks:</p>
+        <ul>
+            <li><strong>Conditionals (<code>if</code>/<code>case</code>):</strong> Execute code only if specific criteria are met (e.g., check if a file exists before trying to delete it).</li>
+            <li><strong>Loops (<code>for</code>/<code>while</code>):</strong> Perform the same task on multiple files or directories automatically.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: Input &rarr; Script Logic (Shebang/Variables/Loops) &rarr; Automation Output]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master shell scripting with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Bash Scripting for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The absolute basics of writing your first script.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Loops and Conditionals in Bash</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Adding logic and flow control to your scripts.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Real-world Scripting Examples</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How administrators automate daily tasks.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Recipe Book</h2>
+        <p>Think of <strong>Shell Scripting</strong> like writing a <strong>Recipe Book</strong> for a robot assistant. Each command you type in the terminal is one step (e.g., "chop onion"). A script is the full recipe (e.g., "make soup") that chains those steps together in a specific order. <strong>Variables</strong> are like the ingredients listed on the side, <strong>Conditionals</strong> are like checking "if the pot is hot, add water," and <strong>Loops</strong> are like "stir the soup 50 times." By writing down the recipe once, your robot assistant can make the soup perfectly every single time without you needing to stand there and supervise the process.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html" target="_blank">Bash Programming Intro HOWTO</a></li>
+            <li><a href="https://www.gnu.org/software/bash/manual/" target="_blank">Official Bash Manual</a></li>
+            <li><a href="https://www.learnshell.org/" target="_blank">Learn Shell (Interactive Tutorial)</a></li>
+            <li><a href="https://devhints.io/bash" target="_blank">Bash Scripting Cheatsheet</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: System Info</a>
+            <a href="#" data-file="Linux2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: User & Group Management &rarr;</a>
+        </div>
+    </footer>
+</article>

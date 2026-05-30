@@ -1,0 +1,79 @@
+<article>
+    <h1>Web Technologies II: Page 4 - Database Integration: MySQL & PHP</h1>
+
+    <section>
+        <h2>The Heart of the Application</h2>
+        <p>Most modern web applications are essentially "interfaces for databases." Whether it's a blog, an e-commerce site, or a social network, your web application exists to save, retrieve, and modify information stored in a database. <strong>MySQL</strong> is the most common relational database used with PHP. To build robust applications, you must master <strong>CRUD</strong> operations: <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, and <strong>D</strong>elete. Furthermore, you must learn to do this securely, protecting your data from common vulnerabilities like SQL Injection.</p>
+    </section>
+
+    <section>
+        <h2>1. CRUD Operations</h2>
+        <p>Every database interaction boils down to these four operations. In PHP, we use PDO prepared statements for all of them.</p>
+        <ul>
+            <li><strong>Create:</strong> <code>INSERT INTO users (name, email) VALUES (?, ?)</code></li>
+            <li><strong>Read:</strong> <code>SELECT * FROM users WHERE id = ?</code></li>
+            <li><strong>Update:</strong> <code>UPDATE users SET name = ? WHERE id = ?</code></li>
+            <li><strong>Delete:</strong> <code>DELETE FROM users WHERE id = ?</code></li>
+        </ul>
+        <pre><code class="language-php">
+// Reading data safely
+$stmt = $db-&gt;prepare("SELECT name FROM users WHERE id = :id");
+$stmt-&gt;execute(['id' => $userId]);
+$user = $stmt-&gt;fetch();
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Security: Preventing SQL Injection</h2>
+        <p><strong>SQL Injection</strong> occurs when a malicious user inputs SQL commands into a form field, potentially allowing them to dump your entire database. <strong>Never</strong> insert user input directly into a SQL query string. Always use <strong>Prepared Statements</strong>, which treat user input as <em>data</em>, not as part of the <em>command</em> to be executed.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: 'Unsafe' query (String concatenation) vs. 'Safe' query (Prepared Statement/Placeholder)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master MySQL and PHP integration with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. PHP PDO Prepared Statements</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The absolute essential guide to secure database queries.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. PHP CRUD Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn to create, read, update, and delete records.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Preventing SQL Injection</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Protect your database from malicious users.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Secure Bank Teller</h2>
+        <p>Think of your <strong>Database</strong> as a <strong>Bank Vault</strong> and your <strong>PHP application</strong> as the <strong>Bank Teller</strong>. The teller (PHP) is the only one who has access to the vault. When a customer (the user) wants to withdraw money (read/modify data), they don't walk into the vault themselves—that would be chaotic and insecure. They tell the teller what they want, and the teller performs the action securely on their behalf. <strong>SQL Injection</strong> is like a criminal trying to trick the teller by using a fake, forged withdrawal slip to steal money from the vault. <strong>Prepared Statements</strong> are the "official security-verified withdrawal slips" that make it impossible for a criminal to trick the teller—the teller only accepts official, pre-approved paperwork.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.php.net/manual/en/book.pdo.php" target="_blank">Official PHP: PDO Manual</a></li>
+            <li><a href="https://www.w3schools.com/php/php_mysql_select.asp" target="_blank">W3Schools: PHP MySQL</a></li>
+            <li><a href="https://www.phptherightway.com/#databases" target="_blank">PHP: The Right Way (Database Section)</a></li>
+            <li><a href="https://www.geeksforgeeks.org/sql-injection-prevention/" target="_blank">GeeksforGeeks: SQL Injection Prevention</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Node.js & Express</a>
+            <a href="#" data-file="Web2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: DB: MongoDB Integration &rarr;</a>
+        </div>
+    </footer>
+</article>

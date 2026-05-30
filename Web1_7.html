@@ -1,0 +1,81 @@
+<article>
+    <h1>Web Technologies I: Page 7 - JavaScript: The DOM</h1>
+
+    <section>
+        <h2>Manipulating the Web Page</h2>
+        <p>The <strong>Document Object Model (DOM)</strong> is the bridge between JavaScript and your HTML. When a browser loads an HTML page, it parses it into a tree-like structure of "Objects." Each element, attribute, and piece of text becomes a node in this tree. <strong>DOM Manipulation</strong> is the process of using JavaScript to traverse, modify, add, or remove these nodes, allowing you to create truly dynamic and interactive user experiences that update instantly without needing to refresh the page.</p>
+    </section>
+
+    <section>
+        <h2>1. Selecting Elements</h2>
+        <p>Before you can change an element, you must select it. There are several ways to grab elements from the DOM:</p>
+        <pre><code class="language-javascript">
+// Select by ID
+const heading = document.getElementById("main-title");
+
+// Select by CSS Selector (most flexible/common)
+const firstButton = document.querySelector(".btn-primary");
+const allItems = document.querySelectorAll("li");
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Modifying the DOM</h2>
+        <p>Once you've selected an element, you can change almost anything about it:</p>
+        <ul>
+            <li><strong>Content:</strong> <code>element.textContent = "New text!";</code></li>
+            <li><strong>Styles:</strong> <code>element.style.color = "red";</code></li>
+            <li><strong>Classes:</strong> <code>element.classList.add("active");</code></li>
+            <li><strong>Structure:</strong> You can even <code>appendChild()</code> new elements or <code>remove()</code> existing ones.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: HTML Tree Structure (DOM) showing JS arrows pointing at specific nodes for modification]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master DOM manipulation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. What is the DOM?</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the tree structure of the browser.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. DOM Selection Methods</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Get elements with querySelector and getElementById.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Modifying the DOM with JS</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Change content, style, and structure on the fly.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Construction Crew and the Building Blueprint</h2>
+        <p>Think of the <strong>DOM</strong> as the <strong>Detailed Blueprint</strong> of a building. It lists every single wall, window, and light switch. Your JavaScript is the <strong>Construction Crew</strong> that uses that blueprint to find specific components. If you want to change the light in the kitchen, the crew uses the blueprint (DOM API) to find the location (Selection), then they physically swap the bulb (Modification). They can even tear down a wall (Remove Element) or add a new closet (Create/Append Element) based on the instructions you provide in your code.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">MDN: DOM Overview</a></li>
+            <li><a href="https://javascript.info/dom-nodes" target="_blank">JavaScript.info: DOM Nodes</a></li>
+            <li><a href="https://www.w3schools.com/js/js_htmldom.asp" target="_blank">W3Schools: HTML DOM</a></li>
+            <li><a href="https://eloquentjavascript.net/14_dom.html" target="_blank">Book: Eloquent JavaScript (DOM Chapter)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: JS: Basics & Variables</a>
+            <a href="#" data-file="Web1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: JS: Async & Fetch &rarr;</a>
+        </div>
+    </footer>
+</article>

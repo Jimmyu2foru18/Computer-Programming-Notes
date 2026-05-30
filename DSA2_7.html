@@ -1,0 +1,76 @@
+<article>
+    <h1>DSA II: Page 7 - Graphs: Introduction</h1>
+
+    <section>
+        <h2>Mapping Relationships</h2>
+        <p>While Trees model 1-to-many hierarchical relationships, <strong>Graphs</strong> are far more powerful: they model <strong>many-to-many</strong> relationships. A graph is a collection of <strong>Vertices</strong> (or nodes) connected by <strong>Edges</strong>. Graphs are how we model social networks (users are vertices, friendships are edges), road maps (intersections are vertices, roads are edges), and the entire structure of the World Wide Web (web pages are vertices, hyperlinks are edges).</p>
+    </section>
+
+    <section>
+        <h2>1. Graph Types & Properties</h2>
+        <ul>
+            <li><strong>Directed:</strong> Edges have a specific direction (A → B means you can only go from A to B).</li>
+            <li><strong>Undirected:</strong> Edges have no direction (A — B means you can go both ways).</li>
+            <li><strong>Weighted:</strong> Edges have a cost/weight associated with them (e.g., travel time between two cities).</li>
+            <li><strong>Unweighted:</strong> All edges are treated equally.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Representing Graphs</h2>
+        <p>How do you store a graph in a computer? Two main ways:</p>
+        <ul>
+            <li><strong>Adjacency Matrix:</strong> A 2D array (V x V). <code>matrix[i][j] = 1</code> if there's an edge between vertex i and j, <code>0</code> otherwise. Best for <strong>dense graphs</strong>.</li>
+            <li><strong>Adjacency List:</strong> An array of lists. Each vertex has a list of its neighbors. Best for <strong>sparse graphs</strong> (most real-world graphs).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: Adjacency Matrix (grid) vs. Adjacency List (linked lists)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master graph fundamentals with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to Graph Data Structures</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding vertices, edges, and graph types.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Adjacency Matrix vs. Adjacency List</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Which representation should you choose?</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Real-World Applications of Graphs</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>See how graphs model the world.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The City Subway System</h2>
+        <p>Think of a <strong>Graph</strong> like a <strong>City Subway Map</strong>. Each subway station is a <strong>Vertex</strong>. The tracks connecting the stations are the <strong>Edges</strong>. If the train only runs in one direction between stations, it's a <strong>Directed Graph</strong>. If the train runs back and forth, it's <strong>Undirected</strong>. The time it takes to travel between stations is the <strong>Weight</strong>. This map (graph) is essential for subway operators to manage traffic and for commuters to calculate the fastest route to get to work.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" target="_blank">Wikipedia: Graph</a></li>
+            <li><a href="https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/" target="_blank">GeeksforGeeks: Graph Intro</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_graphs.php" target="_blank">W3Schools: DSA Graphs</a></li>
+            <li><a href="https://visualgo.net/en/graphds" target="_blank">Tool: Graph Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Heaps</a>
+            <a href="#" data-file="DSA2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Graph Traversal &rarr;</a>
+        </div>
+    </footer>
+</article>

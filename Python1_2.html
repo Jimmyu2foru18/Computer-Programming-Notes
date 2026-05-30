@@ -1,0 +1,104 @@
+<article>
+    <h1>Python I: Page 2 - Variables, Assignment & Naming Conventions</h1>
+
+    <section>
+        <h2>Variables: Storing Your Data</h2>
+        <p>In the world of programming, variables are your most basic building blocks. They are names that refer to values stored in your computer's memory. As we touched on in the previous curriculum, Python is <strong>dynamically typed</strong>. This is a massive advantage: it means you don't need to tell Python that a variable is a number or a piece of text—it figures it out automatically based on the value you provide.</p>
+        
+        <h3>Basic Assignment</h3>
+        <p>You assign a value to a variable name using the equals sign (<code>=</code>). Think of this as "binding" a name to an object.</p>
+        <pre><code class="language-python">
+name = "Alice"         # String (Text)
+age = 25               # Integer (Whole Number)
+height = 5.6           # Float (Decimal)
+is_student = True      # Boolean (True/False)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Advanced Assignment Techniques</h2>
+        <p>Python allows for some very efficient ways to assign variables that can save you several lines of code.</p>
+        
+        <h3>1. Multiple Assignment</h3>
+        <p>You can assign multiple variables to multiple values in a single line. This is incredibly useful for coordinates or settings.</p>
+        <pre><code class="language-python">
+x, y, z = 1, 2, 3
+print(x) # 1
+print(y) # 2
+        </code></pre>
+
+        <h3>2. Chained Assignment</h3>
+        <p>You can also assign the same value to multiple variable names at once.</p>
+        <pre><code class="language-python">
+a = b = c = 0  # All three now equal 0
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing multiple labels (a, b, c) pointing to the same memory object (0)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Naming Conventions: Writing "Clean" Code</h2>
+        <p>While Python gives you freedom in how you name your variables, the professional community follows a set of rules called <strong>PEP 8</strong>. Following these ensures that your code is readable by other developers around the world.</p>
+        
+        <h3>Good Naming Practices:</h3>
+        <ul>
+            <li><strong>snake_case:</strong> Use lowercase words separated by underscores for variables and functions (e.g., <code>user_name</code>, <code>total_count</code>).</li>
+            <li><strong>Constants:</strong> If a value is meant to stay the same forever, use <strong>UPPERCASE</strong> (e.g., <code>MAX_SIZE = 1000</code>, <code>PI = 3.14</code>).</li>
+            <li><strong>Descriptive:</strong> <code>student_list</code> is always better than <code>s</code> or <code>l</code>.</li>
+        </ul>
+
+        <h3>Names to Avoid:</h3>
+        <ul>
+            <li><strong>Start with Numbers:</strong> <code>1name</code> is invalid and will cause an error.</li>
+            <li><strong>Reserved Keywords:</strong> Don't use names like <code>class</code>, <code>if</code>, or <code>print</code>, as Python already uses these for the language itself.</li>
+            <li><strong>Ambiguity:</strong> Avoid using lowercase 'L', uppercase 'O', or uppercase 'I' as single-character names, as they can be confused with numbers 1 and 0.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Deepen your understanding of variables and naming with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Variables & Data Types (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into how variables work under the hood.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. PEP 8 Naming Conventions</strong><br>
+                <a href="https://www.youtube.com/watch?v=hfB7eTHe6tE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the industry standard for beautiful, readable code.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Multiple Assignment Tricks</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Advanced ways to handle data assignment efficiently.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Filing Cabinet and the Label Maker</h2>
+        <p>Think of your computer's memory as a massive <strong>Filing Cabinet</strong>. <strong>Variables</strong> are not the files themselves, but the <strong>Labels</strong> you put on the folders. <strong>Multiple Assignment</strong> is like having one folder that holds several related documents, and you put a label on each document simultaneously. <strong>Naming Conventions</strong> are like the system you use to organize your cabinet—if you label every folder "X" or "Data," you'll never find anything. If you use a consistent system (like "Snake Case" for files and "Uppercase" for the cabinet's master rules), anyone—including your future self—can walk in and understand exactly where everything is stored.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://peps.python.org/pep-0008/#naming-conventions" target="_blank">PEP 8 Official Naming Conventions</a></li>
+            <li><a href="https://realpython.com/python-variables/" target="_blank">Real Python: Variables in Python</a></li>
+            <li><a href="https://www.w3schools.com/python/python_variables_multiple.asp" target="_blank">W3Schools: Multiple Variable Assignment</a></li>
+            <li><a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers" target="_blank">Python Docs: Identifiers and Keywords</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Environment</a>
+            <a href="#" data-file="Python1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Numbers & Booleans &rarr;</a>
+        </div>
+    </footer>
+</article>

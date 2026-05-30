@@ -1,0 +1,87 @@
+<article>
+    <h1>DBMS II: Page 2 - Advanced Concepts: Concurrency Control & Locking</h1>
+
+    <section>
+        <h2>Managing Multi-User Chaos</h2>
+        <p>In a modern enterprise, a database is rarely used by one person at a time. Thousands of web requests, mobile apps, and internal tools are hitting the database simultaneously. If two users try to update the same record at the exact same time, the data can become corrupted. <strong>Concurrency Control</strong> is the set of techniques used by a DBMS to manage simultaneous access to data without compromising <strong>Isolation</strong> (the 'I' in ACID). The most common method for achieving this is through <strong>Locking</strong>, which ensures that only one transaction can modify a specific data item at a time.</p>
+    </section>
+
+    <section>
+        <h2>1. The Mechanisms of Locking</h2>
+        <p>A lock is a variable associated with a data item that describes the status of that item with respect to possible operations that can be applied to it.</p>
+        
+        <ul>
+            <li><strong>Shared Lock (S):</strong> Also called a "Read Lock." Multiple transactions can hold a shared lock on the same item at the same time. You can read the data, but you cannot change it.</li>
+            <li><strong>Exclusive Lock (X):</strong> Also called a "Write Lock." Only one transaction can hold an exclusive lock. No other transaction can read or write to that item until the lock is released.</li>
+        </ul>
+        <pre><code class="language-sql">
+-- Manually requesting an exclusive lock (standard in many SQL dialects)
+SELECT * FROM products WHERE p_id = 1 FOR UPDATE;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Transaction Isolation Levels</h2>
+        <p>Not every application needs perfect isolation. Sometimes, we sacrifice a little consistency for a massive boost in speed. SQL standard defines four isolation levels:</p>
+        <ol>
+            <li><strong>Read Uncommitted:</strong> No locks. You can see data that hasn't been committed yet (Dirty Reads). Fastest but most dangerous.</li>
+            <li><strong>Read Committed:</strong> You only see data once it is committed. (The default for most databases).</li>
+            <li><strong>Repeatable Read:</strong> Ensures that if you read a row twice in one transaction, the data won't change in between.</li>
+            <li><strong>Serializable:</strong> Perfect isolation. Transactions run as if they were in a single-file line. Slowest but most consistent.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>3. The Deadlock Problem</h2>
+        <p>A <strong>Deadlock</strong> occurs when Transaction A is waiting for a lock held by Transaction B, while Transaction B is waiting for a lock held by Transaction A. They are both stuck forever. Modern DBMSs have a <strong>Deadlock Detector</strong> that periodically checks for these "cycles" and automatically kills one of the transactions to let the other proceed.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram of a Deadlock 'Circular Wait'—Transaction 1 holding Resource A and wanting B, while Transaction 2 holds B and wants A]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the complexities of concurrent data access with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Concurrency Control & Locking</strong><br>
+                <a href="https://www.youtube.com/watch?v=kR9-A_CstL4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how shared and exclusive locks prevent data corruption.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Transaction Isolation Levels Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=9OK32jb_ZlA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the trade-offs between speed and consistency.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Deadlocks in Databases: Detection & Prevention</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to avoid and resolve the 'stuck transaction' problem.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Shared Office and the Four-Way Stop</h2>
+        <p>Think of <strong>Shared and Exclusive Locks</strong> like a <strong>Shared Document in an Office</strong>. If the document is "Read-Only" (Shared Lock), everyone can look at it at the same time. But if one person wants to "Edit" it (Exclusive Lock), they must "Check it out," and no one else can even look at it until they check it back in. Think of a <strong>Deadlock</strong> like a <strong>Four-Way Stop Sign</strong> where four cars arrive at the exact same time. Every driver is waiting for the person to their right to go first. If no one takes initiative, they will sit there forever. Finally, think of <strong>Isolation Levels</strong> like a <strong>Security Guard</strong> at a construction site. <strong>Read Uncommitted</strong> is no guard—anyone can walk in and see the half-finished walls. <strong>Serializable</strong> is a guard who only lets one person enter the site at a time, ensuring they see a perfectly finished room, but creating a huge line at the gate.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Concurrency_control" target="_blank">Wikipedia: Concurrency Control</a></li>
+            <li><a href="https://www.baeldung.com/cs/db-concurrency-control" target="_blank">Baeldung: Database Concurrency Control Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/concurrency-control-in-dbms/" target="_blank">GeeksforGeeks: Concurrency Control Techniques</a></li>
+            <li><a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html" target="_blank">MySQL Docs: Transaction Isolation Levels</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Transactions & ACID</a>
+            <a href="#" data-file="DBMS2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Advanced SQL & Procs &rarr;</a>
+        </div>
+    </footer>
+</article>

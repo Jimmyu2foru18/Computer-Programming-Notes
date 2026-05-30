@@ -1,0 +1,91 @@
+<article>
+    <h1>Web Technologies II: Page 1 - PHP: Server-Side Foundations</h1>
+
+    <section>
+        <h2>The Server-Side Brain</h2>
+        <p>While JavaScript makes the browser "alive," <strong>PHP (Hypertext Preprocessor)</strong> is the powerhouse that runs on the web server. When a user requests a PHP page, the server executes the PHP code <em>before</em> sending the final, plain HTML to the browser. This allows you to generate content dynamically: fetching user data from a database, processing form submissions, or personalizing the page based on who is logged in. PHP is embedded directly into your HTML files.</p>
+    </section>
+
+    <section>
+        <h2>1. PHP Basics: Syntax & Variables</h2>
+        <p>PHP code must be enclosed in special tags so the server knows which parts to execute.</p>
+        <pre><code class="language-php">
+&lt;?php
+  // This is a comment.
+  $name = "John Doe"; // Variables start with $
+  $age = 30;
+  
+  echo "Hello, " . $name . "! You are " . $age . " years old.";
+?&gt;
+        </code></pre>
+        <h3>Core Data Types:</h3>
+        <ul>
+            <li><strong>String:</strong> Text data (e.g., "Hello").</li>
+            <li><strong>Integer:</strong> Whole numbers.</li>
+            <li><strong>Float:</strong> Decimal numbers.</li>
+            <li><strong>Boolean:</strong> true or false.</li>
+            <li><strong>Array:</strong> Ordered list (or key-value map).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Control Flow</h2>
+        <p>PHP uses standard control flow structures similar to other C-style languages. This allows you to create dynamic logic, such as showing different HTML content based on whether a user is logged in or not.</p>
+        <pre><code class="language-php">
+if ($isLoggedIn) {
+  echo "&lt;h1&gt;Welcome back!&lt;/h1&gt;";
+} else {
+  echo "&lt;button&gt;Login&lt;/button&gt;";
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Client Request &rarr; Server (PHP engine processes code) &rarr; HTML Response to Client]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master PHP fundamentals with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. PHP Crash Course for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A fast-paced introduction to PHP syntax and variables.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. PHP Control Structures</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Using if/else and loops to control output.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. PHP & HTML Integration</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to embed PHP inside your HTML files.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Restaurant Kitchen</h2>
+        <p>Think of your <strong>Web Server</strong> like a <strong>Restaurant Kitchen</strong>. The <strong>Client (the Browser)</strong> is the customer in the dining room. The <strong>HTML</strong> is the menu. When the customer orders a specific meal (requests a PHP page), the waiter takes the order to the kitchen. The chef (<strong>PHP</strong>) takes raw ingredients (data from the database or variables) and follows a recipe (PHP code) to cook the meal. The chef then sends the finished meal (the rendered HTML) out to the dining room. The customer never sees the kitchen or the chef working—they only see the final, ready-to-eat meal on their table.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.php.net/manual/en/" target="_blank">Official PHP Documentation</a></li>
+            <li><a href="https://www.w3schools.com/php/" target="_blank">W3Schools: PHP Tutorial</a></li>
+            <li><a href="https://www.phptherightway.com/" target="_blank">PHP: The Right Way (Best Practices)</a></li>
+            <li><a href="https://www.geeksforgeeks.org/php-tutorial/" target="_blank">GeeksforGeeks: PHP Intro</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Project: Portfolio</a>
+            <a href="#" data-file="Web2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: PHP: Web & Databases &rarr;</a>
+        </div>
+    </footer>
+</article>

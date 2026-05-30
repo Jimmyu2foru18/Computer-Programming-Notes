@@ -1,0 +1,74 @@
+<article>
+    <h1>Networks I: Page 6 - OSI Model: The Intelligence Layers (Layers 3-7)</h1>
+
+    <section>
+        <h2>From Cables to Content</h2>
+        <p>While the lower OSI layers are concerned with moving bits across wires and frames across local links, the upper layers bring "Intelligence" to the network. This is where routing, reliable data delivery, secure sessions, and user-facing applications come into play. These layers are what allow the internet to function as a global, multi-protocol system. Understanding these layers is where you move from basic network hardware troubleshooting to full-stack network engineering.</p>
+    </section>
+
+    <section>
+        <h2>1. The Logic Layers (3 & 4)</h2>
+        <ul>
+            <li><strong>Layer 3 (Network):</strong> The "Routing" layer. It uses <strong>IP Addresses</strong> to send packets across different networks (e.g., from your home ISP to a Google server in another country). Routers live here.</li>
+            <li><strong>Layer 4 (Transport):</strong> The "Reliability" layer. It breaks data into <strong>Segments</strong>. It decides if communication should be reliable (TCP) or fast/unreliable (UDP) using <strong>Port Numbers</strong> to send data to the correct application.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. The Intelligent Layers (5, 6, & 7)</h2>
+        <ul>
+            <li><strong>Layer 5 (Session):</strong> Manages the <strong>connection lifetime</strong>. It handles session restoration if a connection drops and synchronizes checkpoints during large file transfers.</li>
+            <li><strong>Layer 6 (Presentation):</strong> The "Translator." It handles <strong>Encryption/Decryption</strong> (SSL/TLS), <strong>Compression</strong> (Gzip), and converts data formats (e.g., ASCII to UTF-8) so different computers can understand each other.</li>
+            <li><strong>Layer 7 (Application):</strong> The user interface. This is where your Browser (HTTP), Email Client (SMTP/IMAP), and File Transfer tools (FTP) operate. This layer defines the language (protocol) used between apps.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Layer stack showing the transformation of Data &rarr; Segment &rarr; Packet &rarr; Frame]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the upper OSI layers with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. OSI Model: Layers 3 to 7</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the intelligence behind routing and applications.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. TCP vs UDP (Reliability vs Speed)</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Deep dive into the critical differences in Layer 4.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Application Protocols: HTTP, DNS, SMTP</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the languages that our browsers speak.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Global Logistics Chain</h2>
+        <p>Think of <strong>Layer 3 (Network)</strong> like the <strong>International Logistics Planner</strong> who chooses the flight path across the world. Think of <strong>Layer 4 (Transport)</strong> like the <strong>Package Delivery Guard</strong> who verifies you received the specific box you ordered. Think of <strong>Layer 5 (Session)</strong> like a <strong>Telephone Operator</strong> who keeps the call connected while you switch towers. Think of <strong>Layer 6 (Presentation)</strong> like a <strong>Translator</strong> who takes a letter written in English, translates it into French (Data Format), and puts it in a locked envelope (Encryption). Think of <strong>Layer 7 (Application)</strong> like the <strong>Recipient</strong> who opens the letter and understands the content. Each layer is a specialist that doesn't need to know the details of the layers below it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank">Wikipedia: OSI Model Detailed</a></li>
+            <li><a href="https://www.geeksforgeeks.org/osi-model-layer-3-network-layer/" target="_blank">GeeksforGeeks: Network Layer</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: Understanding Layers 4-7</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Advanced OSI Analysis</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: OSI: Lower Layers</a>
+            <a href="#" data-file="Networks1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: TCP/IP Stack & Models &rarr;</a>
+        </div>
+    </footer>
+</article>

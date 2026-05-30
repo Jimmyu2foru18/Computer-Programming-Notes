@@ -1,0 +1,138 @@
+<article>
+    <h1>Java I: Page 2 - Variables & Primitive Data Types</h1>
+
+    <section>
+        <h2>The Strict World of Java Variables</h2>
+        <p>In our Python journey, we learned about dynamic typing—the ability to slap a label on any object without worrying about its type. <strong>Java is different.</strong> Java is a <strong>statically and strongly typed</strong> language. This means that every variable must be declared with a specific data type before it can be used, and that type cannot change during the life of the variable. While this requires more effort from the developer, it results in code that is much faster and catches many errors before the program even runs.</p>
+    </section>
+
+    <section>
+        <h2>The 8 Primitive Data Types</h2>
+        <p>Java provides eight "Primitive" data types. These are the most basic building blocks of data and are stored directly in the computer's <strong>Stack</strong> memory for high performance.</p>
+        
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 10px; text-align: left;">Type</th>
+                <th style="padding: 10px; text-align: left;">Size</th>
+                <th style="padding: 10px; text-align: left;">Range / Value</th>
+                <th style="padding: 10px; text-align: left;">Example</th>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>byte</code></td>
+                <td style="padding: 10px;">8-bit</td>
+                <td style="padding: 10px;">-128 to 127</td>
+                <td style="padding: 10px;"><code>byte age = 25;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>short</code></td>
+                <td style="padding: 10px;">16-bit</td>
+                <td style="padding: 10px;">-32,768 to 32,767</td>
+                <td style="padding: 10px;"><code>short year = 2024;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>int</code></td>
+                <td style="padding: 10px;">32-bit</td>
+                <td style="padding: 10px;">-2³¹ to 2³¹-1</td>
+                <td style="padding: 10px;"><code>int count = 1000;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>long</code></td>
+                <td style="padding: 10px;">64-bit</td>
+                <td style="padding: 10px;">Huge whole numbers</td>
+                <td style="padding: 10px;"><code>long pop = 8000000L;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>float</code></td>
+                <td style="padding: 10px;">32-bit</td>
+                <td style="padding: 10px;">Decimals (low prec)</td>
+                <td style="padding: 10px;"><code>float price = 1.99f;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>double</code></td>
+                <td style="padding: 10px;">64-bit</td>
+                <td style="padding: 10px;">Decimals (high prec)</td>
+                <td style="padding: 10px;"><code>double pi = 3.14;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>boolean</code></td>
+                <td style="padding: 10px;">1-bit</td>
+                <td style="padding: 10px;">true / false</td>
+                <td style="padding: 10px;"><code>boolean ok = true;</code></td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><code>char</code></td>
+                <td style="padding: 10px;">16-bit</td>
+                <td style="padding: 10px;">Unicode character</td>
+                <td style="padding: 10px;"><code>char grade = 'A';</code></td>
+            </tr>
+        </table>
+        <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin: 20px 0;">
+            <strong>Pro Tip:</strong> Always use <code>long</code> for large integers and <code>double</code> for decimals unless you have a specific reason to save memory with the smaller types. Note the 'L' suffix for longs and 'f' for floats!
+        </div>
+    </section>
+
+    <section>
+        <h2>Declaration, Initialization, and Constants</h2>
+        <p>In Java, you "declare" a variable to tell the compiler to set aside memory. You "initialize" it to give it a starting value. You can do both in one line.</p>
+        <pre><code class="language-java">
+int score;              // Declaration
+score = 95;             // Initialization
+
+final double PI = 3.14; // A Constant (cannot be changed)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Variable Scope</h2>
+        <p>The <strong>Scope</strong> of a variable determines where in your code that variable is "visible" and can be used. Java has several levels of scope:</p>
+        <ul>
+            <li><strong>Local Variables:</strong> Defined inside a method. They only exist while the method is running.</li>
+            <li><strong>Instance Variables:</strong> Defined in a class but outside methods. Each object has its own copy.</li>
+            <li><strong>Static (Class) Variables:</strong> Shared by all instances of the class.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java data types and memory with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Variables and Data Types (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=kR9-A_CstL4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear guide to Java's strict typing system.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Primitive vs Reference Types (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the difference between Stack and Heap memory.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Java Variable Scope Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=Yp97V6K6zT0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn where your variables live and die.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Toolbox and the Custom Mold</h2>
+        <p>Think of <strong>Python Variables</strong> like a <strong>Magic Bag</strong>. You can throw anything inside—a ball, a book, a sandwich—and the bag just expands to fit it. <strong>Java Variables</strong> are like a <strong>Set of Specific Containers</strong>. If you want to store a liquid, you <em>must</em> use a bottle. if you want to store a sandwich, you <em>must</em> use a box. You can't put a sandwich in the bottle. This strictness (Strong Typing) ensures that you never accidentally try to pour a sandwich or eat a bottle. <strong>Primitives</strong> are like the <strong>Tools in your pocket</strong>—you carry them everywhere for instant use. <strong>Reference Types</strong> (which we'll cover later) are like a <strong>Claim Ticket</strong> for a large item in a warehouse—the variable doesn't hold the item itself, just the address where the JVM can find it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html" target="_blank">Official Java Docs: Primitive Data Types</a></li>
+            <li><a href="https://www.baeldung.com/java-primitives" target="_blank">Baeldung: Guide to Java Primitives</a></li>
+            <li><a href="https://www.w3schools.com/java/java_data_types.asp" target="_blank">W3Schools: Java Data Types</a></li>
+            <li><a href="https://www.geeksforgeeks.org/data-types-in-java/" target="_blank">GeeksforGeeks: Data Types in Java</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Environment</a>
+            <a href="#" data-file="Java1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Operators & Logic &rarr;</a>
+        </div>
+    </footer>
+</article>

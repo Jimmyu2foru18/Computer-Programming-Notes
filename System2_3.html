@@ -1,0 +1,50 @@
+<article>
+    <h1>System Design II: Page 3 - Backend: GraphQL vs REST</h1>
+
+    <section>
+        <h2>Evolving API Design</h2>
+        <p>While REST is the long-standing standard, <strong>GraphQL</strong> has emerged as a powerful alternative. The fundamental problem with REST is "over-fetching" (receiving more data than you need) or "under-fetching" (needing to make multiple requests to get related data). GraphQL solves this by allowing the client to define the exact data structure it needs, and the server returns exactly that, in a single query.</p>
+    </section>
+
+    <section>
+        <h2>1. Comparison</h2>
+        <ul>
+            <li><strong>REST:</strong> Resource-based. Multiple endpoints. Fixed response structures. Easier to cache.</li>
+            <li><strong>GraphQL:</strong> Query-based. Single endpoint. Flexible response structures. Harder to cache.</li>
+        </ul>
+        <pre><code class="language-graphql">
+# GraphQL Query
+query {
+  user(id: "1") {
+    name
+    posts { title }
+  }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. GraphQL vs REST</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. GraphQL Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. When to use GraphQL</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Backend: REST API</a>
+            <a href="#" data-file="System2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: DB: SQL Deep Dive &rarr;</a>
+        </div>
+    </footer>
+</article>

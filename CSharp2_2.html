@@ -1,0 +1,103 @@
+<article>
+    <h1>C# II: Page 2 - Object-Oriented Programming (OOP): Inheritance & Polymorphism</h1>
+
+    <section>
+        <h2>The Architecture of Reusability</h2>
+        <p>In the physical world, we rarely build everything from scratch. When a company designs a new car, they don't reinvent the "wheel" or the "engine"; they take existing technology and build <em>on top</em> of it. In programming, we do the same thing using <strong>Inheritance</strong> and <strong>Polymorphism</strong>. Inheritance allows us to create a new class (the <strong>Derived Class</strong>) that inherits attributes and methods from an existing class (the <strong>Base Class</strong>). Polymorphism allows us to treat those different classes as if they were the same type, making our systems incredibly flexible and scalable. Together, these two pillars of OOP are the primary tools for managing large-scale software architecture.</p>
+    </section>
+
+    <section>
+        <h2>1. Inheritance: The "Is-A" Relationship</h2>
+        <p>In C#, you establish inheritance using the colon (<code>:</code>) symbol. The derived class gets all the public and protected members of the base class. It can then add its own unique members or <strong>Override</strong> existing ones to change their behavior.</p>
+        
+        <h3>The Code implementation (C#)</h3>
+        <pre><code class="language-csharp">
+class Animal {
+    public string Name { get; set; }
+    public virtual void MakeSound() {
+        Console.WriteLine("Generic animal sound.");
+    }
+}
+
+class Dog : Animal { // Dog inherits from Animal
+    public override void MakeSound() {
+        Console.WriteLine("Woof!");
+    }
+}
+        </code></pre>
+        <p><strong>The <code>base</code> keyword:</strong> Inside a derived class, you can use <code>base.MakeSound()</code> to call the original version of the method from the parent class.</p>
+    </section>
+
+    <section>
+        <h2>2. Polymorphism: The Art of Many Forms</h2>
+        <p>Polymorphism means "many forms." In C#, it allows you to use a <strong>Base Class Reference</strong> to point to a <strong>Derived Class Object</strong>. This is extremely powerful because it allows you to write code that works with <em>any</em> type of Animal, and each animal will automatically perform its own specific behavior.</p>
+        <pre><code class="language-csharp">
+// Polymorphic usage
+Animal myPet = new Dog();
+myPet.MakeSound(); // Output: Woof! (Even though the reference is 'Animal')
+
+List&lt;Animal&gt; zoo = new List&lt;Animal&gt; { new Dog(), new Cat() };
+foreach (var a in zoo) {
+    a.MakeSound(); // Each animal responds in its own way
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Type Checking: <code>is</code> and <code>as</code></h2>
+        <p>Sometimes when using polymorphism, you need to know exactly which derived type you are working with. C# provides two safe ways to do this:</p>
+        <ul>
+            <li><strong>is:</strong> Checks if an object is of a certain type (returns bool). <code>if (animal is Dog d) { d.Fetch(); }</code></li>
+            <li><strong>as:</strong> Tries to convert the object to a type. If it fails, it returns <code>null</code> instead of crashing the program.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Hierarchy diagram showing a 'Vehicle' base class and 'Car', 'Truck', and 'Motorcycle' derived classes responding to a 'StartEngine()' command]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master hierarchies and flexible interfaces with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Inheritance Explained (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Zs342e_vL0Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best visual guide to base and derived classes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Polymorphism in C# Deep Dive</strong><br>
+                <a href="https://www.youtube.com/watch?v=Jh5oX0GR9sM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand virtual, override, and dynamic dispatch.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Upcasting vs Downcasting in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to safely move between class levels in memory.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Evolution and the Universal Remote</h2>
+        <p>Think of <strong>Inheritance</strong> like <strong>Biological Evolution</strong>. Every animal inherits a set of basic blueprints from its ancestors (DNA). A wolf inherits the ability to breathe and eat from the category of "Mammals." Over time, the "Dog" class diverged, inheriting the basic structure but "overriding" behaviors to be more friendly to humans. Think of <strong>Polymorphism</strong> like a <strong>Universal TV Remote</strong>. The remote has a "Volume Up" button (the Method Call). It doesn't need to know if your TV is a Sony, a Samsung, or an LG. It just sends the "Volume Up" signal, and each device (the Object) responds in its own specific way (the Implementation). This allow you to control 100 different devices using only one set of buttons (the Interface).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance" target="_blank">Official Microsoft: Inheritance Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/polymorphism" target="_blank">Baeldung: Guide to Polymorphism in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_inheritance.php" target="_blank">W3Schools: C# Inheritance</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-method-overriding/" target="_blank">Overriding Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Encapsulation & Props</a>
+            <a href="#" data-file="CSharp2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Interfaces & Abstraction &rarr;</a>
+        </div>
+    </footer>
+</article>

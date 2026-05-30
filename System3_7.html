@@ -1,0 +1,41 @@
+<article>
+    <h1>System Design III: Page 7 - Reliability & Recovery</h1>
+
+    <section>
+        <h2>Designing for Failure</h2>
+        <p>In distributed systems, <strong>failure is inevitable</strong>. Servers crash, networks partition, and disks fail. A reliable system is not one that never fails, but one that <strong>handles failure gracefully</strong>. Reliability is achieved through <strong>redundancy</strong> (having extra components ready), <strong>failover</strong> (automatically switching to those extra components), and a well-defined <strong>Disaster Recovery (DR)</strong> plan to restore data and services after catastrophic events.</p>
+    </section>
+
+    <section>
+        <h2>1. Key Reliability Metrics</h2>
+        <ul>
+            <li><strong>RTO (Recovery Time Objective):</strong> The maximum acceptable downtime after a failure. How fast must the system be back up?</li>
+            <li><strong>RPO (Recovery Point Objective):</strong> The maximum acceptable data loss (in time). How much data can you afford to lose?</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Designing for Reliability</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. RTO and RPO Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Disaster Recovery Strategies</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System3_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Observability</a>
+            <a href="#" data-file="System3_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Security: Auth/AuthZ &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,73 @@
+<article>
+    <h1>Networks I: Page 2 - Network Topologies: Mapping the Connection</h1>
+
+    <section>
+        <h2>The Blueprint of a Network</h2>
+        <p>A <strong>Network Topology</strong> defines the physical or logical layout of a network. It dictates how devices are arranged, how they connect, and how data travels between them. Choosing the right topology is a crucial engineering decision because it directly impacts the network's cost, scalability, reliability, and performance. A topology that works perfectly for a home office might be disastrous for a large corporate data center.</p>
+    </section>
+
+    <section>
+        <h2>1. Common Topologies</h2>
+        <p>Each topology offers different trade-offs in terms of complexity and fault tolerance:</p>
+        <ul>
+            <li><strong>Bus Topology:</strong> All devices share a single "backbone" cable. It's cheap and easy to set up, but if that central cable breaks, the <em>entire</em> network goes down.</li>
+            <li><strong>Star Topology:</strong> All devices connect to a central Hub or Switch. This is the most common modern topology. If one device's cable breaks, only that device is affected. If the central switch breaks, the network is down.</li>
+            <li><strong>Ring Topology:</strong> Devices are connected in a closed loop. Data travels in one direction. It's rare in modern networks due to inefficiency, but robust in specific ring-based fiber protocols.</li>
+            <li><strong>Mesh Topology:</strong> Every device connects to many (or all) other devices. This offers the highest reliability (Redundancy) because there are multiple paths to every node, but it is very expensive and complex to wire.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing Bus, Star, Ring, and Mesh topologies side-by-side]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Choosing the Right Layout</h2>
+        <p>In modern professional engineering, <strong>Star Topology</strong> is the industry standard for LANs because switches are now very affordable and reliable. For critical infrastructure (like backbone routers connecting data centers), a <strong>Full or Partial Mesh</strong> is preferred to ensure that there is no single point of failure. The layout you choose must balance the budget with the required level of uptime.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master network topologies with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Network Topologies Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=UI6lqHOVHic" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive guide to physical and logical arrangements.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Bus, Star, Ring, and Mesh Compared</strong><br>
+                <a href="https://www.youtube.com/watch?v=k5qC-iB0f1E" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the pros and cons of each topology.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Why Star Topology is Standard</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why the star topology dominates modern LANs.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Bus Route and the Air Traffic Control</h2>
+        <p>Think of <strong>Bus Topology</strong> like a <strong>One-Lane Road</strong>. If one car breaks down in the middle of the road, everyone behind it is stuck. Think of <strong>Star Topology</strong> like <strong>Air Traffic Control</strong> at a busy airport. Every plane (Device) talks to the central tower (the Switch). If one plane loses its radio, the others can still fly. But if the Control Tower fails, the whole airport shuts down. Think of <strong>Mesh Topology</strong> like a <strong>Spider's Web</strong>. There are dozens of strands connecting the outer rim. If you cut one strand, the web still holds its shape. This is how the Internet backbone (the global mesh) stays online even when local fiber cables are accidentally cut by construction crews.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Network_topology" target="_blank">Wikipedia: Network Topology Overview</a></li>
+            <li><a href="https://www.geeksforgeeks.org/types-of-network-topology/" target="_blank">GeeksforGeeks: Types of Network Topology</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: Network Layout Basics</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Architectural Insights</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Architecture</a>
+            <a href="#" data-file="Networks1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: LAN, WAN & Scale &rarr;</a>
+        </div>
+    </footer>
+</article>

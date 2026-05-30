@@ -1,0 +1,101 @@
+<article>
+    <h1>C# I: Page 9 - Advanced Logic: Parameters (Ref, Out, and Params)</h1>
+
+    <section>
+        <h2>Beyond Simple Inputs</h2>
+        <p>In the previous page, we learned the basics of methods. Normally, when you pass a variable to a method, C# creates a <strong>copy</strong> of that value (this is called "Pass by Value"). Any changes you make inside the method stay inside the method. However, professional C# development often requires more control. You might need a method to modify the original variable, return multiple values at once, or accept a flexible number of arguments. C# provides three powerful keywords—<code>ref</code>, <code>out</code>, and <code>params</code>—to handle these advanced communication scenarios.</p>
+    </section>
+
+    <section>
+        <h2>1. The <code>ref</code> Keyword: Modifying the Original</h2>
+        <p>The <code>ref</code> keyword tells C# to pass a <strong>reference</strong> to the variable, rather than a copy. This allows the method to change the value of the variable in the "Caller's" code. The variable <em>must</em> be initialized before it is passed.</p>
+        <pre><code class="language-csharp">
+static void Swap(ref int a, ref int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int x = 10, y = 20;
+Swap(ref x, ref y); // x is now 20, y is now 10!
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. The <code>out</code> Keyword: Returning Multiple Values</h2>
+        <p>The <code>out</code> keyword is similar to <code>ref</code>, but with one key difference: the variable doesn't need a value before it's passed, but the method <strong>must</strong> assign a value to it before finishing. This is the classic way to "return" more than one thing from a single method.</p>
+        <pre><code class="language-csharp">
+static bool TryDivide(int dividend, int divisor, out double result) {
+    if (divisor == 0) {
+        result = 0;
+        return false;
+    }
+    result = (double)dividend / divisor;
+    return true;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. The <code>params</code> Keyword: Flexible Lists</h2>
+        <p>If you want a method to accept any number of arguments without forcing the user to create an array first, you use <code>params</code>. It treats all the inputs as a single array inside the method.</p>
+        <pre><code class="language-csharp">
+static int SumAll(params int[] numbers) {
+    int total = 0;
+    foreach (int n in numbers) total += n;
+    return total;
+}
+
+int total = SumAll(1, 2, 3, 4, 5); // Total is 15
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing 'Pass by Value' (giving someone a photo of a cake) vs 'Pass by Reference' (giving someone the actual key to the kitchen)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master advanced parameter passing with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# ref vs. out Keywords</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Clear examples of when to use each for state management.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The 'params' Keyword in 3 Minutes</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to accept variable argument counts like a pro.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Understanding Pass-by-Reference</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Deep dive into memory addresses and stack vs heap.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Photo, the Key, and the Delivery Truck</h2>
+        <p>Think of **Pass by Value** (Standard) like giving someone a **Photo of your House**. They can draw on the photo, tear it up, or lose it, but your actual house stays exactly the same. Think of <strong><code>ref</code></strong> like giving someone the <strong>Spare Key to your House</strong>. If they go inside and paint the walls blue, when you get home, the walls are actually blue. You've given them access to the "Reference." Think of <strong><code>out</code></strong> like <strong>Ordering a Pizza</strong>. You don't have a pizza yet (uninitialized), but the delivery driver (the Method) is <em>guaranteed</em> to hand you a pizza before they leave. Finally, think of <strong><code>params</code></strong> like a <strong>Delivery Truck</strong>: the truck doesn't care if it's carrying 1 box or 100 boxes; it just groups them all together into one delivery that you can process at the destination.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref" target="_blank">Official Microsoft: ref parameter modifier</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier" target="_blank">Official Microsoft: out parameter modifier</a></li>
+            <li><a href="https://www.baeldung.com/cs/params-keyword" target="_blank">Baeldung: Guide to C# params</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_method_parameters.php" target="_blank">W3Schools: C# Method Parameters</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Methods: The Basics</a>
+            <a href="#" data-file="CSharp1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Classes & Objects &rarr;</a>
+        </div>
+    </footer>
+</article>

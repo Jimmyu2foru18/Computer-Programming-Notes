@@ -1,0 +1,78 @@
+<article>
+    <h1>DSA II: Page 2 - Hash Tables</h1>
+
+    <section>
+        <h2>The Key to Fast Access</h2>
+        <p>A <strong>Hash Table</strong> is a data structure that maps <strong>keys</strong> to <strong>values</strong>, allowing for incredibly fast data retrieval—often in <strong>O(1)</strong> constant time on average. It achieves this by using a <strong>Hash Function</strong>, which takes a key and computes an index (a "hash") where the value should be stored in an underlying array. Instead of searching through a list, you calculate exactly where the data lives.</p>
+    </section>
+
+    <section>
+        <h2>1. The Hashing Mechanism</h2>
+        <p>The hash function must be efficient and distribute keys uniformly across the array to avoid "collisions." A <strong>Collision</strong> occurs when two different keys map to the exact same index.</p>
+        
+        <h3>Collision Resolution Strategies:</h3>
+        <ul>
+            <li><strong>Separate Chaining:</strong> Each array index points to a linked list. If a collision occurs, simply append the new item to the list at that index.</li>
+            <li><strong>Open Addressing:</strong> If a collision occurs, probe the array for the next empty slot (linear probing, quadratic probing).</li>
+        </ul>
+        <pre><code class="language-python">
+# Simple Hash Function Concept
+def hash_key(key, table_size):
+    return hash(key) % table_size
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why They Are Essential</h2>
+        <p>Hash tables (or Hash Maps, Dictionaries in Python) are the fundamental tool used for caching, database indexing, and symbol tables in compilers. Any time you need to look up a value instantly based on a unique identifier (like a username or a product ID), you use a Hash Table.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Mapping keys through a hash function to array indices]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master hash tables with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Hash Tables Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The foundational concept of hashing and indexing.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Handling Collisions</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Separate chaining and open addressing in practice.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Why O(1) Search?</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the performance magic of Hash Tables.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Employee Payroll System</h2>
+        <p>Think of a <strong>Hash Table</strong> like the <strong>Payroll System</strong> in a massive company. You have thousands of employees, and you need to look up their salary information instantly using their <strong>Employee ID</strong> (the Key). You don't scan a list of thousands of people (Linear Search). Instead, the system uses a formula (the Hash Function) to directly locate the specific folder for that Employee ID in the filing cabinet (the underlying Array index). The system is designed so that IDs are spread out, but if two employees accidentally share a similar ID code that maps to the same spot (a Collision), the system just looks at the secondary file folder kept inside that same drawer (Separate Chaining).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Hash_table" target="_blank">Wikipedia: Hash Table</a></li>
+            <li><a href="https://www.geeksforgeeks.org/hash-table-data-structure/" target="_blank">GeeksforGeeks: Hash Table Basics</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_hashtables.php" target="_blank">W3Schools: DSA Hash Tables</a></li>
+            <li><a href="https://visualgo.net/en/hashtable" target="_blank">Tool: Hash Table Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Quick Sort</a>
+            <a href="#" data-file="DSA2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Trees: Intro &rarr;</a>
+        </div>
+    </footer>
+</article>

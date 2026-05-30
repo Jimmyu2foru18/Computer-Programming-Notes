@@ -1,0 +1,106 @@
+<article>
+    <h1>Java I: Page 1 - Introduction & Environment Setup</h1>
+
+    <section>
+        <h2>What is Java?</h2>
+        <p>Java is a <strong>high-level, class-based, object-oriented</strong> programming language that is designed to have as few implementation dependencies as possible. Conceived by James Gosling at Sun Microsystems (now Oracle) in 1995, Java's primary mission was to allow application developers to <strong>"Write Once, Run Anywhere" (WORA)</strong>. This means that compiled Java code can run on all platforms that support Java without the need for recompilation.</p>
+        
+        <h3>Key Features of Java:</h3>
+        <ul>
+            <li><strong>Strongly Typed:</strong> Every variable must have a declared type, providing safety and performance at compile time.</li>
+            <li><strong>Platform Independent:</strong> Java programs are compiled into <strong>Bytecode</strong>, which is executed by the Java Virtual Machine (JVM).</li>
+            <li><strong>Automatic Memory Management:</strong> Java handles memory allocation and deallocation automatically through its built-in <strong>Garbage Collector</strong>.</li>
+            <li><strong>Secure:</strong> Java provides a secure environment by running code within a "sandbox," protecting the host system from malicious software.</li>
+            <li><strong>Multithreading:</strong> Built-in support for concurrent programming allows for the execution of multiple tasks simultaneously.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of the WORA workflow: Source Code (.java) &rarr; Bytecode (.class) &rarr; JVM (Windows/Mac/Linux)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>The Java Ecosystem: JDK, JRE, and JVM</h2>
+        <p>To start developing in Java, you need to understand the three main components of the ecosystem:</p>
+        <ol>
+            <li><strong>JVM (Java Virtual Machine):</strong> The engine that actually runs the Java bytecode. It is platform-specific.</li>
+            <li><strong>JRE (Java Runtime Environment):</strong> Includes the JVM plus the standard libraries needed to <em>run</em> Java applications.</li>
+            <li><strong>JDK (Java Development Kit):</strong> Includes the JRE plus the tools needed to <em>develop</em> Java applications (like the compiler, <code>javac</code>).</li>
+        </ol>
+        
+        <h3>Setting Up Your Workspace</h3>
+        <p>To begin, download the latest <strong>JDK</strong> (Java Development Kit) from the official Oracle website or an open-source provider like OpenJDK. After installation, you must set your <code>JAVA_HOME</code> environment variable and update your system's <code>PATH</code> to include the <code>bin</code> folder of your JDK.</p>
+        <pre><code class="language-bash">
+# Verify your installation
+java -version
+javac -version
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Your First Java Program</h2>
+        <p>Java is more "boilerplate-heavy" than Python. Every piece of code must live inside a <strong>Class</strong>, and the entry point for every application is the <strong>main</strong> method.</p>
+        
+        <h3>HelloWorld.java</h3>
+        <p>Create a file named <code>HelloWorld.java</code> (The filename <em>must</em> match the class name exactly).</p>
+        <pre><code class="language-java">
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        System.out.println("Welcome to Java programming!");
+    }
+}
+        </code></pre>
+        
+        <h3>Compilation and Execution</h3>
+        <ol>
+            <li><strong>Compile:</strong> <code>javac HelloWorld.java</code> (This creates a <code>HelloWorld.class</code> bytecode file).</li>
+            <li><strong>Run:</strong> <code>java HelloWorld</code> (This executes the bytecode in the JVM).</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Supplement your reading with these three curated video guides:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Tutorial for Beginners (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=eIrMbLywjVk" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The first 15 minutes perfectly cover setup and the main method.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. JDK vs JRE vs JVM (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=N69S9Lp6HnQ" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual deep dive into the Java architecture.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Java Installation & Environment Variables</strong><br>
+                <a href="https://www.youtube.com/watch?v=f9-9_S37N7U" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step guide to setting up PATH and JAVA_HOME.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Universal Blueprint and the Factory</h2>
+        <p>Think of <strong>Java</strong> as a <strong>Universal Manufacturing Blueprint</strong>. In some languages, you have to write a different blueprint for a factory in China than you do for a factory in Germany. In Java, you write one "Master Blueprint" (Source Code). You then use a "Master Translator" (the Compiler) to turn it into a "Digital Specification" (Bytecode). This specification is sent to a <strong>JVM</strong>, which is like a <strong>Local Factory Manager</strong>. Whether the factory manager is in Windows-land or Linux-land, they know exactly how to read the Digital Specification and produce the result. This allows software to be built once and deployed to billions of devices globally, from smartwatches to enterprise servers.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/en/java/javase/index.html" target="_blank">Official Oracle Java Documentation</a></li>
+            <li><a href="https://www.baeldung.com/get-started-with-java" target="_blank">Baeldung: Getting Started with Java</a></li>
+            <li><a href="https://www.w3schools.com/java/java_intro.asp" target="_blank">W3Schools: Java Introduction</a></li>
+            <li><a href="https://openjdk.org/" target="_blank">OpenJDK: Open Java Development Kit</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <span>&nbsp;</span>
+            <a href="#" data-file="Java1_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Variables & Primitives &rarr;</a>
+        </div>
+    </footer>
+</article>

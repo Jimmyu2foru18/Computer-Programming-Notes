@@ -1,0 +1,83 @@
+<article>
+    <h1>Web Technologies I: Page 2 - HTML Elements & Semantics</h1>
+
+    <section>
+        <h2>The Vocabulary of the Web</h2>
+        <p>An HTML document is more than just a template; it is a collection of elements that define the document's content and meaning. If you think of HTML as the skeleton of a website, then <strong>HTML Elements</strong> are the individual bones, joints, and organs. Knowing which tag to use for which piece of content is the difference between a website that is just "visual" and a website that is robust, accessible, and searchable.</p>
+    </section>
+
+    <section>
+        <h2>1. The Essential Elements</h2>
+        <p>While there are dozens of HTML tags, you will use a core set daily. Understanding their purpose is critical for proper structure.</p>
+        <ul>
+            <li><strong>Headings (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>):</strong> Define hierarchy. <code>&lt;h1&gt;</code> is the page title; <code>&lt;h2&gt;</code> are main section titles.</li>
+            <li><strong>Lists (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>):</strong> Used to organize related pieces of information.</li>
+            <li><strong>Tables (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>):</strong> Used for tabular data (not for page layout!).</li>
+            <li><strong>Forms (<code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>):</strong> The primary way to collect user data.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Semantic HTML: The Meaning Behind the Tag</h2>
+        <p>In the early days, everything was a <code>&lt;div&gt;</code>. Today, we use <strong>Semantic Elements</strong> to tell the browser and search engines <em>what</em> the content is, not just how it looks. This is vital for accessibility (screen readers need to know where the navigation is versus the main content) and SEO (Google needs to know which part of the page is the core topic).</p>
+        
+        <h3>Key Semantic Tags:</h3>
+        <ul>
+            <li><code>&lt;nav&gt;</code>: Navigation links.</li>
+            <li><code>&lt;header&gt;</code>: The top section (logo, branding).</li>
+            <li><code>&lt;main&gt;</code>: The core content of the page.</li>
+            <li><code>&lt;article&gt;</code>: Self-contained content (like a blog post).</li>
+            <li><code>&lt;aside&gt;</code>: Tangential content (sidebars).</li>
+            <li><code>&lt;footer&gt;</code>: The bottom section (copyright, contact info).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram showing a webpage layout labelled with semantic tags: header, nav, main, article, aside, footer]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master HTML elements and semantics with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. HTML5 Semantic Elements Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual guide to organizing your page structure.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. HTML Forms for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=5fb2aPlgoys" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to create functional, accessible forms.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. HTML Accessibility (A11y) Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=s_m8_D_kY_o" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why semantic tags are crucial for screen readers.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Architect and the Building Labels</h2>
+        <p>Think of <strong>Semantic HTML</strong> like <strong>Architectural Blueprints</strong>. An architect doesn't just draw a bunch of identical squares (<code>&lt;div&gt;</code>s). They label one square "Kitchen," another "Bedroom," and another "Garage." If a contractor walks in, they know exactly what each room is for. If you don't label your rooms (if you only use <code>&lt;div&gt;</code> tags), a visually impaired person (using a screen reader) or a search engine crawler (Googlebot) walks into your "web-house" and has no idea which part of the house is the kitchen or which part is the bathroom. Labels make your "house" livable and functional for everyone.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics" target="_blank">MDN: HTML Semantics</a></li>
+            <li><a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">W3Schools: Semantic Elements</a></li>
+            <li><a href="https://webaim.org/articles/semanticstructure/" target="_blank">WebAIM: Semantic Structure and Accessibility</a></li>
+            <li><a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank">Google Search Central: SEO Starter Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & HTML Structure</a>
+            <a href="#" data-file="Web1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: CSS Fundamentals &rarr;</a>
+        </div>
+    </footer>
+</article>

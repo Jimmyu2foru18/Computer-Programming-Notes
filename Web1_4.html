@@ -1,0 +1,87 @@
+<article>
+    <h1>Web Technologies I: Page 4 - The CSS Box Model & Layout</h1>
+
+    <section>
+        <h2>Everything is a Box</h2>
+        <p>In CSS, every single element on the page is treated as a rectangular box. Understanding how these boxes are sized, spaced, and positioned is the single most important skill for mastering web layouts. If you don't understand the <strong>Box Model</strong>, you will constantly be frustrated by elements not aligning correctly or taking up the wrong amount of space.</p>
+    </section>
+
+    <section>
+        <h2>1. The Box Model Anatomy</h2>
+        <p>Each box consists of four layers, working from the inside out:</p>
+        <ul>
+            <li><strong>Content:</strong> The text, image, or media inside the element.</li>
+            <li><strong>Padding:</strong> Transparent space <em>inside</em> the border, between the content and the border.</li>
+            <li><strong>Border:</strong> A line that surrounds the content and padding.</li>
+            <li><strong>Margin:</strong> Transparent space <em>outside</em> the border, separating this box from other boxes.</li>
+        </ul>
+        <pre><code class="language-css">
+/* The Box Model */
+.box {
+  width: 200px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 10px;
+  box-sizing: border-box; /* Crucial: includes padding/border in width */
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Layout Systems: Flexbox & Grid</h2>
+        <p>Before, we used floats (a nightmare). Now, we have two powerful layout systems:</p>
+        <ul>
+            <li><strong>Flexbox:</strong> Best for one-dimensional layouts (a row of buttons, a navigation bar, centering items).</li>
+            <li><strong>Grid:</strong> Best for two-dimensional layouts (the overall structure of the entire page: header, sidebar, main content, footer).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: Flexbox as a single row of items, Grid as a complex multi-column/multi-row structural diagram]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the box model and layout systems with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. The CSS Box Model Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=yfoY53QXEnI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual guide to padding, borders, and margins.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. CSS Flexbox Layout Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Build flexible, one-dimensional layouts with ease.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. CSS Grid Layout Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=5fb2aPlgoys" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Design complex, two-dimensional page structures.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Picture Frame</h2>
+        <p>Think of an HTML element like a <strong>Photograph</strong>. The actual photo is the <strong>Content</strong>. The matting around the photo is the <strong>Padding</strong> (space inside the frame). The frame itself is the <strong>Border</strong>. The space between this framed photo and the next photo hanging on the wall is the <strong>Margin</strong>. <strong>Flexbox</strong> is like organizing these framed photos in a straight line on a shelf. <strong>Grid</strong> is like deciding how to hang them all on a massive wall—placing them precisely in rows and columns.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" target="_blank">MDN: The Box Model</a></li>
+            <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS-Tricks: A Guide to Flexbox</a></li>
+            <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS-Tricks: A Complete Guide to Grid</a></li>
+            <li><a href="https://caniuse.com/" target="_blank">Can I Use: Browser Compatibility Check</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: CSS Fundamentals</a>
+            <a href="#" data-file="Web1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Responsive Design &rarr;</a>
+        </div>
+    </footer>
+</article>

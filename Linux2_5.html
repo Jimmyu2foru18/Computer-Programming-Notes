@@ -1,0 +1,83 @@
+<article>
+    <h1>Linux II: Page 5 - User & Group Management</h1>
+
+    <section>
+        <h2>Managing Multi-User Systems</h2>
+        <p>Linux is designed to be a multi-user system from the ground up. This means the OS assumes that multiple people (or services) will be accessing the system simultaneously, each requiring different levels of access. <strong>User and Group Management</strong> is the framework that enforces this security. By organizing users into groups, you can efficiently manage permissions for dozens of users at once, rather than manually configuring access for every single individual account.</p>
+    </section>
+
+    <section>
+        <h2>1. Core User Commands</h2>
+        <ul>
+            <li><strong><code>useradd</code>:</strong> Creates a new user account. Use the <code>-m</code> flag to create a home directory.</li>
+            <li><strong><code>usermod</code>:</strong> Modifies an existing user account (e.g., changing their shell, adding them to groups, renaming them).</li>
+            <li><strong><code>userdel</code>:</strong> Deletes a user. Use <code>-r</code> to remove their home directory as well.</li>
+            <li><strong><code>passwd</code>:</strong> Sets or updates a user's password.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Create a user with a home directory
+sudo useradd -m johndoe
+
+# Add user to the sudo (admin) group
+sudo usermod -aG sudo johndoe
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Managing Groups</h2>
+        <p>Groups are containers for users. By assigning permissions to a group, every user in that group automatically inherits those permissions.</p>
+        <ul>
+            <li><code>groupadd</code>: Creates a new group.</li>
+            <li><code>gpasswd</code>: Administers group members (add/remove users).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Users assigned to Groups, and Groups granted Permissions to Files]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master user and group management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. User Management Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Creating and managing Linux user accounts.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Understanding Groups and Permissions</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Using groups to efficiently manage access rights.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The Power of Sudo</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to grant administrative privileges securely.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Company Org Chart</h2>
+        <p>Think of <strong>User Management</strong> like <strong>Onboarding Employees</strong> at a company. Each person needs a desk (home directory) and a specific set of tools to do their job. <strong>Group Management</strong> is like <strong>Assigning Employees to Departments</strong> (HR, Engineering, Marketing). Instead of giving every single employee individual keys for every single office door, you give the <em>Engineering department group</em> key access to the lab, and the <em>HR department group</em> key access to the records room. It's scalable, organized, and makes security audits much faster.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.geeksforgeeks.org/user-management-in-linux/" target="_blank">GeeksforGeeks: User Management</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: Users & Groups</a></li>
+            <li><a href="https://www.man7.org/linux/man-pages/man8/useradd.8.html" target="_blank">Man Page: useradd</a></li>
+            <li><a href="https://www.man7.org/linux/man-pages/man8/usermod.8.html" target="_blank">Man Page: usermod</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Shell Scripting Basics</a>
+            <a href="#" data-file="Linux2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Systemd Services &rarr;</a>
+        </div>
+    </footer>
+</article>

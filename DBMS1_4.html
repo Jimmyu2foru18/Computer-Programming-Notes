@@ -1,0 +1,96 @@
+<article>
+    <h1>DBMS I: Page 4 - SQL Basics: Data Manipulation & Table Joins</h1>
+
+    <section>
+        <h2>Working with Data</h2>
+        <p>In the previous page, we built the structure of our database using DDL. Now, we will learn how to interact with the actual information stored inside those tables. <strong>Data Manipulation Language (DML)</strong> is the set of SQL commands used to retrieve, add, modify, and delete records. DML is the most common part of SQL that developers use in their daily work, whether they are building a web app, a mobile game, or an analytics dashboard. Furthermore, we will explore <strong>Joins</strong>, the powerful mechanism that allows us to combine data from multiple tables into a single result set.</p>
+    </section>
+
+    <section>
+        <h2>1. CRUD Operations: INSERT, SELECT, UPDATE, DELETE</h2>
+        <p>Most data tasks follow the CRUD acronym: Create, Read, Update, and Delete.</p>
+        
+        <h3>INSERT: Adding New Data</h3>
+        <pre><code class="language-sql">
+INSERT INTO employees (emp_id, name, salary) 
+VALUES (101, 'Alice Smith', 75000);
+        </code></pre>
+
+        <h3>SELECT: Retrieving Data</h3>
+        <pre><code class="language-sql">
+SELECT name, salary FROM employees 
+WHERE salary > 50000 
+ORDER BY salary DESC;
+        </code></pre>
+
+        <h3>UPDATE & DELETE: Modifying and Removing</h3>
+        <pre><code class="language-sql">
+UPDATE employees SET salary = 80000 WHERE emp_id = 101;
+DELETE FROM employees WHERE emp_id = 101;
+        </code></pre>
+        <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin: 20px 0;">
+            <strong>Warning:</strong> Always use a <code>WHERE</code> clause with UPDATE and DELETE! If you forget it, you will update or delete every single row in the table, which is a common disaster for junior DBAs.
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Connecting the Dots: Table Joins</h2>
+        <p>The true power of a relational database lies in its ability to connect related data. Instead of one giant, messy table, we use multiple clean tables and "join" them during a query.</p>
+        
+        <ul>
+            <li><strong>INNER JOIN:</strong> Returns only the rows where there is a match in <em>both</em> tables. This is the most common join.</li>
+            <li><strong>LEFT JOIN:</strong> Returns <em>all</em> rows from the left table, and matching rows from the right. If there's no match, you get NULLs on the right side.</li>
+            <li><strong>RIGHT JOIN:</strong> The opposite of a Left Join.</li>
+            <li><strong>FULL OUTER JOIN:</strong> Returns rows when there is a match in <em>either</em> table.</li>
+        </ul>
+        <pre><code class="language-sql">
+SELECT e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master data manipulation and joins with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL CRUD Operations in 10 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=7S_tz1z_5bA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to manage records efficiently.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. SQL Joins Explained Visually</strong><br>
+                <a href="https://www.youtube.com/watch?v=9yeOJ0Z3pm0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best way to understand Inner, Left, and Right joins.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Subqueries vs. Joins</strong><br>
+                <a href="https://www.youtube.com/watch?v=S8pB2aP59W4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn which tool to use for complex data retrieval.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Filing System and the Venn Diagram</h2>
+        <p>Think of <strong>DML</strong> like <strong>Working in a Physical Office</strong>. <code>SELECT</code> is searching the filing cabinet for a folder. <code>INSERT</code> is adding a new folder to the drawer. <code>UPDATE</code> is pulling out a form and changing a phone number. <code>DELETE</code> is shredding a document. Think of <strong>Joins</strong> like a <strong>Venn Diagram</strong> from math class. <strong>Inner Join</strong> is the middle part where the circles overlap (the people who are both Employees AND assigned to a Department). <strong>Left Join</strong> is the entire left circle—all employees, including the new ones who don't have a department assigned yet. This logic allows you to pull meaningful stories out of raw, scattered data points.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_join.asp" target="_blank">W3Schools: SQL Joins Guide</a></li>
+            <li><a href="https://www.baeldung.com/sql-join-types" target="_blank">Baeldung: Types of SQL Joins</a></li>
+            <li><a href="https://www.geeksforgeeks.org/sql-dml-commands/" target="_blank">GeeksforGeeks: DML Commands</a></li>
+            <li><a href="https://mode.com/sql-tutorial/sql-joins/" target="_blank">Mode SQL Tutorial: Joins Deep Dive</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: SQL Basics: DDL & Keys</a>
+            <a href="#" data-file="DBMS1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Aggregates & Grouping &rarr;</a>
+        </div>
+    </footer>
+</article>

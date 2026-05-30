@@ -1,0 +1,71 @@
+<article>
+    <h1>Networks II: Page 6 - Communication: Email Protocols (SMTP, POP3, IMAP)</h1>
+
+    <section>
+        <h2>The Foundation of Digital Communication</h2>
+        <p>Email is one of the oldest and most important services on the internet. Despite the rise of instant messaging and social media, email remains the primary method for professional, formal, and reliable electronic communication. The magic of email is not in a single software package, but in a series of specialized <strong>Protocols</strong> that work together to move your message from your inbox to a recipient halfway across the world, ensuring it arrives even if they are currently offline. These protocols—SMTP, POP3, and IMAP—are the backbone of the global email infrastructure.</p>
+    </section>
+
+    <section>
+        <h2>1. SMTP: The Sender (Simple Mail Transfer Protocol)</h2>
+        <p><strong>SMTP</strong> is the standard protocol for <em>sending</em> email. When you hit "Send," your email client (like Outlook or Gmail) uses SMTP to push your message to your outgoing mail server. That server then uses SMTP to "relay" the message to the recipient's mail server. It is a "Push" protocol designed solely for moving mail from client-to-server and server-to-server.</p>
+    </section>
+
+    <section>
+        <h2>2. Retrieving Mail: POP3 vs. IMAP</h2>
+        <p>Once mail arrives at the recipient's server, the recipient needs a way to fetch it. This is where retrieval protocols come in:</p>
+        <ul>
+            <li><strong>POP3 (Post Office Protocol v3):</strong> Designed to <em>download</em> emails to your local device and (typically) delete them from the server. It’s perfect for low-bandwidth environments or if you only use one device to check mail.</li>
+            <li><strong>IMAP (Internet Message Access Protocol):</strong> Designed to <em>synchronize</em> mail between your server and all your devices (phone, laptop, tablet). It leaves the mail on the server, allowing you to see the same inbox everywhere. This is the modern standard for most users.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the email journey: Sender &rarr; SMTP Server &rarr; Internet &rarr; Receiver's SMTP Server &rarr; POP3/IMAP Retrieval]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the infrastructure of global email with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. How Email Works (SMTP, POP3, IMAP)</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best introduction to the email protocol stack.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. POP3 vs IMAP: Choosing the Right One</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the differences in device synchronization.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Email Infrastructure Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How SMTP relays messages across the internet.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Post Office</h2>
+        <p>Think of <strong>SMTP</strong> like a <strong>Network of Post Offices</strong>. When you mail a letter, it goes to your local post office (the Sender's SMTP server). They might pass it to a regional hub (another SMTP relay) before it reaches the recipient's local post office. Think of <strong>POP3</strong> like a <strong>P.O. Box</strong>. You go to the post office, take all your letters out of the box, and take them home—they are no longer at the post office. Think of <strong>IMAP</strong> like a <strong>Shared Digital Document</strong>. The master copy lives on the server. If you read an email on your phone, it's marked as read on your laptop too. You are always just "viewing" the email on the server, not permanently downloading and removing it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol" target="_blank">Wikipedia: SMTP</a></li>
+            <li><a href="https://www.geeksforgeeks.org/difference-between-pop3-and-imap/" target="_blank">GeeksforGeeks: POP3 vs. IMAP</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: Email Infrastructure Basics</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Advanced Mail Protocols</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: HTTP & Web Protocols</a>
+            <a href="#" data-file="Networks2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Routing & Switching &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,46 @@
+<article>
+    <h1>System Design III: Page 2 - Design: Security</h1>
+
+    <section>
+        <h2>Security by Design</h2>
+        <p>Security cannot be bolted on at the end of a project. <strong>Secure System Design</strong> is the process of embedding security into the architectural foundation. This involves <strong>Threat Modeling</strong>—proactively identifying potential attackers and vulnerabilities before a single line of code is written—and implementing <strong>Defense-in-Depth</strong>, where multiple independent security layers protect the system so that the failure of one does not lead to total compromise.</p>
+    </section>
+
+    <section>
+        <h2>1. Key Architectural Principles</h2>
+        <ul>
+            <li><strong>Least Privilege:</strong> Every component (or user) has only the absolute minimum permissions required to perform its task.</li>
+            <li><strong>Secure-by-Default:</strong> The system starts in its most secure state, requiring explicit actions to enable less secure features.</li>
+            <li><strong>Defense-in-Depth:</strong> If the firewall fails, the application authentication catches the threat. If that fails, the database permissions catch it.</li>
+        </ul>
+        <pre><code class="language-text">
+# Defense-in-Depth layers
+[Firewall] -> [Load Balancer (SSL)] -> [Auth Middleware] -> [Database Permissions]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to Threat Modeling</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Defense in Depth Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Principle of Least Privilege</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System3_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Design: Scalability</a>
+            <a href="#" data-file="System3_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Deployment: CI/CD &rarr;</a>
+        </div>
+    </footer>
+</article>

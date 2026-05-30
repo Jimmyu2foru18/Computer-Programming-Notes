@@ -1,0 +1,85 @@
+<article>
+    <h1>DSA I: Page 6 - Linear Search</h1>
+
+    <section>
+        <h2>The Simple, Sequential Approach</h2>
+        <p><strong>Linear Search</strong> (also known as Sequential Search) is the simplest searching algorithm in computer science. It works by checking every single element in a collection one by one, from start to finish, until either the target element is found or the end of the collection is reached. It makes no assumptions about whether the data is sorted, making it incredibly versatile but also potentially very slow for large datasets.</p>
+    </section>
+
+    <section>
+        <h2>1. The Algorithm</h2>
+        <p>The logic is straightforward:</p>
+        <ol>
+            <li>Start at the first element (index 0).</li>
+            <li>Compare the current element with the target.</li>
+            <li>If they match, return the current index (success!).</li>
+            <li>If they don't match, move to the next element.</li>
+            <li>If you reach the end of the collection without a match, return -1 (not found).</li>
+        </ol>
+        <pre><code class="language-python">
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i # Found
+    return -1 # Not found
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Time Complexity</h2>
+        <p>Linear search is the textbook example of <strong>O(n)</strong> complexity:</p>
+        <ul>
+            <li><strong>Worst Case:</strong> O(n). The target is at the very end, or not in the array at all, requiring you to check all <code>n</code> elements.</li>
+            <li><strong>Best Case:</strong> O(1). The target is the very first element you check.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: A line of items being checked sequentially until the target is hit]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master linear search with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Linear Search Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The absolute basics of sequential searching.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Linear Search Time Complexity</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding O(n) in practice.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. When to Use Linear Search</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Comparing linear vs. more efficient algorithms.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Searching for a Book on an Unorganized Shelf</h2>
+        <p>Think of <strong>Linear Search</strong> like searching for a specific book on a <strong>completely unorganized bookshelf</strong>. You have no idea where the book is, so you have no choice but to look at the first book, check if it's the one you want, look at the second book, check it, and so on. You must look at every single book until you eventually find the right one (or verify it's not there). This is tedious, but if you don't know the system of organization, it's the only guaranteed way to find it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Linear_search" target="_blank">Wikipedia: Linear Search</a></li>
+            <li><a href="https://www.geeksforgeeks.org/linear-search/" target="_blank">GeeksforGeeks: Linear Search</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_linearsearch.php" target="_blank">W3Schools: DSA Linear Search</a></li>
+            <li><a href="https://visualgo.net/en/searching" target="_blank">Tool: Searching Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Queues</a>
+            <a href="#" data-file="DSA1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Binary Search &rarr;</a>
+        </div>
+    </footer>
+</article>

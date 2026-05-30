@@ -1,0 +1,90 @@
+<article>
+    <h1>DSA II: Page 9 - Dynamic Programming</h1>
+
+    <section>
+        <h2>Solving Problems Efficiently</h2>
+        <p><strong>Dynamic Programming (DP)</strong> is not a specific algorithm, but a <em>method</em> for solving complex problems by breaking them down into simpler <strong>overlapping subproblems</strong>. The core idea is simple: if you have already solved a subproblem once, why solve it again? By storing the results (caching) of subproblems, you can turn an exponentially slow algorithm into a fast, linear one. This is the classic computer science trade-off: <strong>trading extra memory for faster execution time</strong>.</p>
+    </section>
+
+    <section>
+        <h2>1. The Two Pillars of DP</h2>
+        <p>A problem can only be solved with DP if it has these two properties:</p>
+        <ul>
+            <li><strong>Overlapping Subproblems:</strong> The problem can be broken down into subproblems which are reused several times.</li>
+            <li><strong>Optimal Substructure:</strong> The optimal solution to the problem can be constructed from optimal solutions to its subproblems.</li>
+        </ul>
+        
+        <h3>Approaches:</h3>
+        <ul>
+            <li><strong>Memoization (Top-Down):</strong> Recursively break the problem down, storing results in a table (e.g., a dictionary/map) as you go.</li>
+            <li><strong>Tabulation (Bottom-Up):</strong> Start from the smallest subproblems and build a table up to the main problem iteratively.</li>
+        </ul>
+        <pre><code class="language-python">
+# DP (Memoization) example: Fibonacci
+def fib(n, memo={}):
+    if n in memo: return memo[n]
+    if n <= 1: return n
+    memo[n] = fib(n-1, memo) + fib(n-2, memo)
+    return memo[n]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Real-World DP Applications</h2>
+        <p>DP is used everywhere from financial modeling to bioinformatics:</p>
+        <ul>
+            <li><strong>Knapsack Problem:</strong> Optimizing item selection based on weights and values.</li>
+            <li><strong>Longest Common Subsequence:</strong> Comparing DNA strands or text diffing.</li>
+            <li><strong>Shortest Path (e.g., Bellman-Ford):</strong> Finding paths in graphs with negative weights.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: The reduction of recursive branches using memoization]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master dynamic programming with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Dynamic Programming Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The concepts of overlapping subproblems.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Memoization vs. Tabulation</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Top-down vs. Bottom-up approaches.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Solving the Knapsack Problem</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Classic DP application walkthrough.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Compound Interest Calculator</h2>
+        <p>Think of <strong>Dynamic Programming</strong> like calculating <strong>Compound Interest</strong> over 30 years. To calculate the interest for year 30, you need the balance from year 29. To get year 29, you need year 28. If you calculate year 1, then year 2, then year 3... and store each intermediate result in a list (Tabulation), you can calculate year 30 instantly. If you tried to calculate year 30 without knowing year 29 (the naive recursive approach), you would have to recalculate years 1–28 millions of times, making the calculation take thousands of years instead of milliseconds.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">Wikipedia: DP Overview</a></li>
+            <li><a href="https://www.geeksforgeeks.org/dynamic-programming/" target="_blank">GeeksforGeeks: DP Basics</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_dynamicprogramming.php" target="_blank">W3Schools: DSA DP</a></li>
+            <li><a href="https://visualgo.net/en/dp" target="_blank">Tool: DP Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Graph Traversal</a>
+            <a href="#" data-file="DSA2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Optimization Problems &rarr;</a>
+        </div>
+    </footer>
+</article>

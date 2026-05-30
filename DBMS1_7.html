@@ -1,0 +1,88 @@
+<article>
+    <h1>DBMS I: Page 7 - Database Design: Entity-Relationship (ER) Modeling</h1>
+
+    <section>
+        <h2>Mapping the Real World</h2>
+        <p>Before you ever touch a keyboard to write a <code>CREATE TABLE</code> statement, you must first design your database on paper. This is the most critical stage of software engineering—a poor design will lead to data corruption, slow performance, and a system that is impossible to maintain. <strong>Entity-Relationship (ER) Modeling</strong> is the industry-standard visual tool for designing databases. It allows you to model the "Things" in your business (Entities) and the "Connections" between them (Relationships) in a way that is clear and technically sound.</p>
+    </section>
+
+    <section>
+        <h2>1. The Building Blocks of ER Models</h2>
+        <ul>
+            <li><strong>Entity:</strong> A real-world object or concept that can be uniquely identified (e.g., Customer, Product, Order). Represented as a <strong>Rectangle</strong>.</li>
+            <li><strong>Attribute:</strong> A property or characteristic of an entity (e.g., Customer Name, Product Price). Represented as an <strong>Oval</strong>.</li>
+            <li><strong>Relationship:</strong> An association between two or more entities (e.g., a Customer "Places" an Order). Represented as a <strong>Diamond</strong>.</li>
+        </ul>
+        
+        <h3>Types of Attributes:</h3>
+        <ul>
+            <li><strong>Simple vs. Composite:</strong> A simple attribute is atomic (e.g., Age). A composite attribute can be broken down (e.g., Address consists of Street, City, and ZIP).</li>
+            <li><strong>Derived:</strong> An attribute calculated from others (e.g., "Age" derived from "Birthdate").</li>
+            <li><strong>Multi-valued:</strong> An attribute that can have multiple values (e.g., a Person can have multiple phone numbers).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Cardinality: Counting the Connections</h2>
+        <p>Cardinality defines the numerical requirements of a relationship. It answers the question: "How many instances of Entity A can relate to Entity B?"</p>
+        <ul>
+            <li><strong>One-to-One (1:1):</strong> One Manager manages one Department.</li>
+            <li><strong>One-to-Many (1:N):</strong> One Customer can place many Orders.</li>
+            <li><strong>Many-to-Many (M:N):</strong> Many Students can enroll in many Courses. (This usually requires a "Bridge Table" in the final database).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual ER Diagram showing a 'Customer' entity connected to an 'Order' entity with 1:N cardinality]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. From ER Diagram to Relational Schema</h2>
+        <p>Once your diagram is finished, you "Map" it to tables. <strong>Entities</strong> become tables. <strong>Attributes</strong> become columns. <strong>1:N Relationships</strong> are implemented by putting a Foreign Key on the "Many" side. <strong>M:N Relationships</strong> become their own separate table containing foreign keys from both parents.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of database design with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. ER Diagram Tutorial (Lucidchart)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Qps1uVMZfW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A step-by-step guide to drawing your first ER model.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Database Design Course (Learn the Basics)</strong><br>
+                <a href="https://www.youtube.com/watch?v=ztHopE5Wubs" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand entities, attributes, and cardinality in depth.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Mapping ER Diagrams to Relational Tables</strong><br>
+                <a href="https://www.youtube.com/watch?v=vpL96S38v-Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to turn your drawings into real SQL tables.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Blueprint and the Family Tree</h2>
+        <p>Think of an <strong>ER Diagram</strong> like an <strong>Architect's Blueprint</strong>. You don't just start pouring concrete and hope the house has a kitchen; you draw the rooms (Entities), the doors (Relationships), and the measurements (Attributes) first. Think of <strong>Cardinality</strong> like a <strong>Family Tree</strong>. A mother (1) can have multiple children (N). Each child (1) has exactly one biological mother (1). This is a 1:N relationship. However, if you look at "Siblings," many children can have many siblings—this is a Many-to-Many relationship. Just like you can't understand a family without knowing the connections, you can't understand a business without knowing how its data entities relate to each other.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model" target="_blank">Wikipedia: ER Model</a></li>
+            <li><a href="https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/" target="_blank">Visual Paradigm: ERD Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/introduction-of-er-model/" target="_blank">GeeksforGeeks: ER Model Intro</a></li>
+            <li><a href="https://www.smartdraw.com/entity-relationship-diagram/" target="_blank">SmartDraw: Tips for Effective ER Diagrams</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Subqueries & CTEs</a>
+            <a href="#" data-file="DBMS1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Normalization I (1-3NF) &rarr;</a>
+        </div>
+    </footer>
+</article>

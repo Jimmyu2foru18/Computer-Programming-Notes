@@ -1,0 +1,122 @@
+<article>
+    <h1>DSA II: Page 10 - Optimization Problems: Greedy vs. Backtracking</h1>
+
+    <section>
+        <h2>Finding the Best Solution</h2>
+        <p>Many complex problems ask for an "optimal" solution among a sea of possibilities. When the problem is too large to check every single possibility (brute force), we rely on sophisticated strategies. <strong>Greedy Algorithms</strong> make the best local choice at each step, hoping it leads to a global optimum. <strong>Backtracking</strong> systematically searches through all possible solutions, "undoing" choices that lead to dead ends. Knowing when to use which is the hallmark of an experienced algorithm engineer.</p>
+    </section>
+
+    <section>
+        <h2>1. Greedy Algorithms</h2>
+        <p>A Greedy algorithm follows the heuristic of making the locally optimal choice at each stage. It's fast and simple, but <strong>it does not always produce the global optimum</strong>.</p>
+        <ul>
+            <li><strong>Example:</strong> Dijkstra’s Algorithm for shortest path (works for non-negative weights).</li>
+            <li><strong>Trade-off:</strong> Speed over guaranteed global optimality.</li>
+        </ul>
+        <pre><code class="language-python">
+# Example: Greedy approach for Change-making problem
+def make_change(amount, coins):
+    coins.sort(reverse=True)
+    change = []
+    for coin in coins:
+        while amount >= coin:
+            amount -= coin
+            change.append(coin)
+    return change
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Backtracking</h2>
+        <p>When you need to explore a search space to find *all* solutions or the *guaranteed* best solution, use <strong>Backtracking</strong>. It's essentially a depth-first search of the state space. If you reach a state that violates constraints, you "backtrack" to the previous state and try a different path.</p>
+        <p><strong>Use Cases:</strong> N-Queens problem, Sudoku solver, Graph coloring.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Greedy (straight path) vs. Backtracking (exploring tree branches and pruning)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master optimization strategies with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Greedy Algorithms Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why making the best local choice matters.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Backtracking Introduction</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Exploring all paths and backtracking from dead ends.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Greedy vs. Backtracking</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Comparing the two strategies for optimization.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Mountain Hiker</h2>
+        <p>Think of a <strong>Greedy Algorithm</strong> like a <strong>Hiker trying to reach the highest mountain peak</strong> by only walking uphill. They will reach <em>a</em> peak very quickly, but it might just be a small hill (local optimum), not the true highest summit (global optimum). Think of <strong>Backtracking</strong> like a <strong>Explorer mapping an entire cave system</strong>. They explore one tunnel, find a dead end, come all the way back to the last junction (Backtrack), and explore a different tunnel. They will eventually map the <em>entire</em> cave and find the absolute deepest point, but it takes much, much longer than just walking uphill.</p>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
+        <h2>Series Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the 20-page DSA Masterclass! To further expand your professional algorithmic skills, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. LeetCode</strong><br>
+                <p><small>The industry standard platform for coding interview preparation.</small></p>
+                <a href="https://leetcode.com/" target="_blank">Visit LeetCode &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border-radius: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. HackerRank</strong><br>
+                <p><small>Problem-solving exercises for algorithms and data structures.</small></p>
+                <a href="https://www.hackerrank.com/" target="_blank">View Problems &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border-radius: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. GeeksforGeeks</strong><br>
+                <p><small>Extensive articles, tutorials, and practice problems.</small></p>
+                <a href="https://www.geeksforgeeks.org/" target="_blank">Read Articles &rarr;</a>
+                </div>
+            <div style="background: #fff; padding: 15px; border-radius: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. Algorithms (Sedgewick/Wayne)</strong><br>
+                <p><small>The definitive academic book series on algorithms.</small></p>
+                <a href="https://algs4.cs.princeton.edu/" target="_blank">Start Learning &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
+        <h2>Series Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the 20-page Data Structures and Algorithms Masterclass! To further expand your professional algorithmic and problem-solving skills, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. LeetCode</strong><br>
+                <p><small>The industry standard platform for coding interview preparation.</small></p>
+                <a href="https://leetcode.com/" target="_blank">Visit LeetCode &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. HackerRank</strong><br>
+                <p><small>Problem-solving exercises for algorithms and data structures.</small></p>
+                <a href="https://www.hackerrank.com/" target="_blank">View Problems &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. GeeksforGeeks</strong><br>
+                <p><small>Extensive articles, tutorials, and practice problems.</small></p>
+                <a href="https://www.geeksforgeeks.org/" target="_blank">Read Articles &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. Algorithms (Sedgewick/Wayne)</strong><br>
+                <p><small>The definitive academic book series on algorithms.</small></p>
+                <a href="https://algs4.cs.princeton.edu/" target="_blank">Start Learning &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>

@@ -1,0 +1,103 @@
+<article>
+    <h1>C# I: Page 4 - Control Flow: Decision Making with If & Switch</h1>
+
+    <section>
+        <h2>Giving Your Code a Brain</h2>
+        <p>Until now, our code has run in a straight line from top to bottom. However, real-world applications must be able to make decisions. They need to respond differently depending on user input, data values, or the time of day. This is achieved through <strong>Control Flow</strong>. In C#, decision-making is primarily handled by <strong>Conditional Statements</strong>. These statements ask a question (a Boolean check) and execute specific blocks of code only if the answer is <code>true</code>. Mastery of these structures is essential for building everything from simple validation to complex game logic.</p>
+    </section>
+
+    <section>
+        <h2>1. The <code>if</code>, <code>else if</code>, and <code>else</code> Structure</h2>
+        <p>The <code>if</code> statement is the most common way to branch your code. It checks a condition inside parentheses. If that condition is true, the code inside the curly braces <code>{}</code> runs. You can provide alternative paths using <code>else if</code> and a "catch-all" path using <code>else</code>.</p>
+        <pre><code class="language-csharp">
+int score = 85;
+
+if (score >= 90) {
+    Console.WriteLine("Excellent!");
+} else if (score >= 70) {
+    Console.WriteLine("Good job.");
+} else {
+    Console.WriteLine("Keep practicing.");
+}
+        </code></pre>
+        <p><strong>The Ternary Operator:</strong> For simple assignments based on a condition, you can use the shorthand <code>? :</code> syntax: <code>string result = (score >= 60) ? "Pass" : "Fail";</code></p>
+    </section>
+
+    <section>
+        <h2>2. The <code>switch</code> Statement</h2>
+        <p>When you need to compare a single variable against many discrete values, a <code>switch</code> statement is often cleaner and more readable than a long chain of <code>if-else</code> blocks.</p>
+        
+        <h3>Traditional Switch</h3>
+        <pre><code class="language-csharp">
+int day = 3;
+switch (day) {
+    case 1: Console.WriteLine("Monday"); break;
+    case 2: Console.WriteLine("Tuesday"); break;
+    case 3: Console.WriteLine("Wednesday"); break;
+    default: Console.WriteLine("Invalid day"); break;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Modern C#: Switch Expressions</h2>
+        <p>C# 8.0 introduced a powerful new syntax called <strong>Switch Expressions</strong>. These are more concise and allow the switch to <strong>return a value</strong> directly. They use the "Arrow" (<code>=></code>) syntax and the underscore (<code>_</code>) as the default case.</p>
+        <pre><code class="language-csharp">
+string dayName = day switch {
+    1 => "Monday",
+    2 => "Tuesday",
+    3 => "Wednesday",
+    _ => "Unknown"
+};
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Comparison diagram showing a messy If-Else chain vs. a clean Switch Expression]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master C# branching and logic with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# If Statements (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the fundamentals of conditional logic.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Switch Statements vs. Expressions</strong><br>
+                <a href="https://www.youtube.com/watch?v=vVj_u_pAtH8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn when to use the new C# 8.0 syntax.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Pattern Matching in C# Conditionals</strong><br>
+                <a href="https://www.youtube.com/watch?v=S2fF_R_A1_k" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Advanced ways to check types and values in your logic.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Railroad Switch and the Vending Machine</h2>
+        <p>Think of <strong>If-Else</strong> logic like a <strong>Railroad Switch</strong>. As the train (the Code Execution) approaches the fork, a sensor checks a condition (e.g., "Is the weight > 10 tons?"). If true, the tracks physically move to the left. If false, they stay to the right. The train can only go down one path at a time. Think of a <strong>Switch Statement</strong> like a <strong>Vending Machine</strong>. You press button 'A1' (the Variable Value). The machine doesn't check every button; it jumps straight to the mechanism for 'A1' and drops your snack. The <strong>Modern Switch Expression</strong> is like a smart vending machine that doesn't just give you a snack, but also updates your digital receipt and prints your balance (returns a value) in one fluid motion.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements" target="_blank">Official Microsoft: Selection Statements (If/Switch)</a></li>
+            <li><a href="https://www.baeldung.com/cs/switch-expressions" target="_blank">Baeldung: Guide to C# Switch Expressions</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_conditions.php" target="_blank">W3Schools: C# If...Else</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-switch/" target="_blank">Switch Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Operators & Logic</a>
+            <a href="#" data-file="CSharp1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Loops: For & Foreach &rarr;</a>
+        </div>
+    </footer>
+</article>

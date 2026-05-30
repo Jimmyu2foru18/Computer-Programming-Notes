@@ -1,0 +1,93 @@
+<article>
+    <h1>Web Technologies II: Page 5 - Database Integration: MongoDB & Mongoose</h1>
+
+    <section>
+        <h2>The NoSQL Flexibility</h2>
+        <p>While relational databases (like MySQL) are structured in rigid tables with fixed columns, <strong>MongoDB</strong> takes a different approach: it is a <strong>NoSQL Document Database</strong>. Data is stored in flexible, JSON-like "Documents." This allows you to rapidly change your data structure as your application evolves, making it ideal for fast-paced web startups. To interact with MongoDB in Node.js, we use <strong>Mongoose</strong>—an ODM (Object Data Modeling) library that provides a structured, schema-based solution for modeling your application data.</p>
+    </section>
+
+    <section>
+        <h2>1. Relational (SQL) vs. Document (NoSQL)</h2>
+        <p>In MySQL, you define a table with a fixed schema. If you want to add a field, you must alter the table. In MongoDB, every document can have different fields.</p>
+        <ul>
+            <li><strong>MySQL:</strong> Tables, Rows, Columns, Joins.</li>
+            <li><strong>MongoDB:</strong> Collections, Documents, Fields, Embedded Data.</li>
+        </ul>
+        <pre><code class="language-javascript">
+// Mongoose Schema Definition
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, unique: true },
+  role: { type: String, default: 'user' }
+});
+const User = mongoose.model('User', userSchema);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. CRUD with Mongoose</h2>
+        <p>Mongoose makes it incredibly easy to map database documents to JavaScript objects.</p>
+        <pre><code class="language-javascript">
+// Create
+const newUser = await User.create({ name: "John", email: "john@test.com" });
+
+// Read
+const users = await User.find({ role: 'admin' });
+
+// Update
+await User.findByIdAndUpdate(id, { name: "John Doe" });
+
+// Delete
+await User.findByIdAndDelete(id);
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: MySQL Table structure vs. MongoDB JSON Document structure]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master MongoDB and Mongoose with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. MongoDB vs MySQL Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>When to choose SQL vs NoSQL for your project.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Mongoose for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Defining schemas and interacting with documents.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. MongoDB CRUD Operations</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Perform Create, Read, Update, and Delete in Node.js.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Filing Cabinet vs. The Free-Form Scrapbook</h2>
+        <p>Think of a <strong>Relational Database (SQL)</strong> like a <strong>Strictly Organized Filing Cabinet</strong>. Every folder must have the exact same forms, in the exact same order, in the exact same spot. It’s perfect for data that never changes, like accounting records. Think of <strong>MongoDB</strong> like a <strong>Free-Form Scrapbook</strong>. You can put a photo on one page, a handwritten note on the next, and a souvenir on the third. Every page (Document) can look completely different from the others. This is incredibly useful for fast-moving web applications where you don't always know in advance what data you will need to store for every user.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.mongodb.com/docs/" target="_blank">Official MongoDB Documentation</a></li>
+            <li><a href="https://mongoosejs.com/docs/" target="_blank">Official Mongoose Documentation</a></li>
+            <li><a href="https://www.freecodecamp.org/news/introduction-to-mongodb/" target="_blank">freeCodeCamp: MongoDB Intro</a></li>
+            <li><a href="https://www.geeksforgeeks.org/mongodb-vs-mysql/" target="_blank">GeeksforGeeks: MongoDB vs MySQL</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: DB: MySQL Integration</a>
+            <a href="#" data-file="Web2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Security: Best Practices &rarr;</a>
+        </div>
+    </footer>
+</article>

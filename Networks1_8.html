@@ -1,0 +1,81 @@
+<article>
+    <h1>Networks I: Page 8 - IP Addressing: The Logic of Location</h1>
+
+    <section>
+        <h2>The Digital Address</h2>
+        <p>Every device on an IP-based network requires a unique identifier—an <strong>IP Address</strong>. Think of an IP address as the physical mailing address for a device. Just as a letter won't arrive without a street address, data won't arrive without an IP address. IPv4 (Internet Protocol version 4) is the most widely deployed addressing system today. It uses a 32-bit address, typically written in "dotted-decimal" notation (e.g., <code>192.168.1.1</code>), where each of the four sections is a number from 0 to 255.</p>
+    </section>
+
+    <section>
+        <h2>1. IP Address Classes</h2>
+        <p>To organize the internet, addresses were historically divided into classes based on the size of the network:</p>
+        <ul>
+            <li><strong>Class A:</strong> Used for massive networks (government, ISPs). 1-126.</li>
+            <li><strong>Class B:</strong> Medium-sized networks (universities, large companies). 128-191.</li>
+            <li><strong>Class C:</strong> Small networks (home and small business). 192-223.</li>
+            <li><strong>Class D/E:</strong> Reserved for special purposes like Multicasting and experimental research.</li>
+        </ul>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>Expert Note:</strong> In modern networking, "Classful" addressing is mostly obsolete, replaced by <strong>CIDR (Classless Inter-Domain Routing)</strong>, which allows for much more flexible allocation of addresses.
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Private vs. Public IP Addresses</h2>
+        <p>Not every device needs a unique address on the public internet. <strong>Private IP Addresses</strong> are reserved for use within your own home or corporate network. They are not routable on the public internet. This conserves the limited supply of public IPv4 addresses and enhances security.</p>
+        <pre><code class="language-text">
+Class A Private: 10.0.0.0/8
+Class B Private: 172.16.0.0/12
+Class C Private: 192.168.0.0/16
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. CIDR: The Modern Standard</h2>
+        <p>CIDR notation (e.g., <code>192.168.1.0/24</code>) replaces the rigid address classes. The number after the slash (the <strong>Prefix</strong>) tells you how many bits of the address belong to the "Network" portion. A `/24` means the first 24 bits (the first three numbers) are the network, and the remaining 8 bits are for the hosts.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master IPv4 addressing and CIDR with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. IPv4 Addressing and Subnetting</strong><br>
+                <a href="https://www.youtube.com/watch?v=s_m8_D_kY_o" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how binary relates to decimal IP addresses.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. CIDR Notation Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=UI6lqHOVHic" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why we use /24, /25, /26 instead of address classes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Public vs Private IP Addresses</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how NAT works to connect your local network to the internet.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Apartment Building and the Unit Number</h2>
+        <p>Think of an <strong>IP Address</strong> like the <strong>Street Address of an Apartment Building</strong>. The "Network" portion of the IP is the Street Name (e.g., "192.168.1"). All the units on that street share the same beginning. The "Host" portion is the <strong>Unit Number</strong> (e.g., ".101"). Think of <strong>Private IPs</strong> like your <strong>Internal Room Numbers</strong>. If you call "Room 202" in your own building, you know who you mean. But if you call "Room 202" at a totally different apartment complex across town, you get the wrong person. A <strong>Router</strong> (with NAT - Network Address Translation) is like the building concierge—they take your internal room number and represent your house to the outside world using one single, official public street address.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">Wikipedia: IPv4 Address Structure</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: IP Addressing Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/ip-addressing-class-a-b-c-d-and-e/" target="_blank">GeeksforGeeks: IP Address Classes</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_files.php" target="_blank">W3Schools: Networking Basics</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: TCP/IP Stack & Models</a>
+            <a href="#" data-file="Networks1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Subnetting & CIDR &rarr;</a>
+        </div>
+    </footer>
+</article>

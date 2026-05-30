@@ -1,0 +1,101 @@
+<article>
+    <h1>Python I: Page 3 - Fundamental Data Types: Numbers & Booleans</h1>
+
+    <section>
+        <h2>Numeric Types: Precision and Science</h2>
+        <p>In Python, numbers are not just simple digits. They are sophisticated objects that can represent everything from the number of items in a cart to the trajectory of a spacecraft. Python provides three main numeric types: <strong>Integers</strong>, <strong>Floating-Point Numbers</strong>, and <strong>Complex Numbers</strong>.</p>
+        
+        <h3>1. Integers (int)</h3>
+        <p>Integers are whole numbers. One of Python's most powerful features is that integers have <strong>arbitrary precision</strong>—they can be as large as your computer's RAM allows. For readability, Python allows you to use underscores as visual thousands-separators.</p>
+        <pre><code class="language-python">
+count = 42
+negative = -17
+big_number = 1_000_000  # Python ignores the underscores
+        </code></pre>
+
+        <h3>2. Floating-Point Numbers (float)</h3>
+        <p>Floats represent decimal numbers. They are stored using the IEEE 754 standard, which means they are extremely fast but can occasionally have tiny precision errors. Python also supports <strong>Scientific Notation</strong> for very large or very small floats.</p>
+        <pre><code class="language-python">
+pi = 3.14159
+scientific = 2.5e-4  # This is 0.00025
+        </code></pre>
+
+        <h3>3. Complex Numbers (complex)</h3>
+        <p>Commonly used in electrical engineering and physics, complex numbers consist of a real part and an imaginary part (denoted with a <code>j</code> in Python).</p>
+        <pre><code class="language-python">
+complex_num = 3 + 4j
+print(complex_num.real)  # 3.0
+print(complex_num.imag)  # 4.0
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the Number Hierarchy—Int &rarr; Float &rarr; Complex]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Boolean Type: The Logic of Programming</h2>
+        <p>The <strong>Boolean (bool)</strong> data type has only two values: <code>True</code> and <code>False</code>. These are the "On" and "Off" switches of your code. In Python, Boolean values are actually a subclass of integers, where <code>True</code> is <code>1</code> and <code>False</code> is <code>0</code>.</p>
+        
+        <h3>Boolean Operations</h3>
+        <p>You can combine Boolean values using logical operators to create complex decision-making rules.</p>
+        <ul>
+            <li><strong>and:</strong> Returns <code>True</code> only if <em>both</em> sides are true.</li>
+            <li><strong>or:</strong> Returns <code>True</code> if <em>at least one</em> side is true.</li>
+            <li><strong>not:</strong> Inverts the value (True becomes False).</li>
+        </ul>
+        <pre><code class="language-python">
+is_active = True
+is_complete = False
+
+print(is_active and is_complete)  # False
+print(is_active or is_complete)   # True
+print(not is_active)              # False
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master numeric types and Boolean logic with these curated videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Numbers in Python (Integers vs Floats)</strong><br>
+                <a href="https://www.youtube.com/watch?v=D48iCw3WWpI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand precision, rounding, and math operations.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Complex Numbers in Python</strong><br>
+                <a href="https://www.youtube.com/watch?v=H74H_f1R0qE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A guide for engineers and scientists using Python.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Boolean Logic & Operators</strong><br>
+                <a href="https://www.youtube.com/watch?v=9OK32jb_ZlA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master 'and', 'or', and 'not' for smarter code.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Digital Scale and the Security System</h2>
+        <p>Think of <strong>Integers</strong> like the <strong>Items on a Digital Scale</strong>—you either have 1 item or 2, there is no "in-between." Think of <strong>Floats</strong> like the <strong>Weight Reading</strong> on that scale, which can be 1.5 lbs or 1.50000001 lbs depending on precision. <strong>Complex Numbers</strong> are like the <strong>Radio Waves</strong> passing through the air around the scale—they have two dimensions (amplitude and phase) that require complex math to understand. Finally, think of <strong>Booleans</strong> as the <strong>Security System</strong> for the room: <code>is_door_locked</code> is either True or False. If <code>is_door_locked</code> <strong>and</strong> <code>is_alarm_on</code>, then the system is secure. One wrong switch (Boolean value) can change the state of the entire building.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" target="_blank">Official Python Docs: Numeric Types</a></li>
+            <li><a href="https://realpython.com/python-numbers/" target="_blank">Real Python: Numbers in Python</a></li>
+            <li><a href="https://www.w3schools.com/python/python_booleans.asp" target="_blank">W3Schools: Python Booleans</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-booleans/" target="_blank">Python Tutorial: Booleans & Truthiness</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Variables & Naming</a>
+            <a href="#" data-file="Python1_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Strings & Formatting &rarr;</a>
+        </div>
+    </footer>
+</article>

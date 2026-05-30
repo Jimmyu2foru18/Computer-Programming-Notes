@@ -1,0 +1,110 @@
+<article>
+    <h1>C# I: Page 10 - Introduction to OOP: Classes & Objects</h1>
+
+    <section>
+        <h2>The Blueprint for Reality</h2>
+        <p>In the first nine pages of this course, we focused on "Procedural" programming—writing instructions and methods that work on data. However, as software becomes more complex, it is often more natural to organize our code around <strong>Objects</strong>. This style of programming is called <strong>Object-Oriented Programming (OOP)</strong>. In OOP, we group related data (State) and behaviors (Methods) together into a single unit called a Class. This allows us to model real-world things—like a User, a Bank Account, or a Game Character—directly in our code. This page concludes the Foundations module by exploring how to define your own types and bring them to life as objects.</p>
+    </section>
+
+    <section>
+        <h2>1. The Class vs. The Object</h2>
+        <p>To create objects, we first need a <strong>Class</strong>. A class is a <strong>blueprint</strong> or a template. It defines what data an object will have and what it can do, but it doesn't contain the data itself. An <strong>Object</strong> (or <strong>Instance</strong>) is the actual thing built from that blueprint. You can use one class to create thousands of unique objects.</p>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #007bff; border-radius: 10px; background: #f0f7ff;">
+                <strong>CLASS:</strong> Dog (Blueprint)<br>
+                Fields: Name, Breed<br>
+                Methods: Bark()
+            </div>
+            <div style="display: inline-block; font-size: 2em; margin: 0 20px; vertical-align: middle;">&rarr;</div>
+            <div style="display: inline-block; padding: 20px; border: 2px solid #28a745; border-radius: 10px; background: #f0fff4;">
+                <strong>OBJECT:</strong> myDog (Instance)<br>
+                Name: "Buddy"<br>
+                Breed: "Golden Retriever"
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Defining a Class in C#</h2>
+        <p>A class typically contains <strong>Fields</strong> (variables) and <strong>Methods</strong>. We use the <code>new</code> keyword to "Instantiate" the class and create an object in memory.</p>
+        <pre><code class="language-csharp">
+class Dog {
+    // State (Data)
+    public string Name;
+    public string Breed;
+
+    // Behavior (Action)
+    public void Bark() {
+        Console.WriteLine($"{Name} says: Woof!");
+    }
+}
+
+// Creating an instance
+Dog myDog = new Dog();
+myDog.Name = "Buddy";
+myDog.Bark(); // Output: Buddy says: Woof!
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Constructors: The Birth of an Object</h2>
+        <p>A <strong>Constructor</strong> is a special method that runs automatically the moment you create an object. Its job is to set the initial state of the object. Constructors have the exact same name as the class and no return type.</p>
+        <pre><code class="language-csharp">
+class Dog {
+    public string Name;
+
+    // Constructor
+    public Dog(string name) {
+        this.Name = name;
+    }
+}
+// Now we must provide a name when we create the dog:
+Dog d = new Dog("Rex");
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the basics of Object-Oriented C# with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Classes and Objects (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=2ZPhxE90n9Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear guide to the foundation of C# OOP.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Constructors in C# Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ-VvGyQxho" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to properly initialize your objects.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Instance vs. Static: The OOP Paradox</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the difference between object data and class data.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Cookie Cutter and the Passport</h2>
+        <p>Think of a <strong>Class</strong> like a <strong>Cookie Cutter</strong>. The cutter itself isn't a cookie; it's just a metal shape that defines what a cookie looks like. Think of the <strong>Object</strong> as the actual <strong>Cookie</strong> you bake. You can use the same cutter to make 100 cookies, but each cookie is a separate "Instance." You can put chocolate chips on one and sprinkles on another—they all have the same shape (the Class), but they have different details (the State). Another example is a <strong>Passport Office</strong>: the blank application form is the Class. Once the office prints the actual <strong>Passport</strong> with your photo and name on it, that unique book is the Object. It has the same structure as every other passport, but it belongs uniquely to you.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes" target="_blank">Official Microsoft: C# Classes Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/classes-objects" target="_blank">Baeldung: Guide to Classes and Objects in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_classes.php" target="_blank">W3Schools: C# Classes/Objects</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-class/" target="_blank">Class Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Methods: Ref & Out</a>
+            <a href="#" data-file="CSharp2_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: C# II - Encapsulation & Props &rarr;</a>
+        </div>
+    </footer>
+</article>

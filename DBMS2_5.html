@@ -1,0 +1,84 @@
+<article>
+    <h1>DBMS II: Page 5 - Advanced NoSQL: Column-Family, Graph Stores & the CAP Theorem</h1>
+
+    <section>
+        <h2>Specialized Data for Specialized Problems</h2>
+        <p>In the previous page, we saw how Document and Key-Value stores handle basic scaling and flexibility. However, some problems require even more specialized architectures. If you need to analyze relationships between millions of people, a table is too slow. If you need to write terabytes of sensor data every hour, a document store will fail. This page explores <strong>Graph Databases</strong> and <strong>Column-Family Stores</strong>, and introduces the <strong>CAP Theorem</strong>—the fundamental law that governs every distributed database in the world.</p>
+    </section>
+
+    <section>
+        <h2>1. Column-Family Stores: Massive Write Scaling</h2>
+        <p>Column-Family stores (like <strong>Apache Cassandra</strong> or <strong>HBase</strong>) store data in columns rather than rows. This might sound subtle, but it's a game-changer for performance. They are designed to handle petabytes of data across thousands of servers. They are ideal for time-series data (like stock market prices), logging, and large-scale data analytics where you need to read specific attributes across many records very quickly.</p>
+    </section>
+
+    <section>
+        <h2>2. Graph Databases: The Power of Relationships</h2>
+        <p>In a <strong>Graph Database</strong> (like <strong>Neo4j</strong>), the "Relationship" between data is just as important as the data itself. Data is stored as <strong>Nodes</strong> (entities) and <strong>Edges</strong> (relationships). This allows for lightning-fast queries like "Find all friends-of-friends who like Python and live in London." In a traditional SQL database, this would require 10 complex joins; in a graph database, it's a simple "Traversals."</p>
+        <pre><code class="language-cypher">
+// Neo4j (Cypher query language)
+MATCH (user:Person {name: 'Alice'})-[:FRIEND*2]-(fof:Person)
+WHERE fof.likes = 'Python'
+RETURN fof.name;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. The CAP Theorem: The Law of Distributed Systems</h2>
+        <p>The CAP Theorem states that in a distributed system (a database running on multiple servers), you can only provide <strong>two out of three</strong> of the following guarantees:</p>
+        <ul>
+            <li><strong>Consistency (C):</strong> Every node sees the same data at the same time.</li>
+            <li><strong>Availability (A):</strong> Every request gets a response (even if it's not the latest data).</li>
+            <li><strong>Partition Tolerance (P):</strong> The system keeps working even if the network between servers fails.</li>
+        </ul>
+        <p>Since network failures (Partitions) are inevitable in the real world, distributed databases must choose between being <strong>CP</strong> (Consistent) or <strong>AP</strong> (Available).</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: The CAP Theorem triangle diagram showing Consistency, Availability, and Partition Tolerance at the corners]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master advanced data models and distributed theory with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Graph Databases Explained (Neo4j)</strong><br>
+                <a href="https://www.youtube.com/watch?v=G1rOthp6Sks" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why nodes and edges are the future of social data.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Apache Cassandra in 10 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=s_m8_D_kY_o" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the architecture of the world's most scalable database.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The CAP Theorem Simply Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=k-Yaq8AHlFA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The most important concept for understanding distributed systems.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Social Network and the Bank</h2>
+        <p>Think of a <strong>Graph Database</strong> like a <strong>Social Network (Facebook/LinkedIn)</strong>. Your profile is a Node. Your "Friend" connection is an Edge. When the system suggests "People You May Know," it's using Graph logic to find nodes that are two steps away from you. Think of <strong>Column-Family Stores</strong> like a <strong>Supermarket Inventory</strong>. If you only want to know the "Price" of 1,000,000 items, you don't want to pull the entire box (the Row) off the shelf; you just want to scan the price tag (the Column). Finally, think of the <strong>CAP Theorem</strong> like a <strong>Global Bank with a Network Outage</strong>. If the New York branch can't talk to the London branch (a Partition), the bank has a choice. It can <strong>Stop all withdrawals</strong> (CP - choose Consistency over Availability) to make sure no one spends more than they have, or it can <strong>Allow withdrawals</strong> (AP - choose Availability over Consistency) and fix the balances later once the network is back up.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://neo4j.com/developer/graph-database/" target="_blank">Neo4j: What is a Graph Database?</a></li>
+            <li><a href="https://cassandra.apache.org/_/index.html" target="_blank">Apache Cassandra Official Site</a></li>
+            <li><a href="https://www.ibm.com/topics/cap-theorem" target="_blank">IBM: Understanding the CAP Theorem</a></li>
+            <li><a href="https://www.baeldung.com/cs/cap-theorem" target="_blank">Baeldung: CAP Theorem Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: NoSQL: Document & KV</a>
+            <a href="#" data-file="DBMS2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Distributed & Sharding &rarr;</a>
+        </div>
+    </footer>
+</article>

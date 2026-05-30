@@ -1,0 +1,47 @@
+<article>
+    <h1>System Design III: Page 1 - Design: Scalability</h1>
+
+    <section>
+        <h2>Handling Growth</h2>
+        <p>A system that works for 100 users might crash with 100,000. <strong>Scalability</strong> is the ability of a system to handle increased load (more users, more data, more requests) by adding resources. A scalable system doesn't just get faster; it remains performant and reliable even as demand grows. Design decisions regarding scalability are foundational and must be made early.</p>
+    </section>
+
+    <section>
+        <h2>1. The Two Ways to Scale</h2>
+        <ul>
+            <li><strong>Vertical Scaling (Scale Up):</strong> Adding more power (CPU, RAM) to a single machine. Simple, but eventually hits a physical hardware limit and creates a single point of failure.</li>
+            <li><strong>Horizontal Scaling (Scale Out):</strong> Adding more machines to the pool. Much harder to design for (requires shared state/statelessness), but offers virtually unlimited growth.</li>
+        </ul>
+        <pre><code class="language-text">
+# Horizontal Scale Diagram
+Load Balancer -> [Server 1]
+               -> [Server 2]
+               -> [Server 3]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Horizontal vs Vertical Scaling</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Intro to Load Balancing</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Database Sharding Concepts</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Backend: Microservices</a>
+            <a href="#" data-file="System3_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Design: Security &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,106 @@
+<article>
+    <h1>Java II: Page 2 - Object-Oriented Programming (OOP): Inheritance Basics</h1>
+
+    <section>
+        <h2>The Power of a Legacy</h2>
+        <p>In the physical world, we rarely build everything from scratch. When a company designs a new smartphone, they don't reinvent the concepts of a "battery" or a "screen"; they take existing technology and build <em>on top</em> of it. In programming, we do the same thing using <strong>Inheritance</strong>. Inheritance allows us to create a new class (the <strong>Subclass</strong> or <strong>Derived Class</strong>) that inherits all the attributes and methods of an existing class (the <strong>Superclass</strong> or <strong>Base Class</strong>). This promotes code reuse and establishes a logical hierarchy in your software.</p>
+    </section>
+
+    <section>
+        <h2>The "Is-A" Relationship</h2>
+        <p>The easiest way to know if you should use inheritance is to ask: "Is the subclass a type of the superclass?"</p>
+        <ul>
+            <li>A <code>Dog</code> <strong>is an</strong> <code>Animal</code>.</li>
+            <li>A <code>Car</code> <strong>is a</strong> <code>Vehicle</code>.</li>
+            <li>A <code>Manager</code> <strong>is an</strong> <code>Employee</code>.</li>
+        </ul>
+        <p>If the answer is yes, then inheritance is likely the right choice. In Java, we use the <code>extends</code> keyword to establish this link.</p>
+    </section>
+
+    <section>
+        <h2>Basic Inheritance Syntax</h2>
+        <pre><code class="language-java">
+class Animal {
+    String name;
+    public void eat() {
+        System.out.println("Animal is eating...");
+    }
+}
+
+// Dog inherits EVERYTHING from Animal
+class Dog extends Animal {
+    public void bark() {
+        System.out.println("Woof!");
+    }
+}
+
+Dog myDog = new Dog();
+myDog.name = "Buddy"; // Attribute from Animal
+myDog.eat();         // Method from Animal
+myDog.bark();        // Method from Dog
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Using <code>super</code> for Parent Logic</h2>
+        <p>A subclass often needs to call its parent's constructor or methods. For this, Java provides the <code>super</code> keyword. This is especially important for initialization.</p>
+        <pre><code class="language-java">
+class Dog extends Animal {
+    String breed;
+
+    public Dog(String name, String breed) {
+        super(); // Call the parent constructor (optional if default)
+        this.name = name;
+        this.breed = breed;
+    }
+}
+        </code></pre>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>Expert Note:</strong> Java only supports <strong>Single Inheritance</strong> for classes. A class can only extend ONE superclass. This prevents the "Diamond Problem" of conflicting parents, though a class can implement multiple interfaces (which we will cover later).
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the foundational logic of inheritance with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Inheritance Tutorial (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Zs342e_vL0Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best visual explanation of base and derived classes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The 'super' Keyword in Java (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to interact with parent constructors and methods.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Why Java Doesn't Support Multiple Inheritance</strong><br>
+                <a href="https://www.youtube.com/watch?v=LiPvt3O_E_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the design philosophy of the Java language.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Evolution and Smartphone Generations</h2>
+        <p>Think of <strong>Inheritance</strong> like <strong>Biological Evolution</strong>. Every animal inherits a set of basic blueprints from its ancestors (DNA). A wolf inherits the ability to breathe, eat, and sleep from the general category of "Mammals." Over thousands of years, the "Dog" class diverged from the "Wolf" class, inheriting the wolf's basic structure but adding new behaviors to be more friendly to humans. Another example is <strong>Smartphone Generations</strong>: the iPhone 15 inherits the basic concepts of the iPhone 1 (a touch screen, an internet connection, a camera), but it specializes the hardware and overrides the software to be faster. You don't build a new phone by inventing the "Touch Screen" again; you extend the existing smartphone blueprint.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html" target="_blank">Official Java Docs: Inheritance</a></li>
+            <li><a href="https://www.baeldung.com/java-inheritance" target="_blank">Baeldung: Inheritance in Java Guide</a></li>
+            <li><a href="https://www.w3schools.com/java/java_inheritance.asp" target="_blank">W3Schools: Java Inheritance</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-inheritance/" target="_blank">Java Tutorial: Comprehensive Inheritance Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Encapsulation</a>
+            <a href="#" data-file="Java2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Polymorphism & Overriding &rarr;</a>
+        </div>
+    </footer>
+</article>

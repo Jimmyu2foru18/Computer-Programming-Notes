@@ -1,0 +1,80 @@
+<article>
+    <h1>DSA II: Page 6 - Heaps: Priority Management</h1>
+
+    <section>
+        <h2>Managing Priorities</h2>
+        <p>A <strong>Heap</strong> is a specialized tree-based data structure that satisfies the <strong>Heap Property</strong>: in a <strong>Min-Heap</strong>, the parent node is always smaller than or equal to its children, making the root the smallest element. In a <strong>Max-Heap</strong>, the parent is always greater than or equal to its children, making the root the largest element. Heaps are the ideal structure for implementing <strong>Priority Queues</strong>, where you don't need to keep the entire collection sorted, but you <em>do</em> need to efficiently access and remove the highest (or lowest) priority item repeatedly.</p>
+    </section>
+
+    <section>
+        <h2>1. The Heap Structure</h2>
+        <p>A heap is a "nearly complete" binary tree, which is why it is almost always implemented using an <strong>array</strong> instead of a linked tree structure. Because it's nearly complete, you can find the parent/child nodes using simple index arithmetic: for a node at index <code>i</code>, the children are at <code>2i + 1</code> and <code>2i + 2</code>.</p>
+        
+        <h3>Core Operations (O(log n)):</h3>
+        <ul>
+            <li><strong>Insert:</strong> Add to the end, then "bubble up" (sift up) to restore the heap property.</li>
+            <li><strong>Extract Min/Max:</strong> Remove the root, move the last element to the root, then "bubble down" (sift down) to restore the heap property.</li>
+        </ul>
+        <pre><code class="language-python">
+import heapq
+# Min-heap by default in Python
+heap = []
+heapq.heappush(heap, 5) # Insert
+min_val = heapq.heappop(heap) # Extract Min
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why Heaps?</h2>
+        <p>Heaps allow us to find the min/max element in O(1) time and extract/insert in O(log n) time. They are the engine behind <strong>Heap Sort</strong>, <strong>Priority Queues</strong>, and graph algorithms like <strong>Dijkstra’s Shortest Path</strong>.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Mapping a Min-Heap Tree structure to an Array]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master heaps with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Heaps Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The min/max heap property and structural rules.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Heap Insertion and Extraction</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to sift up and sift down to restore properties.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Priority Queues using Heaps</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Practical application of heaps in software.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Emergency Room Triage</h2>
+        <p>Think of a <strong>Heap</strong> like the <strong>Triage System in an Emergency Room</strong>. Patients don't get served strictly in the order they arrive (a standard Queue). Instead, they are assigned a priority level based on the severity of their injury. A Min-Heap (or Max-Heap, depending on how you define priority) ensures that the patient with the most urgent medical need is at the front of the line, even if they arrived *after* someone with a minor injury. The Triage nurse is constantly "heaping"—whenever a new patient arrives, they are placed in the correct spot based on their priority, and the most urgent case is always treated first.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" target="_blank">Wikipedia: Heap</a></li>
+            <li><a href="https://www.geeksforgeeks.org/binary-heap/" target="_blank">GeeksforGeeks: Binary Heap</a></li>
+            <li><a href="https://docs.python.org/3/library/heapq.html" target="_blank">Python: heapq Documentation</a></li>
+            <li><a href="https://visualgo.net/en/heap" target="_blank">Tool: Heap Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Balanced Trees</a>
+            <a href="#" data-file="DSA2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Graphs: Intro &rarr;</a>
+        </div>
+    </footer>
+</article>

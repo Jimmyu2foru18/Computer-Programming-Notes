@@ -1,0 +1,105 @@
+<article>
+    <h1>Java II: Page 4 - Object-Oriented Programming (OOP): Interfaces & Contracts</h1>
+
+    <section>
+        <h2>The Pure Interface</h2>
+        <p>In our previous pages, we learned how classes can inherit behavior from parents. But sometimes, you don't want a "parent-child" relationship; you just want to ensure that completely different types of objects all follow the same set of rules. In Java, this is achieved through an <strong>Interface</strong>. An interface is a 100% abstract "contract" that specifies <strong>what</strong> a class must do, but not <strong>how</strong> it does it. It allows for a level of decoupling and flexibility that is impossible with class inheritance alone.</p>
+    </section>
+
+    <section>
+        <h2>1. Defining and Implementing Interfaces</h2>
+        <p>An interface is defined using the <code>interface</code> keyword. By default, all methods in an interface are <code>public</code> and <code>abstract</code>. A class "signs" the contract by using the <code>implements</code> keyword.</p>
+        <pre><code class="language-java">
+public interface Drawable {
+    void draw(); // Abstract method (no body)
+}
+
+public class Circle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle...");
+    }
+}
+
+public class Button implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a UI button...");
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Multiple Implementation</h2>
+        <p>One of the biggest advantages of interfaces over classes is that a Java class can implement <strong>multiple interfaces</strong>. This allows an object to "wear many hats" and be compatible with many different systems.</p>
+        <pre><code class="language-java">
+public class SmartPhone implements Camera, Phone, Computer {
+    // Must implement methods from ALL three interfaces
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Modern Interfaces: Default and Static Methods</h2>
+        <p>Since Java 8, interfaces have become even more powerful. They can now include <code>default</code> methods (which have a body and are optional to override) and <code>static</code> methods (which belong to the interface itself).</p>
+        <pre><code class="language-java">
+public interface Drawable {
+    void draw();
+
+    default void displayInfo() {
+        System.out.println("This is a drawable object.");
+    }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing one Class implementing three different Interfaces, illustrating the 'Multiple Identity' concept]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java interfaces and contract-based design with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Interfaces Tutorial (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=wXhXBE3_Z80" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the 'Why' and 'How' of interfaces in professional code.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Default and Static Methods in Interfaces</strong><br>
+                <a href="https://www.youtube.com/watch?v=ZJ9Z8-C8p9g" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how modern Java evolved the interface concept.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Interfaces vs Abstract Classes</strong><br>
+                <a href="https://www.youtube.com/watch?v=L3-Ku9u8V6I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The definitive comparison of Java's two abstraction tools.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Standardized Plug and the Legal Contract</h2>
+        <p>Think of an <strong>Interface</strong> like the <strong>USB Standard</strong>. The "USB Interface" defines exactly what the physical plug looks like and how data is transferred. It doesn't care if the device is a mouse, a keyboard, or a hard drive. As long as the device "implements" the USB interface, it will work with your computer. This is the essence of <strong>Decoupling</strong>. Think of the <code>implements</code> keyword like signing a <strong>Legal Contract</strong>. When you sign a contract to be a "Driver," the contract doesn't tell you how to move your arms or legs (the Implementation); it just says you <em>must</em> be able to <code>steer()</code> and <code>brake()</code>. Whether you drive a truck or a sports car, you are compatible with the role because you fulfilled the contract's requirements.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank">Official Java Docs: Interfaces</a></li>
+            <li><a href="https://www.baeldung.com/java-interfaces" target="_blank">Baeldung: Guide to Java Interfaces</a></li>
+            <li><a href="https://www.w3schools.com/java/java_interface.asp" target="_blank">W3Schools: Java Interface</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-interface/" target="_blank">Java Tutorial: Comprehensive Interface Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Polymorphism & Overriding</a>
+            <a href="#" data-file="Java2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Abstract Classes &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,91 @@
+<article>
+    <h1>Python I: Page 4 - Fundamental Data Types: Strings & Formatting</h1>
+
+    <section>
+        <h2>The World of Text: Python Strings (str)</h2>
+        <p>In almost every program you write, you will need to handle text. Whether it is a user's name, a message to display on a screen, or data read from a website, Python uses the <strong>String (str)</strong> data type. Python is famous for its powerful string handling, providing developers with a wide range of tools to create, manipulate, and format text with ease.</p>
+        
+        <h3>Creating Strings: The Three Quote Styles</h3>
+        <p>Python offers three distinct ways to define a string, each suited for a different purpose:</p>
+        <ul>
+            <li><strong>Single Quotes (<code>'</code>):</strong> Best for short, simple strings.</li>
+            <li><strong>Double Quotes (<code>"</code>):</strong> Also for short strings, particularly useful if the text contains a single quote (e.g., <code>"Don't"</code>).</li>
+            <li><strong>Triple Quotes (<code>'''</code> or <code>"""</code>):</strong> Used for <strong>Multi-line Strings</strong>. This is perfect for long paragraphs, ASCII art, or documentation (docstrings).</li>
+        </ul>
+        <pre><code class="language-python">
+single = 'Hello'
+double = "World"
+multiline = """This is a
+multiline string that
+preserves line breaks."""
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison of Single vs Double vs Triple quotes in a code editor]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>String Formatting: The Power of f-strings</h2>
+        <p>Until a few years ago, formatting strings in Python was a bit clunky. But with the introduction of <strong>f-strings</strong> (Formatted String Literals) in Python 3.6, the process became fast, readable, and intuitive. By placing an <code>f</code> before your string, you can embed Python expressions directly inside curly braces <code>{}</code>.</p>
+        
+        <h3>Dynamic Messages</h3>
+        <pre><code class="language-python">
+name = "Bob"
+age = 30
+message = f"Hi, I'm {name} and I'm {age} years old."
+print(message)  # Hi, I'm Bob and I'm 30 years old.
+        </code></pre>
+        <p>f-strings aren't just for variables; you can also perform calculations or call methods inside the braces: <code>f"Next year, I'll be {age + 1}"</code> or <code>f"Uppercase: {name.upper()}"</code>.</p>
+    </section>
+
+    <section>
+        <h2>Immutability: A Core Constraint</h2>
+        <p>A critical concept to remember is that Python strings are <strong>immutable</strong>. Once you create a string, you cannot change a single character in it. If you want to "edit" a string, Python actually creates a brand-new string in memory and attaches your variable label to it. This makes strings extremely efficient for the computer to manage behind the scenes.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Learn more about string manipulation and the magic of f-strings with these videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Strings - Working with Textual Data</strong><br>
+                <a href="https://www.youtube.com/watch?v=k9TUPpGqYTo" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive look at slicing, indexing, and methods.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. f-Strings: The Best Way to Format Text</strong><br>
+                <a href="https://www.youtube.com/watch?v=nghuHvKLhJA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master modern string formatting in minutes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. String Immutability Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why you can't change strings and how Python handles it.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Printing Press and the Fill-in-the-Blank Form</h2>
+        <p>Think of a <strong>String</strong> like a <strong>Page from a Printing Press</strong>. Once the ink is dry, you can't just erase a single letter to fix a typo—you have to print a whole new page (Immutability). Think of <strong>Multi-line Strings</strong> like a <strong>Letter or a Story</strong>, where the layout and the spacing between lines matter just as much as the words themselves. Finally, think of <strong>f-strings</strong> like a <strong>Fill-in-the-Blank Form</strong> (like a Mad Lib). The form has the static text already printed, but it has specific holes <code>{}</code> where you can drop in any information (Variables) or even perform quick calculations on the fly to create a customized message for whoever is reading it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" target="_blank">Official Python Docs: Strings</a></li>
+            <li><a href="https://realpython.com/python-f-strings/" target="_blank">Real Python: f-strings Guide</a></li>
+            <li><a href="https://www.w3schools.com/python/python_strings.asp" target="_blank">W3Schools: Python Strings</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-string/" target="_blank">Python Tutorial: Comprehensive String Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Numbers & Booleans</a>
+            <a href="#" data-file="Python1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Lists & Comprehensions &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,116 @@
+<article>
+    <h1>Python II: Page 1 - Advanced Functions: Power & Flexibility</h1>
+
+    <section>
+        <h2>Mastering the Tool of Logic</h2>
+        <p>In Python I, we learned the basics of functions—how to define them, pass simple arguments, and return values. Now that we are entering the intermediate level, we need to explore the advanced features that make Python functions some of the most flexible and powerful in the programming world. Professional Python code often uses these features to handle unpredictable data, create elegant abstractions, and modify the behavior of other code on the fly.</p>
+    </section>
+
+    <section>
+        <h2>Flexible Arguments: <code>*args</code> and <code>**kwargs</code></h2>
+        <p>Sometimes you don't know how many arguments a user will pass to your function. For example, a function that adds numbers should work whether you pass 2 numbers or 200. Python handles this with two special symbols.</p>
+        
+        <h3>1. Variable Arguments (<code>*args</code>)</h3>
+        <p>The <code>*args</code> parameter collects any number of "positional" arguments into a <strong>Tuple</strong>.</p>
+        <pre><code class="language-python">
+def sum_all(*args):
+    return sum(args)
+
+print(sum_all(1, 2, 3, 4, 5)) # Output: 15
+        </code></pre>
+
+        <h3>2. Keyword Arguments (<code>**kwargs</code>)</h3>
+        <p>The <code>**kwargs</code> parameter collects any number of "keyword" arguments (named arguments) into a <strong>Dictionary</strong>.</p>
+        <pre><code class="language-python">
+def create_profile(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+create_profile(name="Alice", age=25, city="New York")
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing data flowing into *args (Tuple) and **kwargs (Dictionary)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Lambda Functions: One-Line Logic</h2>
+        <p>A <strong>Lambda Function</strong> is a small, anonymous function that can have any number of arguments but only <strong>one expression</strong>. They are perfect for short-lived logic, often used as arguments for higher-order functions like <code>map()</code>, <code>filter()</code>, or <code>sort()</code>.</p>
+        <pre><code class="language-python">
+# Syntax: lambda arguments: expression
+square = lambda x: x**2
+print(square(5))  # Output: 25
+
+numbers = [1, 2, 3, 4, 5]
+doubled = list(map(lambda x: x * 2, numbers))
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Decorators: The Wrapper Pattern</h2>
+        <p>A <strong>Decorator</strong> is a function that takes another function and extends its behavior without explicitly modifying it. This is a common pattern for logging, security, and timing performance. Think of it as "wrapping" your function in a layer of extra logic.</p>
+        <pre><code class="language-python">
+def timer(func):
+    import time
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} took {end - start:.4f} seconds")
+        return result
+    return wrapper
+
+@timer
+def slow_operation():
+    import time
+    time.sleep(1)
+    return "Done!"
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Deepen your understanding of advanced function patterns with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. *args and **kwargs Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=4j7ay3Ak9Z8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master flexible function arguments in Python.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Lambda Functions in Python</strong><br>
+                <a href="https://www.youtube.com/watch?v=25ovCm9jKfA" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn when to use (and when to avoid) anonymous functions.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Python Decorators in 15 Minutes</strong><br>
+                <a href="https://www.youtube.com/watch?v=FsAPt_9Bf3U" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The most clear explanation of the @decorator syntax.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Swiss Army Knife and the Gift Wrap</h2>
+        <p>Think of <strong>*args and **kwargs</strong> like a <strong>Swiss Army Knife</strong>. You don't know exactly which tool you'll need until you're in the field, so you carry a set that can handle "any number" of challenges. <strong>Lambda Functions</strong> are like <strong>Post-it Notes</strong>: you use them for a quick, one-time instruction ("Buy milk," "Square this number"), and then you throw them away. Finally, think of <strong>Decorators</strong> like <strong>Gift Wrap</strong>. The function is the "Gift" (the core logic). The decorator is the "Paper and Bow" (the extra behavior). You can wrap any gift in the same paper (e.g., adding a timer to any function) without changing what's actually inside the box.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions" target="_blank">Official Python Docs: Advanced Functions</a></li>
+            <li><a href="https://realpython.com/python-kwargs-and-args/" target="_blank">Real Python: *args and **kwargs Guide</a></li>
+            <li><a href="https://realpython.com/primer-on-python-decorators/" target="_blank">Real Python: Primer on Python Decorators</a></li>
+            <li><a href="https://www.w3schools.com/python/python_lambda.asp" target="_blank">W3Schools: Python Lambda</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Functions: The Core</a>
+            <a href="#" data-file="Python2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Modules & Packages &rarr;</a>
+        </div>
+    </footer>
+</article>

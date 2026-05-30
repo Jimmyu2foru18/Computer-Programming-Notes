@@ -1,0 +1,78 @@
+<article>
+    <h1>Networks I: Page 5 - OSI Model: The Foundation (Layers 1 & 2)</h1>
+
+    <section>
+        <h2>The Architecture of Communication</h2>
+        <p>The <strong>OSI Model</strong> (Open Systems Interconnection) is the "grammar" of networking. It divides the complex process of sending data into seven distinct layers, each building upon the one below it. In this page, we focus on the two foundational layers: <strong>Layer 1 (Physical)</strong> and <strong>Layer 2 (Data Link)</strong>. These layers handle the raw transmission of electrical or optical signals and structure those signals into meaningful frames, ensuring that data can travel reliably between two directly connected devices.</p>
+    </section>
+
+    <section>
+        <h2>1. Layer 1: The Physical Layer</h2>
+        <p>The Physical Layer is concerned with the transmission of raw bits over a physical medium. It doesn't care about "packets" or "data"—it only knows about 0s and 1s, and how to turn them into electrical voltages, light pulses, or radio waves.</p>
+        <ul>
+            <li><strong>Encoding:</strong> Turning bits into signals (e.g., Manchester encoding helps the receiver stay in sync).</li>
+            <li><strong>Transmission Medium:</strong> Copper cables (twisted pair), Fiber optics, or Wireless (Wi-Fi frequencies).</li>
+            <li><strong>Bit Rate & Bandwidth:</strong> How fast bits can be shoved through the pipe.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Layer 2: The Data Link Layer</h2>
+        <p>The Data Link Layer brings order to the chaos of Layer 1. It takes raw bits and structures them into <strong>Frames</strong>. It also introduces the first layer of addressing: <strong>MAC Addresses</strong>.</p>
+        
+        <h3>Framing & Addressing</h3>
+        <p>A Frame adds a header and a trailer to the data. The header contains the Source and Destination <strong>MAC Address</strong> (a 48-bit burned-in hardware address). The trailer contains a <strong>Checksum</strong> (usually CRC) to ensure that the frame wasn't corrupted by noise on the wire.</p>
+        
+        <h3>Media Access Control (MAC)</h3>
+        <p>How do multiple devices on a shared cable know when to talk without crashing into each other? They use a MAC protocol like <strong>CSMA/CD</strong> (Carrier Sense Multiple Access with Collision Detection). If two devices talk at once, the switch/hub detects the collision, and the devices "wait a random time" before retrying.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram of a Frame: Preamble | Dest MAC | Src MAC | Type | Payload | CRC]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the foundational layers of networking with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. OSI Model: Layers 1 and 2</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how bits become frames.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. What is a MAC Address?</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The unique hardware ID that powers Layer 2 networking.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. CSMA/CD Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how Ethernet handles collisions on shared media.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Printing Press and the Mailing Envelope</h2>
+        <p>Think of the <strong>Physical Layer (L1)</strong> like the <strong>Physical Ink and Paper</strong>. It’s just the raw material needed to get a message across. Think of the <strong>Data Link Layer (L2)</strong> like the <strong>Envelope</strong>. You put your raw content (the payload) into an envelope (the Frame). On the envelope, you write the recipient's "Hardware ID" (the MAC Address). If the envelope arrives torn or ripped (Data Corruption), the recipient knows not to trust the content inside (CRC Check). This "Layering" allows you to send any kind of message (Internet data, video stream, email) inside the same standard envelope format, no matter what it contains.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank">Wikipedia: OSI Model Layers</a></li>
+            <li><a href="https://www.geeksforgeeks.org/physical-layer-in-osi-model/" target="_blank">GeeksforGeeks: Physical Layer</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: Data Link Layer Basics</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Layer 2 Analysis</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Network Hardware</a>
+            <a href="#" data-file="Networks1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: OSI: Upper Layers &rarr;</a>
+        </div>
+    </footer>
+</article>

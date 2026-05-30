@@ -1,0 +1,84 @@
+<article>
+    <h1>System Design I: Page 2 - Requirements & Capacity</h1>
+
+    <section>
+        <h2>Defining the Goal</h2>
+        <p>Before you draw a single box on a whiteboard, you must understand what you are building and how big it needs to be. This is the <strong>Requirements Gathering and Capacity Estimation</strong> phase. If you skip this, you are building in the dark. You risk over-engineering (wasting money on a system 100x larger than necessary) or under-engineering (having your system crash the moment it goes live).</p>
+    </section>
+
+    <section>
+        <h2>1. Functional vs. Non-Functional Requirements</h2>
+        <ul>
+            <li><strong>Functional Requirements:</strong> What the system <em>does</em>. Example: "Users must be able to upload profile pictures" or "The system must support real-time messaging."</li>
+            <li><strong>Non-Functional Requirements (Quality Attributes):</strong> How the system <em>behaves</em>. Example: "The system must support 10,000 concurrent users with less than 200ms latency" or "The system must be 99.99% available."</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Back-of-the-Envelope Capacity Estimation</h2>
+        <p>You don't need a supercomputer to estimate capacity; you need basic arithmetic. You should always calculate:</p>
+        <ul>
+            <li><strong>QPS (Queries Per Second):</strong> How many requests will hit your API during peak times?</li>
+            <li><strong>Storage:</strong> How much data will you accumulate in a year?</li>
+            <li><strong>Bandwidth:</strong> How much data will be moving in and out of your servers?</li>
+        </ul>
+        <pre><code class="language-python">
+# Basic QPS Calculation
+daily_users = 1000000
+req_per_user = 10
+seconds_in_day = 86400
+
+avg_qps = (daily_users * req_per_user) / seconds_in_day
+peak_qps = avg_qps * 3 # Assume peak traffic is 3x avg
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: A simple form or checklist showing the requirements-to-capacity pipeline]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master capacity estimation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Functional vs Non-Functional</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Defining what the system is and how it behaves.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Back-of-the-Envelope Math</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to estimate QPS and storage requirements.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Scoping System Design Interviews</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The importance of clarifying requirements early.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Architect and the Client</h2>
+        <p>Think of <strong>Requirements Gathering</strong> like an <strong>Architect meeting a client</strong>. If the client says "build me a house," the architect asks "how many people will live there?" (Capacity Estimation), "do you need a garage?" (Functional Req), and "should it be eco-friendly?" (Non-Functional Req). If the architect skips these questions and just starts building, they might build a single-story cottage when the client needed a two-story mansion. You must understand the <em>constraints</em> (budget, timeline, scale) to design the right system.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://github.com/donnemartin/system-design-primer" target="_blank">System Design Primer: Capacity Estimation</a></li>
+            <li><a href="https://www.educative.io/blog/system-design-interview-back-of-envelope" target="_blank">Educative: Back-of-the-Envelope Math</a></li>
+            <li><a href="https://www.geeksforgeeks.org/system-design-requirements/" target="_blank">GeeksforGeeks: Requirement Analysis</a></li>
+            <li><a href="https://martinfowler.com/architecture/" target="_blank">Martin Fowler: Requirements</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Principles</a>
+            <a href="#" data-file="System1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Frontend: Web Basics &rarr;</a>
+        </div>
+    </footer>
+</article>

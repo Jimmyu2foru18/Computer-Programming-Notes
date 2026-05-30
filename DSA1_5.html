@@ -1,0 +1,85 @@
+<article>
+    <h1>DSA I: Page 5 - Queues: Ordered FIFO Processing</h1>
+
+    <section>
+        <h2>The First-In-First-Out Data Structure</h2>
+        <p>A <strong>Queue</strong> is a linear data structure that follows the <strong>First-In-First-Out (FIFO)</strong> principle. Think of it as a physical line of people waiting for a ticket: the first person to get in line is the first person to get served. You add elements to the back of the queue (enqueue) and remove them from the front (dequeue). This structured, fair-access approach is essential for any system where tasks need to be processed in the order they arrived.</p>
+    </section>
+
+    <section>
+        <h2>1. Core Queue Operations</h2>
+        <p>A queue is defined by a very specific set of operations that preserve the FIFO order:</p>
+        <ul>
+            <li><strong>Enqueue:</strong> Add an element to the rear (back) of the queue.</li>
+            <li><strong>Dequeue:</strong> Remove the element from the front of the queue.</li>
+            <li><strong>Peek/Front:</strong> View the front element without removing it.</li>
+            <li><strong>isEmpty:</strong> Check if the queue contains any elements.</li>
+        </ul>
+        <pre><code class="language-python">
+# A simple Python implementation
+queue = []
+queue.append(10)  # Enqueue
+queue.pop(0)      # Dequeue
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Real-World Queue Applications</h2>
+        <p>Because queues guarantee fair processing, they are the backbone of resource management in computing:</p>
+        <ul>
+            <li><strong>Task Scheduling:</strong> Operating systems use queues to manage CPU tasks, ensuring each process gets its turn fairly.</li>
+            <li><strong>Print Queues:</strong> When multiple users send documents to a printer, the printer processes them in the order they arrived.</li>
+            <li><strong>Message Queues:</strong> Distributed systems (like RabbitMQ or Kafka) use queues to buffer messages between services, ensuring data is processed reliably.</li>
+            <li><strong>Breadth-First Search (BFS):</strong> A graph traversal algorithm that uses a queue to visit all neighbors at a given distance before moving to the next level.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: A queue showing items being enqueued at the rear and dequeued from the front]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master queues with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Queues Explained Simply</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The FIFO principle and basic operations.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Queue Implementation</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to implement a queue in code.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Queue Applications (BFS)</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How queues power graph traversal algorithms.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Checkout Line</h2>
+        <p>Think of a <strong>Queue</strong> like a <strong>Checkout Line at a Supermarket</strong>. The first person to arrive at the register is the first person to pay and leave (FIFO). If a new customer arrives, they go to the back of the line (Enqueue). This is the definition of fair service. If you implemented this with a <strong>Stack</strong> (LIFO) instead, the *last* person to arrive would be served first—this would cause riots at the supermarket, but it's the exact behavior required for the "Call Stack" in programming. The choice between Stack and Queue depends entirely on whether you need "fairness" or "nested history."</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" target="_blank">Wikipedia: Queue Overview</a></li>
+            <li><a href="https://www.geeksforgeeks.org/queue-data-structure/" target="_blank">GeeksforGeeks: Queue Basics</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_queues.php" target="_blank">W3Schools: DSA Queues</a></li>
+            <li><a href="https://visualgo.net/en/queue" target="_blank">Tool: Queue Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Stacks</a>
+            <a href="#" data-file="DSA1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Linear Search &rarr;</a>
+        </div>
+    </footer>
+</article>

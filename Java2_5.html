@@ -1,0 +1,105 @@
+<article>
+    <h1>Java II: Page 5 - Object-Oriented Programming (OOP): Abstract Classes</h1>
+
+    <section>
+        <h2>The Middle Ground of Abstraction</h2>
+        <p>In our previous pages, we looked at concrete classes (which have everything implemented) and interfaces (which traditionally have nothing implemented). But what if you have a group of classes that share some logic, but also have unique behaviors that <em>must</em> be implemented? For this, Java provides the <strong>Abstract Class</strong>. An abstract class is a restricted class that cannot be used to create objects. It serves as a base for other classes, providing a mix of <strong>Concrete Methods</strong> (with code) and <strong>Abstract Methods</strong> (without code).</p>
+    </section>
+
+    <section>
+        <h2>1. Defining an Abstract Class</h2>
+        <p>You use the <code>abstract</code> keyword for both the class and any methods that don't have an implementation. If a class contains at least one abstract method, the class itself must be declared abstract.</p>
+        <pre><code class="language-java">
+public abstract class Vehicle {
+    protected String brand;
+
+    public Vehicle(String brand) {
+        this.brand = brand;
+    }
+
+    // Concrete Method (Shared logic)
+    public void displayBrand() {
+        System.out.println("Brand: " + brand);
+    }
+
+    // Abstract Method (Must be implemented by children)
+    public abstract void startEngine();
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Implementing Abstract Classes</h2>
+        <p>To use an abstract class, you must inherit from it using <code>extends</code>. The subclass is then responsible for providing the "body" for all abstract methods inherited from the parent.</p>
+        <pre><code class="language-java">
+public class Car extends Vehicle {
+    public Car(String brand) {
+        super(brand);
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Turning the key and starting the combustion engine...");
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Abstract Classes vs. Interfaces</h2>
+        <p>This is one of the most common questions in Java development. Which one should you use?</p>
+        <ul>
+            <li><strong>Use an Interface</strong> if you want to define a <em>Contract</em> that can be implemented by many unrelated classes (e.g., <code>Comparable</code>, <code>Serializable</code>).</li>
+            <li><strong>Use an Abstract Class</strong> if you want to share <em>Code</em> and <em>State</em> (fields) among closely related classes (e.g., all <code>Vehicles</code> have a brand and an engine).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Comparison table showing 'Abstract Class' (Inheritance, State, Partial Logic) vs 'Interface' (Contract, No State, No Logic)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the design of abstract hierarchies with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Abstract Classes Tutorial (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=0A26Y_F_QyM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the 'What', 'Why', and 'How' of abstract classes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Abstract Methods & Classes in Java (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into the syntax and rules of the abstract keyword.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Interfaces vs Abstract Classes (Visual Guide)</strong><br>
+                <a href="https://www.youtube.com/watch?v=L3-Ku9u8V6I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Choose the right architectural tool for your project.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Half-Finished Car and the Template</h2>
+        <p>Think of an <strong>Abstract Class</strong> like a <strong>Car Chassis</strong> on an assembly line. It has the frame, the wheels, and the basic electronics (Concrete methods/Logic). You can't "drive" a chassis on the street (you can't Instantiate it). However, it serves as the base for building a "Sedan," a "Truck," or an "SUV" (the Subclasses). Each of those models adds its own unique body and interior (Abstract methods) but they all share the same underlying frame. Another example is a <strong>Government Form Template</strong>: the template defines where the name and date go, but it is "Abstract" until you fill it out with your specific information (Implementation). The template itself isn't a valid legal document—it's just the blueprint for one.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank">Official Java Docs: Abstract Methods and Classes</a></li>
+            <li><a href="https://www.baeldung.com/java-abstract-class" target="_blank">Baeldung: Guide to Java Abstract Classes</a></li>
+            <li><a href="https://www.w3schools.com/java/java_abstract.asp" target="_blank">W3Schools: Java Abstraction</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-abstract-class/" target="_blank">Java Tutorial: Comprehensive Abstract Class Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Interfaces & Contracts</a>
+            <a href="#" data-file="Java2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Packages & Access &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,82 @@
+<article>
+    <h1>DSA I: Page 10 - Merge Sort</h1>
+
+    <section>
+        <h2>The Efficient Divide-and-Conquer</h2>
+        <p><strong>Merge Sort</strong> is a highly efficient, <strong>stable</strong>, and predictable sorting algorithm. Unlike Bubble or Insertion Sort, which perform poorly on large datasets (O(n²)), Merge Sort consistently performs at <strong>O(n log n)</strong> time complexity. It achieves this by using a <strong>divide-and-conquer</strong> strategy: it recursively splits the array into halves until it has a bunch of single-element arrays (which are inherently sorted), and then it merges those small arrays back together in the correct order.</p>
+    </section>
+
+    <section>
+        <h2>1. The Algorithm</h2>
+        <p>The magic happens in the "merge" phase:</p>
+        <ol>
+            <li><strong>Divide:</strong> Find the midpoint and split the array into two halves.</li>
+            <li><strong>Conquer:</strong> Recursively call Merge Sort on both halves until the base case (single-element arrays) is reached.</li>
+            <li><strong>Merge:</strong> Take two sorted halves and merge them back into a single sorted array by comparing the smallest elements of each half repeatedly.</li>
+        </ol>
+        <pre><code class="language-python">
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left = merge_sort(arr[:mid])
+        right = merge_sort(arr[mid:])
+        return merge(left, right)
+    return arr
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why It Matters</h2>
+        <p>Merge sort is <strong>stable</strong> (it preserves the relative order of equal elements) and efficient. Its only major trade-off is <strong>space complexity</strong>: it requires O(n) extra space to hold the subarrays during the merging process, making it less memory-efficient than algorithms that sort "in-place."</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: A large array being split down to single elements and then merged back up in sorted order]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master merge sort with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Merge Sort Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The intuitive divide-and-conquer strategy.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Merge Sort Time Complexity (O(n log n))</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand why it scales much better than bubble sort.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Implementing Merge Sort</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step coding implementation in Python.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Book Organizer</h2>
+        <p>Think of <strong>Merge Sort</strong> like organizing a <strong>massive library</strong>. Instead of one person trying to sort a thousand books alone, you divide the books into two stacks. You give each stack to a friend and tell them to split their stack in half again. Eventually, you have many tiny stacks of one book each. Now, you and your friends work together to <strong>merge</strong> these tiny stacks back into larger, sorted stacks, comparing the first book of each tiny stack and placing the smaller one first. Because everyone is working on smaller, manageable parts simultaneously, the massive library is organized in a fraction of the time.</p>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
+        <h2>Module Wrap-up: Linear Structures Complete!</h2>
+        <p>Congratulations! You have completed the DSA I: Linear Structures module. You now have a solid foundation in:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>✅ Intro, Big O, Arrays & Dynamic Lists</li>
+            <li>✅ Linked Lists, Stacks & Queues</li>
+            <li>✅ Searching (Linear/Binary) & Sorting (Bubble/Insertion/Merge)</li>
+        </ul>
+        <p>Next up: Hierarchical and complex data with the DSA II: Trees & Graphs module.</p>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Insertion Sort</a>
+            <span style="color: #28a745; font-weight: bold;">Linear Structures Module Complete!</span>
+        </div>
+    </footer>
+</article>

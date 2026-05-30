@@ -1,0 +1,78 @@
+<article>
+    <h1>Software Engineering II: Page 2 - System Modeling: UML Behavioral Diagrams</h1>
+
+    <section>
+        <h2>The Story of Interaction</h2>
+        <p>While Structural Diagrams show what a system <em>is</em>, <strong>Behavioral Diagrams</strong> show what a system <em>does</em>. In software engineering, understanding the flow of logic and the reaction to events is just as important as knowing the data structure. These diagrams capture the dynamic aspects of a system, modeling how it behaves over time and how it responds to user input or internal triggers. They are the "storyboards" that explain the logic behind the code.</p>
+    </section>
+
+    <section>
+        <h2>1. Use Case Diagrams: The User's Perspective</h2>
+        <p>A Use Case Diagram illustrates the functionality of a system from the user's perspective. It shows <strong>Actors</strong> (stick figures representing users or external systems) and <strong>Use Cases</strong> (ovals representing goals or actions). It defines the system's boundaries and the scope of what the software should achieve.</p>
+        
+        <h3>Key Relationships:</h3>
+        <ul>
+            <li><strong>Include (<<include>>):</strong> A mandatory part of a use case (e.g., "Login" is included in "Withdraw Cash").</li>
+            <li><strong>Extend (<<extend>>):</strong> An optional addition to a use case (e.g., "Apply Discount" might extend "Place Order").</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Activity Diagrams: The Workflow</h2>
+        <p>An Activity Diagram models the workflow or process within a system. It is very similar to a flowchart but is specialized for software. It uses rounded rectangles for actions, diamonds for decisions, and thick bars for <strong>Forks and Joins</strong> (parallel processing). It is the perfect tool for modeling a complex business process or an algorithm.</p>
+    </section>
+
+    <section>
+        <h2>3. State Diagrams: The Object Lifecycle</h2>
+        <p>A State Diagram models the different "states" an object can be in and the transitions between those states caused by specific events. For example, a "Bank Account" might have states like <code>Active</code>, <code>Overdrawn</code>, or <code>Closed</code>. This is essential for designing state-dependent logic in UI components or complex backend workflows.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison of an Activity Diagram (Workflow) vs. a State Diagram (Object Life)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the visualization of system logic with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. UML Use Case Diagrams (Lucidchart)</strong><br>
+                <a href="https://www.youtube.com/watch?v=zid-MVo7M-E" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to define system scope and user interactions.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Activity Diagrams Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=Xj1u57rq9eI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best guide to modeling workflows and parallel logic.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. UML State Machine Diagrams</strong><br>
+                <a href="https://www.youtube.com/watch?v=T_70vR-A6vI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how objects change their behavior over time.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Restaurant Menu and the Traffic Light</h2>
+        <p>Think of a <strong>Use Case Diagram</strong> like the <strong>Menu of a Restaurant</strong>. It doesn't tell you how to cook the food (the Implementation); it just lists what you (the Actor) can order (the Use Cases). It defines the boundary of what the restaurant offers. Think of an <strong>Activity Diagram</strong> like the <strong>Chef's Recipe</strong>. It's a step-by-step flowchart of the cooking process. "If the steak is medium-rare, move to plating; else, keep cooking." Finally, think of a <strong>State Diagram</strong> like a <strong>Traffic Light</strong>. The light is an object that moves between three states: <code>Green</code>, <code>Yellow</code>, and <code>Red</code>. The transition from Green to Yellow is triggered by a timer (the Event). The light's "Behavior" (which cars can move) depends entirely on its current "State."</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.uml-diagrams.org/behavior-diagrams.html" target="_blank">UML Diagrams: Behavioral Models Guide</a></li>
+            <li><a href="https://www.visual-paradigm.com/guide/uml/what-is-use-case-diagram/" target="_blank">Visual Paradigm: Use Case Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/unified-modeling-language-uml-behavioral-diagrams/" target="_blank">GeeksforGeeks: UML Behavioral Diagrams</a></li>
+            <li><a href="https://www.baeldung.com/uml-activity-diagrams" target="_blank">Baeldung: Activity Diagrams in Practice</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: UML: Structural Modeling</a>
+            <a href="#" data-file="Soft2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: SDLC: Traditional Models &rarr;</a>
+        </div>
+    </footer>
+</article>

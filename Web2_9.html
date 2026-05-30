@@ -1,0 +1,76 @@
+<article>
+    <h1>Web Technologies II: Page 9 - Performance Optimization</h1>
+
+    <section>
+        <h2>Speed is a Feature</h2>
+        <p>In the digital age, speed is everything. Users will abandon a website that takes more than three seconds to load. Performance optimization is not about making your code "faster"—it's about making the <em>user experience</em> faster. This involves a dual approach: optimizing the <strong>Frontend</strong> (what the user downloads) to make the page render quickly, and optimizing the <strong>Backend</strong> (how the server processes requests) to reduce latency and server load.</p>
+    </section>
+
+    <section>
+        <h2>1. Frontend Optimization</h2>
+        <ul>
+            <li><strong>Asset Minification:</strong> Removing unnecessary whitespace and comments from CSS and JavaScript files to reduce their size.</li>
+            <li><strong>Image Optimization:</strong> Using modern, compressed formats like <code>WebP</code> and setting appropriate resolutions.</li>
+            <li><strong>Lazy Loading:</strong> Deferring the loading of non-critical images or content until they are needed (e.g., when they scroll into view).</li>
+            <li><strong>Browser Caching:</strong> Instructing the user's browser to store static assets locally so they don't need to be downloaded again on subsequent visits.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Backend Optimization</h2>
+        <ul>
+            <li><strong>Database Indexing:</strong> Adding indexes to columns frequently used in <code>WHERE</code> or <code>JOIN</code> clauses to drastically speed up query times.</li>
+            <li><strong>Caching (Redis):</strong> Storing the results of expensive database queries or API calls in memory (like Redis) so they can be retrieved in milliseconds instead of seconds.</li>
+            <li><strong>Query Optimization:</strong> Avoiding "N+1" query problems (where you perform one query to get a list, and then N queries to get related data) by using proper SQL <code>JOIN</code>s.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Frontend performance (fast load) + Backend performance (low latency)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master performance optimization with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Frontend Performance Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Optimizing images, CSS, and JS loading.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Database Indexing Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Speeding up your database queries.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Caching with Redis</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to use memory caching to reduce backend load.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Fast-Food Kitchen</h2>
+        <p>Think of <strong>Frontend Optimization</strong> like <strong>Streamlining the Customer Order</strong>. If you provide them with a smaller, simplified menu (minified files) and have pre-prepped ingredients ready (caching), they get their food much faster. Think of <strong>Backend Optimization</strong> like <strong>Organizing the Kitchen Pantry</strong>. If all the spices are unlabeled and in random cupboards (no Indexing), the chef takes forever to find them. If the pantry is perfectly organized and indexed, the chef grabs exactly what they need in seconds. If you add a "prep table" for frequently used items (Redis Caching), the chef doesn't even need to go into the pantry at all.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance" target="_blank">MDN: Web Performance</a></li>
+            <li><a href="https://web.dev/fast/" target="_blank">Google: Web Vitals/Performance</a></li>
+            <li><a href="https://redis.io/docs/" target="_blank">Official Redis Documentation</a></li>
+            <li><a href="https://www.geeksforgeeks.org/database-optimization/" target="_blank">GeeksforGeeks: Database Optimization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Deployment & CI/CD</a>
+            <a href="#" data-file="Web2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Modern Frameworks &rarr;</a>
+        </div>
+    </footer>
+</article>

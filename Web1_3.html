@@ -1,0 +1,90 @@
+<article>
+    <h1>Web Technologies I: Page 3 - CSS Fundamentals</h1>
+
+    <section>
+        <h2>Styling the Web</h2>
+        <p>If HTML is the structural skeleton of your website, <strong>CSS (Cascading Style Sheets)</strong> is the visual makeup, clothing, and styling. CSS allows you to separate content (HTML) from presentation (CSS), which is a fundamental principle of modern web development. By using external CSS files, you can style hundreds of pages simultaneously just by changing one line of code, ensuring consistency and dramatically reducing maintenance time.</p>
+    </section>
+
+    <section>
+        <h2>1. The Syntax: Rule Sets</h2>
+        <p>A CSS rule set targets an HTML element and tells the browser how to render it. It consists of a <strong>Selector</strong> and a <strong>Declaration Block</strong>.</p>
+        <pre><code class="language-css">
+/* Selector */
+p {
+  /* Declaration Block (Property: Value) */
+  color: blue;
+  font-size: 16px;
+}
+        </code></pre>
+        <h3>Common Selectors:</h3>
+        <ul>
+            <li><strong>Element:</strong> Targets by tag (e.g., <code>h1</code>).</li>
+            <li><strong>Class (<code>.</code>):</strong> Targets a group (e.g., <code>.button</code>).</li>
+            <li><strong>ID (<code>#</code>):</strong> Targets one unique element (e.g., <code>#main-nav</code>).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Ways to Include CSS</h2>
+        <p>You can apply CSS in three ways, but they are not created equal in terms of maintainability:</p>
+        <ol>
+            <li><strong>Inline:</strong> Inside the HTML tag using the <code>style</code> attribute (Bad practice—hard to maintain).</li>
+            <li><strong>Internal:</strong> Inside a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> (Good for single pages).</li>
+            <li><strong>External:</strong> A separate <code>.css</code> file linked in the <code>&lt;head&gt;</code> (<strong>Best practice</strong>—use this for 99% of your projects).</li>
+        </ol>
+        <pre><code class="language-html">
+&lt;!-- The Best Way: External Link --&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: HTML is a mannequin, CSS is the outfit worn by the mannequin]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the fundamentals of styling with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. CSS Crash Course</strong><br>
+                <a href="https://www.youtube.com/watch?v=yfoY53QXEnI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The most detailed intro to CSS selectors and rules.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. The Cascade Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how browsers resolve conflicting styles.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. External vs Inline CSS</strong><br>
+                <a href="https://www.youtube.com/watch?v=5fb2aPlgoys" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn best practices for project structure.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Interior Decorator</h2>
+        <p>Think of <strong>HTML</strong> like the <strong>Construction of the house</strong>—the walls, the floors, the doors. Think of <strong>CSS</strong> like the <strong>Interior Decorator</strong>. You don't rebuild the house to change the wall color; you hire a decorator to apply paint, hang pictures, and pick furniture. If you want to change the style of the whole house (the whole website), you don't rebuild the walls—you just update the decoration (the External CSS file). This makes it fast, efficient, and easy to change the "vibe" of your house without structural work.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" target="_blank">MDN: CSS First Steps</a></li>
+            <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools: CSS Tutorial</a></li>
+            <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks: The Best CSS Resource</a></li>
+            <li><a href="https://caniuse.com/" target="_blank">Can I Use: Browser Compatibility Check</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web1_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: HTML Elements & Semantics</a>
+            <a href="#" data-file="Web1_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: CSS Box Model & Layout &rarr;</a>
+        </div>
+    </footer>
+</article>

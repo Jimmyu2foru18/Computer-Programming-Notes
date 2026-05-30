@@ -1,0 +1,85 @@
+<article>
+    <h1>DBMS I: Page 1 - Introduction to Database Management Systems</h1>
+
+    <section>
+        <h2>The Evolution of Data Storage</h2>
+        <p>In the early days of computing, data was stored in simple flat files. Each application had its own set of files, leading to massive redundancy, inconsistency, and difficulty in data retrieval. A <strong>Database Management System (DBMS)</strong> is the sophisticated software layer that solved these problems. It provides a systematic way to create, retrieve, update, and manage data. By acting as an intermediary between the user and the physical data, a DBMS ensures that information is stored efficiently, remains consistent across multiple users, and is protected from unauthorized access.</p>
+        
+        <h3>Why Not Just Use a File System?</h3>
+        <ul>
+            <li><strong>Data Redundancy:</strong> File systems often store the same information in multiple places, wasting space.</li>
+            <li><strong>Data Inconsistency:</strong> If a customer's address changes in one file but not another, the data becomes unreliable.</li>
+            <li><strong>Concurrency Issues:</strong> If two people try to edit the same file at once, data can be lost.</li>
+            <li><strong>Security:</strong> File systems lack the granular access control (e.g., allowing a user to see names but not salaries) that a DBMS provides.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>The 3-Schema Architecture</h2>
+        <p>One of the most important concepts in database design is <strong>Data Independence</strong>. This is achieved through the Three-Schema Architecture (or ANSI-SPARC architecture), which separates the user's view from the physical storage.</p>
+        <ol>
+            <li><strong>External Level (User View):</strong> What the user sees. Different users can have different "views" of the same data (e.g., an HR view vs. a Finance view).</li>
+            <li><strong>Conceptual Level (Logical View):</strong> The "Blueprint" of the entire database. It defines what data is stored and the relationships between tables, without worrying about how it's physically saved.</li>
+            <li><strong>Internal Level (Physical View):</strong> How the data is actually stored on the hard drive (indexes, hashing, block sizes).</li>
+        </ol>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing the 3-Schema layers: Users &rarr; External View &rarr; Conceptual Schema &rarr; Internal Schema &rarr; Database]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>DBMS Languages: DDL, DML, and DCL</h2>
+        <p>To interact with a DBMS, we use specialized languages. Most modern databases use <strong>SQL (Structured Query Language)</strong>, which is divided into several sub-languages:</p>
+        <ul>
+            <li><strong>DDL (Data Definition Language):</strong> Used to define the structure (Schema). Commands: <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>.</li>
+            <li><strong>DML (Data Manipulation Language):</strong> Used to work with the data itself. Commands: <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>.</li>
+            <li><strong>DCL (Data Control Language):</strong> Used to manage permissions and security. Commands: <code>GRANT</code>, <code>REVOKE</code>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Get a solid start on database management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. What is a DBMS? (Basics)</strong><br>
+                <a href="https://www.youtube.com/watch?v=kM6-fO_G_qY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear introduction to the purpose and function of a DBMS.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. DBMS vs File System</strong><br>
+                <a href="https://www.youtube.com/watch?v=wREU3Y9Wn3E" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand exactly why we moved away from flat files.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The 3-Schema Architecture</strong><br>
+                <a href="https://www.youtube.com/watch?v=6YvXvV9T1X4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master the concept of data independence and abstraction layers.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Library and the Spreadsheet</h2>
+        <p>Think of a <strong>File System</strong> like a <strong>Pile of Unorganized Folders</strong> on a desk. If you want to find a specific client, you have to look through every folder. If you have two folders for the same client, you might update one and forget the other (Inconsistency). Think of a <strong>DBMS</strong> like a <strong>State-of-the-Art Public Library</strong>. You don't just walk in and look at books; you use a "Catalog" (the Schema). You can search by Title, Author, or Genre (Querying). The "Librarian" (the DBMS) ensures that if one person checks out a book, no one else can take it at the same time (Concurrency). The <strong>External Schema</strong> is like the <strong>Books on the Shelves</strong>—it's what you see and interact with. The <strong>Internal Schema</strong> is the <strong>Library's Storage Warehouse</strong> in the basement—you don't need to know how the boxes are stacked to find the book you want.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Database_management_system" target="_blank">Wikipedia: Database Management System</a></li>
+            <li><a href="https://www.geeksforgeeks.org/introduction-of-dbms-database-management-system-set-1/" target="_blank">GeeksforGeeks: DBMS Intro</a></li>
+            <li><a href="https://www.tutorialspoint.com/dbms/index.htm" target="_blank">TutorialsPoint: DBMS Tutorial</a></li>
+            <li><a href="https://www.oracle.com/database/what-is-database/" target="_blank">Oracle: What is a Database?</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <span>&nbsp;</span>
+            <a href="#" data-file="DBMS1_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Relational Model & Algebra &rarr;</a>
+        </div>
+    </footer>
+</article>

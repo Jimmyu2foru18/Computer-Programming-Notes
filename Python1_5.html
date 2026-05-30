@@ -1,0 +1,108 @@
+<article>
+    <h1>Python I: Page 5 - Collection Types: Lists & List Comprehensions</h1>
+
+    <section>
+        <h2>The Workhorse of Python: The List</h2>
+        <p>In our previous pages, we focused on single values. But in the real world, we deal with collections: a list of customers, a sequence of temperature readings, or a collection of active game players. In Python, the <strong>List</strong> is your primary tool for managing these ordered collections. As we've learned, lists are <strong>mutable</strong> (changeable) and <strong>heterogeneous</strong> (can hold different types), making them incredibly flexible.</p>
+        
+        <h3>Core Operations Revisited</h3>
+        <p>Beyond simple creation, lists thrive on manipulation. Here are the methods professional developers use to keep their data organized:</p>
+        <ul>
+            <li><code>append(item)</code>: The most common way to add data to the end.</li>
+            <li><code>insert(index, item)</code>: Perfect for when order matters (e.g., putting a high-priority task at index 0).</li>
+            <li><code>remove(item)</code>: Deletes the first occurrence of a specific value.</li>
+            <li><code>pop()</code>: Removes and returns the last item (behaving like a "stack").</li>
+        </ul>
+        <pre><code class="language-python">
+numbers = [1, 2, 3, 4, 5]
+numbers.append(6)      # [1, 2, 3, 4, 5, 6]
+numbers.insert(0, 0)   # [0, 1, 2, 3, 4, 5, 6]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Advanced Slicing: Precision Extraction</h2>
+        <p>Slicing isn't just for strings; it is a fundamental skill for list management. Using the <code>[start:stop:step]</code> syntax, you can extract exactly what you need from a dataset.</p>
+        <pre><code class="language-python">
+my_list = [0, 1, 2, 3, 4, 5]
+
+print(my_list[1:4])   # [1, 2, 3] (index 1 to 3)
+print(my_list[:3])    # [0, 1, 2] (first three)
+print(my_list[2:])    # [2, 3, 4, 5] (everything after index 2)
+print(my_list[::-1])  # [5, 4, 3, 2, 1, 0] (The Pythonic way to reverse!)
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram of slicing indices—positive vs negative indexing]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>The Magic of List Comprehensions</h2>
+        <p>One of the most powerful and "Pythonic" features you will ever learn is the <strong>List Comprehension</strong>. It provides a concise way to create lists based on existing lists or ranges. It's faster to write, more efficient for the computer to run, and highly readable once you know the pattern.</p>
+        
+        <h3>The Basic Pattern: <code>[expression for item in iterable]</code></h3>
+        <pre><code class="language-python">
+# Traditional way:
+squares = []
+for x in range(10):
+    squares.append(x**2)
+
+# List Comprehension way:
+squares = [x**2 for x in range(10)]
+        </code></pre>
+
+        <h3>Filtered Comprehensions</h3>
+        <p>You can even add an <code>if</code> statement to only include items that meet a certain condition.</p>
+        <pre><code class="language-python">
+# Only square the even numbers
+even_squares = [x**2 for x in range(10) if x % 2 == 0]
+# [0, 4, 16, 36, 64]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master lists and comprehensions with these three deep-dive videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Lists, Tuples, and Sets (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=W8KRzm-HUcc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive guide to list methods and differences between collections.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. List Comprehensions Explained (5 Mins)</strong><br>
+                <a href="https://www.youtube.com/watch?v=3dt4PRdgDBU" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the 'magic' syntax with clear examples.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Python List Slicing Tricks</strong><br>
+                <a href="https://www.youtube.com/watch?v=ajrtAuDg3YW" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master the [start:stop:step] syntax for list manipulation.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Smart Organizer and the Filtered Email Inbox</h2>
+        <p>Think of a <strong>List</strong> as a <strong>Smart Organizer</strong> in a warehouse. You can add new boxes at the end (<code>append</code>), squeeze a high-priority shipment into the front (<code>insert</code>), or grab the most recent arrival (<code>pop</code>). <strong>Slicing</strong> is like telling your worker to "Grab only the boxes in aisle 2 through 5." Finally, think of <strong>List Comprehensions</strong> like an <strong>Automatic Email Filter</strong>. Instead of manually looking through 10,000 emails to find "Receipts," you set a rule: "For every email in the Inbox, if it contains the word 'Receipt', put a copy of it in the Tax folder." The list comprehension does all that heavy lifting in a single, elegant line of logic.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" target="_blank">Official Python Docs: More on Lists</a></li>
+            <li><a href="https://realpython.com/list-comprehension-python/" target="_blank">Real Python: List Comprehensions Guide</a></li>
+            <li><a href="https://www.w3schools.com/python/python_lists_comprehension.asp" target="_blank">W3Schools: List Comprehension</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-list-comprehension/" target="_blank">Python Tutorial: Comprehensive List Comprehensions</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Strings & Formatting</a>
+            <a href="#" data-file="Python1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Tuples & Sets &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,46 @@
+<article>
+    <h1>System Design III: Page 6 - Observability</h1>
+
+    <section>
+        <h2>The Three Pillars</h2>
+        <p>In a distributed system, you cannot debug by logging into a single server and running <code>tail -f /var/log/syslog</code>. You need <strong>Observability</strong>—the capability to understand the internal state of your system just by looking at its outputs. Observability is often broken down into three pillars: <strong>Logs</strong> (discrete events), <strong>Metrics</strong> (aggregated numerical data over time), and <strong>Tracing</strong> (following a request as it moves through multiple microservices).</p>
+    </section>
+
+    <section>
+        <h2>1. The Pillars</h2>
+        <ul>
+            <li><strong>Logs:</strong> Records of specific events (e.g., "User 123 logged in").</li>
+            <li><strong>Metrics:</strong> Numerical data points aggregated over time (e.g., "Average CPU usage over 5 minutes").</li>
+            <li><strong>Tracing:</strong> Tracking a request's journey across services (e.g., Service A &rarr; Service B &rarr; Database).</li>
+        </ul>
+        <pre><code class="language-text">
+# Tracing concept
+[Request Start] -> Service A (10ms) -> Service B (50ms) -> [Request End]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to Observability</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Logs, Metrics, and Tracing</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Distributed Tracing</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System3_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Hosting: Cloud</a>
+            <a href="#" data-file="System3_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Reliability & Recovery &rarr;</a>
+        </div>
+    </footer>
+</article>

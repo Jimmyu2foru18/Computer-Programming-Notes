@@ -1,0 +1,85 @@
+<article>
+    <h1>DBMS I: Page 2 - The Relational Model & Relational Algebra</h1>
+
+    <section>
+        <h2>The Dominant Data Model</h2>
+        <p>In the previous page, we saw the general purpose of a DBMS. While there are many ways to organize data (Hierarchical, Network, Object-Oriented), the <strong>Relational Model</strong> is by far the most widely used in the world today. Introduced by E.F. Codd in 1970, it is based on the mathematical concept of a <strong>Relation</strong>. In this model, data is organized into two-dimensional tables consisting of rows and columns. This simplicity is what makes it so powerful, as it allows for intuitive data management and mathematically sound querying.</p>
+    </section>
+
+    <section>
+        <h2>1. Relational Terminology</h2>
+        <p>To speak like a database engineer, you must master the formal terminology of the relational model:</p>
+        <ul>
+            <li><strong>Relation (Table):</strong> A collection of related data.</li>
+            <li><strong>Tuple (Row):</strong> A single record in the relation (e.g., one specific employee).</li>
+            <li><strong>Attribute (Column):</strong> A named property of the relation (e.g., "Salary" or "Email").</li>
+            <li><strong>Domain:</strong> The set of allowable values for an attribute (e.g., "Age" must be an integer between 0 and 120).</li>
+            <li><strong>Degree:</strong> The total number of attributes (columns) in a relation.</li>
+            <li><strong>Cardinality:</strong> The total number of tuples (rows) in a relation.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Relational Algebra: The Logic of Data</h2>
+        <p>Relational Algebra is a theoretical language that provides a set of operations for manipulating relations. It is the "Math" that powers the SQL language we use every day. Every SQL query you write is internally converted into a series of relational algebra operations by the database engine.</p>
+        
+        <h3>Basic Operations:</h3>
+        <ul>
+            <li><strong>Selection (σ):</strong> Filters rows based on a condition (e.g., find all employees with salary > 50000).</li>
+            <li><strong>Projection (π):</strong> Selects specific columns and discards the rest (e.g., show only "Names" and "Emails").</li>
+            <li><strong>Union (∪):</strong> Combines all rows from two tables (they must have the same schema).</li>
+            <li><strong>Intersection (∩):</strong> Returns only the rows present in <em>both</em> tables.</li>
+            <li><strong>Difference (-):</strong> Returns rows in the first table that are <em>not</em> in the second.</li>
+            <li><strong>Cartesian Product (×):</strong> Combines every row from the first table with every row from the second.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual representation of Relational Algebra: A table being sliced horizontally (Selection) vs. vertically (Projection)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the mathematical foundation of databases with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. The Relational Model Concepts</strong><br>
+                <a href="https://www.youtube.com/watch?v=Sba7V_mG83k" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the structure of tables, tuples, and attributes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Relational Algebra - Part 1 (Basic Ops)</strong><br>
+                <a href="https://www.youtube.com/watch?v=D-z_N7S8_z8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn Selection, Projection, and Union through visual examples.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Relational Algebra - Joins & Division</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The math behind how we connect different tables.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Ledger and the Filter</h2>
+        <p>Think of a <strong>Relation</strong> like a <strong>Physical Business Ledger</strong>. The book is the table. Each page (Tuple) represents one transaction. Each column (Attribute) represents a detail like "Date," "Amount," or "Client." <strong>Relational Algebra</strong> is like the <strong>Office Clerk</strong> working with that ledger. <strong>Selection</strong> is the clerk saying, "Give me only the pages from January." <strong>Projection</strong> is the clerk saying, "Copy only the client names and ignore the amounts." <strong>Join</strong> (a complex operation) is like the clerk looking at the Customer Ledger and the Sales Ledger and matching the Customer ID to find out which city bought the most products. This logical, mathematical approach ensures that data retrieval is predictable and accurate every single time.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Relational_model" target="_blank">Wikipedia: Relational Model</a></li>
+            <li><a href="https://www.geeksforgeeks.org/introduction-of-relational-model-and-codd-rules-in-dbms/" target="_blank">GeeksforGeeks: Relational Model & Codd's Rules</a></li>
+            <li><a href="https://www.tutorialspoint.com/dbms/relational_algebra.htm" target="_blank">TutorialsPoint: Relational Algebra Guide</a></li>
+            <li><a href="https://db-book.com/" target="_blank">Database System Concepts (SWEBOK Reference)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Architecture</a>
+            <a href="#" data-file="DBMS1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: SQL Basics: DDL & Keys &rarr;</a>
+        </div>
+    </footer>
+</article>

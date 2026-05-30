@@ -1,0 +1,120 @@
+<article>
+    <h1>C# II: Page 10 - Advanced Concepts: Attributes & Unsafe Code</h1>
+
+    <section>
+        <h2>The Deep End of the Pool</h2>
+        <p>In our final page of the C# Masterclass, we touch upon the features that are rarely used in daily application development but are essential for systems programming, high-performance computing, and framework development. We will explore <strong>Custom Attributes</strong> in more depth and introduce <strong>Unsafe Code</strong>—the ability to bypass the safety of the .NET runtime and manipulate memory directly using pointers. This is where C# meets the raw power of the hardware. Mastering these topics signifies the transition from a C# developer to a .NET Engineer who understands the full spectrum of the platform's capabilities.</p>
+    </section>
+
+    <section>
+        <h2>1. Custom Attributes: Building Your Own Metadata</h2>
+        <p>While .NET provides many built-in attributes (like <code>[Serializable]</code>), you can also create your own. This is used to build custom validation frameworks, automated documentation, or complex dependency injection systems.</p>
+        <pre><code class="language-csharp">
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+public class AuthorAttribute : Attribute {
+    public string Name { get; }
+    public AuthorAttribute(string name) { Name = name; }
+}
+
+[Author("John Doe")]
+public class SecureProcess { /* ... */ }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Unsafe Code: Breaking the Safety Rules</h2>
+        <p>C# is normally "Managed" and "Safe"—you don't have to worry about pointers or memory addresses. However, for extreme performance (like in a game engine's physics loop), you can use the <code>unsafe</code> keyword to work with <strong>Pointers</strong>, similar to C++.</p>
+        <pre><code class="language-csharp">
+unsafe {
+    int x = 10;
+    int* ptr = &x; // Get the memory address of x
+    Console.WriteLine($"Address: {(long)ptr}");
+    *ptr = 20; // Modify x directly in memory
+}
+        </code></pre>
+        <div style="background: #f8d7da; padding: 15px; border-left: 5px solid #dc3545; margin: 20px 0;">
+            <strong>Critical Warning:</strong> Unsafe code can crash your computer or create security vulnerabilities if not handled with extreme care. It bypasses the Garbage Collector's safety checks. Most developers will never need this feature.
+        </div>
+    </section>
+
+    <section>
+        <h2>3. The Future: .NET MAUI, Blazor, and Beyond</h2>
+        <p>C# is no longer just for Windows. With <strong>Blazor</strong>, you can run C# in the web browser using WebAssembly. With <strong>.NET MAUI</strong>, you can build a single app that runs on Android, iOS, and Desktop. The language continues to evolve, adding "Functional" features like Records and Pattern Matching to keep you productive in the modern era.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Roadmap diagram showing C# evolution: from Web/Desktop &rarr; Mobile &rarr; Games &rarr; Cloud &rarr; WebAssembly]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the most advanced corners of .NET with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Attributes and Metadata</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to decorate your code for automation.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Unsafe Code and Pointers in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A rare look at low-level memory manipulation.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. What's New in C# 12 and Beyond</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Stay ahead of the curve with the latest language features.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Label and the Scalpel</h2>
+        <p>Think of <strong>Custom Attributes</strong> like <strong>Special Instructions on a Package</strong>. You might put a "Fragile" sticker or an "Express Shipping" label on a box. The delivery truck (the Framework) sees the label and treats that specific box differently. Think of <strong>Unsafe Code</strong> like a <strong>Surgeon's Scalpel</strong>. Most people use a spoon or a fork to eat (Safe, Managed code). It's hard to hurt yourself. But a surgeon needs to cut directly into the body (Memory) to perform a life-saving operation. It's an extremely precise and dangerous tool that requires years of training to use safely. If the surgeon slips, the patient (the Program) dies.</p>
+    </section>
+
+    <section>
+        <h2>Series Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the 20-page C# Masterclass! To further expand your professional .NET engineering skills, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. Microsoft Learn (.NET Path)</strong><br>
+                <p><small>The official interactive playground for all things C# and Azure.</small></p>
+                <a href="https://learn.microsoft.com/en-us/training/dotnet/" target="_blank">Visit MS Learn &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. Pluralsight (C# Tracks)</strong><br>
+                <p><small>Professional-grade video courses from the world's top .NET experts.</small></p>
+                <a href="https://www.pluralsight.com/paths/csharp" target="_blank">View Courses &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. DotNet Curry</strong><br>
+                <p><small>High-quality articles on advanced .NET patterns and architecture.</small></p>
+                <a href="https://www.dotnetcurry.com/" target="_blank">Read Articles &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. Unity Learn</strong><br>
+                <p><small>The best place to apply your C# skills to 3D game development.</small></p>
+                <a href="https://learn.unity.com/" target="_blank">Start Gaming &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code" target="_blank">Official Microsoft: Unsafe Code & Pointers</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-custom-attributes" target="_blank">Baeldung: Guide to Custom Attributes</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_enums.php" target="_blank">W3Schools: C# Enums & Bitwise Logic</a></li>
+            <li><a href="https://pythontutorial.net/advanced-python/python-metaprogramming/" target="_blank">Metaprogramming Comparison: Python vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Generics & Reflection</a>
+            <span style="color: #28a745; font-weight: bold;">C# Masterclass Complete!</span>
+        </div>
+    </footer>
+</article>

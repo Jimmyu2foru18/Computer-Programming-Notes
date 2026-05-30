@@ -1,0 +1,74 @@
+<article>
+    <h1>DSA II: Page 3 - Trees: Introduction</h1>
+
+    <section>
+        <h2>The Hierarchical Structure</h2>
+        <p>Unlike linear data structures (arrays, linked lists) where data is stored sequentially, a <strong>Tree</strong> is a <strong>hierarchical</strong> data structure. It consists of nodes connected by edges, starting from a single "root" node and branching downwards. Trees are ubiquitous in computer science because they perfectly model hierarchical relationships: file systems, HTML document object models (DOM), organization charts, and database indexing structures are all modeled as trees.</p>
+    </section>
+
+    <section>
+        <h2>1. Tree Terminology</h2>
+        <p>To talk about trees, you must know the vocabulary:</p>
+        <ul>
+            <li><strong>Root:</strong> The topmost node of the tree.</li>
+            <li><strong>Parent/Child:</strong> A node is a parent to its children.</li>
+            <li><strong>Leaf:</strong> A node with no children (the bottom of a branch).</li>
+            <li><strong>Depth:</strong> The number of edges from the root to a node.</li>
+            <li><strong>Height:</strong> The number of edges from a node to the deepest leaf.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: A labeled tree showing Root, Parent, Child, Leaf, Depth, and Height]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Why Trees?</h2>
+        <p>Trees are much more efficient than linear lists for searching, inserting, and deleting data, especially when the data is structured hierarchically. By keeping the tree "balanced," we can perform searches in <strong>O(log n)</strong> time—exponentially faster than searching a linear list of 1,000,000 items.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master tree fundamentals with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to Tree Data Structures</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Hierarchical relationships and core terminology.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Tree Traversal Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to visit every node in a tree.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Real-World Tree Examples</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Where trees are used in the real world.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Organizational Chart</h2>
+        <p>Think of a <strong>Tree</strong> like an <strong>Organizational Chart of a Company</strong>. The CEO is the <strong>Root</strong> node at the top. The CEO has direct reports (<strong>Children</strong>). Each of those reports may have their own direct reports, creating a hierarchy. The interns and entry-level employees at the bottom are the <strong>Leaves</strong>—they have no direct reports. This structure makes it easy to understand who reports to whom (parent/child relationship) and how high up in the company someone is (depth).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" target="_blank">Wikipedia: Tree Overview</a></li>
+            <li><a href="https://www.geeksforgeeks.org/introduction-to-tree-data-structure/" target="_blank">GeeksforGeeks: Tree Intro</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_trees.php" target="_blank">W3Schools: DSA Trees</a></li>
+            <li><a href="https://visualgo.net/en/bst" target="_blank">Tool: Tree Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Hash Tables</a>
+            <a href="#" data-file="DSA2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Binary Search Trees &rarr;</a>
+        </div>
+    </footer>
+</article>

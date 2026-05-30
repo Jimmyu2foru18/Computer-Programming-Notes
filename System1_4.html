@@ -1,0 +1,84 @@
+<article>
+    <h1>System Design I: Page 4 - Frontend: Components</h1>
+
+    <section>
+        <h2>Modular UI Architecture</h2>
+        <p>In modern web development (React, Vue, Angular), the old practice of creating massive, monolithic HTML pages is obsolete. Instead, we use a <strong>Component-Based Architecture</strong>. A component is an independent, reusable UI piece that encapsulates its own structure (HTML), style (CSS), and logic (JavaScript). This approach transforms a complex web application into a collection of simple, manageable "building blocks."</p>
+    </section>
+
+    <section>
+        <h2>1. Why Components?</h2>
+        <ul>
+            <li><strong>Reusability:</strong> Build a button or navbar once, use it everywhere.</li>
+            <li><strong>Maintainability:</strong> Change the code in one component, and it updates everywhere that component is used.</li>
+            <li><strong>Testability:</strong> Smaller components are much easier to unit test than large pages.</li>
+        </ul>
+        <pre><code class="language-jsx">
+// Example: A reusable button component (React)
+const CustomButton = ({ label, onClick }) => (
+  &lt;button onClick={onClick} className="btn"&gt;
+    {label}
+  &lt;/button&gt;
+);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Component Anatomy</h2>
+        <p>A component typically consists of three parts:</p>
+        <ol>
+            <li><strong>Props:</strong> Data passed *into* the component from its parent (read-only configuration).</li>
+            <li><strong>State:</strong> Internal data managed *by* the component (e.g., whether a toggle is on or off).</li>
+            <li><strong>Lifecycle:</strong> Hooks that allow you to run code when the component is created, updated, or destroyed.</li>
+        </ol>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: Component (Props in) &rarr; Internal State/Logic &rarr; UI Rendering (Output)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master component-based architecture with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to Components</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The paradigm shift from monolithic pages.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. React Components & Props</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Practical component building.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Managing Component State</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How components manage their internal data.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Lego Building Block</h2>
+        <p>Think of a <strong>Monolithic page</strong> like a <strong>one-piece plastic toy</strong>—if you want to change one part of it, you have to replace the whole thing. Think of a <strong>Component-Based Architecture</strong> like a <strong>Lego Set</strong>. You build the house out of individual, standardized blocks. If you want to change the color of the roof, you don't rebuild the whole house; you just swap out the red roof bricks for blue ones. This is the power of component-based systems: standardized, reusable, and modular.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://react.dev/learn/your-first-component" target="_blank">React: Your First Component</a></li>
+            <li><a href="https://vuejs.org/guide/essentials/component-basics.html" target="_blank">Vue.js: Component Basics</a></li>
+            <li><a href="https://angular.io/guide/component-overview" target="_blank">Angular: Component Overview</a></li>
+            <li><a href="https://www.freecodecamp.org/news/component-based-architecture/" target="_blank">FreeCodeCamp: Component-Based Architecture</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Frontend: Web Basics</a>
+            <a href="#" data-file="System1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Frontend: State Management &rarr;</a>
+        </div>
+    </footer>
+</article>

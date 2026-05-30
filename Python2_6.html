@@ -1,0 +1,95 @@
+<article>
+    <h1>Python II: Page 6 - Object-Oriented Programming (OOP): Inheritance & MRO</h1>
+
+    <section>
+        <h2>The Power of Reusability</h2>
+        <p>In the physical world, we rarely build everything from scratch. When a company designs a new smartphone, they don't reinvent the concept of a "battery" or a "screen"; they take existing technology and build <em>on top</em> of it. In programming, we do the same thing using <strong>Inheritance</strong>. Inheritance allows us to create a new class (the <strong>Child</strong> or <strong>Derived</strong> class) that inherits all the attributes and methods of an existing class (the <strong>Parent</strong> or <strong>Base</strong> class). This promotes code reuse and establishes a logical hierarchy in your software.</p>
+    </section>
+
+    <section>
+        <h2>Base vs. Derived Classes</h2>
+        <p>To make one class inherit from another, you simply put the parent class's name in parentheses after the child class's name. The child class can then add its own methods or <strong>override</strong> methods from the parent to provide specialized behavior.</p>
+        
+        <h3>Using <code>super()</code></h3>
+        <p>The <code>super()</code> function is a built-in tool that allows you to call methods from the parent class inside the child class. It is most commonly used in the <code>__init__</code> method to ensure the parent's data is initialized correctly.</p>
+        <pre><code class="language-python">
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return "Generic sound"
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        # Initialize the Parent's data first
+        super().__init__(name)
+        self.breed = breed
+    def speak(self):
+        # Override the Parent's method
+        return "Woof!"
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>The Complexity of Multiple Inheritance</h2>
+        <p>Python is one of the few modern languages that supports <strong>Multiple Inheritance</strong>, where a single class can have multiple parents. While powerful, this can lead to conflicts if two parents have a method with the same name. This is known as the "Diamond Problem."</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram of the Diamond Problem: Class D inherits from B and C, which both inherit from A]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Method Resolution Order (MRO)</h2>
+        <p>Python solves inheritance conflicts using an algorithm called <strong>C3 Linearization</strong> to create a <strong>Method Resolution Order (MRO)</strong>. This is the exact order in which Python searches for a method in the hierarchy. You can check any class's MRO by calling the <code>.mro()</code> method.</p>
+        <pre><code class="language-python">
+print(Dog.mro())
+# [<class 'Dog'>, <class 'Animal'>, <class 'object'>]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the complexities of inheritance and MRO with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python OOP Tutorial 4: Inheritance</strong><br>
+                <a href="https://www.youtube.com/watch?v=RSl87lqOXDE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best introduction to creating subclasses and using super().</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Multiple Inheritance & The Diamond Problem</strong><br>
+                <a href="https://www.youtube.com/watch?v=LiPvt3O_E_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how Python handles complex hierarchies.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Python's MRO (Method Resolution Order)</strong><br>
+                <a href="https://www.youtube.com/watch?v=rKj7TAnHqX4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into the search algorithm Python uses for methods.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Evolution and Smartphone Generations</h2>
+        <p>Think of <strong>Inheritance</strong> like <strong>Biological Evolution</strong>. Every animal inherits a set of basic blueprints from its ancestors (DNA). A wolf inherits the ability to breathe and eat from the general category of "Mammals." Over time, the "Dog" class diverged, inheriting the wolf's structure but "overriding" behaviors to be more friendly to humans. Think of <strong>super()</strong> like a <strong>Family Heritage</strong>: you carry the traditions of your parents while adding your own unique personality. Finally, think of <strong>MRO</strong> like a <strong>Legal Chain of Command</strong>. If there is a dispute (a method conflict) in a multi-national company, the MRO is the official rulebook that decides which country's law (the parent class) takes priority based on the contract hierarchy.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/classes.html#inheritance" target="_blank">Official Python Docs: Inheritance</a></li>
+            <li><a href="https://realpython.com/inheritance-composition-python/" target="_blank">Real Python: Inheritance & Composition</a></li>
+            <li><a href="https://www.w3schools.com/python/python_inheritance.asp" target="_blank">W3Schools: Python Inheritance</a></li>
+            <li><a href="https://pythontutorial.net/python-oop/python-mro/" target="_blank">Python Tutorial: Method Resolution Order Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Encapsulation</a>
+            <a href="#" data-file="Python2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Polymorphism & ABCs &rarr;</a>
+        </div>
+    </footer>
+</article>

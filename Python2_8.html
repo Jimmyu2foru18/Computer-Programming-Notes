@@ -1,0 +1,106 @@
+<article>
+    <h1>Python II: Page 8 - Advanced Topics: Iterators & Generators</h1>
+
+    <section>
+        <h2>Efficiency at Scale</h2>
+        <p>In our earlier pages, we learned how to loop through lists and dictionaries. However, what happens when your list contains 10 billion items? Trying to store all that data in memory at once would crash almost any computer. This is where <strong>Iterators</strong> and <strong>Generators</strong> come in. They allow you to process data one item at a time, "lazily" generating the next value only when it is actually needed. This makes them essential for big data, file processing, and performance-critical applications.</p>
+    </section>
+
+    <section>
+        <h2>Iterables vs. Iterators</h2>
+        <p>Before diving into generators, we must understand the "Iterator Protocol."</p>
+        <ul>
+            <li><strong>Iterable:</strong> An object that can be looped over (like a List or String). It has an <code>__iter__</code> method.</li>
+            <li><strong>Iterator:</strong> The object that actually does the work of keeping track of where you are in the sequence. It has a <code>__next__</code> method.</li>
+        </ul>
+        <pre><code class="language-python">
+numbers = [1, 2, 3]
+# Get the iterator
+i = iter(numbers)
+
+print(next(i)) # 1
+print(next(i)) # 2
+print(next(i)) # 3
+# next(i) now would raise StopIteration
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Generators: The <code>yield</code> Keyword</h2>
+        <p>A <strong>Generator</strong> is a special type of function that returns an iterator. Instead of using <code>return</code> to send back a single value and exit, a generator uses <code>yield</code> to produce a series of values over time. When a generator hits <code>yield</code>, it "pauses" its execution, remembers its state, and waits for the next request.</p>
+        
+        <h3>Example: Fibonacci Sequence</h3>
+        <pre><code class="language-python">
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+# Using the generator
+for num in fibonacci(10):
+    print(num, end=" ") # 0 1 1 2 3 5 8 13 21 34
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram comparing a List (holding all values) vs a Generator (holding just the current value and the formula)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Generator Expressions</h2>
+        <p>Just like list comprehensions, you can create generators in a single line using parentheses <code>()</code> instead of brackets <code>[]</code>. This is the most memory-efficient way to process data.</p>
+        <pre><code class="language-python">
+# List comprehension (Uses memory for 1 million items)
+squares_list = [x**2 for x in range(1000000)]
+
+# Generator expression (Uses memory for only ONE item)
+squares_gen = (x**2 for x in range(1000000))
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the performance of iterators and generators with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Iterators and Iterables (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=jTYiNjvnHsc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the protocol that makes loops work under the hood.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Python Generators - How to Use yield</strong><br>
+                <a href="https://www.youtube.com/watch?v=bD05uGo_sVI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why generators are the key to handling massive datasets.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Memory Management: Lists vs Generators</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ-VvGyQxho" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual comparison of memory usage in Python collections.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Buffet vs. The Menu</h2>
+        <p>Think of a <strong>List</strong> like a <strong>Buffet</strong>. Every dish is cooked and placed on the table at once. It's great because you can see everything (Indexing), but it takes up a huge amount of space, and a lot of food might go to waste if you only want one bite. Think of a <strong>Generator</strong> like a <strong>Restaurant Menu</strong>. The food doesn't exist until you order it. When you "order" the next item (<code>next()</code>), the chef (the Generator Function) cooks exactly one dish and hands it to you. This takes up almost no space on the table, and you only pay for what you actually eat. This is how high-performance systems handle "infinite" streams of data, like social media feeds or real-time stock prices.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/howto/functional.html#iterators" target="_blank">Official Python Docs: Iterators</a></li>
+            <li><a href="https://realpython.com/introduction-to-python-generators/" target="_blank">Real Python: Introduction to Generators</a></li>
+            <li><a href="https://www.w3schools.com/python/python_iterators.asp" target="_blank">W3Schools: Python Iterators</a></li>
+            <li><a href="https://pythontutorial.net/advanced-python/python-generators/" target="_blank">Python Tutorial: Comprehensive Generators Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Polymorphism & ABCs</a>
+            <a href="#" data-file="Python2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Context Managers & Files &rarr;</a>
+        </div>
+    </footer>
+</article>

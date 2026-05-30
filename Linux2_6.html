@@ -1,0 +1,87 @@
+<article>
+    <h1>Linux II: Page 6 - Systemd Services</h1>
+
+    <section>
+        <h2>Managing Background Services</h2>
+        <p>In Linux, background processes that run without a user interface are called <strong>Services</strong> (or daemons). From your web server (Apache/Nginx) to your database (MySQL/PostgreSQL), almost every essential system function runs as a service. Modern Linux distributions use <strong>systemd</strong> as the standard service manager. It is responsible for starting services during boot, monitoring their health, and restarting them if they crash. Understanding <code>systemctl</code> and how to create custom service files is the key to running your own applications as robust, production-grade Linux services.</p>
+    </section>
+
+    <section>
+        <h2>1. Managing Services with <code>systemctl</code></h2>
+        <p>The <code>systemctl</code> command is your primary tool for service management:</p>
+        <ul>
+            <li><code>systemctl status &lt;service&gt;</code>: Check if it's running.</li>
+            <li><code>systemctl start/stop/restart &lt;service&gt;</code>: Basic control.</li>
+            <li><code>systemctl enable/disable &lt;service&gt;</code>: Configure whether it starts automatically at boot.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Ensure Nginx starts automatically
+sudo systemctl enable nginx
+# Start it now
+sudo systemctl start nginx
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Creating Custom Services</h2>
+        <p>To run your own application as a service, create a <strong>unit file</strong> in <code>/etc/systemd/system/</code>. This file tells systemd how to run your program, which user to run it as, and what to do if it fails.</p>
+        <pre><code class="language-ini">
+[Unit]
+Description=My Custom App
+[Service]
+ExecStart=/usr/bin/python3 /opt/myapp/app.py
+Restart=always
+[Install]
+WantedBy=multi-user.target
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram showing the hierarchy: Systemd &rarr; Unit File &rarr; ExecStart process]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master service management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to Systemd</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The modern standard for service management.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Using systemctl</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to manage services effectively.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Creating Custom Services</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step guide to writing systemd unit files.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Hotel Night Manager</h2>
+        <p>Think of <strong>systemd</strong> like the <strong>Night Manager of a Hotel</strong>. They are responsible for making sure everything is running smoothly while the guests (the users) are asleep. They ensure the security staff (firewall service) is on duty, the HVAC (web server service) is working, and the emergency lights (database service) are on. If a lightbulb burns out (a service crashes), the Night Manager notices and replaces it immediately (auto-restart). Creating a <strong>custom service file</strong> is like giving the manager a detailed set of instructions on how to take care of a new feature you've just installed in the hotel.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html" target="_blank">Official systemd.service Man Page</a></li>
+            <li><a href="https://www.geeksforgeeks.org/systemctl-command-in-linux-with-examples/" target="_blank">GeeksforGeeks: systemctl Basics</a></li>
+            <li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units" target="_blank">DigitalOcean: systemd Guide</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: Services</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: User & Group Management</a>
+            <a href="#" data-file="Linux2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Logs & Maintenance &rarr;</a>
+        </div>
+    </footer>
+</article>

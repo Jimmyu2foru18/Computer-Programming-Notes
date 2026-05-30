@@ -1,0 +1,81 @@
+<article>
+    <h1>DBMS II: Page 7 - Performance Tuning: Query Optimization & Execution Plans</h1>
+
+    <section>
+        <h2>The Need for Speed</h2>
+        <p>In a small database with 100 rows, every query is fast. But in a production environment with 100 million rows, a poorly written query can take minutes or even hours to complete, effectively "locking" the database and crashing your application. <strong>Performance Tuning</strong> is the art and science of optimizing database structure and SQL queries to ensure the fastest possible response times. This page explores the <strong>Cost-Based Optimizer</strong>, how to read an <strong>Execution Plan</strong>, and the advanced indexing strategies used by professional DBAs to keep systems running smoothly under heavy load.</p>
+    </section>
+
+    <section>
+        <h2>1. The Cost-Based Optimizer (CBO)</h2>
+        <p>When you send a query to the DBMS, it doesn't just run it. A component called the <strong>Optimizer</strong> looks at many different ways to execute the query (e.g., using an index vs. a full table scan). It calculates a "Cost" for each path based on statistics (how many rows are in the table, how unique the values are). The DBMS then chooses the path with the <strong>Lowest Cost</strong>. As an engineer, your job is to provide the optimizer with the right tools (Indexes) and the right information (Updated Statistics) to make the best choice.</p>
+    </section>
+
+    <section>
+        <h2>2. Reading the Execution Plan: <code>EXPLAIN</code></h2>
+        <p>The most important tool in your tuning kit is the <code>EXPLAIN</code> command. It tells you exactly how the database plans to run your query. You should look for "Full Table Scans" (bad for large tables) and ensure the database is using the "Index Seek" (good) operations you expect.</p>
+        <pre><code class="language-sql">
+EXPLAIN SELECT name, salary FROM employees WHERE dept_id = 10;
+-- The output shows if an index was used, 
+-- how many rows were scanned, and the join type.
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Advanced Indexing Strategies</h2>
+        <ul>
+            <li><strong>Composite Indexes:</strong> An index on multiple columns. Order matters! An index on <code>(last_name, first_name)</code> is useful for searching by last name, but NOT for searching by first name alone.</li>
+            <li><strong>Covering Indexes:</strong> An index that contains all the columns requested in the <code>SELECT</code> clause. This allows the DBMS to answer the query using only the index, without ever touching the actual table (very fast).</li>
+            <li><strong>Functional Indexes:</strong> An index on the result of a function (e.g., <code>UPPER(email)</code>).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a Query Optimizer choosing between three different 'Paths' through a maze of data, with one path marked as 'Lowest Cost']</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the performance of your database with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL Indexing & Performance Tuning</strong><br>
+                <a href="https://www.youtube.com/watch?v=HbeLa6B732E" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The definitive guide to B-Trees and query speed.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. How to Read Execution Plans</strong><br>
+                <a href="https://www.youtube.com/watch?v=6iF8Xb7Z3wQ" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to use EXPLAIN to find bottlenecks.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Query Optimization - The Rules of Thumb</strong><br>
+                <a href="https://www.youtube.com/watch?v=ScUJx4adZ_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why SELECT * and leading wildcards kill performance.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The GPS and the Library Search</h2>
+        <p>Think of the <strong>Query Optimizer</strong> like a <strong>GPS Navigation App</strong>. You give it a destination (your SQL Query). The GPS looks at multiple routes: the highway (Index), the side streets (Full Table Scan), or the toll road (In-Memory Cache). It calculates the "Cost" in time and fuel and picks the fastest one. Sometimes, if the highway is under construction (Missing Statistics), the GPS might accidentally send you down a slow dirt road. Think of an <strong>Index</strong> like the <strong>Dewey Decimal System</strong> in a library. Without it, you'd have to walk past every single book (Full Table Scan) to find "Harry Potter." With the index, you know exactly which floor, which aisle, and which shelf to go to, saving you miles of walking (Disk I/O).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://use-the-index-luke.com/" target="_blank">Use The Index, Luke: A Guide to SQL Performance</a></li>
+            <li><a href="https://www.baeldung.com/sql-query-optimization" target="_blank">Baeldung: Guide to SQL Query Optimization</a></li>
+            <li><a href="https://www.geeksforgeeks.org/query-optimization-in-dbms/" target="_blank">GeeksforGeeks: Query Optimization Techniques</a></li>
+            <li><a href="https://dev.mysql.com/doc/refman/8.0/en/execution-plan-information.html" target="_blank">MySQL Docs: Understanding EXPLAIN Output</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Distributed & Sharding</a>
+            <a href="#" data-file="DBMS2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Warehousing & OLAP &rarr;</a>
+        </div>
+    </footer>
+</article>

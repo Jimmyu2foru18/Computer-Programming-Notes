@@ -1,0 +1,49 @@
+<article>
+    <h1>System Design III: Page 4 - Deployment: IaC</h1>
+
+    <section>
+        <h2>Infrastructure as Code</h2>
+        <p>In the past, setting up infrastructure meant manually clicking through cloud consoles or running shell scripts on servers. This is error-prone, hard to audit, and impossible to reproduce reliably. <strong>Infrastructure as Code (IaC)</strong> is the practice of defining your entire infrastructure (servers, databases, networks, load balancers) in version-controlled configuration files. Tools like <strong>Terraform</strong> or <strong>CloudFormation</strong> read these files and automatically provision the exact required infrastructure, ensuring that your production environment is identical to your staging environment.</p>
+    </section>
+
+    <section>
+        <h2>1. Why IaC?</h2>
+        <ul>
+            <li><strong>Consistency:</strong> Eliminates "configuration drift" where staging and production servers slowly diverge.</li>
+            <li><strong>Reproducibility:</strong> Need a new staging environment? Run the script again.</li>
+            <li><strong>Version Control:</strong> Every change to your infrastructure is tracked in Git, providing a clear audit trail.</li>
+        </ul>
+        <pre><code class="language-hcl">
+# Terraform example: Provisioning a server
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to IaC</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Terraform Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. IaC Best Practices</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System3_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Deployment: CI/CD</a>
+            <a href="#" data-file="System3_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Hosting: Cloud &rarr;</a>
+        </div>
+    </footer>
+</article>

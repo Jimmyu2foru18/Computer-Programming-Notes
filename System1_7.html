@@ -1,0 +1,72 @@
+<article>
+    <h1>System Design I: Page 7 - Frontend: Optimization</h1>
+
+    <section>
+        <h2>Speed is a Feature</h2>
+        <p>In the digital age, speed is everything. Users will abandon a website that takes more than three seconds to load. <strong>Frontend Performance Optimization</strong> is the practice of reducing the amount of data transferred and the time it takes for that data to become interactive in the user's browser. It directly correlates to better SEO rankings, higher conversion rates, and a happier user base.</p>
+    </section>
+
+    <section>
+        <h2>1. Key Optimization Techniques</h2>
+        <ul>
+            <li><strong>Asset Minification:</strong> Removing unnecessary characters from CSS and JS (as automated by build tools).</li>
+            <li><strong>Lazy Loading:</strong> Only downloading images, videos, or components when they are needed (i.e., when they enter the user's viewport).</li>
+            <li><strong>Code Splitting:</strong> Breaking large JavaScript bundles into smaller chunks that are loaded only when specific features are accessed.</li>
+            <li><strong>Browser Caching:</strong> Setting appropriate <code>Cache-Control</code> headers so users don't re-download the same files repeatedly.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Measuring Performance</h2>
+        <p>You cannot improve what you cannot measure. You must use tools like <strong>Google Lighthouse</strong> or the browser's <strong>Network tab</strong> to identify bottlenecks.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: A screenshot of Chrome DevTools 'Network' tab showing waterfall load times]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master frontend optimization with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Frontend Performance Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Optimizing images, CSS, and JS loading.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Code Splitting Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Reducing initial bundle sizes for faster loads.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Using Chrome DevTools Performance</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to profile page load times.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Fast-Food Kitchen</h2>
+        <p>Think of <strong>Frontend Optimization</strong> like a <strong>Fast-Food Kitchen</strong>. If the kitchen tries to cook everything on the menu at once the moment the restaurant opens, it will crash (Page Load Freeze). Instead, they only prep items when they are ordered (Lazy Loading), use pre-made ingredients (Caching), and design the kitchen layout so the cook doesn't have to walk far to grab what they need (Minification/Optimized Asset Delivery). These small, smart adjustments make the difference between a satisfied customer and a long, frustrated wait time.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://web.dev/fast/" target="_blank">Google: Web Vitals/Performance</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance" target="_blank">MDN: Web Performance</a></li>
+            <li><a href="https://web.dev/lazy-loading/" target="_blank">web.dev: Lazy Loading</a></li>
+            <li><a href="https://www.w3schools.com/js/js_performance.asp" target="_blank">W3Schools: JS Performance</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Frontend: Build Tools</a>
+            <a href="#" data-file="System1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Frontend: Testing &rarr;</a>
+        </div>
+    </footer>
+</article>

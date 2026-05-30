@@ -1,0 +1,71 @@
+<article>
+    <h1>System Design I: Page 8 - Frontend: Testing</h1>
+
+    <section>
+        <h2>Ensuring Quality at Scale</h2>
+        <p>Frontend applications are increasingly complex, containing sophisticated business logic, state management, and user interactions. Relying on manual testing is impossible as your app grows. Automated testing—including <strong>Unit Tests</strong> for individual components, <strong>Integration Tests</strong> for component interactions, and <strong>End-to-End (E2E) Tests</strong> for user workflows—is the only way to ensure that new code doesn't break existing functionality (regressions).</p>
+    </section>
+
+    <section>
+        <h2>1. Testing Levels</h2>
+        <ul>
+            <li><strong>Unit Tests:</strong> Test a single component in isolation (e.g., "Does this button component render correctly with these props?"). Uses frameworks like Jest.</li>
+            <li><strong>Integration Tests:</strong> Test how multiple components interact together (e.g., "Does clicking the add-to-cart button correctly update the cart component?").</li>
+            <li><strong>End-to-End (E2E) Tests:</strong> Automate the browser to test the full user journey (e.g., "Go to homepage, search for product, add to cart, check out"). Uses tools like Cypress or Playwright.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Why Test?</h2>
+        <p>Testing gives you the confidence to refactor code and ship new features rapidly. Without tests, every change is a gamble. With tests, a failure in CI/CD pipeline immediately catches breaking changes before they reach users.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: The Testing Pyramid: Many Unit Tests at the bottom, fewer Integration tests, few E2E tests at the top]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master frontend testing with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Frontend Testing Strategies</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding the testing pyramid.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Jest Unit Testing Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Testing components in isolation.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. E2E Testing with Cypress</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Automating the full user workflow.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Quality Assurance Lab</h2>
+        <p>Think of <strong>Frontend Testing</strong> like <strong>Quality Assurance (QA) in an Automobile Factory</strong>. <strong>Unit Tests</strong> are like checking each individual part (a spark plug, a door hinge) before it's installed. <strong>Integration Tests</strong> are like checking if the engine correctly turns the transmission. <strong>End-to-End Tests</strong> are the final test drive—the car is assembled, and a driver takes it on a test track to ensure the whole vehicle operates correctly. You wouldn't sell a car without testing it at every stage; you shouldn't ship software without testing it at every level.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://jestjs.io/" target="_blank">Jest Documentation</a></li>
+            <li><a href="https://www.cypress.io/" target="_blank">Cypress Documentation</a></li>
+            <li><a href="https://testing-library.com/" target="_blank">Testing Library Guide</a></li>
+            <li><a href="https://martinfowler.com/testing/" target="_blank">Martin Fowler: Testing Overview</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Frontend: Optimization</a>
+            <a href="#" data-file="System1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Arch Patterns: High-Level &rarr;</a>
+        </div>
+    </footer>
+</article>

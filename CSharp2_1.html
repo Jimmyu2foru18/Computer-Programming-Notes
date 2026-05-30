@@ -1,0 +1,104 @@
+<article>
+    <h1>C# II: Page 1 - Object-Oriented Programming (OOP): Encapsulation & Properties</h1>
+
+    <section>
+        <h2>The Principle of Data Hiding</h2>
+        <p>In our first module, we learned how to build objects with data and behavior. Now, we must learn the most important rule of professional software design: <strong>Encapsulation</strong>. Encapsulation is the practice of bundling data and methods into a single unit (a class) and <strong>restricting direct access</strong> to the internal state. In engineering terms, this is "Information Hiding." By hiding the internal details, you prevent outside code from accidentally breaking your object's data. You provide a controlled interface while keeping the implementation hidden. In C#, we achieve this through <strong>Access Modifiers</strong> and the elegant <strong>Properties</strong> system.</p>
+    </section>
+
+    <section>
+        <h2>1. Access Modifiers: The Security Gates</h2>
+        <p>C# provides several keywords to control who can see and modify your code members:</p>
+        
+        <ul>
+            <li><strong>public:</strong> Accessible from anywhere. The default for methods you want others to use.</li>
+            <li><strong>private:</strong> Accessible only within the same class. The default for sensitive data (Fields).</li>
+            <li><strong>protected:</strong> Accessible within the same class and any derived classes (Inheritance).</li>
+            <li><strong>internal:</strong> Accessible only within the same compiled project (Assembly).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Properties: The C# Advantage</h2>
+        <p>In other languages like Java, you have to write manual <code>get_balance()</code> and <code>set_balance()</code> methods. C# makes this much easier with <strong>Properties</strong>. A property acts like a field to the user, but it's actually a specialized method that can include <strong>Validation</strong> logic.</p>
+        
+        <h3>The Code implementation (C#)</h3>
+        <pre><code class="language-csharp">
+public class BankAccount {
+    private double _balance; // Private field (backing store)
+
+    public double Balance {
+        get { return _balance; }
+        set {
+            if (value >= 0) {
+                _balance = value;
+            } else {
+                Console.WriteLine("Invalid balance!");
+            }
+        }
+    }
+}
+
+// Auto-Implemented Properties (Shorthand)
+public string OwnerName { get; set; }
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing an Object as a fortress. The private data is in the center, and the Properties are the guarded gates with scanners.]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Why Encapsulate?</h2>
+        <ul>
+            <li><strong>Data Integrity:</strong> You can ensure that a "Quantity" never becomes negative.</li>
+            <li><strong>Flexibility:</strong> You can change how data is stored (e.g., switching from a local list to a database) without changing a single line of code in the classes that <em>use</em> your object.</li>
+            <li><strong>Maintenance:</strong> Hiding complexity makes the system easier to debug and upgrade.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the security of encapsulation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Properties & Encapsulation</strong><br>
+                <a href="https://www.youtube.com/watch?v=S-I_vG8vU0c" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the differences between fields, getters, and setters.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Access Modifiers in C# Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=4YmO-6vV4V8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Public, Private, Protected, and Internal walkthrough.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Auto-Implemented Properties & Best Practices</strong><br>
+                <a href="https://www.youtube.com/watch?v=Bj99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Write cleaner code with modern C# property syntax.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The ATM and the Human Body</h2>
+        <p>Think of <strong>Encapsulation</strong> like an <strong>ATM</strong>. The bank has a huge database of money (the State), but they don't let you reach into the vault and grab cash yourself (Direct Access). Instead, they provide a screen and keypad (the Properties/Methods). You can only <code>Withdraw()</code> by following their rules and providing a PIN (Validation). Think of your <strong>Body</strong> as an encapsulated system: people can see your face and hear your voice (Public interface), but they can't directly reach in and change your heart rate or blood sugar (Private state). This design ensures that you function safely without accidental interference from the outside world.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties" target="_blank">Official Microsoft: C# Properties Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/encapsulation-properties" target="_blank">Baeldung: Encapsulation in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_properties.php" target="_blank">W3Schools: C# Getters and Setters</a></li>
+            <li><a href="https://pythontutorial.net/advanced-python/python-property/" target="_blank">Property Comparison: Python vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Classes & Objects</a>
+            <a href="#" data-file="CSharp2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Inheritance & Poly &rarr;</a>
+        </div>
+    </footer>
+</article>

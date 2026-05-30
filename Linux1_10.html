@@ -1,0 +1,98 @@
+<article>
+    <h1>Linux I: Page 10 - Text Processing Tools</h1>
+
+    <section>
+        <h2>The Master Manipulators</h2>
+        <p>In Linux, your most valuable data is often trapped inside text files—logs, configurations, and command outputs. To find and manipulate this data, you need more than just <code>cat</code> or <code>less</code>; you need <strong>Text Processing Tools</strong>. These tools are the "scalpels" of the CLI, allowing you to search for specific patterns, automatically edit text streams, and extract data from formatted files. Mastering <code>grep</code>, <code>sed</code>, and <code>awk</code> is what separates a casual user from a true power user.</p>
+    </section>
+
+    <section>
+        <h2>1. The Power Trio</h2>
+        <ul>
+            <li><strong><code>grep</code> (Global Regular Expression Print):</strong> The standard tool for searching text for patterns. If you need to find an error in a log file, <code>grep</code> is your go-to.</li>
+            <li><strong><code>sed</code> (Stream Editor):</strong> A powerful, non-interactive editor that can search, find, and replace patterns on-the-fly.</li>
+            <li><strong><code>awk</code> (Aho, Weinberger, Kernighan):</strong> A full programming language dedicated to processing text files, particularly those organized in columns (like CSVs or log files).</li>
+        </ul>
+        <pre><code class="language-bash">
+# Find errors in a log file
+grep "ERROR" /var/log/syslog
+
+# Replace 'old' with 'new' in-place
+sed -i 's/old/new/g' config.conf
+
+# Print the 3rd column of a file
+awk '{print $3}' data.txt
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Combining Tools</h2>
+        <p>These tools are most powerful when combined with piping. You can fetch a log file, filter it with <code>grep</code>, manipulate it with <code>sed</code>, and extract a specific field with <code>awk</code>—all in one command line string.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: A raw log file being processed through a pipeline of grep -> sed -> awk -> final report]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master text processing with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Grep Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Searching text like a pro.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Sed Introduction</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Automated text replacement with sed.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Awk for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Extracting and processing columnar data.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Data Librarian</h2>
+        <p>Think of <strong>Grep, Sed, and Awk</strong> like a <strong>Data Librarian</strong>. <strong>Grep</strong> is like the librarian who can instantly scan thousands of books to find the one page with the phrase you need. <strong>Sed</strong> is the librarian with a pen who can go through the books and fix typos on the fly without ever breaking the binding. <strong>Awk</strong> is the librarian who can take a complex ledger full of names, dates, and amounts, and extract just the list of "who owes what" and generate a neat, printed report for you. They make order out of digital chaos.</p>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
+        <h2>Module Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the Linux I: Foundations & Admin module! To further expand your professional Linux skills, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. Linux Journey</strong><br>
+                <p><small>Highly interactive and beginner-friendly Linux learning.</small></p>
+                <a href="https://linuxjourney.com/" target="_blank">Visit Linux Journey &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. The Linux Command Line (Book)</strong><br>
+                <p><small>A comprehensive and freely available book on Linux CLI.</small></p>
+                <a href="http://linuxcommand.org/" target="_blank">Read for Free &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. OverTheWire (Wargames)</strong><br>
+                <p><small>Gamified Linux learning through security wargames.</small></p>
+                <a href="https://overthewire.org/wargames/bandit/" target="_blank">Start Playing &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. Linux Foundation Training</strong><br>
+                <p><small>Professional-grade training for Linux certification.</small></p>
+                <a href="https://training.linuxfoundation.org/" target="_blank">View Courses &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Redirection & Piping</a>
+            <span style="color: #28a745; font-weight: bold;">Linux I Module Complete!</span>
+        </div>
+    </footer>
+</article>

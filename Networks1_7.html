@@ -1,0 +1,104 @@
+<article>
+    <h1>Networks I: Page 7 - Practical Networking: The TCP/IP Model</h1>
+
+    <section>
+        <h2>Theory vs. Practice</h2>
+        <p>In the last two pages, we explored the <strong>OSI Model</strong>. It's a wonderful theoretical framework for understanding the <em>concept</em> of how networks work. However, the internet wasn't built on the OSI model; it was built on the <strong>TCP/IP Model</strong>. The TCP/IP model is a more practical, implementation-oriented framework that maps the complex seven layers of OSI into four more streamlined, functional layers. Understanding both models is crucial: OSI gives you the academic foundation, while TCP/IP gives you the tools to build and troubleshoot the actual internet.</p>
+    </section>
+
+    <section>
+        <h2>1. The Four Layers of TCP/IP</h2>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 10px; text-align: left;">Layer</th>
+                <th style="padding: 10px; text-align: left;">OSI Equivalent</th>
+                <th style="padding: 10px; text-align: left;">Key Function</th>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><strong>Application</strong></td>
+                <td style="padding: 10px;">5, 6, 7</td>
+                <td style="padding: 10px;">User applications, protocols like HTTP/FTP</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><strong>Transport</strong></td>
+                <td style="padding: 10px;">4</td>
+                <td style="padding: 10px;">End-to-end communication (TCP/UDP)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><strong>Internet</strong></td>
+                <td style="padding: 10px;">3</td>
+                <td style="padding: 10px;">Routing and logical addressing (IP)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><strong>Network Access</strong></td>
+                <td style="padding: 10px;">1, 2</td>
+                <td style="padding: 10px;">Physical hardware, framing (Ethernet/Wi-Fi)</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>2. Data Encapsulation: The "Package" Process</h2>
+        <p>As data travels down the stack, each layer wraps the data with its own header, creating a new "package" for transmission. This process is called <strong>Encapsulation</strong>. When the data reaches its destination, the process is reversed (Decapsulation).</p>
+        <pre><code class="language-text">
+[Application Data]
+      ↓
+[TCP Header][Application Data]  &lt;-- Segment (Transport)
+      ↓
+[IP Header][TCP Header][Data]  &lt;-- Packet (Internet)
+      ↓
+[Ethernet Header][IP Header][Data][Trailer] &lt;-- Frame (Network Access)
+      ↓
+[Physical Bits on Wire]
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a Russian Matryoshka doll—Application is the innermost doll, Network Access is the outermost shell]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the TCP/IP stack with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. OSI vs. TCP/IP Model</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual comparison and explanation of why they differ.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Data Encapsulation Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How data is wrapped and unwrapped across the layers.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Why TCP/IP is the standard</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the practical history of internet protocols.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Shipping Logistics</h2>
+        <p>Think of <strong>Encapsulation</strong> like <strong>Shipping a Package</strong>. You have your item (the Data). You put it in a small box (Transport Layer/Segment). You put that box inside a larger shipping container (Internet Layer/Packet) with a specific destination address. Finally, the container is loaded onto a specific truck or train (Network Access/Frame) to be physically transported. Each stage of the journey only cares about the packaging that was added by the person before them. They don't need to know what's inside the box—they just need to know how to move the container to the next hub (the Router) until it reaches the final destination.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Internet_protocol_suite" target="_blank">Wikipedia: Internet Protocol Suite (TCP/IP)</a></li>
+            <li><a href="https://www.geeksforgeeks.org/tcp-ip-model/" target="_blank">GeeksforGeeks: TCP/IP Model Guide</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: TCP/IP Fundamentals</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Stack Comparison</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: OSI: Upper Layers</a>
+            <a href="#" data-file="Networks1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: IPv4 Addressing Basics &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,107 @@
+<article>
+    <h1>Software Engineering I: Page 4 - SOLID Design Principles: SRP & OCP</h1>
+
+    <section>
+        <h2>The Blueprint for Maintainable Code</h2>
+        <p>Object-Oriented Programming gives us the tools, but <strong>SOLID Principles</strong> give us the rules. Introduced by Robert C. Martin (Uncle Bob), SOLID is a set of five design principles intended to make software designs more understandable, flexible, and maintainable. In the professional world, code is read and modified much more often than it is written. Following SOLID ensures that a change in one part of the system doesn't cause a "house of cards" collapse in another. This page covers the first two letters: <strong>SRP</strong> and <strong>OCP</strong>.</p>
+    </section>
+
+    <section>
+        <h2>1. Single Responsibility Principle (SRP)</h2>
+        <p><em>"A class should have only one reason to change."</em></p>
+        <p>This means a class should do one thing, and do it well. If a class is responsible for both calculating a salary AND saving that salary to a database, it has two responsibilities. If you change your database provider, you have to modify the salary-calculation class—this is a design flaw.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+// BAD: Multiple responsibilities
+class Employee {
+    void calculatePay() { /* logic */ }
+    void saveToDatabase() { /* database logic */ }
+}
+
+// GOOD: Separated concerns
+class Employee {
+    void calculatePay() { /* logic */ }
+}
+class EmployeeRepository {
+    void save(Employee e) { /* database logic */ }
+}
+        </code></pre>
+        <p><strong>Benefits:</strong> Easier testing, fewer bugs, and higher "Cohesion."</p>
+    </section>
+
+    <section>
+        <h2>2. Open/Closed Principle (OCP)</h2>
+        <p><em>"Software entities should be open for extension, but closed for modification."</em></p>
+        <p>You should be able to add new functionality to a system without changing the existing code. This is usually achieved through <strong>Abstraction and Polymorphism</strong>. Instead of using a giant <code>switch</code> statement to handle new types, you use an interface.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+// BAD: Modifying existing code for every new type
+class PaymentProcessor {
+    void process(String type) {
+        if (type.equals("Credit")) { /* ... */ }
+        else if (type.equals("PayPal")) { /* ... */ }
+    }
+}
+
+// GOOD: Extend by adding new classes
+interface PaymentMethod { void pay(); }
+class CreditCard implements PaymentMethod { public void pay() { /* ... */ } }
+class PayPal implements PaymentMethod { public void pay() { /* ... */ } }
+
+class PaymentProcessor {
+    void process(PaymentMethod method) { method.pay(); }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Plugin' architecture—adding a new feature by plugging in a new module rather than rewiring the internal circuit]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the first two SOLID principles with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SOLID Principles in 10 Minutes</strong><br>
+                <a href="https://www.youtube.com/watch?v=HoA6aZPRjkE" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A great high-level overview of the entire set.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Single Responsibility Principle (Deep Dive)</strong><br>
+                <a href="https://www.youtube.com/watch?v=5RwhyznlJX8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to identify and separate responsibilities.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Open/Closed Principle Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=-ptMtJadj40" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Master the art of writing extensible software.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Swiss Army Knife and the Wall Outlet</h2>
+        <p>Think of <strong>SRP</strong> like a <strong>Swiss Army Knife</strong>. Each tool has one job: the scissors cut, the screwdriver turns screws, the blade slices. You don't have one giant "Do-Everything" tool because if the screwdriver tip breaks, you'd have to throw away the whole knife. By having separate tools (Classes), you can fix or sharpen one without affecting the others. Think of <strong>OCP</strong> like a <strong>Standardized Wall Outlet</strong>. The outlet is "Closed for Modification"—you don't have to tear apart the wall and rewire the house every time you buy a new appliance. However, it is "Open for Extension"—you can plug in a lamp, a computer, or a vacuum, as long as they follow the standard plug "Interface." You add new power-consuming functionality (Extension) without ever touching the house's electrical system (Modification).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleResponsibilityPrinciple.html" target="_blank">Clean Coder: The Single Responsibility Principle</a></li>
+            <li><a href="https://www.baeldung.com/solid-principles" target="_blank">Baeldung: SOLID Principles in Java</a></li>
+            <li><a href="https://www.w3schools.blog/solid-principles-java" target="_blank">W3Schools: SOLID Principles Guide</a></li>
+            <li><a href="https://realpython.com/solid-principles-python/" target="_blank">Real Python: SOLID Principles in Practice</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: OOP: Abstraction & Polymorphism</a>
+            <a href="#" data-file="Soft1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: SOLID: LSP, ISP & DIP &rarr;</a>
+        </div>
+    </footer>
+</article>

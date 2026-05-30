@@ -1,0 +1,81 @@
+<article>
+    <h1>Software Engineering II: Page 1 - System Modeling: UML Structural Diagrams</h1>
+
+    <section>
+        <h2>The Blueprint of Software</h2>
+        <p>In architecture, you wouldn't start building a skyscraper without a set of blue-printed plans. In software engineering, we use the <strong>Unified Modeling Language (UML)</strong> to visualize, specify, and document our systems. UML is not a programming language; it is a visual language that allows engineers to communicate complex architectures across different teams and technologies. <strong>Structural Diagrams</strong> focus on the static aspects of a system—the classes, objects, and components that exist, and how they are physically or logically related to one another.</p>
+    </section>
+
+    <section>
+        <h2>1. The Class Diagram: The Master Blueprint</h2>
+        <p>The Class Diagram is the most used diagram in UML. It describes the structure of a system by showing the system's classes, their attributes, their methods, and the relationships between them. A class is represented as a rectangle with three sections: name, attributes (data), and operations (methods).</p>
+        
+        <h3>Key Relationships:</h3>
+        <ul>
+            <li><strong>Association:</strong> A simple link between two classes (e.g., a Teacher "teaches" a Student).</li>
+            <li><strong>Aggregation (Hollow Diamond):</strong> A "has-a" relationship where the parts can exist independently (e.g., a Car has a Spare Tire).</li>
+            <li><strong>Composition (Filled Diamond):</strong> A strong "has-a" relationship where the parts cannot exist without the whole (e.g., a House has a Wall).</li>
+            <li><strong>Generalization (Arrow):</strong> An "is-a" relationship (Inheritance).</li>
+            <li><strong>Realization (Dashed Arrow):</strong> Interface implementation.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Component Diagrams: High-Level View</h2>
+        <p>While Class Diagrams focus on the "code level," <strong>Component Diagrams</strong> focus on the "system level." They show how the system is divided into modular physical components (like a database, an API, or a third-party library) and the dependencies between them. This is essential for understanding the overall architecture and how different services interact.</p>
+    </section>
+
+    <section>
+        <h2>3. Object Diagrams: A Snapshot in Time</h2>
+        <p>An Object Diagram is essentially a "snapshot" of a Class Diagram at a specific moment during runtime. It shows actual instances of classes and their current values. This is helpful for debugging complex logic where the relationships between specific data instances are causing issues.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison showing a Class Diagram (the Blueprint) vs. an Object Diagram (the actual Instance data)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the visualization of system structure with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. UML Class Diagrams (Lucidchart)</strong><br>
+                <a href="https://www.youtube.com/watch?v=UI6lqHOVHic" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive guide to classes and their relationships.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Component & Deployment Diagrams</strong><br>
+                <a href="https://www.youtube.com/watch?v=k5qC-iB0f1E" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to model high-level system architecture.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. UML Relationships Made Easy</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand Aggregation vs. Composition once and for all.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Architect's Drawing and the Model Home</h2>
+        <p>Think of a <strong>Class Diagram</strong> like an <strong>Architect's Drawing</strong> for a new suburb. It defines where the houses go, what every kitchen must look like, and how the streets connect. It is a set of rules. Think of an <strong>Object Diagram</strong> like a <strong>Model Home</strong> in that suburb. It is one real, physical instance of the blueprint. You can walk inside, see the furniture (Attributes), and see how the living room connects to the kitchen. Finally, think of <strong>Composition</strong> like the <strong>Rooms in the House</strong>: if the house is demolished, the rooms cease to exist. <strong>Aggregation</strong> is like the <strong>Furniture</strong>: you can sell the couch (Independent part) and the house still stands, or you can move the couch to a different house.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.uml.org/" target="_blank">Official UML Resource Page</a></li>
+            <li><a href="https://www.visual-paradigm.com/guide/uml/what-is-class-diagram/" target="_blank">Visual Paradigm: Comprehensive Class Diagram Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/unified-modeling-language-uml-structural-diagrams/" target="_blank">GeeksforGeeks: UML Structural Diagrams</a></li>
+            <li><a href="https://app.diagrams.net/" target="_blank">Draw.io: Free Online UML Tool</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Patterns in Practice</a>
+            <a href="#" data-file="Soft2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: UML: Behavioral Modeling &rarr;</a>
+        </div>
+    </footer>
+</article>

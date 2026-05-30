@@ -1,0 +1,81 @@
+<article>
+    <h1>Linux II: Page 1 - Networking Commands</h1>
+
+    <section>
+        <h2>Connectivity & Remote Management</h2>
+        <p>Linux is the operating system of the internet, powering the vast majority of web servers and cloud infrastructure. Therefore, understanding how Linux interacts with networks is a critical skill for any system administrator. Whether you are configuring a local interface, debugging a connectivity issue, or remotely managing a server on the other side of the planet, the command line provides the precise tools needed to get the job done efficiently and securely.</p>
+    </section>
+
+    <section>
+        <h2>1. The Networking Toolkit</h2>
+        <p>Networking commands allow you to inspect, configure, and troubleshoot network traffic:</p>
+        <ul>
+            <li><strong>Interface Management:</strong> <code>ip addr</code> (the modern replacement for <code>ifconfig</code>) lets you view and manage network interfaces. <code>ip route</code> manages the routing table.</li>
+            <li><strong>Connection Analysis:</strong> <code>ss</code> (Socket Statistics) is the modern, faster replacement for <code>netstat</code>. It allows you to see all active network connections, listening ports, and sockets.</li>
+            <li><strong>Remote Access:</strong> <code>ssh</code> (Secure Shell) is your primary tool for logging into remote servers securely. <code>scp</code> (Secure Copy) uses SSH to securely copy files between machines.</li>
+            <li><strong>Diagnostics:</strong> <code>traceroute</code> shows the path packets take to a destination; <code>nslookup</code> and <code>dig</code> are essential for querying DNS servers; <code>curl</code> and <code>wget</code> are powerful tools for transferring data from or to servers (testing APIs or downloading files).</li>
+        </ul>
+        <pre><code class="language-bash">
+# View network interfaces
+ip addr show
+# See all listening TCP ports
+ss -tuln
+# Remotely log into a server
+ssh user@remote-server.com
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why Command Line Networking?</h2>
+        <p>Network configuration in production environments is almost exclusively managed via the CLI. It allows you to script configuration changes, verify connectivity with precise diagnostic tools, and manage remote systems without the overhead or security risks of a graphical interface. Mastery here is the bridge between managing a single computer and managing a data center.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram showing the SSH client-server connection and standard networking diagnostic tools]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master networking commands with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Linux Networking Commands</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A comprehensive guide to ip, ss, and ping.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. SSH and SCP Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Managing remote servers securely.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Network Troubleshooting Tools</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Using traceroute, curl, and dig for diagnostics.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Network Technician</h2>
+        <p>Think of <strong>Networking Commands</strong> like the <strong>Diagnostic Gear</strong> of a Network Technician. When you have a problem with your home Wi-Fi, you might just restart the router. But when a massive server cluster goes down, you need to plug in your diagnostic tools (CLI commands) to "listen" to the traffic and find out exactly where the connection is failing. <code>ssh</code> is like having a direct telephone line to that remote server, <code>scp</code> is the secure delivery driver, and <code>traceroute</code> is the detailed map showing you which intersection the traffic jam is happening at.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://linux.die.net/man/8/ip" target="_blank">Man Page: ip command</a></li>
+            <li><a href="https://linux.die.net/man/8/ss" target="_blank">Man Page: ss command</a></li>
+            <li><a href="https://linux.die.net/man/1/ssh" target="_blank">Man Page: ssh command</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: Networking</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Text Processing Tools</a>
+            <a href="#" data-file="Linux2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Process Management &rarr;</a>
+        </div>
+    </footer>
+</article>

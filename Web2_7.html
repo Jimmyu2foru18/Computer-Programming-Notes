@@ -1,0 +1,77 @@
+<article>
+    <h1>Web Technologies II: Page 7 - Hosting: From Localhost to the Cloud</h1>
+
+    <section>
+        <h2>Taking Your App Live</h2>
+        <p>Developing a web application is only half the battle; the other half is getting it on the internet so others can use it. This process is called <strong>Hosting</strong>. You typically start in a <strong>Local Development Environment</strong>, which acts as a sandbox on your own computer, and eventually "deploy" your code to a <strong>Production Server</strong> in the cloud, where it becomes live and accessible to the world. Understanding both environments is crucial for any full-stack developer.</p>
+    </section>
+
+    <section>
+        <h2>1. Local Development with XAMPP</h2>
+        <p><strong>XAMPP</strong> (X-Apache-MySQL-PHP-Perl) is the perfect sandbox for developers. It bundles everything you need to run a PHP/MySQL site on your laptop without needing an internet connection. It's safe, fast, and completely free. You put your files into the <code>htdocs</code> folder, start the Apache and MySQL modules, and instantly access your project at <code>http://localhost/</code>.</p>
+    </section>
+
+    <section>
+        <h2>2. Cloud Hosting: The Professional Path</h2>
+        <p>When it's time to go live, you need professional infrastructure. <strong>AWS (Amazon Web Services)</strong> is the industry standard.</p>
+        <ul>
+            <li><strong>EC2 (Elastic Compute Cloud):</strong> Essentially renting a virtual computer in the cloud. You have full control over the OS and web server (like Apache or Nginx).</li>
+            <li><strong>Elastic Beanstalk:</strong> A "Platform-as-a-Service" (PaaS) that handles the heavy lifting—provisioning the server, load balancing, and scaling—so you only have to upload your code.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Deploying to Elastic Beanstalk (CLI)
+eb init
+eb create my-app-env
+eb deploy
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Localhost (XAMPP) on a Laptop &rarr; Cloud (AWS) Server on the Internet]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master hosting and deployment with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Setting up XAMPP for PHP</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Get your local development environment running.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. AWS EC2 Deployment Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Launching your first virtual server in the cloud.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Intro to AWS Elastic Beanstalk</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Automated deployment for scalable applications.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Sandbox and the Office</h2>
+        <p>Think of <strong>XAMPP</strong> like a <strong>Sandbox</strong> in your backyard. You can build as many sandcastles as you want, tear them down, and rebuild them without any risk. It's just for practice. Think of <strong>AWS</strong> like an <strong>Office Building</strong> in the city center. This is the "real world." You need official permits (Domain Names), security guards (Firewalls), and a maintenance crew (Load Balancing/Scalability) to ensure that everything keeps running even if hundreds of people visit your office at the same time. You don't build the office building; you rent space in it (Cloud Hosting), but you are responsible for maintaining the interior (your code) and ensuring your guests are secure and happy.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.apachefriends.org/index.html" target="_blank">Official XAMPP Website</a></li>
+            <li><a href="https://aws.amazon.com/ec2/" target="_blank">AWS EC2 Overview</a></li>
+            <li><a href="https://aws.amazon.com/elasticbeanstalk/" target="_blank">AWS Elastic Beanstalk Overview</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Cloud Deployment Strategies</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Security: Best Practices</a>
+            <a href="#" data-file="Web2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Deployment &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,99 @@
+<article>
+    <h1>C# II: Page 3 - Object-Oriented Programming (OOP): Interfaces & Abstraction</h1>
+
+    <section>
+        <h2>The Pure Interface</h2>
+        <p>In our previous pages, we learned how classes can inherit behavior from parents. But sometimes, you don't want a "parent-child" relationship; you just want to ensure that completely different types of objects all follow the same set of rules. In C#, this is achieved through <strong>Interfaces</strong> and <strong>Abstract Classes</strong>. An interface is a 100% abstract "contract" that specifies <strong>what</strong> a class must do, but not <strong>how</strong> it does it. It allows for a level of decoupling and flexibility that is impossible with class inheritance alone. This is the foundation of modern, pluggable software architectures.</p>
+    </section>
+
+    <section>
+        <h2>1. Defining and Implementing Interfaces</h2>
+        <p>An interface is defined using the <code>interface</code> keyword. By convention, interface names in C# always start with a capital 'I' (e.g., <code>IDrawable</code>). A class "signs" the contract by using the colon (<code>:</code>) symbol, just like inheritance.</p>
+        <pre><code class="language-csharp">
+public interface IDrawable {
+    void Draw(); // Abstract method (no body)
+    string Color { get; set; } // Properties are also allowed
+}
+
+public class Circle : IDrawable {
+    public string Color { get; set; }
+    public void Draw() {
+        Console.WriteLine("Drawing a circle...");
+    }
+}
+        </code></pre>
+        <p><strong>Multiple Implementation:</strong> Unlike classes, a C# class can implement <strong>any number</strong> of interfaces. This allows an object to "wear many hats."</p>
+    </section>
+
+    <section>
+        <h2>2. Abstract Classes: The Middle Ground</h2>
+        <p>An <strong>Abstract Class</strong> is a restricted class that cannot be used to create objects. It serves as a partial blueprint. It can contain both <strong>Abstract Methods</strong> (which have no implementation) and <strong>Concrete Methods</strong> (which have a body and shared logic). Use an abstract class when you want to provide a common base with some pre-written code for closely related classes.</p>
+        <pre><code class="language-csharp">
+public abstract class Shape {
+    public string Color { get; set; }
+    public abstract double CalculateArea(); // Children MUST implement this
+
+    public void Display() { // Children inherit this shared logic
+        Console.WriteLine($"This is a {Color} shape.");
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Interface vs. Abstract Class: Which to Choose?</h2>
+        <ul>
+            <li><strong>Use an Interface</strong> if you want to define a <em>capability</em> (an "-able" trait) that many unrelated classes might share (e.g., <code>IDisposable</code>, <code>ICloneable</code>).</li>
+            <li><strong>Use an Abstract Class</strong> if you want to share <em>code and state</em> among a group of closely related classes (e.g., all <code>Shapes</code> have a color and basic display logic).</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Comparison table showing 'Abstract Class' (Partial Logic, Single Inheritance) vs 'Interface' (Pure Contract, Multiple Inheritance)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of architectural abstraction with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Interfaces Tutorial (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=wXhXBE3_Z80" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the 'Why' and 'How' of interfaces in professional code.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Abstract Classes in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=k_9_A_CstL4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to provide base logic for your class hierarchies.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Interfaces vs Abstract Classes</strong><br>
+                <a href="https://www.youtube.com/watch?v=L3-Ku9u8V6I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The definitive comparison for choosing the right design tool.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The standardized Plug and the Legal Contract</h2>
+        <p>Think of an <strong>Interface</strong> like a <strong>USB Standard</strong>. The interface defines exactly what the physical plug looks like. It doesn't care if the device is a mouse, a keyboard, or a toaster. As long as the device "implements" the USB interface, it will work with your computer. This is the essence of <strong>Decoupling</strong>. Think of an <strong>Abstract Class</strong> like a <strong>Government Form Template</strong>. The template defines where the name and date go, but it is "Abstract" until you fill it out with your specific information. The template itself isn't a valid legal document—it's just the blueprint for one. Finally, think of <code>implements</code> like a <strong>Legal Contract</strong>: the contract doesn't tell you how to move your arms (the Implementation), it just says you <em>must</em> be able to <code>Deliver()</code> and <code>Sign()</code> to fulfill the role.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface" target="_blank">Official Microsoft: C# Interface Reference</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract" target="_blank">Official Microsoft: Abstract Class Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/abstract-class-vs-interface" target="_blank">Baeldung: Interfaces vs Abstract Classes</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_interface.php" target="_blank">W3Schools: C# Interface Tutorial</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Inheritance & Poly</a>
+            <a href="#" data-file="CSharp2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Exception Handling &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,45 @@
+<article>
+    <h1>System Design III: Page 8 - Security: Auth/AuthZ</h1>
+
+    <section>
+        <h2>Identity and Permissions</h2>
+        <p>In web application security, the most fundamental concepts are <strong>Authentication (AuthN)</strong> and <strong>Authorization (AuthZ)</strong>. They are often confused but perform entirely different roles. AuthN verifies <em>who</em> a user is (e.g., login credentials), while AuthZ determines <em>what</em> that user is allowed to do (e.g., can they read data, edit profiles, or delete admins?).</p>
+    </section>
+
+    <section>
+        <h2>1. Protocols & Tools</h2>
+        <ul>
+            <li><strong>OAuth2/OIDC:</strong> The standard for delegated authorization (e.g., "Log in with Google").</li>
+            <li><strong>JWT (JSON Web Token):</strong> A secure, stateless way to transmit identity information between parties as a compact, URL-safe JSON object.</li>
+        </ul>
+        <pre><code class="language-text">
+# JWT Structure
+[Header].[Payload].[Signature]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. AuthN vs AuthZ</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. OAuth2 Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. How JWT Works</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System3_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Reliability & Recovery</a>
+            <a href="#" data-file="System3_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Advanced Architecture Project &rarr;</a>
+        </div>
+    </footer>
+</article>

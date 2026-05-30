@@ -1,0 +1,97 @@
+<article>
+    <h1>Software Engineering I: Page 2 - OOP Pillars: Encapsulation & Inheritance</h1>
+
+    <section>
+        <h2>The Foundation of Modern Design</h2>
+        <p>Object-Oriented Programming (OOP) is the dominant paradigm in software engineering. It is a way of designing software that models real-world entities as "Objects." These objects bundle together <strong>State</strong> (attributes) and <strong>Behavior</strong> (methods). By organizing code this way, we can build massive systems that are modular, reusable, and easy to understand. To master OOP, you must understand its four pillars. This page covers the first two: <strong>Encapsulation</strong> and <strong>Inheritance</strong>.</p>
+    </section>
+
+    <section>
+        <h2>1. Encapsulation: The Protector of Data</h2>
+        <p>Encapsulation is the practice of bundling data and the methods that operate on that data into a single unit (a Class) and <strong>restricting direct access</strong> to the internal state. In engineering terms, this is called "Information Hiding." By hiding the internal details, you prevent outside code from accidentally breaking your object's data. You provide a controlled interface (public methods) while keeping the implementation (private variables) hidden.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+public class BankAccount {
+    private double balance; // Private: Hidden from the world
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount; // Internal logic is protected
+        }
+    }
+}
+        </code></pre>
+        <p><strong>Benefits:</strong> Data integrity, flexibility (you can change internal logic without breaking external code), and security.</p>
+    </section>
+
+    <section>
+        <h2>2. Inheritance: The Legacy of Code</h2>
+        <p>Inheritance is a mechanism where a new class (the <strong>Subclass</strong>) derives properties and behaviors from an existing class (the <strong>Superclass</strong>). This promotes <strong>Code Reuse</strong> and establishes a logical hierarchy. It represents an <strong>"Is-A"</strong> relationship. For example, a <code>Manager</code> <strong>is an</strong> <code>Employee</code>. A <code>Truck</code> <strong>is a</strong> <code>Vehicle</code>.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+class Animal {
+    String name;
+    void eat() { System.out.println("Animal is eating..."); }
+}
+
+class Dog extends Animal { // Dog inherits 'name' and 'eat()'
+    void bark() { System.out.println("Woof!"); }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Hierarchy diagram showing a 'Vehicle' parent and 'Car', 'Truck', and 'Motorcycle' children]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the first two pillars of OOP with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. OOP in 7 Minutes (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=pTB0EiLXUC8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A high-speed overview of the 4 pillars.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Encapsulation Explained Simply</strong><br>
+                <a href="https://www.youtube.com/watch?v=Kz6EunXitW0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why we use private variables and public methods.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Inheritance in Java Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=Zs342e_vL0Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to build class hierarchies and reuse code.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The ATM and the Smartphone</h2>
+        <p>Think of <strong>Encapsulation</strong> like an <strong>ATM</strong>. You interact with the machine through a keypad and a screen (the Interface). You don't have access to the cash vault, the mechanical gears, or the bank's internal ledger (the Implementation). The machine protects its "State" (the money) from you, ensuring you only interact with it in valid ways. Think of <strong>Inheritance</strong> like <strong>Smartphone Evolution</strong>. An iPhone 15 inherits the core traits of the original iPhone (a touchscreen, the ability to call, an operating system). Apple didn't reinvent the concept of a "mobile phone" from scratch; they extended the existing blueprint, adding new sensors and faster processors while keeping the "Legacy" features that worked.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/concepts/index.html" target="_blank">Official Java Docs: OOP Concepts</a></li>
+            <li><a href="https://www.baeldung.com/java-oop-principles" target="_blank">Baeldung: The Four Pillars of OOP in Java</a></li>
+            <li><a href="https://www.w3schools.com/java/java_oop.asp" target="_blank">W3Schools: Java OOP Guide</a></li>
+            <li><a href="https://realpython.com/python3-object-oriented-programming/" target="_blank">Real Python: OOP in Practice</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Fundamentals</a>
+            <a href="#" data-file="Soft1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: OOP: Abstraction & Polymorphism &rarr;</a>
+        </div>
+    </footer>
+</article>

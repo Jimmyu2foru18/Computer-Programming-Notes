@@ -1,0 +1,116 @@
+<article>
+    <h1>Python II: Page 2 - Project Architecture: Modules & Packages</h1>
+
+    <section>
+        <h2>The Art of Organization</h2>
+        <p>As you progress from writing simple scripts to building complex applications, organization becomes your most important skill. If you keep all your code in one file, it will eventually become impossible to read, debug, or maintain. Professional developers solve this by breaking their code into smaller, logical pieces called <strong>Modules</strong> and <strong>Packages</strong>. This modular approach allows for better collaboration, code reuse, and logical separation of concerns.</p>
+    </section>
+
+    <section>
+        <h2>What is a Module?</h2>
+        <p>A <strong>Module</strong> is simply a single file containing Python code—functions, classes, and variables. By importing a module, you gain access to its logic without having to rewrite it in your current file. This is the cornerstone of the Python philosophy: "Don't Reinvent the Wheel."</p>
+        
+        <h3>1. The Standard Library</h3>
+        <p>Python comes with a "batteries included" philosophy, meaning it includes a vast standard library of pre-written modules for almost any task.</p>
+        <pre><code class="language-python">
+import math
+import random
+from datetime import datetime
+
+print(math.pi)                 # 3.14159...
+print(random.randint(1, 10))   # Random number between 1 and 10
+print(datetime.now())          # Current date and time
+        </code></pre>
+
+        <h3>2. Aliasing Imports</h3>
+        <p>Sometimes module names are long or might conflict with your own variables. Python allows you to give an <strong>Alias</strong> to an import using the <code>as</code> keyword. This is standard practice in data science.</p>
+        <pre><code class="language-python">
+import numpy as np
+import pandas as pd
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Creating Your Own Modules</h2>
+        <p>Creating a module is as simple as saving a file with a <code>.py</code> extension. Let's look at how you might structure a project with a utility module.</p>
+        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0;">
+            <div style="flex: 1; min-width: 300px; padding: 15px; border: 1px solid #ccc; background: #fdfdfd;">
+                <strong>math_utils.py</strong>
+                <pre><code class="language-python">
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+
+PI = 3.14159
+                </code></pre>
+            </div>
+            <div style="flex: 1; min-width: 300px; padding: 15px; border: 1px solid #ccc; background: #fdfdfd;">
+                <strong>main.py</strong>
+                <pre><code class="language-python">
+import math_utils
+
+result = math_utils.add(10, 5)
+print(result) # 15
+print(math_utils.PI)
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Understanding Packages</h2>
+        <p>A <strong>Package</strong> is a step up from a module. It is a directory that contains multiple modules, allowing you to organize them into a hierarchy. For a directory to be treated as a package, it traditionally contains an <code>__init__.py</code> file. This allows you to import like this: <code>import my_app.database.models</code>.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: File tree diagram showing a Package structure with __init__.py and sub-modules]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the architecture of modules and packages with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Modules & Packages (Corey Schafer)</strong><br>
+                <a href="https://www.youtube.com/watch?v=CqvZ3vGoGs0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The definitive guide to organizing your Python projects.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Standard Library Overview</strong><br>
+                <a href="https://www.youtube.com/watch?v=S7v_lX8I_Yc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A tour of the most useful modules that come with Python.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Creating Custom Modules (Socratica)</strong><br>
+                <a href="https://www.youtube.com/watch?v=689N9DCHpW4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to share code between files efficiently.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Toolbox and the Warehouse</h2>
+        <p>Think of a <strong>Module</strong> like a <strong>Specific Tool</strong> in your toolbox. You have a hammer for nails, a screwdriver for screws, and a tape measure for distances. Each is a separate object with a specific job. You don't build a single tool that does everything; you carry the ones you need. Think of the <strong>Standard Library</strong> like a <strong>Hardware Store</strong> that is always open and free for you to walk into—you don't have to manufacture your own screws; you just go and "import" them. Finally, think of a <strong>Package</strong> like a <strong>Department in a Warehouse</strong>. The "Plumbing" department has its own aisle of tools, and the "Electrical" department has another. By organizing the warehouse into these logical sections (Packages), you can find exactly what you need even in a building containing millions of items.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/modules.html" target="_blank">Official Python Docs: Modules</a></li>
+            <li><a href="https://realpython.com/python-modules-packages/" target="_blank">Real Python: Modules and Packages Primer</a></li>
+            <li><a href="https://www.w3schools.com/python/python_modules.asp" target="_blank">W3Schools: Python Modules Guide</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-package/" target="_blank">Python Tutorial: Comprehensive Packages Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Advanced Functions</a>
+            <a href="#" data-file="Python2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Ecosystem & Dependency &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,82 @@
+<article>
+    <h1>Networks II: Page 1 - TCP: Connection-Oriented Reliability</h1>
+
+    <section>
+        <h2>The Trustworthy Protocol</h2>
+        <p>In our previous module, we learned how data is routed across networks using IP. However, IP is "best-effort"—it doesn't guarantee that a packet will arrive, nor does it guarantee they will arrive in the right order. This is why we need the <strong>Transmission Control Protocol (TCP)</strong>. TCP sits on top of IP at the Transport Layer (Layer 4) and provides a reliable, ordered, and error-checked byte stream. If you are browsing the web, checking email, or transferring files, you are using TCP. It turns the chaotic nature of the internet into a dependable communication channel.</p>
+    </section>
+
+    <section>
+        <h2>1. The Three-Way Handshake</h2>
+        <p>Before any data can be exchanged, TCP must establish a connection. This is done through a "three-way handshake," which ensures that both the sender and the receiver are ready to communicate.</p>
+        
+        <h3>The Handshake Steps:</h3>
+        <ol>
+            <li><strong>SYN (Synchronize):</strong> The client sends a packet with the SYN flag set to the server, suggesting a connection.</li>
+            <li><strong>SYN-ACK (Synchronize-Acknowledge):</strong> The server responds with a SYN-ACK packet, confirming it received the request and is ready to talk.</li>
+            <li><strong>ACK (Acknowledge):</strong> The client sends an ACK packet, confirming it received the server's response. The connection is now established.</li>
+        </ol>
+        <pre><code class="language-text">
+Client              Server
+  |-- SYN ----------->|
+  |<-- SYN-ACK -------|
+  |-- ACK ----------->|
+  | Connection Established |
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Ensuring Reliability: Sequence & Acknowledgments</h2>
+        <p>Once connected, TCP breaks data into <strong>Segments</strong>. Each segment gets a <strong>Sequence Number</strong>. If the receiver gets segment #1, #3, and #4, it knows segment #2 is missing and asks the sender to retransmit it. This ensures data arrives in the correct order, even if packets take different paths across the internet.</p>
+        
+        <h3>Flow & Congestion Control</h3>
+        <ul>
+            <li><strong>Flow Control:</strong> Prevents the sender from overwhelming the receiver's buffer (using a "Window Size").</li>
+            <li><strong>Congestion Control:</strong> Detects if the network itself is overloaded (packet loss) and slows down the transmission rate to prevent a network-wide collapse.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master TCP reliability with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. TCP Three-Way Handshake</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A visual step-by-step of how connections are established.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. TCP Sequence and Acknowledgement</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How TCP guarantees data is not lost or reordered.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Flow Control and Congestion Control</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how TCP adjusts speed to prevent network crashes.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Registered Letter</h2>
+        <p>Think of <strong>TCP</strong> like a <strong>Registered Letter (Certified Mail)</strong>. You write a letter, and the post office gives you a tracking number. They guarantee it will arrive. When the recipient gets the letter, they must sign for it (Acknowledgment). If the letter doesn't arrive in three days, you get a notification that the delivery failed and you send a second copy. Think of <strong>UDP</strong>, on the other hand, like <strong>Sending a Bunch of Postcards</strong>. You drop 100 postcards in the mailbox. Some might get there before others, some might be delivered in reverse order, and some might fall out of the mail truck and disappear. You don't get tracking numbers, but the postcards were much faster and cheaper to send. TCP is for when the *content* matters; UDP is for when *speed* matters.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank">Wikipedia: TCP Protocol</a></li>
+            <li><a href="https://www.geeksforgeeks.org/tcp-three-way-handshake/" target="_blank">GeeksforGeeks: Three-Way Handshake</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html" target="_blank">Cisco: TCP vs UDP</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Reliability in TCP</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: IPv6 Evolution</a>
+            <a href="#" data-file="Networks2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: UDP: Speed vs. Reliability &rarr;</a>
+        </div>
+    </footer>
+</article>

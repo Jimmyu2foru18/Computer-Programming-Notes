@@ -1,0 +1,45 @@
+<article>
+    <h1>System Design II: Page 7 - Integration: Gateways & Queues</h1>
+
+    <section>
+        <h2>Decoupling Components</h2>
+        <p>In a large-scale system, components should be <strong>loosely coupled</strong>. If Service A needs to call Service B directly, they become brittle—if Service B goes down, Service A fails. We use <strong>Message Queues</strong> to enable asynchronous, reliable communication, and <strong>API Gateways</strong> to provide a single, centralized entry point for clients, handling routing, security, and protocol translation.</p>
+    </section>
+
+    <section>
+        <h2>1. Key Integration Tools</h2>
+        <ul>
+            <li><strong>Message Queues (RabbitMQ, Kafka):</strong> Allow services to communicate by putting messages in a buffer. Service A sends a message and continues its work; Service B reads it whenever it's ready.</li>
+            <li><strong>API Gateway (Kong, AWS API Gateway):</strong> The traffic controller. It receives client requests, handles authentication, routes to the correct backend service, and aggregates responses.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Message Queue workflow:
+# Producer (Service A) -> [Queue] -> Consumer (Service B)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Intro to Message Queues</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. What is an API Gateway?</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Microservice Communication</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: DB: Indexing & Tuning</a>
+            <a href="#" data-file="System2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Integration: Webhooks &rarr;</a>
+        </div>
+    </footer>
+</article>

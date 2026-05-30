@@ -1,0 +1,80 @@
+<article>
+    <h1>Software Engineering II: Page 7 - System Design: Architecture & Microservices</h1>
+
+    <section>
+        <h2>The Evolution of Structure</h2>
+        <p>System Architecture is the high-level structure of a software system—it is the "map" that shows how different components are organized and how they communicate. In the early days of software, most applications were <strong>Monoliths</strong>, meaning the entire system was built as a single, massive unit. While simple to deploy, monoliths become difficult to scale and maintain as they grow. Today, the industry has shifted toward <strong>Microservices</strong>—an architectural style that structures an application as a collection of small, autonomous services modeled around a business domain.</p>
+    </section>
+
+    <section>
+        <h2>1. Monolith vs. Microservices</h2>
+        <p>Choosing an architecture is a series of trade-offs. There is no "perfect" structure; there is only the structure that best fits your team's size and project goals.</p>
+        <ul>
+            <li><strong>Monolith:</strong> Fast to develop initially, easy to test, and simple to deploy. However, a single bug can crash the whole system, and you must scale the <em>entire</em> app even if only one feature is slow.</li>
+            <li><strong>Microservices:</strong> Each service is independent. You can use different languages for different tasks (e.g., Python for AI, Java for Finance). If one service fails, the others keep running. However, it is much more complex to manage and requires strong DevOps skills.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison of a 'Big Cube' (Monolith) vs. many 'Small Interconnected Cubes' (Microservices)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Service Communication</h2>
+        <p>In a microservices world, services must talk to each other to complete a task. There are two primary patterns:</p>
+        <ol>
+            <li><strong>Synchronous (REST/gRPC):</strong> Service A calls Service B and waits for an immediate answer. This is simple but creates tight coupling.</li>
+            <li><strong>Asynchronous (Message Queues):</strong> Service A sends a message to a "Queue" (like RabbitMQ or Kafka) and moves on. Service B picks up the message whenever it's ready. This is the foundation of <strong>Event-Driven Architecture</strong>.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>3. Key Components: The API Gateway</h2>
+        <p>In a complex system with 50 microservices, you don't want the user's browser to talk to all 50 directly. An <strong>API Gateway</strong> acts as a single entry point. it handles security, logging, and "routes" the user's request to the correct internal service. It is the "Concierge" of your system architecture.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the design of distributed systems with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Monolith vs Microservices Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=rv4LlmLU69g" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear guide to the most popular architecture choice.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Microservices Architecture (Real-World Case Study)</strong><br>
+                <a href="https://www.youtube.com/watch?v=j_H_0B6x2Sg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>See how companies like Netflix and Uber structure their systems.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. API Gateways & Service Mesh</strong><br>
+                <a href="https://www.youtube.com/watch?v=160Vp2XU9_U" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how services find and talk to each other safely.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The General Store and the Mega-Mall</h2>
+        <p>Think of a <strong>Monolith</strong> like a <strong>Small-Town General Store</strong>. One building holds the food, the tools, the clothes, and the post office. It's easy to manage—you only have one set of keys and one roof to fix. But if the roof leaks over the tools, the whole store might have to close. Think of <strong>Microservices</strong> like a <strong>Mega-Mall</strong>. The "Food Court" is one service, the "Clothing Store" is another, and the "Cinema" is a third. They are all in different buildings or sections. If the Food Court has a grease fire (a Service Failure), the Cinema can stay open. You can hire a different manager for each store (Technology Agnostic). However, you now need a security team, a central information desk (API Gateway), and a complex walk-way system to get people between the stores (Networking).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://microservices.io/" target="_blank">Microservices.io: Patterns and Best Practices</a></li>
+            <li><a href="https://martinfowler.com/articles/microservices.html" target="_blank">Martin Fowler: Microservices Definition</a></li>
+            <li><a href="https://www.nginx.com/blog/introduction-to-microservices/" target="_blank">NGINX: Intro to Microservices Guide</a></li>
+            <li><a href="https://aws.amazon.com/microservices/" target="_blank">AWS: What are Microservices?</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Socket Programming</a>
+            <a href="#" data-file="Soft2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: QA & Testing Pyramid &rarr;</a>
+        </div>
+    </footer>
+</article>

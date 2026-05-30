@@ -1,0 +1,101 @@
+<article>
+    <h1>Python II: Page 5 - Object-Oriented Programming (OOP): Encapsulation & Properties</h1>
+
+    <section>
+        <h2>The Principle of Data Protection</h2>
+        <p>In the previous page, we learned how to build objects with data and behavior. However, simply having data isn't enough—we must also <strong>protect</strong> it. <strong>Encapsulation</strong> is the practice of bundling data and methods into a single unit and restricting direct access to the internal state of the object. This prevents accidental corruption of data and allows the developer to control how information is modified.</p>
+    </section>
+
+    <section>
+        <h2>Access Control: Public, Protected, and Private</h2>
+        <p>Unlike languages like Java, Python does not have strict "private" keywords. Instead, it relies on community naming conventions to signal how an attribute should be treated.</p>
+        
+        <h3>1. Public (Default)</h3>
+        <p>Attributes like <code>self.name</code> are public. They can be read and modified from anywhere.</p>
+
+        <h3>2. Protected (<code>_attribute</code>)</h3>
+        <p>A single underscore is a "soft" signal to other developers: "This is internal; please don't touch it directly." Python won't stop you, but you are breaking the contract of the class.</p>
+
+        <h3>3. Private (<code>__attribute</code>)</h3>
+        <p>A double underscore triggers <strong>Name Mangling</strong>. Python changes the name of the attribute internally (e.g., <code>_ClassName__attribute</code>) to make it much harder to access from outside the class.</p>
+        <pre><code class="language-python">
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner          # Public
+        self._balance = balance     # Protected
+        self.__pin = "1234"         # Private (Mangled)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>The Pythonic Way: <code>@property</code> Decorators</h2>
+        <p>If we make an attribute private, we still need a way to interact with it. In other languages, you write <code>get_balance()</code> and <code>set_balance()</code> methods. In Python, we use the <code>@property</code> decorator to make methods behave exactly like attributes. This provides a clean interface while allowing for <strong>validation</strong> behind the scenes.</p>
+        <pre><code class="language-python">
+class BankAccount:
+    def __init__(self, initial_balance=0):
+        self._balance = initial_balance
+
+    @property
+    def balance(self):
+        """The Getter."""
+        return self._balance
+
+    @balance.setter
+    def balance(self, amount):
+        """The Setter with validation."""
+        if amount >= 0:
+            self._balance = amount
+        else:
+            raise ValueError("Balance cannot be negative!")
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing an external request hitting a 'Setter' wall where validation logic checks the data before allowing it into the private storage]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master encapsulation and properties with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Property Decorators - Getters, Setters, and Deleters</strong><br>
+                <a href="https://www.youtube.com/watch?v=jCzT9XFZ5bw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the Pythonic way to manage attribute access.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Encapsulation and Name Mangling Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=xYvH2n77LTo" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why Python uses underscores and how 'private' data works.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Why Use Encapsulation? (Design Patterns)</strong><br>
+                <a href="https://www.youtube.com/watch?v=pDInX8Y20Yg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The software engineering benefits of hiding internal state.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The ATM and the Volume Knob</h2>
+        <p>Think of <strong>Encapsulation</strong> like an <strong>ATM</strong>. The bank has a huge "Database" of money (Attributes), but they don't let you reach into the vault and grab cash yourself (Direct Access). Instead, they provide a screen and keypad (The Interface). You can only <code>withdraw()</code> or <code>deposit()</code> by following their rules and providing a PIN. Think of the <strong><code>@property</code> Setter</strong> like the <strong>Volume Knob</strong> on a high-end stereo. To you, it's just a simple dial. But inside, the knob is a "Setter" that has validation: it won't let you turn the volume to 1,000% because that would blow the speakers. The complexity of the electrical circuit is hidden (Encapsulated), leaving you with a safe and simple way to control the system.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/library/functions.html#property" target="_blank">Official Python Docs: property()</a></li>
+            <li><a href="https://realpython.com/python-property/" target="_blank">Real Python: Python's property() Guide</a></li>
+            <li><a href="https://www.w3schools.com/python/python_classes.asp" target="_blank">W3Schools: Python Encapsulation</a></li>
+            <li><a href="https://pythontutorial.net/python-oop/python-private-attributes/" target="_blank">Python Tutorial: Private Attributes</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Classes & Instances</a>
+            <a href="#" data-file="Python2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Inheritance & MRO &rarr;</a>
+        </div>
+    </footer>
+</article>

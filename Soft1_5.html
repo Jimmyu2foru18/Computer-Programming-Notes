@@ -1,0 +1,120 @@
+<article>
+    <h1>Software Engineering I: Page 5 - SOLID Design Principles: LSP, ISP & DIP</h1>
+
+    <section>
+        <h2>Completing the SOLID Foundation</h2>
+        <p>In the previous page, we established that a class should have one job (SRP) and should be easy to extend without modification (OCP). This page covers the final three principles of SOLID: <strong>LSP</strong>, <strong>ISP</strong>, and <strong>DIP</strong>. These principles deal with the relationships between classes and how to structure dependencies to avoid "Fragile" and "Rigid" code. When followed correctly, they allow large teams to work on a single codebase with confidence that their changes won't break unrelated features.</p>
+    </section>
+
+    <section>
+        <h2>3. Liskov Substitution Principle (LSP)</h2>
+        <p><em>"Objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program."</em></p>
+        <p>This means a subclass must truly "Is-A" version of its parent. It shouldn't break the parent's logic or throw unexpected exceptions for methods the parent is supposed to handle. A classic violation is a <code>Penguin</code> class inheriting from a <code>Bird</code> class that has a <code>fly()</code> method.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+// BAD: Penguin can't fly!
+class Bird { void fly() { /* ... */ } }
+class Penguin extends Bird {
+    void fly() { throw new UnsupportedOperationException(); }
+}
+
+// GOOD: Proper hierarchy
+class Bird { /* general bird traits */ }
+class FlyingBird extends Bird { void fly() { /* ... */ } }
+class Sparrow extends FlyingBird { /* ... */ }
+class Penguin extends Bird { void swim() { /* ... */ } }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>4. Interface Segregation Principle (ISP)</h2>
+        <p><em>"No client should be forced to depend on methods it does not use."</em></p>
+        <p>Instead of one giant "Fat" interface, it is better to have many small, specialized interfaces. This prevents a class from having to implement "dummy" methods that it doesn't actually need.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+// BAD: Fat Interface
+interface SmartDevice { void print(); void fax(); void scan(); }
+
+// GOOD: Segregated Interfaces
+interface Printer { void print(); }
+interface Scanner { void scan(); }
+
+class BasicPrinter implements Printer {
+    public void print() { /* implementation */ }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>5. Dependency Inversion Principle (DIP)</h2>
+        <p><em>"Depend on abstractions, not concretions."</em></p>
+        <p>High-level modules (like your business logic) should not depend on low-level modules (like a specific database). Both should depend on an <strong>Interface</strong>. This allows you to swap out the low-level module (e.g., switching from MySQL to MongoDB) without ever touching your high-level logic.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+// GOOD: Depending on Abstraction
+interface MessageService { void send(String msg); }
+
+class EmailService implements MessageService { 
+    public void send(String msg) { /* send email */ } 
+}
+
+class UserNotification {
+    private MessageService service; // Depends on interface, NOT EmailService
+    public UserNotification(MessageService s) { this.service = s; }
+    void notifyUser() { service.send("Hello!"); }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing 'High Level Logic' and 'Low Level Detail' both pointing to a central 'Abstraction' layer, representing Dependency Inversion]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the advanced SOLID principles with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Liskov Substitution Principle Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=-3UXq2krhyw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why your subclasses must respect the parent's contract.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Interface Segregation: Keeping it Lean</strong><br>
+                <a href="https://www.youtube.com/watch?v=vVj_u_pAtH8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Avoid the "Fat Interface" trap in your system design.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Dependency Inversion & Dependency Injection</strong><br>
+                <a href="https://www.youtube.com/watch?v=mI1PsX_8I0I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The secret to writing truly decoupled and testable code.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Battery and the Wall Socket</h2>
+        <p>Think of <strong>LSP</strong> like <strong>Batteries</strong>. If you have a remote control that takes "AA" batteries, you can use a Duracell, an Energizer, or a rechargeable Amazon brand. As long as they follow the "AA Specification" (the Superclass), the remote doesn't care which one you use—it will work correctly. Think of <strong>ISP</strong> like a <strong>Power Strip</strong>. You don't want a power strip that forces you to plug in a toaster, a lamp, and a fridge all at once just to get power for your phone. You want separate outlets (Interfaces) so you only plug in what you need. Finally, think of <strong>DIP</strong> like a <strong>Wall Socket</strong>. Your house provides a standardized "Abstraction" (the Socket). Your lamp (High-level) doesn't know if the power is coming from a Coal Plant, a Solar Farm, or a Wind Turbine (Low-level Details). If the power company changes their "Implementation" (switches from Coal to Solar), your lamp keeps working without any changes because it depends on the Abstraction of the wall socket.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html" target="_blank">Clean Coder: The SOLID Principles</a></li>
+            <li><a href="https://www.baeldung.com/java-liskov-substitution-principle" target="_blank">Baeldung: Guide to LSP</a></li>
+            <li><a href="https://www.baeldung.com/java-dependency-inversion" target="_blank">Baeldung: DIP in Java</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/interface-segregation-principle/" target="_blank">Java Tutorial: Understanding ISP</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: SOLID: SRP & OCP</a>
+            <a href="#" data-file="Soft1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Clean Code (DRY/KISS/YAGNI) &rarr;</a>
+        </div>
+    </footer>
+</article>

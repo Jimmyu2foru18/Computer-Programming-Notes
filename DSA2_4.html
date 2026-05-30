@@ -1,0 +1,83 @@
+<article>
+    <h1>DSA II: Page 4 - Binary Search Trees (BST)</h1>
+
+    <section>
+        <h2>Ordered Hierarchies</h2>
+        <p>A <strong>Binary Search Tree (BST)</strong> is a specialized binary tree that maintains a specific order: for any given node, all elements in its <strong>left subtree are smaller</strong> than the node, and all elements in its <strong>right subtree are greater</strong> (or equal). This structural property makes searching, inserting, and deleting nodes remarkably fast—typically <strong>O(log n)</strong> if the tree remains relatively balanced.</p>
+    </section>
+
+    <section>
+        <h2>1. Core BST Operations</h2>
+        <ul>
+            <li><strong>Search:</strong> Compare the target value with the current node. If it's smaller, go left; if larger, go right.</li>
+            <li><strong>Insert:</strong> Traverse like a search until you find an empty spot, then insert the new node.</li>
+            <li><strong>Delete:</strong> More complex; involves handling leaf nodes, nodes with one child, and nodes with two children (by swapping with the in-order successor).</li>
+        </ul>
+        <pre><code class="language-python">
+# BST Search
+def search(node, target):
+    if not node or node.data == target:
+        return node
+    return search(node.left, target) if target < node.data else search(node.right, target)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Tree Traversals</h2>
+        <p>How do you visit every node in a BST? Traversals define the order:</p>
+        <ul>
+            <li><strong>Inorder (Left, Root, Right):</strong> Visits nodes in <em>sorted order</em>.</li>
+            <li><strong>Preorder (Root, Left, Right):</strong> Useful for creating a copy of the tree.</li>
+            <li><strong>Postorder (Left, Right, Root):</strong> Useful for deleting the tree or evaluating expressions.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: A BST showing Inorder, Preorder, and Postorder traversal paths]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master BSTs with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Binary Search Trees Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The structural rules for BSTs.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. BST Operations (Insert/Delete)</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to safely modify a BST structure.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Tree Traversals</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Inorder, Preorder, and Postorder techniques.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Sorting Decision Tree</h2>
+        <p>Think of a <strong>BST</strong> like a <strong>Game of "Twenty Questions"</strong> to guess a number between 1 and 100. If you guess 50 and the person says "higher," you've just eliminated all numbers 1–50. You effectively split the search space (the tree) into two branches based on the answer. This is exactly how a BST works: each node represents a decision, splitting the "search space" into smaller and smaller subtrees until you arrive at the correct value (the leaf or the node).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" target="_blank">Wikipedia: Binary Search Tree</a></li>
+            <li><a href="https://www.geeksforgeeks.org/binary-search-tree-data-structure/" target="_blank">GeeksforGeeks: BST Basics</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_trees_bst.php" target="_blank">W3Schools: DSA BST</a></li>
+            <li><a href="https://visualgo.net/en/bst" target="_blank">Tool: BST Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Trees: Intro</a>
+            <a href="#" data-file="DSA2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Balanced Trees &rarr;</a>
+        </div>
+    </footer>
+</article>

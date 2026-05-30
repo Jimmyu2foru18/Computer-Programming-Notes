@@ -1,0 +1,78 @@
+<article>
+    <h1>Linux I: Page 2 - Installation</h1>
+
+    <section>
+        <h2>Getting Linux on Your Hardware</h2>
+        <p>Installing Linux is the first step toward true computing freedom. While it might seem daunting, most modern distributions have made the process incredibly user-friendly. Whether you are dual-booting alongside Windows, replacing Windows entirely, or installing it on a dedicated server, the core steps remain consistent: prepare your installation media, partition your storage, and configure your system settings.</p>
+    </section>
+
+    <section>
+        <h2>1. The Installation Workflow</h2>
+        <ol>
+            <li><strong>Get the ISO:</strong> Download the ISO file from your chosen distribution's official website.</li>
+            <li><strong>Prepare Bootable Media:</strong> Use tools like <em>Etcher</em> or <em>Rufus</em> to burn the ISO onto a USB drive.</li>
+            <li><strong>Boot the Installer:</strong> Restart your computer, enter the BIOS/UEFI (usually F2, F12, or Delete on boot), and set the USB drive as the first boot device.</li>
+            <li><strong>Partitioning:</strong> Decide how to use your disk. Beginners should generally choose "Erase disk and install Linux." Advanced users create specific partitions:
+                <ul>
+                    <li><strong>/ (Root):</strong> The core system (allocate 20GB+).</li>
+                    <li><strong>/home:</strong> Your personal files (use remaining space).</li>
+                    <li><strong>Swap:</strong> Virtual memory, especially useful for low-RAM systems.</li>
+                </ul>
+            </li>
+        </ol>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Partitioning example: /root, /home, /swap]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. A Note on Safety</h2>
+        <p><strong>Warning:</strong> The partitioning step is permanent. If you choose to erase your disk, <em>all data on the drive will be destroyed</em>. Always ensure you have a complete backup of your important files before proceeding with an OS installation.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Linux installation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. How to Create Bootable USB</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Using tools like Etcher or Rufus to prepare your installation media.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Installing Linux for Beginners</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step walkthrough of the Ubuntu installer.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Understanding Disk Partitioning</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why partitioning is necessary and how to plan it.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Moving Into a New House</h2>
+        <p>Think of <strong>Installation</strong> like <strong>Moving into a new house</strong>. First, you have to pack your belongings (your data), ensuring everything is backed up. The <strong>Partitioning</strong> step is like deciding how to use the rooms—this is the kitchen, that is the bedroom, and there's the storage area. You can't just throw everything into one room; you need structure (partitions) to make the house functional. Once you've partitioned, you move your belongings in (the OS installation). If you don't back up before "moving in," you might lose everything you owned in the old house!</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://ubuntu.com/tutorials/install-ubuntu-desktop" target="_blank">Official Ubuntu Installation Guide</a></li>
+            <li><a href="https://docs.fedoraproject.org/en-US/fedora/latest/install-guide/" target="_blank">Fedora Installation Guide</a></li>
+            <li><a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank">Arch Linux Installation Guide</a></li>
+            <li><a href="https://www.balena.io/etcher/" target="_blank">Tool: BalenaEtcher (Bootable USB creator)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Distros</a>
+            <a href="#" data-file="Linux1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: GUI Environments &rarr;</a>
+        </div>
+    </footer>
+</article>

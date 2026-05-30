@@ -1,0 +1,101 @@
+<article>
+    <h1>C# II: Page 5 - Data Persistence: File I/O & Streams</h1>
+
+    <section>
+        <h2>Beyond Volatile Memory</h2>
+        <p>Until now, all the data we've worked with has been stored in <strong>RAM</strong>. The moment you close your program, that data is gone. To build useful applications, we must be able to save data permanently to the hard drive and read it back later. C# provides a robust set of tools in the <code>System.IO</code> namespace for interacting with the file system. We use <strong>Streams</strong>—a sequence of bytes—to move data between our application and external files. Whether you are saving a high score, logging errors, or processing a massive CSV file, mastering File I/O is essential for any professional engineer.</p>
+    </section>
+
+    <section>
+        <h2>1. The <code>File</code> Class: High-Level Convenience</h2>
+        <p>For simple tasks like reading or writing a small text file all at once, the static <code>File</code> class is the easiest tool. It handles opening and closing the file automatically.</p>
+        <pre><code class="language-csharp">
+string path = "data.txt";
+// Writing
+File.WriteAllText(path, "Hello from C#!");
+
+// Reading
+string content = File.ReadAllText(path);
+Console.WriteLine(content);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Streams: <code>StreamReader</code> and <code>StreamWriter</code></h2>
+        <p>If you are working with a massive file (e.g., a 10GB log file), you cannot load the whole thing into RAM at once. You must use <strong>Streams</strong> to process the data line-by-line. This is much more memory-efficient.</p>
+        <pre><code class="language-csharp">
+using (StreamWriter writer = new StreamWriter("log.txt", true)) {
+    writer.WriteLine($"{DateTime.Now}: User logged in.");
+}
+
+using (StreamReader reader = new StreamReader("log.txt")) {
+    string line;
+    while ((line = reader.ReadLine()) != null) {
+        Console.WriteLine(line);
+    }
+}
+        </code></pre>
+        <div style="background: #eef; padding: 15px; border-left: 5px solid #007bff; margin: 20px 0;">
+            <strong>Expert Note:</strong> Always wrap your stream objects in a <code>using</code> block. This ensures the file is "unlocked" and resources are freed even if an exception occurs during reading or writing.
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Working with Directories and Paths</h2>
+        <p>The <code>Path</code> class helps you manage file names and directories in a cross-platform way, ensuring your code works on both Windows (backslashes) and Linux (forward slashes).</p>
+        <pre><code class="language-csharp">
+string folder = "Reports";
+string file = "daily.pdf";
+string fullPath = Path.Combine(folder, file); // Safe concatenation
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Data Stream' as a pipe of water flowing from a 'File' tank into an 'Application' bucket]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the filesystem with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Working with Files and Directories in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to create, delete, and move files safely.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. StreamReader and StreamWriter Deep Dive</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the performance benefits of buffered I/O.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. File I/O & Error Handling Best Practices</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Avoid common pitfalls like file locks and permission errors.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Garden Hose and the Shipping Container</h2>
+        <p>Think of <strong>Stream-based I/O</strong> like a <strong>Garden Hose</strong>. Data flows character-by-character (or drop-by-drop). You can only see what is coming out of the nozzle at this exact second. This is great for continuous tasks like logging. Think of <strong>File.ReadAllText</strong> like a <strong>Shipping Container</strong>. You don't care about the individual drops; you just want to move the entire container from the ship (the Disk) to the warehouse (the RAM) in one highly efficient trip. Finally, think of <strong>Path.Combine</strong> like a <strong>Translator</strong>: if you tell a New Yorker to go to "Main and 5th," they know what to do. If you tell a Londoner the same, they might get lost. <code>Path.Combine</code> ensures your directions are translated perfectly for the local Operating System.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/standard/io/" target="_blank">Official Microsoft: File and Stream I/O</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-file-io" target="_blank">Baeldung: Guide to File I/O in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_files.php" target="_blank">W3Schools: C# Files Tutorial</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-file-io/" target="_blank">File I/O Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Exception Handling</a>
+            <a href="#" data-file="CSharp2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Delegates & Events &rarr;</a>
+        </div>
+    </footer>
+</article>

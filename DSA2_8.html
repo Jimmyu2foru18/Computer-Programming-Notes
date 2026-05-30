@@ -1,0 +1,80 @@
+<article>
+    <h1>DSA II: Page 8 - Graph Traversal (BFS & DFS)</h1>
+
+    <section>
+        <h2>Exploring Complex Relationships</h2>
+        <p>A graph is just a collection of nodes and edges. To actually <em>use</em> that data, you need to be able to visit those nodes in a systematic way. This is called <strong>Graph Traversal</strong>. There are two primary approaches: <strong>Breadth-First Search (BFS)</strong> and <strong>Depth-First Search (DFS)</strong>. Choosing between them often depends on what you're trying to achieve—finding the shortest path (BFS) or exploring every branch of a structure (DFS).</p>
+    </section>
+
+    <section>
+        <h2>1. BFS: Breadth-First Search</h2>
+        <p>BFS explores the graph <strong>level-by-level</strong>. Starting at the root, it visits all immediate neighbors, then all neighbors of neighbors, and so on. BFS is implemented using a <strong>Queue</strong> (FIFO), which keeps track of the next nodes to visit.</p>
+        <p><strong>Use Case:</strong> Finding the shortest path in an <em>unweighted</em> graph (because it expands in concentric circles).</p>
+        <pre><code class="language-python">
+def bfs(graph, start):
+    visited = {start}
+    queue = [start]
+    while queue:
+        node = queue.pop(0)
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. DFS: Depth-First Search</h2>
+        <p>DFS explores the graph by going <strong>as deep as possible</strong> down one branch before backtracking. It is implemented using a <strong>Stack</strong> (or recursion), which naturally tracks the path backwards.</p>
+        <p><strong>Use Case:</strong> Cycle detection, solving mazes, topological sorting.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison: BFS (level-by-level circles) vs. DFS (deep dive down a single branch)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master graph traversals with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. BFS Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Level-by-level exploration using a queue.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. DFS Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Deep exploration using a stack or recursion.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. BFS vs. DFS: When to Use Which</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Comparing the algorithms for real-world problems.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Searching for a Lost Key</h2>
+        <p>Think of <strong>BFS</strong> like searching for a lost key in a <strong>Multi-Room House</strong> by looking in every room on the ground floor first, then every room on the second floor. You are guaranteed to find the key in the fewest *number of rooms* away from your starting point. Think of <strong>DFS</strong> like searching by <strong>following one specific path</strong>—going all the way to the attic, then checking the attic closets, then coming down to the bedroom, then the bedroom closet. If the key is in the attic, you find it instantly, but if it was in the kitchen (the very last place you look), you waste a lot of time exploring other rooms first.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">Wikipedia: BFS</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank">Wikipedia: DFS</a></li>
+            <li><a href="https://www.geeksforgeeks.org/graph-traversal-bfs-and-dfs/" target="_blank">GeeksforGeeks: BFS & DFS</a></li>
+            <li><a href="https://visualgo.net/en/dfsbfs" target="_blank">Tool: Traversal Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Graphs: Intro</a>
+            <a href="#" data-file="DSA2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Dynamic Programming &rarr;</a>
+        </div>
+    </footer>
+</article>

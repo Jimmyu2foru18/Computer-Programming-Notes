@@ -1,0 +1,82 @@
+<article>
+    <h1>DSA I: Page 2 - Arrays & Dynamic Lists</h1>
+
+    <section>
+        <h2>The Fundamental Building Block</h2>
+        <p>The <strong>Array</strong> is arguably the most essential data structure in computer science. It stores a collection of elements of the same type in <strong>contiguous memory locations</strong>. This simple, linear layout is what makes arrays incredibly fast for accessing data by its index. However, this same rigid structure brings limitations when you need to change the size of the array frequently.</p>
+    </section>
+
+    <section>
+        <h2>1. Static vs. Dynamic Arrays</h2>
+        <ul>
+            <li><strong>Static Arrays:</strong> Fixed size. You must know how much memory you need before you create the array. They are extremely fast but inflexible.</li>
+            <li><strong>Dynamic Arrays (Array Lists):</strong> Resizable arrays. When you add an element, if the array is full, it automatically creates a larger array, copies the existing elements over, and adds the new one. This is what you use when you create a <code>list</code> in Python or an <code>ArrayList</code> in Java.</li>
+        </ul>
+        
+        <h3>Time Complexity</h3>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 10px; text-align: left;">Operation</th>
+                <th style="padding: 10px; text-align: left;">Complexity</th>
+            </tr>
+            <tr><td style="padding: 10px;">Access (by index)</td><td style="padding: 10px;">O(1)</td></tr>
+            <tr><td style="padding: 10px;">Insert (at end)</td><td style="padding: 10px;">O(1) (Amortized)</td></tr>
+            <tr><td style="padding: 10px;">Insert (at beginning/middle)</td><td style="padding: 10px;">O(n)</td></tr>
+            <tr><td style="padding: 10px;">Delete</td><td style="padding: 10px;">O(n)</td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>2. Why Random Access is Fast</h2>
+        <p>Because arrays are stored in a contiguous block of memory, the computer knows the memory address of every element just by using math: <code>Address = BaseAddress + (Index * ElementSize)</code>. This calculation takes constant time, making <strong>O(1) access</strong> the defining superpower of the array.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Memory addresses of an array showing Base Address + Index calculation]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master arrays with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Arrays Explained Simply</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The foundational concept of contiguous memory.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Dynamic Arrays (Array Lists)</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How they resize and why insertion is O(n).</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Big O of Array Operations</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why random access is fast but insertion can be slow.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Row of Lockers</h2>
+        <p>Think of an <strong>Array</strong> like a <strong>Row of Lockers</strong> in a school hallway. Each locker is numbered (the Index) and placed right next to the next one (Contiguous Memory). If I want to find Locker #5, I just walk to the 5th spot—I know exactly where it is immediately (O(1) access). However, if the school wants to add a new locker in the middle of the row, I have to physically move every single locker after that spot to make room (O(n) insertion). That's why arrays are great for reading, but potentially slow for frequent middle-of-the-pack insertions.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Array_data_structure" target="_blank">Wikipedia: Array Data Structure</a></li>
+            <li><a href="https://www.geeksforgeeks.org/array-data-structure/" target="_blank">GeeksforGeeks: Array Basics</a></li>
+            <li><a href="https://www.w3schools.com/python/python_lists.asp" target="_blank">W3Schools: Python Lists</a></li>
+            <li><a href="https://visualgo.net/en/array" target="_blank">Tool: Array Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & Big O</a>
+            <a href="#" data-file="DSA1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Linked Lists &rarr;</a>
+        </div>
+    </footer>
+</article>

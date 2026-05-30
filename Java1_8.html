@@ -1,0 +1,98 @@
+<article>
+    <h1>Java I: Page 8 - Modular Logic: Methods & Overloading</h1>
+
+    <section>
+        <h2>Grouping Action</h2>
+        <p>In the first seven pages, we learned how to store data and control the flow of execution. However, if we simply kept writing code in one long <code>main</code> method, our programs would become unreadable. To build professional software, we must break our logic into smaller, reusable blocks called <strong>Methods</strong> (known as "functions" in other languages). Methods allow you to write a specific set of instructions once and "call" them from anywhere else in your program, following the <strong>DRY (Don't Repeat Yourself)</strong> principle.</p>
+    </section>
+
+    <section>
+        <h2>1. Method Syntax</h2>
+        <p>In Java, every method must be part of a class. The syntax is strict and requires you to define the visibility, the return type, and the parameters.</p>
+        <pre><code class="language-java">
+// [access] [modifier] [return_type] [name]([parameters])
+public static int addNumbers(int a, int b) {
+    int sum = a + b;
+    return sum; // Hand the result back to the caller
+}
+        </code></pre>
+        <ul>
+            <li><strong>Access Modifier:</strong> (e.g., <code>public</code>) Determines who can call this method.</li>
+            <li><strong>Return Type:</strong> (e.g., <code>int</code>) The type of data the method sends back. Use <code>void</code> if the method returns nothing.</li>
+            <li><strong>Parameters:</strong> The inputs the method needs to do its job.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Method Overloading</h2>
+        <p>In many languages, you can't have two functions with the same name. Java, however, allows <strong>Method Overloading</strong>. You can have multiple methods with the exact same name, as long as they have different <strong>Signatures</strong> (different types or number of parameters). The compiler is smart enough to know which one you want based on the arguments you pass.</p>
+        <pre><code class="language-java">
+public int multiply(int a, int b) { return a * b; }
+
+public double multiply(double a, double b) { return a * b; }
+
+public int multiply(int a, int b, int c) { return a * b * c; }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Varargs: Variable Arguments</h2>
+        <p>Sometimes you don't know how many inputs a method will receive. Java handles this with <strong>Varargs</strong> (<code>type... name</code>), which treats the incoming arguments as an array inside the method.</p>
+        <pre><code class="language-java">
+public int sumAll(int... numbers) {
+    int total = 0;
+    for (int n : numbers) total += n;
+    return total;
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing data flowing into a Method's parameters and a Return arrow pointing back to the Caller]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java methods and modular design with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Methods (Programming with Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=mAt6V-mreU8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A beginner-friendly guide to defining and calling methods.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Method Overloading in Java (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to create multiple methods with the same name.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Static Methods vs Instance Methods</strong><br>
+                <a href="https://www.youtube.com/watch?v=0A26Y_F_QyM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand when to use the 'static' keyword.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The ATM and the Recipe</h2>
+        <p>Think of a <strong>Method</strong> like a <strong>Recipe</strong> in a cookbook. The recipe is written once. It has placeholders like "Quantity of sugar" (Parameters). When you decide to bake (Call the method), you provide the actual sugar (Arguments). The cake you pull out of the oven is the <strong>Return Value</strong>. Think of <strong>Method Overloading</strong> like a <strong>Smart ATM</strong>. If you put in a card, it shows the "Withdraw" menu. If you put in a check, it shows the "Deposit" menu. The ATM (the Method Name) is the same, but it changes its behavior based on what you "give" it (the Arguments). This flexibility makes the machine intuitive and easy to use without needing separate buttons for every tiny variation.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank">Official Java Docs: Defining Methods</a></li>
+            <li><a href="https://www.baeldung.com/java-method-overload-override" target="_blank">Baeldung: Overloading vs Overriding</a></li>
+            <li><a href="https://www.w3schools.com/java/java_methods.asp" target="_blank">W3Schools: Java Methods</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-varargs/" target="_blank">Java Tutorial: Variable Arguments (Varargs)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: String Handling</a>
+            <a href="#" data-file="Java1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Classes & Objects &rarr;</a>
+        </div>
+    </footer>
+</article>

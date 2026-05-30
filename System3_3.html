@@ -1,0 +1,51 @@
+<article>
+    <h1>System Design III: Page 3 - Deployment: CI/CD</h1>
+
+    <section>
+        <h2>Automated Delivery</h2>
+        <p>In a professional environment, you never manually copy files to a server. That is a recipe for error. <strong>Continuous Integration (CI)</strong> and <strong>Continuous Deployment (CD)</strong> (together known as <strong>CI/CD</strong>) automate the entire path from code change to live site. Every time you push to Git, a pipeline kicks off: running tests, building assets, and deploying your application automatically. If a test fails, the pipeline halts, protecting your production environment from breaking changes.</p>
+    </section>
+
+    <section>
+        <h2>1. The Pipeline Components</h2>
+        <ul>
+            <li><strong>CI (Continuous Integration):</strong> Automatically building and testing code on every push to detect bugs early.</li>
+            <li><strong>CD (Continuous Deployment):</strong> Automatically shipping code to production servers if the CI tests pass.</li>
+        </ul>
+        <pre><code class="language-yaml">
+# GitHub Actions Example
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install &amp;&amp; npm test
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. CI/CD Pipeline Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. GitHub Actions Tutorial</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Automated Deployment</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System3_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Design: Security</a>
+            <a href="#" data-file="System3_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Deployment: IaC &rarr;</a>
+        </div>
+    </footer>
+</article>

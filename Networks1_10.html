@@ -1,0 +1,87 @@
+<article>
+    <h1>Networks I: Page 10 - The Next Frontier: IPv6 Evolution</h1>
+
+    <section>
+        <h2>The Exhaustion of IPv4</h2>
+        <p>IPv4, with its 32-bit address space, offers approximately 4.3 billion possible IP addresses. When the internet was designed in the 1970s, this seemed like an infinite amount. But as the number of devices exploded—PCs, laptops, phones, and now every imaginable IoT "smart" device—we officially ran out of public IPv4 addresses. To keep the internet growing, a new protocol was required. <strong>IPv6 (Internet Protocol version 6)</strong> was designed to provide a virtually infinite address space, along with built-in security and streamlined routing.</p>
+    </section>
+
+    <section>
+        <h2>1. IPv6 Structure and Notation</h2>
+        <p>IPv6 uses a 128-bit address, represented in <strong>Hexadecimal</strong> notation. An IPv6 address is broken into eight groups of four hexadecimal digits, separated by colons (e.g., <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>).</p>
+        
+        <h3>Zero Suppression and Compression</h3>
+        <p>To make addresses easier to read and type, IPv6 allows for zero compression:</p>
+        <ul>
+            <li><strong>Leading Zeros:</strong> You can omit leading zeros in a group (e.g., <code>0db8</code> becomes <code>db8</code>).</li>
+            <li><strong>Double Colon (::):</strong> You can replace a single contiguous string of all-zero groups with a double colon (<code>::</code>). This can only be used <strong>once</strong> in an address.</li>
+        </ul>
+        <pre><code class="language-text">
+Full: 2001:0db8:0000:0000:0000:8a2e:0370:7334
+Comp: 2001:db8::8a2e:370:7334
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Address Types in IPv6</h2>
+        <ul>
+            <li><strong>Unicast:</strong> Used for one-to-one communication (like standard IPv4).</li>
+            <li><strong>Multicast:</strong> Used for one-to-many communication (sending data to a group of devices).</li>
+            <li><strong>Anycast:</strong> Sends data to the "nearest" device in a group (e.g., used for efficient DNS lookups).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Transitioning: Dual-Stack and Tunneling</h2>
+        <p>You can't just flip a switch and turn off IPv4. For years, we must use <strong>Dual-Stack</strong> (a device has both IPv4 and IPv6 addresses simultaneously) or <strong>Tunneling</strong> (wrapping an IPv6 packet inside an IPv4 packet to traverse IPv4-only network segments).</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the jump from IPv4 (a small pool) to IPv6 (the entire ocean)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the future of internet addressing with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Why do we need IPv6?</strong><br>
+                <a href="https://www.youtube.com/watch?v=s_m8_D_kY_o" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the exhaustion of IPv4 addresses.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. IPv6 Notation and Compression</strong><br>
+                <a href="https://www.youtube.com/watch?v=UI6lqHOVHic" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to read and compress complex IPv6 addresses.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Transitioning: Dual-Stack and Tunneling</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to run IPv4 and IPv6 side-by-side.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Area Code and the Global Phone System</h2>
+        <p>Think of <strong>IPv4</strong> like the <strong>original Telephone Area Code system</strong>. When it was designed, 3 digits were more than enough for the whole country. But as the number of phones exploded, we ran out of combinations. IPv6 is like switching to a <strong>Global 20-digit Phone System</strong>. It provides so many numbers that you could assign an IP address to every single atom on the surface of the Earth and still have trillions left over. It’s not just a technical upgrade; it's a necessary expansion to allow the "Internet of Things" (smart fridges, lights, cars) to communicate globally without requiring the complex address-translation workarounds (NAT) we use today.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/IPv6" target="_blank">Wikipedia: IPv6</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: IPv6 Introduction</a></li>
+            <li><a href="https://www.geeksforgeeks.org/ipv6-addressing-and-its-types/" target="_blank">GeeksforGeeks: IPv6 Addressing</a></li>
+            <li><a href="https://test-ipv6.com/" target="_blank">Tool: Check if your network supports IPv6</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Subnetting & CIDR</a>
+            <a href="#" data-file="Networks2_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Networks II - TCP Protocols &rarr;</a>
+        </div>
+    </footer>
+</article>

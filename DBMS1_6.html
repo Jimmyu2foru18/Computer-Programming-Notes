@@ -1,0 +1,97 @@
+<article>
+    <h1>DBMS I: Page 6 - SQL Basics: Subqueries & Common Table Expressions (CTEs)</h1>
+
+    <section>
+        <h2>Complex Data Questions</h2>
+        <p>In our earlier pages, we learned how to perform basic queries and joins. But sometimes, a single query isn't enough. You might need to find "all employees whose salary is higher than the <em>average</em> salary." To solve this, you first need to calculate the average, and then use that result in a second search. This is where <strong>Subqueries</strong> and <strong>Common Table Expressions (CTEs)</strong> come in. They allow you to nest one query inside another, creating sophisticated logic pipelines that can answer the most difficult business questions.</p>
+    </section>
+
+    <section>
+        <h2>1. Subqueries: The Nested Query</h2>
+        <p>A subquery is a <code>SELECT</code> statement nested inside another SQL statement. It is typically enclosed in parentheses and can be used in the <code>WHERE</code>, <code>FROM</code>, or even the <code>SELECT</code> clause.</p>
+        
+        <h3>Example: Using Subquery in WHERE</h3>
+        <pre><code class="language-sql">
+SELECT name, salary 
+FROM employees 
+WHERE salary > (SELECT AVG(salary) FROM employees);
+        </code></pre>
+        <p>In this example, the inner query runs first to find the average. That single value is then passed to the outer query to filter the list.</p>
+    </section>
+
+    <section>
+        <h2>2. Common Table Expressions (CTEs): The WITH Clause</h2>
+        <p>While subqueries are powerful, they can become unreadable if you nest them too deeply. <strong>CTEs</strong> provide a cleaner, more organized alternative. A CTE acts like a temporary result set that you define at the start of your query and can then refer to like a regular table. It uses the <code>WITH</code> keyword.</p>
+        
+        <h3>Example: Using a CTE</h3>
+        <pre><code class="language-sql">
+WITH DeptAverages AS (
+    SELECT dept_id, AVG(salary) as avg_sal
+    FROM employees
+    GROUP BY dept_id
+)
+SELECT e.name, e.salary, d.avg_sal
+FROM employees e
+JOIN DeptAverages d ON e.dept_id = d.dept_id
+WHERE e.salary > d.avg_sal;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Russian Nesting Doll' representing Subqueries vs. a 'Clean Assembly Line' representing CTEs]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Choosing the Right Tool</h2>
+        <ul>
+            <li><strong>Use a Subquery</strong> for simple, one-off lookups or when checking for existence (<code>EXISTS</code>).</li>
+            <li><strong>Use a CTE</strong> for complex queries, multi-step data transformations, or when you need to use the same temporary result set multiple times in one query.</li>
+            <li><strong>Recursion:</strong> Some databases allow "Recursive CTEs," which are essential for querying hierarchical data like organizational charts or family trees.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master complex query structures with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL Subqueries in 5 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=nNfMOn0T_Cg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the basics of nesting SELECT statements.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. CTEs (Common Table Expressions) Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=pDInX8Y20Yg" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the 'WITH' clause for cleaner SQL.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Subqueries vs CTEs: Performance & Clarity</strong><br>
+                <a href="https://www.youtube.com/watch?v=S8pB2aP59W4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn when to choose one over the other in professional projects.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Executive Assistant and the Scratchpad</h2>
+        <p>Think of a <strong>Subquery</strong> like an <strong>Executive Assistant</strong>. When you (the Main Query) need an answer (e.g., "Find the top-selling product"), you pause your work and ask the assistant to find that specific number. Once the assistant gives you the answer, you use it to finish your task. Think of a <strong>CTE</strong> like a <strong>Scratchpad or a Whiteboard</strong>. Before you start your main job, you write down a temporary table on the whiteboard (e.g., "Monthly Sales by Region"). For the rest of the hour, you can look at that whiteboard whenever you need, combining it with other data without having to re-calculate the sales every time. It makes your workflow much more organized and faster to explain to a coworker.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_any_all.asp" target="_blank">W3Schools: SQL Subqueries</a></li>
+            <li><a href="https://www.baeldung.com/sql-common-table-expressions" target="_blank">Baeldung: Guide to SQL CTEs</a></li>
+            <li><a href="https://www.geeksforgeeks.org/sql-with-clause/" target="_blank">GeeksforGeeks: The WITH Clause</a></li>
+            <li><a href="https://mode.com/sql-tutorial/sql-subqueries/" target="_blank">Mode SQL Tutorial: Subqueries Deep Dive</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Aggregates & Grouping</a>
+            <a href="#" data-file="DBMS1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: ER Modeling &rarr;</a>
+        </div>
+    </footer>
+</article>

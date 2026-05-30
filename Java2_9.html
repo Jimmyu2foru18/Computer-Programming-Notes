@@ -1,0 +1,104 @@
+<article>
+    <h1>Java II: Page 9 - Concurrency: Multithreading Basics</h1>
+
+    <section>
+        <h2>Doing Many Things at Once</h2>
+        <p>In most of our previous examples, code ran sequentially—one line after another. But in the real world, software often needs to handle multiple tasks at the same time. A web server must handle hundreds of users simultaneously; a video game must update graphics while playing sound and checking for input. <strong>Multithreading</strong> is the ability of a CPU to provide multiple threads of execution concurrently. Java was built with multithreading as a core feature, making it a primary choice for high-performance, concurrent applications.</p>
+    </section>
+
+    <section>
+        <h2>1. Threads: The Unit of Execution</h2>
+        <p>A <strong>Thread</strong> is the smallest unit of processing that can be performed in an OS. In Java, you can create and manage threads using the <code>Thread</code> class. There are two primary ways to define a thread's task.</p>
+        
+        <h3>Method A: Extending the <code>Thread</code> Class</h3>
+        <pre><code class="language-java">
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running!");
+    }
+}
+// Usage
+MyThread t1 = new MyThread();
+t1.start(); // Spawns the new thread
+        </code></pre>
+
+        <h3>Method B: Implementing <code>Runnable</code> (Preferred)</h3>
+        <p>This is generally preferred because it allows your class to still inherit from another class (since Java only supports single inheritance).</p>
+        <pre><code class="language-java">
+class MyTask implements Runnable {
+    public void run() {
+        System.out.println("Task is running in a thread!");
+    }
+}
+// Usage
+Thread t2 = new Thread(new MyTask());
+t2.start();
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Thread Lifecycle and Control</h2>
+        <p>A thread goes through several states: <strong>New</strong>, <strong>Runnable</strong>, <strong>Running</strong>, <strong>Blocked/Waiting</strong>, and <strong>Terminated</strong>. You can control a thread using methods like <code>sleep()</code> (pause execution) and <code>join()</code> (wait for a thread to finish).</p>
+        <pre><code class="language-java">
+try {
+    Thread.sleep(1000); // Pause for 1 second
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: State Machine diagram showing the lifecycle of a Java Thread]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Synchronization: Preventing Chaos</h2>
+        <p>When multiple threads try to access the same data (like a bank balance) at the same time, data corruption can occur. This is called a <strong>Race Condition</strong>. Java uses the <code>synchronized</code> keyword to ensure that only one thread can access a specific piece of code at a time.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master concurrency and threads with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Multithreading Explained (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=Xj1u57rq9eI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best introduction to Thread and Runnable.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Thread Lifecycle and States</strong><br>
+                <a href="https://www.youtube.com/watch?v=0A26Y_F_QyM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how threads move between states in memory.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Synchronization and Race Conditions</strong><br>
+                <a href="https://www.youtube.com/watch?v=BJ99L6pLpEc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the 'Synchronized' keyword and thread safety.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Restaurant Kitchen and the Shared Notebook</h2>
+        <p>Think of <strong>Multithreading</strong> like a <strong>Busy Restaurant Kitchen</strong>. If there was only one chef (one Thread), the customers would wait hours for their food. Instead, there are multiple chefs working concurrently. One chops vegetables, one grills steak, and one plates the food. They all work independently but contribute to the same meal (the Program). Think of a <strong>Race Condition</strong> like two chefs trying to write in the <strong>same inventory notebook</strong> at the same time—the ink gets smudged and the count becomes wrong. <strong>Synchronization</strong> is like a <strong>Lock on the Notebook</strong>: only one chef can hold the pen at a time. They must wait for the other to finish before they can record their data, ensuring the information remains clean and accurate.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html" target="_blank">Official Java Docs: Concurrency</a></li>
+            <li><a href="https://www.baeldung.com/java-thread-lifecycle" target="_blank">Baeldung: Guide to Thread Lifecycle</a></li>
+            <li><a href="https://www.w3schools.com/java/java_threads.asp" target="_blank">W3Schools: Java Threads</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-multithreading/" target="_blank">Java Tutorial: Comprehensive Multithreading Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: File I/O & NIO</a>
+            <a href="#" data-file="Java2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Collections & Generics &rarr;</a>
+        </div>
+    </footer>
+</article>

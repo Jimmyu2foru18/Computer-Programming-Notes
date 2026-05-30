@@ -1,0 +1,81 @@
+<article>
+    <h1>Networks II: Page 4 - DHCP: Automatic Network Configuration</h1>
+
+    <section>
+        <h2>Joining the Network Automatically</h2>
+        <p>Imagine if every time you connected your laptop to a coffee shop's Wi-Fi, you had to manually type in a specific IP address, a subnet mask, a default gateway, and DNS server addresses. It would be a nightmare. Furthermore, you'd likely end up with "IP conflicts" where two devices try to use the same address. The <strong>Dynamic Host Configuration Protocol (DHCP)</strong> solves this by automating the entire process. When a device joins a network, it silently asks a DHCP server for an IP configuration, and the server assigns one automatically for a specific period (a <strong>Lease</strong>). This allows devices to "plug and play" on any network without user intervention.</p>
+    </section>
+
+    <section>
+        <h2>1. The DORA Process</h2>
+        <p>The DHCP communication between a client and a server follows a specific four-step handshake, known by the acronym <strong>DORA</strong>:</p>
+        <ul>
+            <li><strong>Discover:</strong> The client broadcasts a message on the network: "Is there a DHCP server here?"</li>
+            <li><strong>Offer:</strong> The server responds with a broadcast: "I am a DHCP server, and I have this IP address available for you."</li>
+            <li><strong>Request:</strong> The client broadcasts: "I accept your offer! Please assign this IP to me."</li>
+            <li><strong>Acknowledge:</strong> The server broadcasts a final confirmation: "Done. The IP is yours for the next 24 hours."</li>
+        </ul>
+        <pre><code class="language-text">
+Client              DHCP Server
+  |-- Discover --------->|
+  |<-- Offer ------------|
+  |-- Request ---------->|
+  |<-- Acknowledge ------|
+  | IP Configuration Set |
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Lease Times and Address Pools</h2>
+        <p>DHCP servers maintain a <strong>Pool</strong> of available IP addresses. When a server gives an address to a client, it "leases" it. The client must renew this lease periodically (usually when 50% of the lease time has passed). If the client leaves the network or stops renewing, the server marks that IP as "Available" and adds it back to the pool to be used by a new device.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'DHCP Server' handing out addresses from a 'Pool' of IP numbers to various devices (Laptop, Phone, Smart TV)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master automatic network configuration with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. How DHCP Works (The DORA Process)</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear guide to the 4-step DHCP handshake.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. What is an IP Lease?</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand address expiration and renewal.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. DHCP Relay Agents Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How DHCP works across different subnet boundaries.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Rent-a-Car Counter</h2>
+        <p>Think of the <strong>DHCP Server</strong> like the <strong>Car Rental Desk</strong> at an airport. You (the Client) walk up to the desk and ask "Do you have a car?" (Discover). They say, "Yes, we have a sedan available, car #123" (Offer). You say, "I'll take it" (Request). They give you the keys and sign the paperwork for a 3-day period (Acknowledge/Lease). If you want to keep the car for longer, you must go back to the desk (the Renew process) before the 3 days are up. If you don't renew, the rental company puts the car back in their fleet pool, and the next traveler (a new device) can rent it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" target="_blank">Wikipedia: DHCP Overview</a></li>
+            <li><a href="https://www.geeksforgeeks.org/dynamic-host-configuration-protocol-dhcp/" target="_blank">GeeksforGeeks: DORA Process</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/support/docs/ip/dynamic-address-allocation-resolution/27470-100.html" target="_blank">Cisco: How DHCP Works</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_files.php" target="_blank">W3Schools: Networking Basics</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks2_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: DNS & Domain Resolution</a>
+            <a href="#" data-file="Networks2_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: HTTP & Web Protocols &rarr;</a>
+        </div>
+    </footer>
+</article>

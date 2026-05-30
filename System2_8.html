@@ -1,0 +1,48 @@
+<article>
+    <h1>System Design II: Page 8 - Integration: Webhooks</h1>
+
+    <section>
+        <h2>Event-Driven Notifications</h2>
+        <p>A <strong>Webhook</strong> is a simple but powerful mechanism: it’s a way for one application to provide other applications with real-time information. Instead of your server constantly asking another server "is there any new data?" (a wasteful process called <em>polling</em>), the other server simply "pushes" data to a URL you provide the moment an event occurs. This makes your application reactive and significantly reduces unnecessary network traffic.</p>
+    </section>
+
+    <section>
+        <h2>1. Webhook Lifecycle</h2>
+        <ul>
+            <li><strong>Subscription:</strong> You give the provider (e.g., Stripe, GitHub) a public URL on your server.</li>
+            <li><strong>Trigger:</strong> An event occurs on their side (e.g., payment received, code pushed).</li>
+            <li><strong>Push:</strong> The provider sends an HTTP POST request with a JSON payload to your URL.</li>
+            <li><strong>Response:</strong> Your server processes the data and sends back an HTTP 200 OK to acknowledge receipt.</li>
+        </ul>
+        <pre><code class="language-http">
+# Provider POST request to your endpoint
+POST /api/webhooks/stripe
+{ "event": "payment_succeeded", "amount": 1000 }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. What is a Webhook?</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Polling vs Webhooks</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Implementing Webhooks</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Integration: Gateways/Queues</a>
+            <a href="#" data-file="System2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Backend: Concurrency &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,75 @@
+<article>
+    <h1>Linux I: Page 5 - File System Hierarchy</h1>
+
+    <section>
+        <h2>Everything is a File</h2>
+        <p>In Linux, there is a fundamental design principle: <strong>"Everything is a file."</strong> Not just your documents and photos, but also your keyboard, your hard drives, your network interface, and even the processes running in memory. To manage this massive amount of data, Linux follows the <strong>File System Hierarchy Standard (FHS)</strong>. This standard ensures that whether you're using Ubuntu, Fedora, or a server distro, you'll always find configuration files in <code>/etc</code>, user data in <code>/home</code>, and temporary files in <code>/tmp</code>. Understanding this structure is essential for locating system tools and configuration files.</p>
+    </section>
+
+    <section>
+        <h2>1. Mapping the Hierarchy</h2>
+        <p>The hierarchy starts at the <strong>Root</strong> directory, denoted by a single slash (<code>/</code>). From there, it branches into specialized directories:</p>
+        <ul>
+            <li><code>/bin</code> & <code>/sbin</code>: Essential executable programs (e.g., <code>ls</code>, <code>cp</code>).</li>
+            <li><code>/etc</code>: System-wide configuration files (the heart of system admin).</li>
+            <li><code>/home</code>: User-specific files (documents, downloads).</li>
+            <li><code>/root</code>: The home directory of the root (administrator) user.</li>
+            <li><code>/var</code>: Variable data, like system logs (<code>/var/log</code>) and databases.</li>
+            <li><code>/proc</code> & <code>/sys</code>: Virtual filesystems that represent system processes and hardware state.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: A tree structure starting at Root (/) and showing the primary subdirectories]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Why FHS Matters</h2>
+        <p>Without the FHS, every developer would put their files wherever they wanted. The system would become unmanageable. The FHS provides a predictable "map," allowing administrators to quickly find what they need to fix, backup, or configure, regardless of who installed the software.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the FHS with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. The Linux File System Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding the root directory and subdirectories.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Linux Directory Structure</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Detailed breakdown of /bin, /etc, /var, and /home.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Why "Everything is a File" Matters</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The core design philosophy of Unix-like systems.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The City Hall & Filing System</h2>
+        <p>Think of the <strong>File System Hierarchy</strong> like a <strong>Well-Organized City</strong>. The <strong>Root (<code>/</code>)</strong> is the City Hall, where all addresses originate. <strong><code>/etc</code></strong> is the Office of Records, where all city ordinances and configuration rules are kept. <strong><code>/home</code></strong> is a residential neighborhood where families keep their personal property. <strong><code>/var</code></strong> is the City Archive, where they keep logs of every visitor and transaction that happened that day. If a city didn't have these organized districts, the police (system tools) wouldn't know where to look to keep things running, and the citizens (users) would be hopelessly lost.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://refspecs.linuxfoundation.org/fhs.shtml" target="_blank">FHS Official Specification</a></li>
+            <li><a href="https://www.geeksforgeeks.org/linux-file-system-structure/" target="_blank">GeeksforGeeks: File System Structure</a></li>
+            <li><a href="https://www.redhat.com/en/blog/linux-file-system-explained" target="_blank">Red Hat: Linux File System Explained</a></li>
+            <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey: File System (Interactive Tutorial)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: CLI Basics</a>
+            <a href="#" data-file="Linux1_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: File Operations &rarr;</a>
+        </div>
+    </footer>
+</article>

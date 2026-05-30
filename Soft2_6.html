@@ -1,0 +1,98 @@
+<article>
+    <h1>Software Engineering II: Page 6 - Network Communication: Socket Programming</h1>
+
+    <section>
+        <h2>The Digital Conversation</h2>
+        <p>In the modern era, software rarely lives in isolation. Your phone talks to a server, your web browser talks to a database, and your smart home devices talk to each other. <strong>Socket Programming</strong> is the foundational technique that enables this network communication between two different computers. A <strong>Socket</strong> is one endpoint of a two-way communication link between two programs running on a network. It is the "doorway" through which data enters and leaves a process.</p>
+    </section>
+
+    <section>
+        <h2>1. Core Network Concepts</h2>
+        <p>Before you can write socket code, you must understand two primary identifiers:</p>
+        <ul>
+            <li><strong>IP Address:</strong> The unique numerical identifier for a device on the network (e.g., <code>192.168.1.1</code>). It is like the "Mailing Address" of the building.</li>
+            <li><strong>Port Number:</strong> A 16-bit number that identifies a specific process or service on that device (e.g., Port 80 for HTTP). It is like the "Suite Number" inside the building.</li>
+        </ul>
+        
+        <h3>TCP vs. UDP</h3>
+        <p>Sockets typically use one of two transport protocols:</p>
+        <ol>
+            <li><strong>TCP (Transmission Control Protocol):</strong> Connection-oriented. It is reliable, ordered, and error-checked. It ensures that 100% of your data arrives in the correct order. (Used for Web, Email, and Files).</li>
+            <li><strong>UDP (User Datagram Protocol):</strong> Connectionless. It is faster but "unreliable"—some data might be lost or arrive out of order. (Used for Video Streaming, Gaming, and Voice calls).</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>2. TCP Socket Workflow (Java)</h2>
+        <p>Communication follows a specific handshake between a <strong>Server</strong> (which waits for requests) and a <strong>Client</strong> (which initiates the request).</p>
+        
+        <h3>Server-Side Implementation:</h3>
+        <pre><code class="language-java">
+// 1. Create ServerSocket on port 12345
+ServerSocket server = new ServerSocket(12345);
+// 2. Wait and Accept a connection
+Socket client = server.accept();
+// 3. Setup I/O streams
+BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+PrintWriter out = new PrintWriter(client.getOutputStream(), true);
+        </code></pre>
+
+        <h3>Client-Side Implementation:</h3>
+        <pre><code class="language-java">
+// 1. Connect to server at IP and Port
+Socket socket = new Socket("localhost", 12345);
+// 2. Send data
+PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+out.println("Hello Server!");
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Sequence diagram showing the Socket Lifecycle: Bind &rarr; Listen &rarr; Accept &rarr; Send/Receive &rarr; Close]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the world of networked applications with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Socket Programming in Java (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=ScUJx4adZ_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear introduction to building a Client-Server app.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. TCP vs UDP: The Animated Guide</strong><br>
+                <a href="https://www.youtube.com/watch?v=uKEnKxW7280" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the trade-offs between speed and reliability.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Multi-threaded Server in Java</strong><br>
+                <a href="https://www.youtube.com/watch?v=Xj1u57rq9eI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to handle multiple clients at the same time.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Telephone and the Postcard</h2>
+        <p>Think of <strong>TCP</strong> like a <strong>Telephone Call</strong>. You dial the number (the IP/Port). Someone picks up and says "Hello" (the Handshake). You talk back and forth, ensuring you heard every word correctly. If the signal drops, you know immediately. It is a persistent, reliable connection. Think of <strong>UDP</strong> like a <strong>Postcard</strong>. You write a message, drop it in the mailbox, and hope it gets there. There is no "Handshake." You don't know if the person received it unless they send one back. If the mail truck crashes, the message is lost forever. However, sending a postcard is much faster and cheaper than setting up a permanent phone line, which is why we use it for "live" data like a <strong>Video Stream</strong> where missing one tiny pixel doesn't ruin the whole experience.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/networking/sockets/index.html" target="_blank">Official Java Docs: Sockets Lesson</a></li>
+            <li><a href="https://www.baeldung.com/a-guide-to-java-sockets" target="_blank">Baeldung: Guide to Java Sockets</a></li>
+            <li><a href="https://www.geeksforgeeks.org/socket-programming-in-java/" target="_blank">GeeksforGeeks: Socket Programming</a></li>
+            <li><a href="https://pythontutorial.net/advanced-python/python-socket-programming/" target="_blank">Python Tutorial: Socket Programming (For Comparison)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: DevOps & CI/CD</a>
+            <a href="#" data-file="Soft2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Architecture & Microservices &rarr;</a>
+        </div>
+    </footer>
+</article>

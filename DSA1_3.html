@@ -1,0 +1,87 @@
+<article>
+    <h1>DSA I: Page 3 - Linked Lists</h1>
+
+    <section>
+        <h2>The Flexible Chain</h2>
+        <p>While arrays require contiguous memory, <strong>Linked Lists</strong> store data in nodes scattered throughout memory, connected by pointers. Each node contains two pieces of information: the data itself and a reference (or pointer) to the next node in the sequence. This structure makes Linked Lists the perfect solution when you need to perform frequent insertions and deletions, because you don't need to "shift" subsequent elements as you do with arrays. You simply update the pointer of the previous node to point to the new node!</p>
+    </section>
+
+    <section>
+        <h2>1. Node Structure & Types</h2>
+        <p>A Linked List is a series of nodes linked together.</p>
+        <ul>
+            <li><strong>Singly Linked List:</strong> Each node points only to the next node. You can only traverse in one direction.</li>
+            <li><strong>Doubly Linked List:</strong> Each node points to both the next <em>and</em> the previous node, allowing bidirectional traversal.</li>
+        </ul>
+        <pre><code class="language-python">
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None # Pointer to next node
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Complexity Comparison</h2>
+        <p>Linked Lists solve the insertion problem, but at a cost: random access is slow (O(n) because you must traverse nodes).</p>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 10px; text-align: left;">Operation</th>
+                <th style="padding: 10px; text-align: left;">Linked List</th>
+                <th style="padding: 10px; text-align: left;">Array</th>
+            </tr>
+            <tr><td style="padding: 10px;">Access</td><td style="padding: 10px;">O(n)</td><td style="padding: 10px;">O(1)</td></tr>
+            <tr><td style="padding: 10px;">Insert (known location)</td><td style="padding: 10px;">O(1)</td><td style="padding: 10px;">O(n)</td></tr>
+            <tr><td style="padding: 10px;">Delete (known location)</td><td style="padding: 10px;">O(1)</td><td style="padding: 10px;">O(n)</td></tr>
+        </table>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Comparing an Array (contiguous) vs. a Linked List (scattered nodes connected by arrows)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master linked lists with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Linked Lists Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The foundational concepts of nodes and pointers.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Singly vs. Doubly Linked Lists</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the structural differences.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Implementing a Linked List</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Hands-on coding implementation.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Scavenger Hunt</h2>
+        <p>Think of an <strong>Array</strong> like a <strong>Row of Lockers</strong> in a hall. You know exactly where everything is. Think of a <strong>Linked List</strong> like a <strong>Scavenger Hunt</strong>. You have a clue (data) in your hand, and that clue tells you exactly where to find the *next* clue (the pointer). You can't just skip to the 5th clue without visiting the 1st, 2nd, 3rd, and 4th clues first. But if you want to add a new clue to the middle of the hunt, you don't have to move all the other clues. You just change what the 3rd clue says to make it point to your new 4th clue, which then points to the old 4th clue.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Linked_list" target="_blank">Wikipedia: Linked List</a></li>
+            <li><a href="https://www.geeksforgeeks.org/data-structures/linked-list/" target="_blank">GeeksforGeeks: Linked List Basics</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_linkedlists.php" target="_blank">W3Schools: DSA Linked List</a></li>
+            <li><a href="https://visualgo.net/en/list" target="_blank">Tool: Linked List Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Arrays & Dynamic Lists</a>
+            <a href="#" data-file="DSA1_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Stacks &rarr;</a>
+        </div>
+    </footer>
+</article>

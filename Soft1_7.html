@@ -1,0 +1,109 @@
+<article>
+    <h1>Software Engineering I: Page 7 - Design Patterns: Creational Patterns</h1>
+
+    <section>
+        <h2>Solving Common Problems</h2>
+        <p>In software engineering, a <strong>Design Pattern</strong> is a general, reusable solution to a commonly occurring problem within a given context. Patterns are not finished designs that can be transformed directly into code; they are templates for how to solve a problem that can be used in many different situations. <strong>Creational Patterns</strong> focus on object creation mechanisms, trying to create objects in a manner suitable to the situation. They increase flexibility and reuse of existing code.</p>
+    </section>
+
+    <section>
+        <h2>1. Singleton Pattern</h2>
+        <p>The Singleton ensures that a class has <strong>only one instance</strong> and provides a global point of access to it. This is useful for things like database connection pools or configuration managers where multiple copies would be wasteful or dangerous.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+public class Database {
+    private static Database instance;
+    private Database() {} // Private constructor prevents 'new'
+
+    public static Database getInstance() {
+        if (instance == null) {
+            instance = new Database();
+        }
+        return instance;
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Factory Method Pattern</h2>
+        <p>The Factory Method defines an interface for creating an object, but lets subclasses decide which class to instantiate. This follows the <strong>DIP (Dependency Inversion Principle)</strong> by letting you work with abstractions rather than concrete classes.</p>
+        
+        <h3>The Code implementation (Java)</h3>
+        <pre><code class="language-java">
+interface Shape { void draw(); }
+class Circle implements Shape { public void draw() { /* circle */ } }
+class Square implements Shape { public void draw() { /* square */ } }
+
+class ShapeFactory {
+    public Shape getShape(String type) {
+        if (type.equalsIgnoreCase("CIRCLE")) return new Circle();
+        if (type.equalsIgnoreCase("SQUARE")) return new Square();
+        return null;
+    }
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Builder Pattern</h2>
+        <p>The Builder pattern separates the construction of a complex object from its representation. It allows you to produce different types and representations of an object using the same construction code. This is perfect for objects with many optional parameters (the "Telescoping Constructor" anti-pattern).</p>
+        <pre><code class="language-java">
+Computer myPC = new Computer.Builder()
+    .setCPU("Intel i7")
+    .setRAM("16GB")
+    .setGPU("RTX 3080")
+    .build();
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual comparison showing a 'Giant Constructor' vs. a clean 'Step-by-Step Builder' process]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of object creation with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Singleton Design Pattern (Derek Banas)</strong><br>
+                <a href="https://www.youtube.com/watch?v=NZaXM67GiAs" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into thread-safe singletons in Java.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Factory Method Pattern in 5 Minutes</strong><br>
+                <a href="https://www.youtube.com/watch?v=E_P-pS9LAs0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to decouple your code from concrete classes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Builder Pattern: Step-by-Step</strong><br>
+                <a href="https://www.youtube.com/watch?v=M7Xi1yO_st8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Solve the problem of complex object initialization.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The High-End Restaurant and the Subway Sandwich</h2>
+        <p>Think of the <strong>Singleton</strong> like the <strong>Executive Head Chef</strong> of a world-famous restaurant. There is only one Head Chef. If you need an answer about the menu, everyone in the building goes to that one person. If there were two Head Chefs giving different orders, the kitchen would fall into chaos. Think of the <strong>Factory Method</strong> like a <strong>Restaurant Menu</strong>. You order "Pasta." You don't care exactly which cook makes it or how they boil the water; the "Factory" (the Kitchen) just hands you a "Pasta" object that satisfies your hunger. Finally, think of the <strong>Builder</strong> like a <strong>Subway Sandwich Shop</strong>. You don't just order "Food." You walk down the line: "I want white bread," then "add turkey," then "no onions," then "toasted." You build your unique sandwich step-by-step until it's exactly what you need.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://refactoring.guru/design-patterns/creational-patterns" target="_blank">Refactoring Guru: Creational Patterns</a></li>
+            <li><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" target="_blank">JournalDev: Java Design Patterns Guide</a></li>
+            <li><a href="https://www.geeksforgeeks.org/creational-design-patterns/" target="_blank">GeeksforGeeks: Creational Patterns</a></li>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">Official Java Docs: Access Control (Essential for Patterns)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft1_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Clean Code (DRY/KISS/YAGNI)</a>
+            <a href="#" data-file="Soft1_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Structural Design Patterns &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,56 @@
+<article>
+    <h1>System Design II: Page 10 - Backend: Microservices</h1>
+
+    <section>
+        <h2>Scaling Complexity</h2>
+        <p>A <strong>Microservices Architecture</strong> decomposes a large application into a collection of small, autonomous services, each responsible for a specific business capability (e.g., Auth, Catalog, Cart). This allows teams to develop, deploy, and scale these services independently. However, this architectural freedom comes at the price of massive operational complexity in networking, data consistency, and distributed tracing.</p>
+    </section>
+
+    <section>
+        <h2>1. Key Pillars of Microservices</h2>
+        <ul>
+            <li><strong>Independence:</strong> Each service can use its own language, framework, and database.</li>
+            <li><strong>Communication:</strong> Sync (REST/gRPC) for immediate responses; Async (Queues) for eventual consistency.</li>
+            <li><strong>Orchestration:</strong> Tools (Kubernetes) manage the lifecycle (deployment/scaling) of dozens or hundreds of services.</li>
+        </ul>
+        <pre><code class="language-text">
+# Request Flow Example
+Client -> API Gateway -> [Order Service]
+                          |--> [Payment Service] (Async)
+        </code></pre>
+    </section>
+
+    <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
+        <h2>Series Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the 10-page Backend & Databases Masterclass! To further expand your professional backend skills, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. Microservices.io</strong><br>
+                <p><small>The definitive resource for microservice patterns.</small></p>
+                <a href="https://microservices.io/" target="_blank">Visit Microservices.io &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. Designing Data-Intensive Apps</strong><br>
+                <p><small>The "Bible" of backend systems design.</small></p>
+                <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781449373320/" target="_blank">Read Book &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. System Design Primer</strong><br>
+                <p><small>GitHub's ultimate system design study guide.</small></p>
+                <a href="https://github.com/donnemartin/system-design-primer" target="_blank">Read GitHub &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. High Scalability Blog</strong><br>
+                <p><small>Case studies on how top tech companies scale.</small></p>
+                <a href="http://highscalability.com/" target="_blank">Visit Blog &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="System2_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Backend: Concurrency</a>
+            <a href="#" data-file="System3_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Ops: Scalability &rarr;</a>
+        </div>
+    </footer>
+</article>

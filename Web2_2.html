@@ -1,0 +1,81 @@
+<article>
+    <h1>Web Technologies II: Page 2 - PHP: Web & Databases</h1>
+
+    <section>
+        <h2>Dynamic Web Interaction</h2>
+        <p>PHP is at its best when it interacts with the user and stores data. Web applications are "stateful," meaning they remember who you are (Sessions) and process the information you submit (Forms). By connecting PHP to a database, you can transform a static site into a dynamic one—like a blog, an e-commerce store, or a user dashboard.</p>
+    </section>
+
+    <section>
+        <h2>1. Handling Forms: The Bridge</h2>
+        <p>Forms are how users talk to your server. When a user clicks "Submit," the browser sends the form data to a PHP script using either <strong>GET</strong> (visible in the URL) or <strong>POST</strong> (hidden in the request body). In PHP, you access this data via <strong>Superglobal arrays</strong>.</p>
+        <pre><code class="language-php">
+// process.php
+$name = $_POST['name'];
+echo "Hello, " . htmlspecialchars($name);
+        </code></pre>
+        <h3>Sessions: Remembering Users</h3>
+        <p>HTTP is "stateless," meaning the server forgets you the moment a page loads. <strong>Sessions</strong> create a persistent connection by storing a unique Session ID in the user's browser (a cookie). PHP uses this ID to map requests to the correct data on the server.</p>
+    </section>
+
+    <section>
+        <h2>2. Connecting to Databases (MySQL)</h2>
+        <p>PHP communicates with databases (like MySQL) to save and retrieve data. You should always use <strong>PDO (PHP Data Objects)</strong> because it supports prepared statements, which are vital for preventing <strong>SQL Injection</strong> attacks.</p>
+        <pre><code class="language-php">
+// Connecting with PDO
+$db = new PDO('mysql:host=localhost;dbname=test', 'user', 'pass');
+$stmt = $db-&gt;prepare("SELECT * FROM users WHERE email = ?");
+$stmt-&gt;execute([$email]);
+$user = $stmt-&gt;fetch();
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Flowchart: HTML Form &rarr; PHP Processing &rarr; Database Insert &rarr; Success Message]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master dynamic web interactions with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. PHP Form Handling (GET/POST)</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to securely capture user input.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. PHP Session Management</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to manage user logins and persistent state.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Intro to PHP & MySQL (PDO)</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Connecting your app to a database securely.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The ATM</h2>
+        <p>Think of <strong>Forms and PHP</strong> like an <strong>ATM Machine</strong>. You insert your card and enter your PIN (the Form Submission). The ATM (the PHP backend) takes your request, verifies your identity against the central banking server (the Database), and then returns your cash or tells you "Invalid PIN" (the Response). Think of a <strong>Session</strong> like the <strong>Active Session at the ATM</strong>. Once you log in, the ATM "remembers" it's you for that specific transaction until you hit "Cancel" or your time runs out. The bank doesn't have to re-verify who you are for every single button you press; it maintains that session until you explicitly end it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.php.net/manual/en/book.pdo.php" target="_blank">Official PHP: PDO Manual</a></li>
+            <li><a href="https://www.w3schools.com/php/php_forms.asp" target="_blank">W3Schools: PHP Forms</a></li>
+            <li><a href="https://www.phptherightway.com/" target="_blank">PHP: The Right Way (Best Practices)</a></li>
+            <li><a href="https://www.geeksforgeeks.org/php-sessions/" target="_blank">GeeksforGeeks: PHP Sessions</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: PHP Fundamentals</a>
+            <a href="#" data-file="Web2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Node.js & Express &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,87 @@
+<article>
+    <h1>Linux I: Page 4 - Command Line Interface (CLI) Basics</h1>
+
+    <section>
+        <h2>The Power of the Terminal</h2>
+        <p>The <strong>Command Line Interface (CLI)</strong>—or "Terminal"—is the most powerful tool in your Linux arsenal. While the GUI is great for general tasks, the CLI provides granular control, automation capabilities, and the ability to manage remote servers where GUIs are often not available. Don't be intimidated by the black screen with white text; it is not a relic of the past, but the primary language spoken by advanced Linux users and system administrators.</p>
+    </section>
+
+    <section>
+        <h2>1. Navigating Your System</h2>
+        <p>Before you can modify files, you must be able to move around the file system.</p>
+        <ul>
+            <li><code>pwd</code> (Print Working Directory): Tells you exactly where you are in the filesystem.</li>
+            <li><code>ls</code> (List): Lists the files and folders in your current directory. Use <code>ls -l</code> for detailed information (permissions, file size).</li>
+            <li><code>cd</code> (Change Directory): Moves you from one folder to another. <code>cd ..</code> moves you up one level.</li>
+        </ul>
+        <h3>Creating Content:</h3>
+        <ul>
+            <li><code>mkdir</code> (Make Directory): Creates a new folder.</li>
+            <li><code>touch</code>: Creates an empty file.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Example session:
+$ pwd
+/home/user
+$ mkdir projects
+$ cd projects
+$ touch hello.txt
+$ ls
+hello.txt
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Why Learn the CLI?</h2>
+        <p>It's faster, it's consistent across different Linux machines, and it's scriptable. Once you learn the commands, you can chain them together (piping) to perform incredibly complex tasks that would be impossible or slow to do with a mouse and GUI.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Terminal prompt with basic command syntax components labeled]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master CLI basics with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Linux Terminal Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understanding the prompt, basic commands, and navigation.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. File System Navigation</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Mastering pwd, ls, and cd.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Creating Files and Directories</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Using mkdir and touch in practice.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Map and Compass</h2>
+        <p>Think of the <strong>CLI</strong> as your <strong>Map and Compass</strong> when exploring a vast wilderness. A <strong>GUI</strong> is like a <strong>Pre-Planned Guided Tour</strong>—it shows you where you can go and keeps you on the paved paths. But if you want to explore the untracked forest (the deeper system files) or take the shortest path to your destination (automation), you need your map and compass (the CLI). It requires more skill and practice to read the map, but it allows you to go anywhere you want, at any time.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://ryanstutorials.net/linuxtutorial/" target="_blank">Ryan's Linux Tutorial (Best interactive CLI guide)</a></li>
+            <li><a href="https://www.codecademy.com/learn/learn-the-command-line" target="_blank">Codecademy: Learn the Command Line</a></li>
+            <li><a href="https://explainshell.com/" target="_blank">Tool: ExplainShell (Type a command, get an explanation)</a></li>
+            <li><a href="https://man7.org/linux/man-pages/index.html" target="_blank">Linux Man Pages Online</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: GUI Environments</a>
+            <a href="#" data-file="Linux1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: File System Hierarchy &rarr;</a>
+        </div>
+    </footer>
+</article>

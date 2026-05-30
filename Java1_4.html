@@ -1,0 +1,105 @@
+<article>
+    <h1>Java I: Page 4 - Control Flow: Branching with If & Switch</h1>
+
+    <section>
+        <h2>Decision Making in Java</h2>
+        <p>In the previous pages, we built a foundation of data and logic. Now, we must give our programs the ability to <strong>choose</strong> a path. Control flow is the order in which individual statements, instructions, or function calls are executed or evaluated. In Java, branching is achieved primarily through two structures: the flexible <code>if-else</code> block and the highly structured <code>switch</code> statement.</p>
+    </section>
+
+    <section>
+        <h2>1. The <code>if-else</code> Statement</h2>
+        <p>The <code>if</code> statement is the most basic control flow tool. It evaluates a boolean expression. if the result is <code>true</code>, the code block is executed. You can chain multiple conditions using <code>else if</code> and provide a final "catch-all" with <code>else</code>.</p>
+        <pre><code class="language-java">
+int score = 85;
+
+if (score >= 90) {
+    System.out.println("Grade: A");
+} else if (score >= 80) {
+    System.out.println("Grade: B");
+} else {
+    System.out.println("Grade: C or below");
+}
+        </code></pre>
+        <p>Java also supports the <strong>Ternary Operator</strong> for simple one-line decisions: <code>String status = (score >= 60) ? "Pass" : "Fail";</code></p>
+    </section>
+
+    <section>
+        <h2>2. The <code>switch</code> Statement</h2>
+        <p>When you need to compare a single variable against many possible discrete values, a <code>switch</code> statement is often cleaner and more performant than a long chain of <code>if-else</code> blocks. Traditionally, <code>switch</code> was used for simple equality checks on integers, chars, or Strings.</p>
+        
+        <h3>The Traditional Switch</h3>
+        <pre><code class="language-java">
+int day = 3;
+switch (day) {
+    case 1: System.out.println("Monday"); break;
+    case 2: System.out.println("Tuesday"); break;
+    case 3: System.out.println("Wednesday"); break;
+    default: System.out.println("Invalid day");
+}
+        </code></pre>
+        <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin: 20px 0;">
+            <strong>Warning:</strong> In traditional switches, forgetting the <code>break</code> keyword causes "Fall-through," where the program continues executing the next case regardless of whether it matches. This is a common source of bugs.
+        </div>
+    </section>
+
+    <section>
+        <h2>3. The Enhanced Switch (Java 14+)</h2>
+        <p>Modern Java has introduced a much more powerful and safer version of the switch. It uses the "Arrow" (<code>-></code>) syntax, which automatically prevents fall-through and allows the switch to <strong>return a value</strong> directly.</p>
+        <pre><code class="language-java">
+String dayType = switch (day) {
+    case 1, 2, 3, 4, 5 -> "Weekday";
+    case 6, 7          -> "Weekend";
+    default            -> "Unknown";
+};
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Comparison table showing 'Traditional Switch' vs 'Enhanced Switch' syntax]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java branching and decision-making with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java If-Else Statements (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=mAt6V-mreU8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The fundamentals of conditional logic in Java.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Switch Statement vs If-Else</strong><br>
+                <a href="https://www.youtube.com/watch?v=RVRPme8DNo8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn when to use each structure for maximum readability.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Enhanced Switch Expressions (Java 14+)</strong><br>
+                <a href="https://www.youtube.com/watch?v=S2fF_R_A1_k" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A deep dive into the modern way to write switch statements.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Railroad Switch and the Menu</h2>
+        <p>Think of <strong>If-Else</strong> like a <strong>Railroad Switch</strong>. A sensor checks the weight or destination of the train (the Condition). If the train is heading to "City A," the track moves to the left. If it's heading to "City B," it moves to the right. Each decision leads to a completely different destination. Think of <strong>Switch</strong> like a <strong>Vending Machine Menu</strong>. You press button 1 for water, button 2 for soda, or button 3 for juice. You don't need to check "Is it 1? No. Is it 2? No. Is it 3?"—the machine just jumps straight to the item you requested. The <strong>Enhanced Switch</strong> is like a smart vending machine that doesn't just give you the item, but also updates your account balance and prints a receipt (returns a value) in one smooth, error-proof motion.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html" target="_blank">Official Java Docs: If-Else</a></li>
+            <li><a href="https://docs.oracle.com/en/java/javase/14/language/switch-expressions.html" target="_blank">Official Java Docs: Switch Expressions</a></li>
+            <li><a href="https://www.baeldung.com/java-switch" target="_blank">Baeldung: Guide to Java Switch</a></li>
+            <li><a href="https://www.w3schools.com/java/java_switch.asp" target="_blank">W3Schools: Java Switch Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_3.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Operators & Logic</a>
+            <a href="#" data-file="Java1_5.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Loops: For & While &rarr;</a>
+        </div>
+    </footer>
+</article>

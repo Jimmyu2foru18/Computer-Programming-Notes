@@ -1,0 +1,82 @@
+<article>
+    <h1>Networks II: Page 5 - The Web: HTTP & Secure Protocols</h1>
+
+    <section>
+        <h2>The Language of the Web</h2>
+        <p>Almost everything you do in a web browser is governed by the <strong>Hypertext Transfer Protocol (HTTP)</strong>. HTTP is a request-response protocol—your browser (the Client) sends a request to a website (the Server), and the server sends back the web page content as a response. In the modern, secure web, we almost exclusively use <strong>HTTPS</strong>, which adds a layer of encryption (TLS/SSL) to HTTP, ensuring that nobody can spy on your traffic or steal your passwords. Understanding how HTTP requests and responses work is fundamental to web development and API design.</p>
+    </section>
+
+    <section>
+        <h2>1. The Request-Response Cycle</h2>
+        <p>Every web action follows a strict lifecycle. A request consists of a method, a URL, and headers. A response consists of a status code and the actual page content (HTML/JSON/etc.).</p>
+        
+        <h3>Common Methods:</h3>
+        <ul>
+            <li><strong>GET:</strong> Request data (e.g., loading a page).</li>
+            <li><strong>POST:</strong> Submit data (e.g., logging in, submitting a form).</li>
+            <li><strong>PUT/PATCH:</strong> Update existing data.</li>
+            <li><strong>DELETE:</strong> Remove data.</li>
+        </ul>
+        
+        <h3>Status Codes (The "Voice" of the Server):</h3>
+        <ul>
+            <li><strong>2xx (Success):</strong> 200 OK, 201 Created.</li>
+            <li><strong>4xx (Client Error):</strong> 404 Not Found, 401 Unauthorized.</li>
+            <li><strong>5xx (Server Error):</strong> 500 Internal Server Error.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. HTTPS: Encryption and Security</h2>
+        <p>HTTP is "cleartext"—if you send a password over HTTP, anyone on the same public Wi-Fi can see it. <strong>HTTPS</strong> solves this by using <strong>TLS (Transport Layer Security)</strong>, which encrypts the entire HTTP conversation. Before any data is sent, the client and server perform a "Handshake" to verify certificates and exchange encryption keys.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing an HTTP 'Unsecured' message vs. an HTTPS 'Locked' secure tunnel]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master web communication with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. How HTTP Works</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The request-response cycle explained visually.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. HTTPS and SSL/TLS Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how websites securely encrypt your data.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. HTTP Status Codes Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn what 404, 500, and 200 really mean.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Restaurant Waiter</h2>
+        <p>Think of <strong>HTTP</strong> like a <strong>Waiter at a Restaurant</strong>. You (the Client/Browser) give the waiter an order (the Request). The waiter takes it to the kitchen (the Server). The kitchen prepares the dish and hands it back to the waiter, who delivers it to your table (the Response). If you order something that isn't on the menu, the waiter returns with a "Sorry, that's not available" (404 Error). Think of <strong>HTTPS</strong> like a <strong>Waiter wearing a Mask and talking to you in Code</strong>. Nobody else in the restaurant can hear what you're ordering, and you have proof that the waiter actually works for the restaurant (the SSL Certificate) rather than being an imposter trying to steal your order.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">Wikipedia: HTTP</a></li>
+            <li><a href="https://www.w3schools.com/tags/ref_httpmethods.asp" target="_blank">W3Schools: HTTP Methods</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" target="_blank">MDN: HTTP Overview</a></li>
+            <li><a href="https://www.baeldung.com/cs/https-vs-http" target="_blank">Baeldung: HTTP vs HTTPS</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks2_4.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: DHCP & Dynamic Config</a>
+            <a href="#" data-file="Networks2_6.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Email Protocols &rarr;</a>
+        </div>
+    </footer>
+</article>

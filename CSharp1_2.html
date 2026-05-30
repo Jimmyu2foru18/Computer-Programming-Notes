@@ -1,0 +1,123 @@
+<article>
+    <h1>C# I: Page 2 - Variables, Data Types & Primitives</h1>
+
+    <section>
+        <h2>Storing Data in C#</h2>
+        <p>In any program, you need a way to store and retrieve information. In C#, we use <strong>Variables</strong> for this. Because C# is a <strong>Strongly Typed</strong> language, every variable must have a declared "Data Type." This type tells the computer how much memory to set aside and what kind of operations are allowed (e.g., you can't subtract a word from a number). C# provides a rich set of built-in types, ranging from simple numbers to complex text strings. Understanding these is the first step toward writing efficient and safe code.</p>
+    </section>
+
+    <section>
+        <h2>1. Simple Types: The Primitives</h2>
+        <p>Primitive types are the most basic data units. They are value types, meaning they store the actual data directly in memory (usually on the <strong>Stack</strong>).</p>
+        
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 10px; text-align: left;">Type</th>
+                <th style="padding: 10px; text-align: left;">Description</th>
+                <th style="padding: 10px; text-align: left;">Size</th>
+                <th style="padding: 10px; text-align: left;">Example</th>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>int</code></td>
+                <td style="padding: 10px;">Whole numbers</td>
+                <td style="padding: 10px;">32-bit</td>
+                <td style="padding: 10px;"><code>int age = 30;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>double</code></td>
+                <td style="padding: 10px;">High-precision decimals</td>
+                <td style="padding: 10px;">64-bit</td>
+                <td style="padding: 10px;"><code>double pi = 3.14159;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>decimal</code></td>
+                <td style="padding: 10px;">Financial/Money accuracy</td>
+                <td style="padding: 10px;">128-bit</td>
+                <td style="padding: 10px;"><code>decimal price = 19.99m;</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;"><code>bool</code></td>
+                <td style="padding: 10px;">Logic (True/False)</td>
+                <td style="padding: 10px;">8-bit</td>
+                <td style="padding: 10px;"><code>bool isAlive = true;</code></td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><code>char</code></td>
+                <td style="padding: 10px;">Single character</td>
+                <td style="padding: 10px;">16-bit</td>
+                <td style="padding: 10px;"><code>char grade = 'A';</code></td>
+            </tr>
+        </table>
+        <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin: 20px 0;">
+            <strong>Pro Tip:</strong> When working with money, <strong>always</strong> use the <code>decimal</code> type with the <code>m</code> suffix. Standard floats and doubles can have tiny rounding errors that lead to missing cents in financial calculations.
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Modern Convenience: <code>var</code> and Type Inference</h2>
+        <p>Starting with C# 3.0, you can use the <code>var</code> keyword to let the compiler "infer" the type based on the value you provide. This makes your code cleaner, especially when dealing with complex object names, while still maintaining 100% type safety.</p>
+        <pre><code class="language-csharp">
+var name = "Alice";      // Inferred as string
+var quantity = 10;       // Inferred as int
+var ratio = 0.5;         // Inferred as double
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Constants and Readonly</h2>
+        <p>If you have a value that should never change (like <code>PI</code> or a <code>Company_Name</code>), you use the <code>const</code> keyword. For values that are set once when the program starts but then stay the same, you use <code>readonly</code>.</p>
+        <pre><code class="language-csharp">
+const double PI = 3.14159;
+// PI = 3.15; // ERROR: Cannot change a constant
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing variables as labeled bins of different sizes—small for bool, large for decimal]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master data types and memory management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Variables & Data Types</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A clear guide to strings, ints, and booleans.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Decimal vs Double vs Float</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn why precision matters in professional software.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. The 'var' Keyword: When to Use It</strong><br>
+                <a href="https://www.youtube.com/watch?v=Yp97V6K6zT0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Best practices for readable, type-safe code.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Toolbox and the Storage Bins</h2>
+        <p>Think of <strong>C# Variables</strong> like a <strong>Professional Storage System</strong>. In a messy garage (Dynamic languages), you might throw everything in one big box. In a C# garage, you have specific bins for specific things. <strong>Integers</strong> are small bins for counting nails. <strong>Doubles</strong> are graduated cylinders for measuring liquids accurately. <strong>Strings</strong> are long tubes for storing scrolls of text. The <strong><code>var</code> keyword</strong> is like an <strong>Automatic Label Maker</strong>: you drop an item into a bin, and the machine instantly sees what it is and slaps a permanent label on it. This organization ensures that you never accidentally try to store motor oil (a number) in a cardboard box (a string), preventing a disaster before it ever happens.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types" target="_blank">Official Microsoft: Built-in Types Reference</a></li>
+            <li><a href="https://www.baeldung.com/cs/primitive-types" target="_blank">Baeldung: Guide to C# Primitive Types</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_data_types.php" target="_blank">W3Schools: C# Data Types</a></li>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html" target="_blank">Java Primitives (For Cross-Language Comparison)</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Intro & .NET Ecosystem</a>
+            <a href="#" data-file="CSharp1_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Operators & Logic &rarr;</a>
+        </div>
+    </footer>
+</article>

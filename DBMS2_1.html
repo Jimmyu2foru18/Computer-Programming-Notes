@@ -1,0 +1,89 @@
+<article>
+    <h1>DBMS II: Page 1 - Advanced Concepts: Transactions & ACID Properties</h1>
+
+    <section>
+        <h2>The Unit of Reliable Work</h2>
+        <p>In our foundations module, we learned how to store and query data. Now, we enter the advanced world of <strong>Transaction Management</strong>. In a busy database system with thousands of users, simple SQL commands aren't enough. Imagine you are transferring money between two bank accounts. You must subtract from one and add to the other. If the system crashes after the subtraction but before the addition, the money vanishes. A <strong>Transaction</strong> is a logical unit of work that contains one or more SQL statements. It must be treated as a single, atomic operation to ensure the database remains in a valid state. This reliability is guaranteed by the four <strong>ACID Properties</strong>.</p>
+    </section>
+
+    <section>
+        <h2>1. The ACID Properties: The Pillar of Trust</h2>
+        <ul>
+            <li><strong>Atomicity:</strong> "All or Nothing." If any part of the transaction fails, the entire transaction is rolled back, and the database remains unchanged.</li>
+            <li><strong>Consistency:</strong> A transaction must move the database from one consistent state to another, following all rules and constraints.</li>
+            <li><strong>Isolation:</strong> Concurrent transactions must not interfere with each other. Each transaction should feel like it is the only one running on the system.</li>
+            <li><strong>Durability:</strong> Once a transaction is "Committed," its changes are permanent and will survive even a power outage or system crash.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Transaction Control: COMMIT and ROLLBACK</h2>
+        <p>In SQL, you manage transactions using specific control commands. A transaction begins with the first DML statement and ends with either a <code>COMMIT</code> (save changes) or a <code>ROLLBACK</code> (undo changes).</p>
+        <pre><code class="language-sql">
+START TRANSACTION;
+
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+
+-- If everything is okay:
+COMMIT;
+
+-- If an error occurred:
+ROLLBACK;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Bank Vault' being opened at the start of a transaction and 'Sealed' only after a successful COMMIT]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. The Write-Ahead Log (WAL)</h2>
+        <p>How does a database ensure <strong>Durability</strong>? It uses a <strong>Write-Ahead Log</strong>. Before any data is actually changed in the main database files, the DBMS writes the intended change to a sequential log on the disk. If the system crashes, the DBMS reads this log upon restart and "replays" the committed transactions that hadn't made it to the main files yet.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the fundamental laws of database reliability with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. ACID Properties in 5 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=kR9-A_CstL4" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The most important concept in advanced database management.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Database Transactions Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=ScUJx4adZ_Y" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to use COMMIT and ROLLBACK in real scenarios.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. How WAL (Write Ahead Logging) Works</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The technical secret behind database durability and crash recovery.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Bank Transfer and the Unfinished Email</h2>
+        <p>Think of <strong>Atomicity</strong> like <strong>Sending an Email with an Attachment</strong>. If the internet cuts out while the attachment is 50% uploaded, the email isn't sent with half a photo—the whole thing fails, and you have to start over. It's all or nothing. Think of <strong>Isolation</strong> like <strong>Two People Booking the Same Airplane Seat</strong>. Even if they click "Buy" at the exact same millisecond, the DBMS ensures that the first person's transaction finishes (Seating them) before the second person's transaction even looks at the seat's availability. This prevents the "Race Condition" where two people think they own the same seat. This level of control is what makes digital commerce possible and trustworthy.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/ACID" target="_blank">Wikipedia: ACID Properties</a></li>
+            <li><a href="https://www.baeldung.com/cs/acid-dbms" target="_blank">Baeldung: Understanding ACID in Databases</a></li>
+            <li><a href="https://www.geeksforgeeks.org/acid-properties-in-dbms/" target="_blank">GeeksforGeeks: ACID Properties</a></li>
+            <li><a href="https://pythontutorial.net/advanced-python/python-transaction-management/" target="_blank">Python Tutorial: Managing Transactions in App Code</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_10.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Integrity & Views</a>
+            <a href="#" data-file="DBMS2_2.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Concurrency Control &rarr;</a>
+        </div>
+    </footer>
+</article>

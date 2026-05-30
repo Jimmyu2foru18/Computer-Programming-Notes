@@ -1,0 +1,94 @@
+<article>
+    <h1>Java II: Page 6 - Project Architecture: Packages & Access Control</h1>
+
+    <section>
+        <h2>Organizing at Scale</h2>
+        <p>In the physical world, a large library doesn't just throw all its books into one giant pile. It organizes them by floor, then by genre, and finally by author. In Java, as your projects grow from a few files to hundreds or thousands of classes, you need a similar system for organization. <strong>Packages</strong> are Java's namespaces—they provide a way to group related classes and interfaces, prevent naming conflicts, and control visibility between different parts of your application.</p>
+    </section>
+
+    <section>
+        <h2>1. Defining and Importing Packages</h2>
+        <p>To put a class in a package, you use the <code>package</code> keyword as the very first line of your code. By convention, package names are all lowercase and use a <strong>Reversed Domain Name</strong> (e.g., <code>com.google.search</code>). This ensures that your package names are globally unique.</p>
+        <pre><code class="language-java">
+// File: src/com/myapp/utils/MathHelper.java
+package com.myapp.utils;
+
+public class MathHelper {
+    public static int add(int a, int b) { return a + b; }
+}
+        </code></pre>
+        <p>To use this class in another file, you must <strong>import</strong> it.</p>
+        <pre><code class="language-java">
+import com.myapp.utils.MathHelper; // Specific import
+import java.util.*;               // Wildcard import (all classes in package)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Access Control Revisited: The Package Level</h2>
+        <p>In Module 1, we touched on access modifiers. Now that we understand packages, we can see how they really work. The <strong>Default</strong> access modifier (no keyword used) is often called "Package-Private."</p>
+        <ul>
+            <li><strong>Package-Private:</strong> Visible only to classes inside the <em>same</em> package. This is perfect for "helper" classes that shouldn't be exposed to the rest of the app.</li>
+            <li><strong>Protected:</strong> Visible to classes in the same package AND any subclasses in different packages. This is the "bridge" between packages for inheritance.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: File structure diagram showing src/com/example/ui and src/com/example/db, illustrating how packages map to directories]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Static Imports</h2>
+        <p>If you find yourself using a lot of static methods from a class (like <code>Math.sqrt</code>), you can use a <strong>Static Import</strong> to bring those methods directly into your namespace so you don't have to type the class name every time.</p>
+        <pre><code class="language-java">
+import static java.lang.Math.*;
+
+double result = sqrt(pow(3, 2) + pow(4, 2)); // No 'Math.' needed!
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java project organization with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Packages Tutorial (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=S7v_lX8I_Yc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how to create and manage package hierarchies.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Access Modifiers: Deeper Dive (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=4YmO-6vV4V8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the exact visibility rules for packages and subclasses.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Java Directory Structure & Classpath</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How Java finds your code on the hard drive.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Global Postal System and the Folder System</h2>
+        <p>Think of a <strong>Package</strong> like the <strong>International Postal Address System</strong>. If you send a letter to "123 Main St," it will never arrive because there are thousands of Main Streets. But if you address it to <code>USA.NewYork.NYC.MainSt.123</code> (Reversed Domain Name), it is globally unique. Packages ensure that your class <code>User</code> doesn't collide with the <code>User</code> class in a library you downloaded from Google. Another example is your <strong>Computer's Folder System</strong>: you don't put every photo, document, and video on your desktop. You use folders (Packages) to keep things organized. "Default Access" is like having a <strong>Shared Household Folder</strong>: everyone in the house (the Package) can see it, but the neighbors (other Packages) are locked out.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/package/index.html" target="_blank">Official Java Docs: Packages</a></li>
+            <li><a href="https://www.baeldung.com/java-packages" target="_blank">Baeldung: Guide to Java Packages</a></li>
+            <li><a href="https://www.w3schools.com/java/java_packages.asp" target="_blank">W3Schools: Java Packages & API</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-package/" target="_blank">Java Tutorial: Organizing Your Source Code</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java2_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Abstract Classes</a>
+            <a href="#" data-file="Java2_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Exception Handling &rarr;</a>
+        </div>
+    </footer>
+</article>

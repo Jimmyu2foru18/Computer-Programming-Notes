@@ -1,0 +1,78 @@
+<article>
+    <h1>Linux II: Page 8 - Backups & Recovery</h1>
+
+    <section>
+        <h2>The Golden Rule of Admin: Backup!</h2>
+        <p>If you don't have a backup, you don't have data. It is not a matter of <em>if</em> a drive will fail, but <em>when</em>. A professional Linux administrator implements a robust, automated backup strategy that can recover from a single lost file or a total system catastrophic failure. This module covers the tools you need to create reliable archives, synchronize directories across servers, and safely dump databases.</p>
+    </section>
+
+    <section>
+        <h2>1. Core Backup Tools</h2>
+        <ul>
+            <li><strong><code>tar</code> (Tape Archive):</strong> The standard for creating archives. It bundles multiple files into a single archive file, often compressed with <code>gzip</code> (e.g., <code>.tar.gz</code>).</li>
+            <li><strong><code>rsync</code>:</strong> The ultimate tool for synchronization. It only copies the <em>differences</em> between the source and destination, making it incredibly fast and efficient for backups.</li>
+            <li><strong>Database Dumps:</strong> For databases, you need a logical dump (e.g., <code>mysqldump</code>) rather than just copying raw database files, to ensure data consistency.</li>
+        </ul>
+        <pre><code class="language-bash">
+# Create a compressed backup
+tar -czvf backup.tar.gz /path/to/data
+
+# Sync to a remote server
+rsync -avz /local/data/ user@backup-server:/remote/backup/
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Backup Best Practices: The 3-2-1 Rule</h2>
+        <p>A good strategy follows the "3-2-1" rule: Have <strong>3</strong> copies of your data, on <strong>2</strong> different media types, with <strong>1</strong> copy stored off-site. Your local backup won't save you if the building catches fire.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual: Diagram: Source Server &rarr; Local Backup &rarr; Offsite/Cloud Backup]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master backups with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Using tar for Backups</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Creating compressed archives the right way.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Synchronizing with rsync</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Efficiently keeping directories in sync.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Automated Database Backups</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Automating SQL dumps for safety.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Fire-Proof Safe</h2>
+        <p>Think of <strong>Backups</strong> like having a <strong>Fire-Proof Safe</strong> for your most important documents. If you only keep the originals on your desk, a fire destroys them. If you keep a copy in the safe in the same office, you're better off, but a building fire still destroys both. That is why you <em>must</em> have an off-site copy (the off-site/cloud backup). The <strong>3-2-1 Rule</strong> is the insurance policy that guarantees you can always resume business, no matter what happens to the primary hardware.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://linux.die.net/man/1/tar" target="_blank">Man Page: tar</a></li>
+            <li><a href="https://linux.die.net/man/1/rsync" target="_blank">Man Page: rsync</a></li>
+            <li><a href="https://www.geeksforgeeks.org/rsync-command-in-linux-with-examples/" target="_blank">GeeksforGeeks: rsync Guide</a></li>
+            <li><a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/" target="_blank">Backblaze: The 3-2-1 Rule</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Linux2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Logs & Maintenance</a>
+            <a href="#" data-file="Linux2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Security & Firewall &rarr;</a>
+        </div>
+    </footer>
+</article>

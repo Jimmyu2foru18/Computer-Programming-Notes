@@ -1,0 +1,90 @@
+<article>
+    <h1>DSA I: Page 8 - Bubble Sort</h1>
+
+    <section>
+        <h2>The Simple, Brute-Force Sort</h2>
+        <p><strong>Bubble Sort</strong> is one of the simplest sorting algorithms, primarily used for educational purposes to demonstrate the concept of sorting. It works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. This pass through the list is repeated until the list is sorted. It is called "Bubble Sort" because with each pass, the largest unsorted element "bubbles up" to its correct position at the end of the array.</p>
+    </section>
+
+    <section>
+        <h2>1. The Algorithm</h2>
+        <p>The logic is iterative:</p>
+        <ol>
+            <li>Start at the beginning of the array.</li>
+            <li>Compare the current element with the next one.</li>
+            <li>If they are out of order, swap them.</li>
+            <li>Move to the next pair and repeat until you reach the end.</li>
+            <li>Repeat the entire process for the remaining unsorted portion until no more swaps are needed.</li>
+        </ol>
+        <pre><code class="language-python">
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped: break # Array is already sorted
+    return arr
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Time Complexity</h2>
+        <p>Bubble sort is not efficient for large datasets due to its quadratic complexity:</p>
+        <ul>
+            <li><strong>Worst/Average Case:</strong> O(n²). Because of the nested loops, performance degrades rapidly as the number of elements grows.</li>
+            <li><strong>Best Case:</strong> O(n). If the array is already sorted, the algorithm can detect this (via the <code>swapped</code> flag) and finish in one pass.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Elements 'bubbling up' to the end of the array]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master bubble sort with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Bubble Sort Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The foundational concept of adjacent swaps.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Bubble Sort Time Complexity</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the O(n²) performance in practice.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Implementing Bubble Sort</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step coding implementation in Python.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Lineup</h2>
+        <p>Think of <strong>Bubble Sort</strong> like organizing a <strong>Lineup of People by Height</strong> by only allowing people to swap with the person standing immediately next to them. If the person behind you is taller, you swap. You keep walking down the line, swapping until the tallest person reaches the end. Then you start over from the beginning. You have to walk down that line many, many times before everyone is finally in order. It works, but it's incredibly slow compared to a more intelligent sorting strategy.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank">Wikipedia: Bubble Sort</a></li>
+            <li><a href="https://www.geeksforgeeks.org/bubble-sort/" target="_blank">GeeksforGeeks: Bubble Sort</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_bubblesort.php" target="_blank">W3Schools: DSA Bubble Sort</a></li>
+            <li><a href="https://visualgo.net/en/sorting" target="_blank">Tool: Sorting Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Binary Search</a>
+            <a href="#" data-file="DSA1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Insertion Sort &rarr;</a>
+        </div>
+    </footer>
+</article>

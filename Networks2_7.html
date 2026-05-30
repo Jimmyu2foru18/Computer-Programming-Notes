@@ -1,0 +1,82 @@
+<article>
+    <h1>Networks II: Page 7 - Traffic Management: Switching & Routing</h1>
+
+    <section>
+        <h2>The Traffic Controllers</h2>
+        <p>If you imagine a network as a city, <strong>Switches</strong> are the local streets that connect homes and businesses within the city, while <strong>Routers</strong> are the highway interchanges that connect different cities together. Without these two pieces of hardware, all network traffic would just be a chaotic mess of data packets bumping into each other. Switching provides high-speed, local data delivery by "learning" device locations, while Routing provides the intelligent pathfinding required to move data across the entire internet. Understanding how these devices manage traffic is fundamental to building reliable, fast, and scalable networks.</p>
+    </section>
+
+    <section>
+        <h2>1. Switching: The Local Network Organizer</h2>
+        <p>A switch operates at the Data Link Layer (Layer 2). It doesn't just broadcast traffic like an old Hub; it builds a <strong>MAC Address Table</strong> to know exactly which device is plugged into which port. If a computer with MAC address "A" wants to talk to MAC "B," the switch checks its table and creates a temporary, dedicated "pipe" between those two ports.</p>
+        
+        <h3>VLANs (Virtual LANs)</h3>
+        <p>Switches allow you to create <strong>VLANs</strong>. This is a logical way to group devices. For example, you can group all "Sales" computers in VLAN 10 and "Engineering" in VLAN 20, even if they are plugged into the same switch. This increases security (the two groups cannot talk to each other directly) and performance (broadcast traffic from Sales doesn't clutter the Engineering network).</p>
+    </section>
+
+    <section>
+        <h2>2. Routing: The Global Pathfinders</h2>
+        <p>A router operates at the Network Layer (Layer 3). It ignores MAC addresses and looks at <strong>IP Addresses</strong>. When a router receives a packet, it consults its <strong>Routing Table</strong> to decide the best "Next Hop" for that packet to take to reach its destination network.</p>
+        
+        <h3>Routing Protocols</h3>
+        <p>In a global network, routers can't be configured by hand. They use <strong>Dynamic Routing Protocols</strong> to talk to each other:</p>
+        <ul>
+            <li><strong>OSPF (Open Shortest Path First):</strong> Used within a large company network (Interior) to find the fastest path.</li>
+            <li><strong>BGP (Border Gateway Protocol):</strong> The protocol that connects different companies and ISPs together (Exterior) to form the actual Internet.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Loop Prevention: Spanning Tree Protocol (STP)</h2>
+        <p>If you connect two switches together with two different cables to create a backup path, you might accidentally create a <strong>Broadcast Storm</strong>—where a packet loops forever, multiplying until the network crashes. <strong>STP</strong> is the safety protocol that detects these loops and automatically disables redundant paths until they are needed.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a Switch with a MAC table and a Router with a Routing table]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master traffic management with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. How Network Switches Work</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn about MAC tables and how they stop collisions.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Routing Protocols: OSPF vs. BGP</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand how routers communicate to find the best path.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Spanning Tree Protocol (STP) Basics</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to prevent network-killing broadcast storms.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The City Streets and the Interstates</h2>
+        <p>Think of a <strong>Switch</strong> like the <strong>Street Signs and Lights inside a City</strong>. They manage traffic within the city, ensuring that drivers on Main St don't crash into drivers on Oak St. They care about individual *addresses* (MAC addresses). Think of a <strong>Router</strong> like the <strong>Interstate Highway Signs</strong>. Once you leave the city, you need to know which highway leads to the next *city* (a different network). The router doesn't care about the house address inside that city; it only cares about which direction to send the traffic to get you closer to the target city. Finally, think of <strong>STP</strong> like a <strong>Smart Gatekeeper</strong>. If there are two identical roads leading to the same destination, the gatekeeper closes one to prevent confused drivers from circling endlessly in a loop.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Network_switch" target="_blank">Wikipedia: Network Switch</a></li>
+            <li><a href="https://www.geeksforgeeks.org/routing-protocols-in-computer-network/" target="_blank">GeeksforGeeks: Routing Protocols</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html" target="_blank">Cisco: Routing vs. Switching</a></li>
+            <li><a href="https://www.networkcomputing.com/" target="_blank">Network Computing: Advanced Loop Prevention</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Networks2_6.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Email: SMTP, POP3 & IMAP</a>
+            <a href="#" data-file="Networks2_8.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Wireless & Wi-Fi Standards &rarr;</a>
+        </div>
+    </footer>
+</article>

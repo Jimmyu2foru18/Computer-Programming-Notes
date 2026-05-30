@@ -1,0 +1,89 @@
+<article>
+    <h1>C# I: Page 8 - Modular Logic: Methods: The Basics</h1>
+
+    <section>
+        <h2>The Architecture of Action</h2>
+        <p>In our previous pages, we learned how to store data and control the flow of execution. However, if we simply kept writing code in one long sequence inside <code>Main</code>, our programs would quickly become unreadable. To build large, professional software, we must break our logic into smaller, reusable blocks called <strong>Methods</strong> (known as "functions" in other languages). Methods allow you to write a specific set of instructions once and "call" them from anywhere else in your program, following the <strong>DRY (Don't Repeat Yourself)</strong> principle. This modularity makes code easier to test, debug, and understand.</p>
+    </section>
+
+    <section>
+        <h2>1. Method Anatomy</h2>
+        <p>In C#, every method must be part of a class. To define a method, you must specify its visibility, its return type, its name, and its parameters.</p>
+        <pre><code class="language-csharp">
+// [access] [modifier] [return_type] [Name]([parameters])
+public static int AddNumbers(int a, int b) {
+    int sum = a + b;
+    return sum; // Send the result back to the caller
+}
+        </code></pre>
+        <ul>
+            <li><strong>Access Modifier:</strong> (e.g., <code>public</code>) Determines who can use this method.</li>
+            <li><strong>Return Type:</strong> (e.g., <code>int</code> or <code>string</code>) The type of data the method gives back. Use <code>void</code> if it returns nothing.</li>
+            <li><strong>Parameters:</strong> The input data the method needs to do its job.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Static vs. Instance Methods</h2>
+        <p>By default, methods belong to an <strong>Object</strong> (Instance). To call them, you must create the object first. If you use the <code>static</code> keyword, the method belongs to the <strong>Class itself</strong>. You can call a static method without creating an instance. We use <code>static</code> for utility functions (like <code>Math.Sqrt()</code>) or when the method doesn't need to know anything about a specific object's state.</p>
+    </section>
+
+    <section>
+        <h2>3. Method Overloading</h2>
+        <p>C# allows you to have multiple methods with the exact same name, as long as they have different <strong>Signatures</strong> (different types or number of parameters). This is called <strong>Method Overloading</strong>. It allows you to provide multiple ways to perform the same logical action.</p>
+        <pre><code class="language-csharp">
+static int Add(int a, int b) { return a + b; }
+static double Add(double a, double b) { return a + b; }
+static int Add(int a, int b, int c) { return a + b + c; }
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Diagram showing a Main method 'Calling' multiple smaller method blocks and receiving 'Return' arrows back]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master C# methods and modular logic with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Methods for Beginners (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The best introduction to defining and calling logic blocks.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Static vs Instance Methods</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn when to use the 'static' keyword for efficiency.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Method Overloading in C#</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to design flexible APIs with multiple signatures.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Recipe and the Remote Control</h2>
+        <p>Think of a <strong>Method</strong> like a <strong>Recipe</strong> in a cookbook. The recipe is written once (Definition). It has placeholders like "Quantity of sugar" (Parameters). When you want to bake (Call the method), you provide the actual sugar (Arguments). The cake you pull out of the oven is the <strong>Return Value</strong>. You don't have to reinvent the cake every time; you just refer back to the master recipe. Think of <strong>Method Overloading</strong> like a <strong>Universal Remote Control</strong>. It has a "Power" button. If the remote is pointed at the TV, the power button turns on the screen. If pointed at the AC, it starts the cooling. The "Action" (Power) is the same name, but it performs differently based on what device (Parameters) you give it.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods" target="_blank">Official Microsoft: C# Methods Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/methods-overloading" target="_blank">Baeldung: Overloading in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_methods.php" target="_blank">W3Schools: C# Methods</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-methods/" target="_blank">Method Comparison: Java vs C#</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Strings & Interpolation</a>
+            <a href="#" data-file="CSharp1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Methods: Ref & Out &rarr;</a>
+        </div>
+    </footer>
+</article>

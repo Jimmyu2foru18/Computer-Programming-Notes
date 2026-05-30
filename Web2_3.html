@@ -1,0 +1,85 @@
+<article>
+    <h1>Web Technologies II: Page 3 - Node.js & Express</h1>
+
+    <section>
+        <h2>JavaScript Everywhere</h2>
+        <p>Traditionally, JavaScript could only run inside a web browser. <strong>Node.js</strong> changed that by providing a runtime environment that allows JavaScript to run directly on your computer or server. This enables you to use the same language—JavaScript—for both your frontend and your backend. <strong>Express.js</strong> is the most popular framework built on top of Node.js. It simplifies the process of creating web servers, handling HTTP requests, and building robust REST APIs, making it a favorite for modern full-stack development.</p>
+    </section>
+
+    <section>
+        <h2>1. Node.js & NPM</h2>
+        <p>Node.js is built on Google's V8 engine, making it exceptionally fast. A huge part of the Node ecosystem is <strong>NPM (Node Package Manager)</strong>. NPM is the world's largest software registry, allowing you to easily install thousands of pre-built "packages" (like Express, database drivers, or authentication tools) to speed up your development.</p>
+        <pre><code class="language-bash">
+# Initialize a new project
+npm init -y
+# Install express
+npm install express
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Express: Making Servers Simple</h2>
+        <p>Without a framework, creating a server in Node requires a lot of code. Express reduces this to just a few lines.</p>
+        <pre><code class="language-javascript">
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello from Express!');
+});
+
+app.listen(3000, () => console.log('Server running!'));
+        </code></pre>
+        <h3>Routing:</h3>
+        <p>Express makes defining "routes" (URL paths like <code>/users</code> or <code>/login</code>) intuitive, allowing you to map URLs directly to specific functions that handle the business logic.</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing the request flow: Client &rarr; Express Routing Middleware &rarr; Handler Function &rarr; Response]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Node.js and Express with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Node.js Crash Course</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the basics of running JS outside the browser.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Express.js Crash Course</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Building your first server with the Express framework.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Understanding NPM</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>How to manage dependencies like a pro.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The JavaScript Factory</h2>
+        <p>Think of <strong>Node.js</strong> as a <strong>Factory Building</strong> that lets you run your "JavaScript Machinery" anywhere, not just in the "Browser Showroom." Think of <strong>NPM</strong> as the <strong>Industrial Supply Catalog</strong>. Instead of building every screw, gear, and motor from scratch, you can browse the catalog (NPM) and order pre-manufactured parts (libraries/packages) to assemble your machinery faster. Think of <strong>Express</strong> as the <strong>Assembly Line Supervisor</strong>. They organize the factory floor, direct the flow of incoming materials (HTTP Requests), and ensure the right machinery (your route handler functions) is triggered to process those materials and output a finished product (the HTTP Response).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://nodejs.org/" target="_blank">Official Node.js Website</a></li>
+            <li><a href="https://expressjs.com/" target="_blank">Official Express.js Website</a></li>
+            <li><a href="https://docs.npmjs.com/" target="_blank">NPM Documentation</a></li>
+            <li><a href="https://www.freecodecamp.org/news/tag/node-js/" target="_blank">freeCodeCamp: Node.js Tutorials</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: PHP: Web & Databases</a>
+            <a href="#" data-file="Web2_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: DB: MySQL Integration &rarr;</a>
+        </div>
+    </footer>
+</article>

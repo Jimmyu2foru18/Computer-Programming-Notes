@@ -1,0 +1,99 @@
+<article>
+    <h1>C# II: Page 9 - Advanced Concepts: Generics & Reflection</h1>
+
+    <section>
+        <h2>The Metadata Layer</h2>
+        <p>In our final pages of the C# Masterclass, we explore the features that allow you to write code that is extremely flexible and dynamic. <strong>Generics</strong> allow you to write code that works with any data type while maintaining 100% type safety. <strong>Reflection</strong> allows your code to "look at itself"—it can inspect classes, methods, and properties at runtime, and even create new objects or call methods on the fly. These features are the secret behind every major .NET framework, from Entity Framework to ASP.NET Core.</p>
+    </section>
+
+    <section>
+        <h2>1. Generics: Code Reusability and Safety</h2>
+        <p>Before generics, if you wanted a "Box" class for an <code>int</code> and a "Box" class for a <code>string</code>, you had to write two separate classes. With <strong>Generics</strong>, you write it once using a placeholder <code>&lt;T&gt;</code>.</p>
+        <pre><code class="language-csharp">
+public class DataHolder&lt;T&gt; {
+    public T Value { get; set; }
+}
+
+// Usage
+var intBox = new DataHolder&lt;int&gt; { Value = 10 };
+var strBox = new DataHolder&lt;string&gt; { Value = "Hello" };
+        </code></pre>
+        <p><strong>Constraints:</strong> You can restrict <code>T</code> to be a specific type using the <code>where</code> keyword (e.g., <code>where T : class</code>).</p>
+    </section>
+
+    <section>
+        <h2>2. Reflection: Inspecting Types at Runtime</h2>
+        <p>Reflection is a powerful technique that lets you inspect the metadata of your assembly. You can find out what methods a class has, what its attributes are, and invoke them without knowing them at compile-time.</p>
+        <pre><code class="language-csharp">
+using System.Reflection;
+
+Type t = typeof(MyClass);
+Console.WriteLine($"Class Name: {t.Name}");
+
+foreach (MethodInfo m in t.GetMethods()) {
+    Console.WriteLine($"Method: {m.Name}");
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Attributes: Decorating Your Code</h2>
+        <p>Attributes are metadata that you "attach" to classes, methods, or properties. They don't change the logic itself, but they provide instructions to other parts of the system (like telling a JSON serializer to ignore a property). We often use Reflection to read these attributes.</p>
+        <pre><code class="language-csharp">
+[Serializable]
+public class User {
+    [Obsolete("Use NewMethod instead")]
+    public void OldMethod() { /* ... */ }
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Generic Factory' that can create any object (T) based on a 'Metadata Map' (Reflection)]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the dynamic side of C# with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. C# Generics Explained (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=0_fGjS3u6fM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to write flexible, reusable classes and methods.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Reflection in C#: What & Why?</strong><br>
+                <a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the power of metadata and runtime inspection.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Attributes & Reflection Project</strong><br>
+                <a href="https://www.youtube.com/watch?v=fXW9PndhPpw" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>See how professional frameworks use these features to automate tasks.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Multi-tool and the Detective</h2>
+        <p>Think of <strong>Generics</strong> like a <strong>Universal Screwdriver</strong> with a set of 50 different heads. The screwdriver body (the Class Logic) is the same, but you can "Snap-in" any head (the Type <code>T</code>) you need. You don't have to carry 50 different screwdrivers. Think of <strong>Reflection</strong> like a <strong>Detective with a Flashlight</strong>. The detective walks into a dark room (the Assembly) and shines the light on objects. They can see the serial numbers (Metadata), see what tools are in the room (Methods), and even use those tools (Invoke) even if they've never been in that room before. Finally, think of <strong>Attributes</strong> like <strong>Post-it Notes on a Blueprint</strong>: "Fragile," "Obsolete," or "Internal Use Only." The builder (the Compiler) sees the notes and changes how they handle those specific parts of the building.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics" target="_blank">Official Microsoft: Generics in C#</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection" target="_blank">Official Microsoft: Reflection Guide</a></li>
+            <li><a href="https://www.baeldung.com/cs/csharp-reflection" target="_blank">Baeldung: Introduction to Reflection in C#</a></li>
+            <li><a href="https://www.w3schools.com/cs/cs_generics.php" target="_blank">W3Schools: C# Generics</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="CSharp2_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Async & Multi-threading</a>
+            <a href="#" data-file="CSharp2_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Attributes & Advanced &rarr;</a>
+        </div>
+    </footer>
+</article>

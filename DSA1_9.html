@@ -1,0 +1,90 @@
+<article>
+    <h1>DSA I: Page 9 - Insertion Sort</h1>
+
+    <section>
+        <h2>The Incremental Sorting Approach</h2>
+        <p><strong>Insertion Sort</strong> is an intuitive sorting algorithm that works similarly to the way you might sort a hand of playing cards. You maintain a "sorted portion" of your hand (the cards you've already organized) and a "new card" you're currently looking at. You pick up the new card and insert it into its correct position within your sorted hand by shifting the cards as needed. This approach is much more efficient than Bubble Sort for small or nearly sorted datasets.</p>
+    </section>
+
+    <section>
+        <h2>1. The Algorithm</h2>
+        <p>The logic is to build the sorted array incrementally:</p>
+        <ol>
+            <li>Start with the second element (assuming the first element is already "sorted").</li>
+            <li>Take this element (the "key") and compare it to elements in the sorted portion to its left.</li>
+            <li>Shift all sorted elements greater than the key one position to the right.</li>
+            <li>Insert the key into its correct empty spot.</li>
+            <li>Repeat for all remaining unsorted elements.</li>
+        </ol>
+        <pre><code class="language-python">
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        # Shift elements greater than key
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Time Complexity</h2>
+        <p>Like Bubble Sort, Insertion Sort has a quadratic worst-case complexity, but it is much faster for smaller inputs.</p>
+        <ul>
+            <li><strong>Worst/Average Case:</strong> O(n²). The nested loop structure means that performance degrades quadratically as <code>n</code> increases.</li>
+            <li><strong>Best Case:</strong> O(n). If the array is already sorted, you only perform one comparison per element and never shift, resulting in linear time.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual diagram: Elements being shifted right to insert a new element in the sorted portion]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master insertion sort with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Insertion Sort Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kY60m6b_D5Q" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The intuitive approach of building a sorted subset.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Insertion Sort Time Complexity</strong><br>
+                <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Analyzing O(n²) and O(n) scenarios.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Implementing Insertion Sort</strong><br>
+                <a href="https://www.youtube.com/watch?v=1z0ULvg_pW8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Step-by-step coding implementation in Python.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: Sorting Playing Cards</h2>
+        <p>Think of <strong>Insertion Sort</strong> like sorting a <strong>Hand of Playing Cards</strong>. You take one card from the deck and add it to your already-sorted hand. You don't just put it anywhere—you slide it into the correct position between the other cards. If you have a 5 and a 7, and you pick up a 6, you slide the 6 between the 5 and the 7. You do this for every single card in your hand until all cards are in order. This is incredibly fast for humans (and for small arrays) compared to repeatedly swapping adjacent cards like Bubble Sort.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank">Wikipedia: Insertion Sort</a></li>
+            <li><a href="https://www.geeksforgeeks.org/insertion-sort/" target="_blank">GeeksforGeeks: Insertion Sort</a></li>
+            <li><a href="https://www.w3schools.com/dsa/dsa_insertionsort.php" target="_blank">W3Schools: DSA Insertion Sort</a></li>
+            <li><a href="https://visualgo.net/en/sorting" target="_blank">Tool: Sorting Visualization</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DSA1_8.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Bubble Sort</a>
+            <a href="#" data-file="DSA1_10.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Merge Sort &rarr;</a>
+        </div>
+    </footer>
+</article>

@@ -1,0 +1,83 @@
+<article>
+    <h1>Software Engineering II: Page 8 - Quality Assurance: The Testing Pyramid</h1>
+
+    <section>
+        <h2>The Cost of a Bug</h2>
+        <p>In software engineering, the earlier you find a bug, the cheaper it is to fix. A bug found by a developer during coding costs minutes; a bug found in production by a customer can cost millions of dollars and ruin a company's reputation. <strong>Quality Assurance (QA)</strong> is the systematic process of ensuring that software meets its requirements and is free of defects. Professional teams don't just "check" for bugs; they design a <strong>Testing Strategy</strong> that automates the verification of every line of code.</p>
+    </section>
+
+    <section>
+        <h2>1. The Testing Pyramid</h2>
+        <p>The Testing Pyramid is a framework that guides engineers on how many tests to write at different levels of the system. The goal is to have a broad base of fast, cheap tests and a narrow top of slow, expensive tests.</p>
+        
+        <ul>
+            <li><strong>Unit Tests (The Base):</strong> Test individual functions or methods in isolation. They are extremely fast and you should have thousands of them.</li>
+            <li><strong>Integration Tests (The Middle):</strong> Test how different modules work together (e.g., does the User service talk correctly to the Database?).</li>
+            <li><strong>End-to-End (E2E) Tests (The Top):</strong> Test the entire system from the user's perspective, usually by automating a web browser. They are slow and "flaky" but prove the whole system works.</li>
+        </ul>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration of the Testing Pyramid showing Unit Tests at the bottom, Integration in the middle, and UI/E2E at the peak]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Test-Driven Development (TDD)</h2>
+        <p>Professional engineers often use <strong>TDD</strong>—writing the test <em>before</em> the actual code. This follows a "Red-Green-Refactor" cycle:</p>
+        <ol>
+            <li><strong>Red:</strong> Write a test for a feature that doesn't exist yet (it fails).</li>
+            <li><strong>Green:</strong> Write the minimal amount of code to make the test pass.</li>
+            <li><strong>Refactor:</strong> Clean up the code while ensuring the test stays green.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>3. Beyond Automation: Manual & UAT</h2>
+        <p>While automation is key, it can't catch everything. <strong>Exploratory Testing</strong> involves a human trying to "break" the app in creative ways. <strong>User Acceptance Testing (UAT)</strong> is the final stage where the actual customers test the software to ensure it solves their business problems.</p>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the art of software testing with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. The Testing Pyramid Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=Apea_iKtoS0" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to balance your testing efforts effectively.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Test-Driven Development (TDD) in 10 Mins</strong><br>
+                <a href="https://www.youtube.com/watch?v=u6Qf_X_M8ng" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn the 'Red-Green-Refactor' workflow with examples.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Unit vs Integration vs E2E Testing</strong><br>
+                <a href="https://www.youtube.com/watch?v=L3-Ku9u8V6I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Clear definitions and use cases for every level of the pyramid.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Car Factory and the Safety Net</h2>
+        <p>Think of the <strong>Testing Pyramid</strong> like <strong>Safety Checks in a Car Factory</strong>. <strong>Unit Tests</strong> are like testing every individual bolt and wire before they go into the car. It's fast and easy to swap a bad bolt. <strong>Integration Tests</strong> are like testing the engine once it's assembled to make sure the pistons and the spark plugs work together. <strong>E2E Tests</strong> are like a <strong>Test Drive</strong> on a track: you drive the whole car to make sure it actually steers and brakes. You wouldn't skip the bolt tests and only do a test drive—that would be dangerous and slow. Finally, think of <strong>TDD</strong> like a <strong>Blueprint with a Built-in Validator</strong>: you define the goal (the Test), and you aren't allowed to move forward until you've satisfied the requirement, ensuring the foundation is always solid.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://martinfowler.com/articles/practical-test-pyramid.html" target="_blank">Martin Fowler: The Practical Test Pyramid</a></li>
+            <li><a href="https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing" target="_blank">Atlassian: Types of Software Testing</a></li>
+            <li><a href="https://www.guru99.com/software-testing-introduction-importance.html" target="_blank">Guru99: Software Testing Fundamentals</a></li>
+            <li><a href="https://www.baeldung.com/cs/tdd-vs-bdd" target="_blank">Baeldung: TDD vs BDD Comparison</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Soft2_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Architecture & Microservices</a>
+            <a href="#" data-file="Soft2_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: Security & Quality &rarr;</a>
+        </div>
+    </footer>
+</article>

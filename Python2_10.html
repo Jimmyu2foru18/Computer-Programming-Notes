@@ -1,0 +1,132 @@
+<article>
+    <h1>Python II: Page 10 - Robustness: Exception Handling & Unit Testing</h1>
+
+    <section>
+        <h2>Writing Code That Doesn't Break</h2>
+        <p>In the professional world, "working code" is not enough. Your code must be <strong>robust</strong>—able to handle unexpected input without crashing—and it must be <strong>testable</strong>—verifiable by automated systems to ensure that future changes don't break existing features. This final page covers the two pillars of software quality: Exception Handling and Unit Testing.</p>
+    </section>
+
+    <section>
+        <h2>Exception Handling: The Safety Net</h2>
+        <p>An <strong>Exception</strong> is an error that occurs while a program is running. If you don't "catch" the exception, your program will terminate immediately. Using the <code>try...except</code> block, you can intercept these errors and decide how to respond.</p>
+        
+        <h3>The Full <code>try</code> Structure</h3>
+        <ul>
+            <li><code>try</code>: The code you want to run.</li>
+            <li><code>except</code>: Code that runs if an error occurs.</li>
+            <li><code>else</code>: Code that runs ONLY if no error occurred.</li>
+            <li><code>finally</code>: Code that runs no matter what (perfect for cleanup).</li>
+        </ul>
+        <pre><code class="language-python">
+try:
+    number = int(input("Enter a number to divide 100 by: "))
+    result = 100 / number
+except ValueError:
+    print("That wasn't a valid number!")
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+else:
+    print(f"Success! The result is {result}")
+finally:
+    print("Division attempt complete.")
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Automated Quality: Unit Testing</h2>
+        <p>A <strong>Unit Test</strong> is a piece of code that tests a specific "unit" of your program (usually a function or a method). Python's built-in <code>unittest</code> library allows you to create test suites that you can run with a single command to prove your code works as expected.</p>
+        
+        <h3>Example: Testing a Calculator</h3>
+        <pre><code class="language-python">
+import unittest
+
+def add(a, b): return a + b
+
+class TestCalculator(unittest.TestCase):
+    def test_add_positive(self):
+        self.assertEqual(add(2, 3), 5)
+    
+    def test_add_negative(self):
+        self.assertEqual(add(-2, -3), -5)
+
+if __name__ == '__main__':
+    unittest.main()
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Screenshot of a terminal showing "OK" and green dots from a successful test run]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master professional code quality with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Python Exceptions - try/except and finally</strong><br>
+                <a href="https://www.youtube.com/watch?v=NIWwJbo-9_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to handle errors gracefully and write robust code.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Unit Testing in Python (unittest)</strong><br>
+                <a href="https://www.youtube.com/watch?v=6tNS--WetLI" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Why you should test your code and how to automate it.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. Raising and Custom Exceptions</strong><br>
+                <a href="https://www.youtube.com/watch?v=uKEnKxW7280" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to signal errors in your own professional libraries.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Safety Net and the Inspector</h2>
+        <p>Think of <strong>Exception Handling</strong> like a <strong>Trapeze Safety Net</strong>. The circus performers (your code) are doing dangerous, high-stakes work. Most of the time they land perfectly. But if they slip (an error), the net catches them so the show can go on, rather than letting them hit the ground (Crashing the program). Think of <strong>Unit Testing</strong> like a <strong>Quality Control Inspector</strong> in a car factory. Every single bolt and engine part (each Function) is tested individually before the car is ever put together. If a bolt fails the test, the inspector sends it back to be fixed. This ensures that by the time a customer drives the car, thousands of mini-tests have already proven that it is safe and reliable.</p>
+    </section>
+
+    <section>
+        <h2>Series Wrap-up & Alternative Learning Sources</h2>
+        <p>Congratulations on completing the 20-page Python Masterclass! To further expand your horizons beyond these notes, here are four curated alternative sources for deep learning:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>1. Python.org (Success Stories)</strong><br>
+                <p><small>See how Python is used in big business and scientific research.</small></p>
+                <a href="https://www.python.org/about/success/" target="_blank">Visit Python.org &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>2. Real Python (Learning Paths)</strong><br>
+                <p><small>Follow structured paths for Web Dev, Data Science, or DevOps.</small></p>
+                <a href="https://realpython.com/learning-paths/" target="_blank">Visit Real Python &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>3. Automate the Boring Stuff</strong><br>
+                <p><small>A free online book focused on practical, everyday automation.</small></p>
+                <a href="https://automatetheboringstuff.com/" target="_blank">Read for Free &rarr;</a>
+            </div>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <strong>4. Full Stack Python</strong><br>
+                <p><small>Deep technical dives into every layer of the Python web stack.</small></p>
+                <a href="https://www.fullstackpython.com/" target="_blank">Visit Full Stack Python &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.python.org/3/tutorial/errors.html" target="_blank">Official Python Docs: Errors/Exceptions</a></li>
+            <li><a href="https://docs.python.org/3/library/unittest.html" target="_blank">Official Python Docs: unittest</a></li>
+            <li><a href="https://realpython.com/python-testing/" target="_blank">Real Python: Getting Started with Testing</a></li>
+            <li><a href="https://pythontutorial.net/python-basics/python-try-except-finally/" target="_blank">Python Tutorial: Exception Handling Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Python2_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Context Managers & Files</a>
+            <span style="color: #28a745; font-weight: bold;">Python Masterclass Complete!</span>
+        </div>
+    </footer>
+</article>

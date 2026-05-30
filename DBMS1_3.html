@@ -1,0 +1,97 @@
+<article>
+    <h1>DBMS I: Page 3 - SQL Basics: Data Definition & Database Keys</h1>
+
+    <section>
+        <h2>Structured Query Language (SQL)</h2>
+        <p>In our previous pages, we explored the theory of the relational model. Now, we move into the practical world of <strong>SQL (Structured Query Language)</strong>. SQL is the standard language used to communicate with relational databases like MySQL, PostgreSQL, and Oracle. While different databases have their own small variations (dialects), the core SQL syntax is universal. This page focuses on <strong>Data Definition Language (DDL)</strong>—the commands used to create the physical structure of your database—and the critical concept of <strong>Keys</strong>, which define the integrity and relationships of your data.</p>
+    </section>
+
+    <section>
+        <h2>1. Defining Structure: DDL Commands</h2>
+        <p>DDL is used to build the "Empty Boxes" that will hold your data. When you run a DDL command, you are modifying the <strong>Data Dictionary</strong> (the database's internal metadata).</p>
+        
+        <h3>Core Commands:</h3>
+        <ul>
+            <li><strong>CREATE TABLE:</strong> Defines a new table, its columns, and their data types.</li>
+            <li><strong>ALTER TABLE:</strong> Modifies an existing table (e.g., adding a new column or changing a data type).</li>
+            <li><strong>DROP TABLE:</strong> Deletes the table and all its data permanently.</li>
+        </ul>
+        <pre><code class="language-sql">
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    salary DECIMAL(10, 2),
+    hire_date DATE
+);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Database Keys: The Anchors of Integrity</h2>
+        <p>In a relational database, you must have a way to uniquely identify every row and connect tables together. This is achieved through <strong>Keys</strong>.</p>
+        
+        <ul>
+            <li><strong>Primary Key (PK):</strong> A unique identifier for every row. It <strong>cannot be NULL</strong> and no two rows can share the same PK. Usually an ID number.</li>
+            <li><strong>Foreign Key (FK):</strong> A column that "points" to the Primary Key of another table. This is how we create <strong>Relationships</strong> between data.</li>
+            <li><strong>Composite Key:</strong> A primary key that consists of two or more columns combined (e.g., in a "Course Enrollment" table, the StudentID and CourseID together might be the PK).</li>
+            <li><strong>Unique Key:</strong> Ensures that all values in a column are unique, but unlike a PK, it allows a single NULL value.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Speeding Up Data: Indexes</h2>
+        <p>An <strong>Index</strong> is a special data structure (usually a B-Tree) that the DBMS uses to find rows faster. Without an index, the database has to scan every single row in a table to find one record. With an index, it can jump straight to the correct location. However, indexes make <code>INSERT</code> and <code>UPDATE</code> operations slower, as the index must be rebuilt every time data changes.</p>
+        <pre><code class="language-sql">
+CREATE INDEX idx_employee_name ON employees(name);
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Illustration showing a 'Primary Key' as a unique fingerprint and a 'Foreign Key' as a chain connecting two separate tables]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master the structure of your data with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. SQL DDL Commands Explained</strong><br>
+                <a href="https://www.youtube.com/watch?v=kM6-fO_G_qY" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn CREATE, ALTER, and DROP in minutes.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. Primary Keys vs Foreign Keys</strong><br>
+                <a href="https://www.youtube.com/watch?v=By2S-A-9yY8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The definitive guide to database relationships.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. How Database Indexes Work</strong><br>
+                <a href="https://www.youtube.com/watch?v=HbeLa6B732E" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Understand the 'Behind-the-scenes' of fast data retrieval.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The ID Badge and the Index of a Book</h2>
+        <p>Think of a <strong>Primary Key</strong> like your <strong>Social Security Number</strong> or your <strong>Employee ID Badge</strong>. There might be 1,000 people named "John Smith," but each has a unique ID number that distinguishes them. Think of a <strong>Foreign Key</strong> like a <strong>Reference on a Resume</strong>. The resume doesn't contain all the information about your previous boss; it just contains their "Manager ID" (the FK), which "points" back to the main Employee table where their full details are stored. Finally, think of an <strong>Index</strong> like the <strong>Index at the back of a Textbook</strong>. If you want to find "Normalization," you don't read the whole book from page 1. You go to the index, find "N," see the page number, and flip straight there. The index makes your search much faster, but it takes up extra pages in the book (Storage) and must be updated if the page numbers change (Write overhead).</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_create_table.asp" target="_blank">W3Schools: SQL CREATE TABLE</a></li>
+            <li><a href="https://www.baeldung.com/cs/database-keys" target="_blank">Baeldung: Guide to Database Keys</a></li>
+            <li><a href="https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/" target="_blank">GeeksforGeeks: SQL Commands Classification</a></li>
+            <li><a href="https://sqlbolt.com/" target="_blank">SQLBolt: Interactive SQL Tutorial</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="DBMS1_2.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Relational Model & Algebra</a>
+            <a href="#" data-file="DBMS1_4.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: SQL Basics: DML & Joins &rarr;</a>
+        </div>
+    </footer>
+</article>

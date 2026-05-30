@@ -1,0 +1,101 @@
+<article>
+    <h1>Java I: Page 6 - Collection Types: Arrays & Matrices</h1>
+
+    <section>
+        <h2>Fixed-Size Collections</h2>
+        <p>So far, we have worked with single variables that hold one piece of data. But what if you need to store 100 student scores or a 3x3 grid for a Tic-Tac-Toe game? In Java, the most fundamental way to store multiple values of the same type is the <strong>Array</strong>. Unlike Python lists, Java arrays are <strong>fixed-size</strong> (you must define the size when you create them) and <strong>homogeneous</strong> (they can only hold one type of data).</p>
+    </section>
+
+    <section>
+        <h2>1. One-Dimensional Arrays</h2>
+        <p>An array is an object that contains a fixed number of values of a single type. The length of an array is established when the array is created. After creation, its length is fixed.</p>
+        
+        <h3>Declaration and Initialization</h3>
+        <pre><code class="language-java">
+// Method 1: Declare then initialize with size
+int[] numbers = new int[5]; 
+numbers[0] = 10; // Set first element
+
+// Method 2: Initialize with values (Array Literal)
+int[] scores = {95, 87, 92, 78, 88};
+        </code></pre>
+        <p>Java uses <strong>Zero-Based Indexing</strong>. This means the first item is at index <code>0</code>, and the last item is at <code>length - 1</code>. Accessing an index outside this range results in the famous <code>ArrayIndexOutOfBoundsException</code>.</p>
+    </section>
+
+    <section>
+        <h2>2. Multidimensional Arrays (Matrices)</h2>
+        <p>In Java, a multidimensional array is actually an "array of arrays." The most common use case is a 2D array, which represents a table or a matrix with rows and columns.</p>
+        <pre><code class="language-java">
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+// Accessing row 1, column 2 (The number 6)
+int value = matrix[1][2];
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <em>[Photo Placeholder: Visual grid showing [Row][Column] indexing for a 2D array]</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Iterating Over Arrays</h2>
+        <p>We typically use <code>for</code> loops to process array data. Java provides a special "Enhanced For Loop" (or <strong>for-each</strong>) specifically for this purpose.</p>
+        <pre><code class="language-java">
+String[] names = {"Alice", "Bob", "Charlie"};
+
+// Enhanced for loop
+for (String name : names) {
+    System.out.println(name);
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Visual Learning: Video Tutorials</h2>
+        <p>Master Java arrays and matrices with these three videos:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>1. Java Arrays Tutorial (Mosh)</strong><br>
+                <a href="https://www.youtube.com/watch?v=0A26Y_F_QyM" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>A great introduction to 1D and 2D arrays.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>2. 2D Arrays in Java (Telusko)</strong><br>
+                <a href="https://www.youtube.com/watch?v=L3-Ku9u8V6I" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>Learn how to visualize and manipulate matrices.</small></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+                <strong>3. For-Each Loop in Java</strong><br>
+                <a href="https://www.youtube.com/watch?v=f-Kov0XwY_8" target="_blank">Watch on YouTube &rarr;</a>
+                <p><small>The cleanest way to iterate over your collections.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Real-World Relationship: The Egg Carton and the Spreadsheet</h2>
+        <p>Think of a <strong>1D Array</strong> like an <strong>Egg Carton</strong>. When you buy it, it has a fixed number of slots (the Size). You can only put eggs (data) in those slots. You can't suddenly add a 13th slot to a 12-egg carton—you'd need to buy a whole new, larger carton and move the eggs over. Think of a <strong>2D Array</strong> like a <strong>Physical Spreadsheet</strong> or a <strong>Parking Garage</strong>. To find a specific car, you need to know the floor (the Row) and the spot number (the Column). This structured storage allows for extremely fast retrieval, as the computer knows exactly which "slot" in memory to jump to based on the index.</p>
+    </section>
+
+    <section>
+        <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank">Official Java Docs: Arrays</a></li>
+            <li><a href="https://www.baeldung.com/java-arrays-guide" target="_blank">Baeldung: Guide to Java Arrays</a></li>
+            <li><a href="https://www.w3schools.com/java/java_arrays.asp" target="_blank">W3Schools: Java Arrays</a></li>
+            <li><a href="https://pythontutorial.net/java-basics/java-arrays/" target="_blank">Java Tutorial: Multidimensional Arrays</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Java1_5.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Loops: For & While</a>
+            <a href="#" data-file="Java1_7.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: String Handling &rarr;</a>
+        </div>
+    </footer>
+</article>
