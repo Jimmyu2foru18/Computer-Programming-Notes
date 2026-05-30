@@ -6,10 +6,9 @@
         <p>Classes in C++ are the templates for creating objects, combining data (members) and functionality (methods) into a cohesive unit.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: classes.cpp
- * Demonstration of class definition and object instantiation
+ * Demonstration of class definition, constructors, const methods, and static members
  */
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -20,21 +19,33 @@ class Vehicle {
 private:
     string brand;
     int year;
+    static int vehicleCount; // Static member: Shared by all instances
 
 public:
-    // Constructor
+    // 1. Constructor: Initialize with initializer list
     Vehicle(string b, int y) : brand(b), year(y) {
+        vehicleCount++;
         cout << "Vehicle constructed: " << brand << endl;
     }
 
-    // Methods
+    // 2. Destructor
+    ~Vehicle() {
+        cout << "Vehicle destroyed." << endl;
+    }
+
+    // 3. Const Method: Cannot modify object members
     void displayInfo() const {
         cout << "Brand: " << brand << ", Year: " << year << endl;
     }
 
-    // Setters/Getters for encapsulation
-    void setYear(int y) { if(y > 1900) year = y; }
+    // 4. Static Method: Belongs to class, not instance
+    static int getVehicleCount() {
+        return vehicleCount;
+    }
 };
+
+// Initialize static member
+int Vehicle::vehicleCount = 0;
 
 int main() {
     // Stack instantiation
@@ -46,28 +57,21 @@ int main() {
     truck->displayInfo();
     delete truck; // Critical to prevent memory leak
     
+    cout << "Total vehicles: " << Vehicle::getVehicleCount() << endl;
+    
     return 0;
 }
 
 /*
  * OOP Nuances:
- * 1. Constructor: Initializes object state.
- * 2. Destructor: Clean up resources (not shown, next page).
- * 3. 'const' method: Ensures the method doesn't modify object members.
+ * 1. Initializer lists (e.g., : brand(b)) are faster than assignment in body.
+ * 2. 'const' method: Ensures the method doesn't modify object members,
+ *    essential for const objects.
+ * 3. Static members: Shared across all instances of a class.
  * 4. Access Modifiers: 'private' protects internal state, 'public' exposes interface.
- * 5. Pointer instantiation: Access members using '->' instead of '.'
+ * 5. Destructors: Automatic clean up for stack objects, manual for heap objects.
+ * 6. Always initialize your members; undefined state can lead to bugs.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Object Creation Simulator</h3>

@@ -6,10 +6,9 @@
         <p>Pointers and References are the foundational tools that give C++ its power and performance, but they are also the primary source of bugs. Mastering them is essential.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: pointers.cpp
- * Demonstration of pointers and references
+ * Demonstration of pointers, references, and const correctness
  */
 #include &lt;iostream&gt;
 
@@ -28,48 +27,48 @@ void modifyWithReference(int& r) {
 int main() {
     int value = 10;
     
-    // Pointer
+    // 1. Pointer Basics
     int* ptr = &value; // Holds address of value
     cout << "Value: " << value << ", Pointer: " << *ptr << endl;
     
     modifyWithPointer(ptr);
     cout << "After Pointer Mod: " << value << endl;
 
-    // Reference
+    // 2. Reference Basics
     int& ref = value; // Alias to value
     modifyWithReference(ref);
     cout << "After Reference Mod: " << value << endl;
 
-    // Pointer arithmetic
+    // 3. Pointer Arithmetic
     int arr[] = {1, 2, 3};
     int* pArr = arr;
     cout << "Array item 1: " << *(pArr + 1) << endl;
+
+    // 4. Const Correctness
+    const int cVal = 100;
+    const int* p1 = &cVal;      // Pointer to const int (data is const)
+    int* const p2 = &value;    // Const pointer to int (pointer is const)
+    const int* const p3 = &cVal; // Const pointer to const int
+
+    cout << "Const Correctness: " << *p1 << endl;
 
     return 0;
 }
 
 /*
- * Pointers vs. References:
+ * Pointers vs. References Nuances:
  * 1. Pointer: Holds address, can be NULL, can be re-assigned.
- * 2. Reference: Alias, cannot be NULL, must be initialized, fixed.
+ * 2. Reference: Alias, cannot be NULL, must be initialized, cannot be re-bound.
  * 3. Nullptr: Use 'nullptr' instead of 'NULL' in modern C++.
  * 4. Pointers allow arithmetic (p+1); References do not.
  * 5. Pass by reference is generally preferred for large objects to 
  *    avoid unnecessary copying (Pass-by-value).
+ * 6. 'const' with pointers is crucial:
+ *    - const int* p (data is immutable)
+ *    - int* const p (pointer address is immutable)
+ * 7. Pointers provide more flexibility, while references provide safer
+ *    syntax for aliasing existing objects.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Pointer Simulator</h3>

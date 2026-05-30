@@ -9,63 +9,68 @@
         <pre><code class="language-cpp">
 /*
  * File: memory.cpp
- * Demonstration of Stack vs Heap allocation
+ * Demonstration of Stack vs Heap allocation and RAII concepts
  */
 #include &lt;iostream&gt;
+#include &lt;memory&gt; // For smart pointers
 
 using namespace std;
 
+// Stack allocation (Automatic)
 void stackDemo() {
-    int x = 10; // Allocated on the stack
-    cout << "Stack variable: " << x << endl;
-} // 'x' is automatically popped here
+    int x = 10; 
+    cout << "Stack variable x: " << x << endl;
+} 
 
+// Heap allocation (Manual)
 void heapDemo() {
-    // Allocated on the heap using 'new'
+    // Allocation on the heap using 'new'
     int* y = new int(20);
-    cout << "Heap variable: " << *y << endl;
-    
+    cout << "Heap variable *y: " << *y << endl;
+
     // Manual deallocation required
     delete y; 
 }
 
+// Modern C++ Memory Management
+void smartPointerDemo() {
+    // std::unique_ptr manages heap memory automatically
+    unique_ptr&lt;int&gt; z = make_unique&lt;int&gt;(30);
+    cout << "Smart pointer *z: " << *z << endl;
+    // No 'delete' required!
+}
+
 int main() {
+    cout << "--- Stack Demo ---" << endl;
     stackDemo();
+
+    cout << "--- Heap Demo ---" << endl;
     heapDemo();
-    
-    // Arrays on heap
+
+    cout << "--- Smart Pointer Demo ---" << endl;
+    smartPointerDemo();
+
+    // Heap array
     int* arr = new int[5]{1, 2, 3, 4, 5};
-    delete[] arr;
-    
+    delete[] arr; // Crucial: Prevent memory leaks
+
     return 0;
 }
 
 /*
  * Memory Management Nuances:
- * 1. Stack: Fast, automatic scope management (LIFO).
+ * 1. Stack: Fast, automatic scope management (LIFO order).
  * 2. Heap: Slower, manual lifetime management (new/delete).
- * 3. Memory Leaks: Forgetting 'delete' on heap memory causes leaks.
- * 4. Dangling Pointers: Accessing memory after 'delete' causes crashes.
- * 5. Modern C++: Use smart pointers (unique_ptr, shared_ptr) 
- *    instead of manual 'new'/'delete' whenever possible.
+ * 3. Memory Leaks: Forgetting 'delete' on heap memory causes leaks,
+ *    leading to increased memory usage over time.
+ * 4. Dangling Pointers: Accessing memory after 'delete' is undefined behavior,
+ *    frequently causing crashes.
+ * 5. Modern C++: Smart pointers (unique_ptr, shared_ptr) are the standard
+ *    solution to manual memory management problems.
+ * 6. Always use 'delete[]' for arrays allocated with 'new[]'.
+ * 7. Memory alignment and padding can affect the actual size of structs in memory.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
-        <div class="interactive-sim">
             <h3>Stack vs Heap Simulator</h3>
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-cpp1_6');
