@@ -1,0 +1,87 @@
+<article>
+    <h1>C++ II: Page 9 - Testing: Unit Testing</h1>
+
+    <section>
+        <h2>The Quality Assurance Cycle</h2>
+        <p>Unit testing is mandatory in professional C++ development. It ensures your code behaves as expected and protects against regressions when you refactor or add new features.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+        /*
+         * File: test_example.cpp
+         * Demonstration of robust unit testing using GoogleTest structure
+         */
+        #include &lt;iostream&gt;
+        #include &lt;cassert&gt;
+        #include &lt;string&gt;
+        #include &lt;vector&gt;
+
+        using namespace std;
+
+        // Function to test
+        int Add(int a, int b) {
+            return a + b;
+        }
+
+        // A simple test runner (Manual)
+        void runTest(bool condition, const string& testName) {
+            if (condition) {
+                cout << "[PASS] " << testName << endl;
+            } else {
+                cout << "[FAIL] " << testName << endl;
+            }
+        }
+
+        int main() {
+            cout << "--- Running Tests ---" << endl;
+
+            // Test Case 1: Positive Numbers
+            runTest(Add(2, 3) == 5, "Add_PositiveNumbers");
+
+            // Test Case 2: Negative Numbers
+            runTest(Add(-1, -1) == -2, "Add_NegativeNumbers");
+
+            // Test Case 3: Zero
+            runTest(Add(0, 5) == 5, "Add_Zero");
+
+            // In a professional environment, use Catch2 or GoogleTest:
+            /*
+            TEST_CASE("Addition works", "[math]") {
+                REQUIRE(Add(2, 3) == 5);
+                REQUIRE(Add(-1, -1) == -2);
+            }
+
+            // GoogleTest example:
+            TEST(AddTest, HandlesPositive) {
+                EXPECT_EQ(Add(2, 3), 5);
+            }
+            */
+
+            return 0;
+        }
+
+        /*
+         * Testing Nuances:
+         * 1. Unit tests: Verify the smallest piece of logic in isolation.
+         * 2. Integration tests: Verify interaction between modules (e.g., DB connection).
+         * 3. Assertions (cassert): Simple runtime checks; use for debugging.
+         * 4. Test frameworks (GTest, Catch2): Provide detailed reports, 
+         *    test fixtures, and sophisticated assertions.
+         * 5. TDD (Test Driven Development): Write the test first, then the code.
+         * 6. Coverage tools: Tools like gcov/lcov ensure your tests cover 
+         *    the majority of your codebase.
+         * 7. Mocking: Use libraries like GoogleMock to simulate dependencies 
+         *    (e.g., database, network) to test in isolation.
+         */
+                </code></pre>
+        <div class="interactive-sim">
+            <h3>Test Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_9');
+                out.innerHTML = 'Running tests...<br>';
+                setTimeout(() => out.innerHTML += '>> [PASS] Add_PositiveNumbers<br>>> [PASS] Add_Zero', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_9" class="sim-output"></div>
+        </div>
+    </section>
+</article>

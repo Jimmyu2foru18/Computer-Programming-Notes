@@ -1,0 +1,79 @@
+<article>
+    <h1>C++ II: Page 10 - Advanced Concepts: Growth Path</h1>
+
+    <section>
+        <h2>The Expert Road</h2>
+        <p>To transition from a competent coder to a C++ expert, you must look under the hood. Master template metaprogramming, understand memory alignment, and embrace concurrency.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">/*
+ * File: advanced.cpp
+ * Demonstration of advanced C++: Template Metaprogramming and Concurrency
+ */
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+#include &lt;vector&gt;
+#include &lt;type_traits&gt;
+
+using namespace std;
+
+// 1. Template Metaprogramming (Compile-time computation)
+template &lt;int N&gt;
+struct Factorial {
+    static const int value = N * Factorial&lt;N - 1&gt;::value;
+};
+
+template &lt;&gt;
+struct Factorial&lt;0&gt; {
+    static const int value = 1;
+};
+
+// 2. Concurrency with Mutex and LockGuard
+mutex mtx;
+void printSafe(int id) {
+    lock_guard&lt;mutex&gt; lock(mtx);
+    cout << "Thread " << id << " executing task." << endl;
+}
+
+int main() {
+    // Template usage: computed at compile-time!
+    cout << "Factorial(5): " << Factorial&lt;5&gt;::value << endl;
+    
+    // Concurrency usage
+    vector&lt;thread&gt; threads;
+    for(int i = 0; i < 3; ++i) {
+        threads.emplace_back(printSafe, i);
+    }
+    
+    for(auto& t : threads) t.join();
+    
+    // Type traits (compile-time type info)
+    cout << "Is int integral? " << is_integral&lt;int&gt;::value << endl;
+    
+    return 0;
+}
+
+/*
+ * Advanced Concepts Nuances:
+ * 1. Templates: Generic programming; powerful for compile-time code generation.
+ * 2. Concurrency: std::thread, std::mutex, std::atomic for thread-safe access.
+ * 3. RAII for Mutex: 'lock_guard' ensures mutex is released, even if exception occurs.
+ * 4. Memory Alignment: Use 'alignof' to check object alignment, impacting performance.
+ * 5. Reading assembly: Use 'objdump' or online tools like Compiler Explorer (godbolt.org).
+ * 6. Template Metaprogramming (TMP) can be used to optimize code by shifting 
+ *    runtime computations to compile-time.
+ * 7. Type Traits: Allow template code to make decisions based on type properties.
+ */
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Concurrency Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_10');
+                out.innerHTML = 'thread t = new Thread(task);<br>';
+                setTimeout(() => out.innerHTML += '>> Thread running concurrently!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_10" class="sim-output"></div>
+        </div>
+    </section>
+</article>

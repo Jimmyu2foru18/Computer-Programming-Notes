@@ -1,0 +1,82 @@
+<article>
+    <h1>C++ II: Page 8 - Build: CMake</h1>
+
+    <section>
+        <h2>Automating the Build Process</h2>
+        <p>CMake is the industry-standard meta-build system. It doesn't build your code directly; it generates the necessary build files (like Makefiles or Visual Studio projects) for your specific platform.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cmake">
+# File: CMakeLists.txt
+# Comprehensive project configuration with subdirectories
+
+cmake_minimum_required(VERSION 3.10)
+project(ModernApp VERSION 1.0)
+
+# C++17 Standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Directory Structure
+# /src - Source files
+# /include - Header files
+# /tests - Unit tests
+
+# Include headers
+include_directories(include)
+
+# Add subdirectories for modularity
+add_subdirectory(src)
+add_subdirectory(tests)
+
+# Define library if needed
+add_library(CoreLib src/Core.cpp)
+
+# Define executable
+add_executable(ModernApp src/main.cpp)
+
+# Link library
+target_link_libraries(ModernApp PRIVATE CoreLib)
+
+# Compiler options for debugging and warnings
+if(MSVC)
+    target_compile_options(ModernApp PRIVATE /W4)
+else()
+    target_compile_options(ModernApp PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+# Installation rules
+install(TARGETS ModernApp DESTINATION bin)
+
+# Documentation (Optional)
+option(BUILD_DOCS "Build documentation" OFF)
+if(BUILD_DOCS)
+    find_package(Doxygen REQUIRED)
+    # ... Doxygen config ...
+endif()
+
+# Summary of CMake commands:
+# 1. cmake_minimum_required: Enforces minimum CMake version.
+# 2. project(): Defines project name and version.
+# 3. add_executable(): Creates the final binary target.
+# 4. target_link_libraries(): Links libraries to targets.
+# 5. target_compile_options(): Adds compiler-specific flags.
+# 6. file(GLOB...): Used for source files (use with care).
+# 7. option(): Defines configurable build options.
+# ...........................................................
+# ...........................................................
+# ...........................................................
+# ...........................................................
+# ...........................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>CMake Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_8');
+                out.innerHTML = 'cmake ..;<br>';
+                setTimeout(() => out.innerHTML += '>> Generating Makefiles...<br>>> Build files ready!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_8" class="sim-output"></div>
+        </div>
+    </section>
+</article>
