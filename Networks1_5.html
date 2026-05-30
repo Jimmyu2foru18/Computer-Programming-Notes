@@ -25,16 +25,10 @@
         
         <h3>Media Access Control (MAC)</h3>
         <p>How do multiple devices on a shared cable know when to talk without crashing into each other? They use a MAC protocol like <strong>CSMA/CD</strong> (Carrier Sense Multiple Access with Collision Detection). If two devices talk at once, the switch/hub detects the collision, and the devices "wait a random time" before retrying.</p>
-        <div class="interactive-sim">
-            <h3>Packet Flow Simulator</h3>
-            <button class="sim-button" onclick="runSimNetworks1_5_html()">Run Simulation</button>
-            <div id="sim-output-Networks1_5_html" class="sim-output"></div>
-            <script>
-            function runSimNetworks1_5_html() {
-                const out = document.getElementById('sim-output-Networks1_5_html');
-                const out = document.getElementById('sim-output-Networks1_5_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
-            }
-            </script>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Abstract representation of OSI layer model, networking layers, and data framing">
+            </div>
         </div>
     </section>
 
