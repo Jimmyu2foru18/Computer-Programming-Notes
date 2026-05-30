@@ -60,10 +60,10 @@ nav a {
 }
 
 
-pre, code {
-    max-width: 100%;
-    overflow-x: auto;
-}
+.interactive-sim { border: 1px solid #ddd; padding: 15px; background: #fdfdfd; border-radius: 8px; margin: 20px 0; }
+.sim-button { background: #007bff; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; }
+.sim-output { font-family: monospace; background: #333; color: #0f0; padding: 10px; border-radius: 4px; margin-top: 10px; min-height: 50px; }
+
 
 img {
     max-width: 100%;

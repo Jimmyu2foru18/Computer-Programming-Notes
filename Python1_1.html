@@ -12,10 +12,20 @@
             <li><strong>Massive Community:</strong> With millions of developers worldwide, you can find a library or a solution for almost any problem.</li>
             <li><strong>Rapid Development:</strong> Python's design allows for quick prototyping, meaning you can move from an idea to a working program in record time.</li>
         </ul>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Illustration of Python's various use cases—Web, AI, Data Science, and Scripting">
-            </div>
+        <div class="interactive-sim">
+            <h3>Python Execution Simulator</h3>
+            <button class="sim-button" onclick="runSimP1_1()">Run Code</button>
+            <div id="sim-output-p1-1" class="sim-output"></div>
+            <script>
+            function runSimP1_1() {
+                const out = document.getElementById('sim-output-p1-1');
+                out.innerHTML = "Checking PATH...<br>";
+                setTimeout(() => out.innerHTML += "Parsing 'hello_world.py'...<br>", 800);
+                setTimeout(() => out.innerHTML += "Compiling to Bytecode...<br>", 1600);
+                setTimeout(() => out.innerHTML += "Executing in VM...<br>", 2400);
+                setTimeout(() => out.innerHTML += ">> Hello, World!<br>>> Welcome to Python programming!", 3200);
+            }
+            </script>
         </div>
     </section>
 
