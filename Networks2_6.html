@@ -18,16 +18,10 @@
             <li><strong>POP3 (Post Office Protocol v3):</strong> Designed to <em>download</em> emails to your local device and (typically) delete them from the server. It’s perfect for low-bandwidth environments or if you only use one device to check mail.</li>
             <li><strong>IMAP (Internet Message Access Protocol):</strong> Designed to <em>synchronize</em> mail between your server and all your devices (phone, laptop, tablet). It leaves the mail on the server, allowing you to see the same inbox everywhere. This is the modern standard for most users.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>Packet Flow Simulator</h3>
-            <button class="sim-button" onclick="runSimNetworks2_6_html()">Run Simulation</button>
-            <div id="sim-output-Networks2_6_html" class="sim-output"></div>
-            <script>
-            function runSimNetworks2_6_html() {
-                const out = document.getElementById('sim-output-Networks2_6_html');
-                const out = document.getElementById('sim-output-Networks2_6_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
-            }
-            </script>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Abstract representation of email communication protocols, SMTP, POP3, and IMAP">
+            </div>
         </div>
     </section>
 
