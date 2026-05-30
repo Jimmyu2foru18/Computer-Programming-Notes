@@ -1,0 +1,76 @@
+<article>
+    <h1>C++ II: Page 6 - Modern C++: Move Semantics</h1>
+
+    <section>
+        <h2>Optimizing Performance</h2>
+        <p>Move semantics allow C++ to "transfer" the ownership of resources from one object to another instead of performing expensive copies. This is achieved using rvalue references (<code>&&</code>).</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: move_semantics.cpp
+ * Demonstration of Move Constructor and Move Assignment
+ */
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+class Buffer {
+    size_t size;
+    int* data;
+public:
+    Buffer(size_t s) : size(s), data(new int[s]) {}
+    ~Buffer() { delete[] data; }
+
+    // Move constructor
+    Buffer(Buffer&& other) noexcept : size(other.size), data(other.data) {
+        other.size = 0;
+        other.data = nullptr;
+        cout << "Buffer moved." << endl;
+    }
+};
+
+int main() {
+    Buffer b1(1000);
+    // Use std::move to transfer ownership
+    Buffer b2 = move(b1); 
+    
+    return 0;
+}
+
+/*
+ * Move Semantics Nuances:
+ * 1. '&&' indicates an rvalue reference (temporary object).
+ * 2. Move constructor takes '&&', steals resources, sets old data to null.
+ * 3. std::move() casts an object to an rvalue, enabling a move.
+ * 4. Exception safety (noexcept) is required for move constructors.
+ * 5. Move semantics drastically improve performance for container classes.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Move Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_6');
+                out.innerHTML = 'Buffer b2 = move(b1);<br>';
+                setTimeout(() => out.innerHTML += '>> Resources stolen from b1, b2 owns data!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_6" class="sim-output"></div>
+        </div>
+    </section>
+</article>

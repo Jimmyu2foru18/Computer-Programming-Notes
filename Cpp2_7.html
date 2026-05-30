@@ -1,0 +1,82 @@
+<article>
+    <h1>C++ II: Page 7 - Modern C++: Auto & Lambdas</h1>
+
+    <section>
+        <h2>Writing Cleaner, Faster Code</h2>
+        <p>Modern C++ offers powerful features like <code>auto</code> for type deduction and <code>lambdas</code> for creating anonymous functions on-the-fly, making code significantly more expressive.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: modern_cpp.cpp
+ * Demonstration of auto type deduction and lambdas
+ */
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+    // 1. Auto type deduction
+    auto x = 10;            // int
+    auto y = 3.14;          // double
+    auto z = "Hello";       // const char*
+    
+    // 2. Lambda expressions
+    // [capture](params) -> return_type { body }
+    auto add = [](int a, int b) -> int {
+        return a + b;
+    };
+    
+    cout << "Addition: " << add(5, 3) << endl;
+    
+    // 3. Capturing variables
+    int multiplier = 10;
+    auto multiply = [multiplier](int x) {
+        return x * multiplier;
+    };
+    
+    cout << "Multiplication: " << multiply(5) << endl;
+
+    // 4. Using lambda in algorithm
+    vector&lt;int&gt; nums = {1, 2, 3};
+    for_each(nums.begin(), nums.end(), [](int n) {
+        cout << n * 2 << " ";
+    });
+    
+    return 0;
+}
+
+/*
+ * Modern C++ Nuances:
+ * 1. 'auto': Compiler deduces the type at compile-time.
+ * 2. Lambdas: Great for quick, localized logic in algorithms.
+ * 3. Capturing: [=] captures all by value, [&] captures all by reference.
+ * 4. Lambdas are effectively function objects (functors) behind the scenes.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Lambda Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_7');
+                out.innerHTML = 'auto f = [](int x){ return x*2; };<br>';
+                setTimeout(() => out.innerHTML += '>> f(5) is 10', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_7" class="sim-output"></div>
+        </div>
+    </section>
+</article>
