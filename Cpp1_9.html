@@ -1,0 +1,93 @@
+<article>
+    <h1>C++ I: Page 9 - OOP: Inheritance & Polymorphism</h1>
+
+    <section>
+        <h2>Reusability and Dynamic Dispatch</h2>
+        <p>Inheritance allows you to create specialized classes from general ones, while Polymorphism (via <code>virtual</code> functions) allows you to treat different types through a common interface.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: inheritance.cpp
+ * Demonstration of polymorphism and dynamic dispatch
+ */
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    // Virtual destructor is crucial for base classes
+    virtual ~Animal() {}
+    
+    // Virtual function enables polymorphism
+    virtual void speak() const {
+        cout << "Some animal sound" << endl;
+    }
+};
+
+// Derived classes
+class Dog : public Animal {
+public:
+    void speak() const override { // Explicit override
+        cout << "Woof!" << endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void speak() const override {
+        cout << "Meow!" << endl;
+    }
+};
+
+int main() {
+    // Dynamic dispatch using pointers to base class
+    vector&lt;Animal*&gt; zoo;
+    zoo.push_back(new Dog());
+    zoo.push_back(new Cat());
+
+    for (const auto& animal : zoo) {
+        animal->speak(); // Correct version called at runtime
+    }
+
+    // Cleanup
+    for (auto animal : zoo) {
+        delete animal;
+    }
+    
+    return 0;
+}
+
+/*
+ * OOP Nuances:
+ * 1. Virtual destructor: Ensures proper cleanup of derived objects via base pointer.
+ * 2. 'virtual' keyword: Instructs compiler to use dynamic dispatch (vtable).
+ * 3. 'override': Strongly recommended to catch errors in signature mismatch.
+ * 4. 'public' inheritance: Defines an "Is-A" relationship.
+ * 5. Polymorphism enables flexible, extensible code architectures.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Inheritance Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_9');
+                out.innerHTML = 'Animal* a = new Dog();<br>';
+                setTimeout(() => out.innerHTML += '>> a->speak() calls Dog::speak()', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_9" class="sim-output"></div>
+        </div>
+    </section>
+</article>

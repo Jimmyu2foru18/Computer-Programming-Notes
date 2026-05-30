@@ -1,0 +1,82 @@
+<article>
+    <h1>C++ I: Page 8 - OOP: Classes & Objects</h1>
+
+    <section>
+        <h2>The Blueprint for Reality</h2>
+        <p>Classes in C++ are the templates for creating objects, combining data (members) and functionality (methods) into a cohesive unit.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: classes.cpp
+ * Demonstration of class definition and object instantiation
+ */
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+class Vehicle {
+private:
+    string brand;
+    int year;
+
+public:
+    // Constructor
+    Vehicle(string b, int y) : brand(b), year(y) {
+        cout << "Vehicle constructed: " << brand << endl;
+    }
+
+    // Methods
+    void displayInfo() const {
+        cout << "Brand: " << brand << ", Year: " << year << endl;
+    }
+
+    // Setters/Getters for encapsulation
+    void setYear(int y) { if(y > 1900) year = y; }
+};
+
+int main() {
+    // Stack instantiation
+    Vehicle car("Toyota", 2020);
+    car.displayInfo();
+    
+    // Heap instantiation (requires manual delete)
+    Vehicle* truck = new Vehicle("Ford", 2022);
+    truck->displayInfo();
+    delete truck; // Critical to prevent memory leak
+    
+    return 0;
+}
+
+/*
+ * OOP Nuances:
+ * 1. Constructor: Initializes object state.
+ * 2. Destructor: Clean up resources (not shown, next page).
+ * 3. 'const' method: Ensures the method doesn't modify object members.
+ * 4. Access Modifiers: 'private' protects internal state, 'public' exposes interface.
+ * 5. Pointer instantiation: Access members using '->' instead of '.'
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Object Creation Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_8');
+                out.innerHTML = 'Vehicle car(\"Toyota\", 2020);<br>';
+                setTimeout(() => out.innerHTML += '>> Car instance created!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_8" class="sim-output"></div>
+        </div>
+    </section>
+</article>

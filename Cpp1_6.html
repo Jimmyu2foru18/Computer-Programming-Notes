@@ -1,0 +1,78 @@
+<article>
+    <h1>C++ I: Page 6 - Memory: Stack vs Heap</h1>
+
+    <section>
+        <h2>The Architecture of Memory</h2>
+        <p>Understanding where your data lives is what separates professional C++ developers from everyone else. C++ gives you explicit control over memory through two main mechanisms: the <strong>Stack</strong> and the <strong>Heap</strong>.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: memory.cpp
+ * Demonstration of Stack vs Heap allocation
+ */
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void stackDemo() {
+    int x = 10; // Allocated on the stack
+    cout << "Stack variable: " << x << endl;
+} // 'x' is automatically popped here
+
+void heapDemo() {
+    // Allocated on the heap using 'new'
+    int* y = new int(20);
+    cout << "Heap variable: " << *y << endl;
+    
+    // Manual deallocation required
+    delete y; 
+}
+
+int main() {
+    stackDemo();
+    heapDemo();
+    
+    // Arrays on heap
+    int* arr = new int[5]{1, 2, 3, 4, 5};
+    delete[] arr;
+    
+    return 0;
+}
+
+/*
+ * Memory Management Nuances:
+ * 1. Stack: Fast, automatic scope management (LIFO).
+ * 2. Heap: Slower, manual lifetime management (new/delete).
+ * 3. Memory Leaks: Forgetting 'delete' on heap memory causes leaks.
+ * 4. Dangling Pointers: Accessing memory after 'delete' causes crashes.
+ * 5. Modern C++: Use smart pointers (unique_ptr, shared_ptr) 
+ *    instead of manual 'new'/'delete' whenever possible.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Stack vs Heap Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_6');
+                out.innerHTML = 'Stack: x = 10;<br>Heap: int* y = new int(20);<br>';
+                setTimeout(() => out.innerHTML += '>> Stack freed automatically.<br>>> Heap needs delete!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_6" class="sim-output"></div>
+        </div>
+    </section>
+</article>

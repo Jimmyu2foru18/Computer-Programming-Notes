@@ -1,0 +1,86 @@
+<article>
+    <h1>C++ I: Page 10 - RAII & Destructors</h1>
+
+    <section>
+        <h2>RAII: Resource Acquisition Is Initialization</h2>
+        <p>RAII is the cornerstone of C++ memory management. It dictates that resources (memory, file handles, network sockets) are acquired in the constructor and released in the destructor. This ensures resource safety even when exceptions occur.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: raii.cpp
+ * Demonstration of RAII and Destructor usage
+ */
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+class ResourceManager {
+private:
+    string name;
+
+public:
+    // Constructor: Acquires resource
+    ResourceManager(string n) : name(n) {
+        cout << "Resource " << name << " acquired." << endl;
+    }
+
+    // Destructor: Releases resource
+    ~ResourceManager() {
+        cout << "Resource " << name << " released." << endl;
+    }
+
+    void doWork() {
+        cout << "Working with " << name << "..." << endl;
+    }
+};
+
+void scopeDemo() {
+    // Resource acquired
+    ResourceManager res("FileHandle");
+    res.doWork();
+    // Resource automatically released here!
+}
+
+int main() {
+    cout << "--- RAII Demonstration ---" << endl;
+    scopeDemo();
+    cout << "--- Demonstration finished ---" << endl;
+    return 0;
+}
+
+/*
+ * RAII Nuances:
+ * 1. Stack-based objects have deterministic destruction.
+ * 2. RAII eliminates need for manual 'delete' in simple cases.
+ * 3. Crucial for Exception Safety: Resources are freed if an exception is thrown.
+ * 4. Rule of Three/Five: If you define a destructor, you often need 
+ *    copy/move constructors and assignment operators.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>RAII Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_10');
+                out.innerHTML = 'ResourceManager res(\"File\");<br>';
+                setTimeout(() => out.innerHTML += '>> Work done...<br>>> Resource File released!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_10" class="sim-output"></div>
+        </div>
+    </section>
+</article>

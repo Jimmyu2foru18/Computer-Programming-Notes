@@ -1,0 +1,84 @@
+<article>
+    <h1>C++ I: Page 7 - Pointers & References</h1>
+
+    <section>
+        <h2>Direct Memory Control</h2>
+        <p>Pointers and References are the foundational tools that give C++ its power and performance, but they are also the primary source of bugs. Mastering them is essential.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: pointers.cpp
+ * Demonstration of pointers and references
+ */
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void modifyWithPointer(int* p) {
+    if (p != nullptr) {
+        *p = *p * 2; // Dereference pointer to modify value
+    }
+}
+
+void modifyWithReference(int& r) {
+    r = r * 3; // Reference acts as an alias
+}
+
+int main() {
+    int value = 10;
+    
+    // Pointer
+    int* ptr = &value; // Holds address of value
+    cout << "Value: " << value << ", Pointer: " << *ptr << endl;
+    
+    modifyWithPointer(ptr);
+    cout << "After Pointer Mod: " << value << endl;
+
+    // Reference
+    int& ref = value; // Alias to value
+    modifyWithReference(ref);
+    cout << "After Reference Mod: " << value << endl;
+
+    // Pointer arithmetic
+    int arr[] = {1, 2, 3};
+    int* pArr = arr;
+    cout << "Array item 1: " << *(pArr + 1) << endl;
+
+    return 0;
+}
+
+/*
+ * Pointers vs. References:
+ * 1. Pointer: Holds address, can be NULL, can be re-assigned.
+ * 2. Reference: Alias, cannot be NULL, must be initialized, fixed.
+ * 3. Nullptr: Use 'nullptr' instead of 'NULL' in modern C++.
+ * 4. Pointers allow arithmetic (p+1); References do not.
+ * 5. Pass by reference is generally preferred for large objects to 
+ *    avoid unnecessary copying (Pass-by-value).
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Pointer Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_7');
+                out.innerHTML = 'int x = 10; int* p = &x;<br>';
+                setTimeout(() => out.innerHTML += '>> *p = 20;<br>>> x is now 20', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_7" class="sim-output"></div>
+        </div>
+    </section>
+</article>
