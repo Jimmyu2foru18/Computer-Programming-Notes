@@ -6,15 +6,18 @@
         <p>RAII is the cornerstone of C++ memory management. It dictates that resources (memory, file handles, network sockets) are acquired in the constructor and released in the destructor. This ensures resource safety even when exceptions occur.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: raii.cpp
- * Demonstration of RAII and Destructor usage
+ * Demonstration of RAII, Destructors, and LockGuard (Mutex RAII)
  */
 #include &lt;iostream&gt;
 #include &lt;string&gt;
+#include &lt;mutex&gt;
 
 using namespace std;
+
+// Mutex for demo
+mutex resourceMtx;
 
 class ResourceManager {
 private:
@@ -43,9 +46,19 @@ void scopeDemo() {
     // Resource automatically released here!
 }
 
+void mutexDemo() {
+    // lock_guard is an RAII wrapper for mutex
+    lock_guard&lt;mutex&gt; lock(resourceMtx);
+    cout << "Resource locked." << endl;
+    // Mutex automatically unlocked here!
+}
+
 int main() {
     cout << "--- RAII Demonstration ---" << endl;
     scopeDemo();
+    cout << "--- Mutex RAII Demo ---" << endl;
+    mutexDemo();
+    
     cout << "--- Demonstration finished ---" << endl;
     return 0;
 }
@@ -57,21 +70,9 @@ int main() {
  * 3. Crucial for Exception Safety: Resources are freed if an exception is thrown.
  * 4. Rule of Three/Five: If you define a destructor, you often need 
  *    copy/move constructors and assignment operators.
+ * 5. Smart pointers (unique_ptr, shared_ptr) are the ultimate expression of RAII.
+ * 6. LockGuard and similar wrappers use RAII to manage OS-level resources.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>RAII Simulator</h3>

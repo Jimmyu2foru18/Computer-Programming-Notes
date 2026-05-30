@@ -9,10 +9,11 @@
         <pre><code class="language-cpp">
 /*
  * File: inheritance.cpp
- * Demonstration of polymorphism and dynamic dispatch
+ * Demonstration of polymorphism, virtual functions, and final keyword
  */
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
+#include &lt;string&gt;
 
 using namespace std;
 
@@ -20,22 +21,23 @@ using namespace std;
 class Animal {
 public:
     // Virtual destructor is crucial for base classes
-    virtual ~Animal() {}
-    
+    virtual ~Animal() { cout << "Animal destructor" << endl; }
+
     // Virtual function enables polymorphism
     virtual void speak() const {
         cout << "Some animal sound" << endl;
     }
 };
 
-// Derived classes
-class Dog : public Animal {
+// Derived class: final prevents further inheritance
+class Dog final : public Animal {
 public:
     void speak() const override { // Explicit override
         cout << "Woof!" << endl;
     }
 };
 
+// Derived class
 class Cat : public Animal {
 public:
     void speak() const override {
@@ -49,6 +51,7 @@ int main() {
     zoo.push_back(new Dog());
     zoo.push_back(new Cat());
 
+    cout << "--- Polymorphism in action ---" << endl;
     for (const auto& animal : zoo) {
         animal->speak(); // Correct version called at runtime
     }
@@ -57,31 +60,22 @@ int main() {
     for (auto animal : zoo) {
         delete animal;
     }
-    
+
     return 0;
 }
 
 /*
  * OOP Nuances:
- * 1. Virtual destructor: Ensures proper cleanup of derived objects via base pointer.
+ * 1. Virtual destructor: Ensures proper cleanup of derived objects 
+ *    when deleted via base pointer.
  * 2. 'virtual' keyword: Instructs compiler to use dynamic dispatch (vtable).
  * 3. 'override': Strongly recommended to catch errors in signature mismatch.
- * 4. 'public' inheritance: Defines an "Is-A" relationship.
+ * 4. 'final': Prevents further derivation of a class or overriding of a method.
  * 5. Polymorphism enables flexible, extensible code architectures.
+ * 6. Slicing: Be careful not to pass objects by value when polymorphism
+ *    is expected; always use pointers or references.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
-        <div class="interactive-sim">
-            <h3>Inheritance Simulator</h3>
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-cpp1_9');
                 out.innerHTML = 'Animal* a = new Dog();<br>';
