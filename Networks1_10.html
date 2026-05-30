@@ -34,16 +34,10 @@ Comp: 2001:db8::8a2e:370:7334
     <section>
         <h2>3. Transitioning: Dual-Stack and Tunneling</h2>
         <p>You can't just flip a switch and turn off IPv4. For years, we must use <strong>Dual-Stack</strong> (a device has both IPv4 and IPv6 addresses simultaneously) or <strong>Tunneling</strong> (wrapping an IPv6 packet inside an IPv4 packet to traverse IPv4-only network segments).</p>
-        <div class="interactive-sim">
-            <h3>Packet Flow Simulator</h3>
-            <button class="sim-button" onclick="runSimNetworks1_10_html()">Run Simulation</button>
-            <div id="sim-output-Networks1_10_html" class="sim-output"></div>
-            <script>
-            function runSimNetworks1_10_html() {
-                const out = document.getElementById('sim-output-Networks1_10_html');
-                const out = document.getElementById('sim-output-Networks1_10_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
-            }
-            </script>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Abstract representation of IPv6 addressing, address space, and global network connectivity">
+            </div>
         </div>
     </section>
 
