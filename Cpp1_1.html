@@ -7,19 +7,94 @@
     </section>
 
     <section>
-        <h2>The C++ Development Pipeline</h2>
-        <p>Unlike Python, C++ must be compiled into machine code before it can be executed. This process involves:</p>
-        <ol>
-            <li><strong>Preprocessing:</strong> Handling macros and including header files.</li>
-            <li><strong>Compilation:</strong> Translating source code into object files.</li>
-            <li><strong>Linking:</strong> Combining object files into an executable.</li>
-        </ol>
+        <h2>The C++ Development Pipeline & Project Setup</h2>
+        <p>Unlike Python, C++ must be compiled into machine code. A robust C++ environment involves understanding header files, source files, and the compilation process managed by a build system like CMake.</p>
+        <pre><code class="language-cpp">
+/*
+ * File: main.cpp
+ * A comprehensive example demonstrating C++ project structure
+ */
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt; // For modern algorithms
+
+// Preprocessor definitions
+#define MAX_BUFFER_SIZE 1024
+#define VERSION "1.0.0"
+
+// Namespace best practice
+using namespace std;
+
+// Structure to hold data
+struct AppConfig {
+    string appName;
+    int timeout;
+};
+
+// Function prototypes
+void InitializeEnvironment(AppConfig& config);
+void ProcessTasks(const vector&lt;string&gt;& tasks);
+
+int main() {
+    cout << "--- C++ Application Starting (v" << VERSION << ") ---" << endl;
+    
+    AppConfig config;
+    InitializeEnvironment(config);
+    
+    vector&lt;string&gt; tasks = {
+        "Parsing command line args",
+        "Loading configuration file",
+        "Initializing network interface",
+        "Establishing database connection"
+    };
+
+    ProcessTasks(tasks);
+
+    cout << "--- Initialization Complete (Timeout: " 
+         << config.timeout << "ms) ---" << endl;
+
+    return 0;
+}
+
+void InitializeEnvironment(AppConfig& config) {
+    config.appName = "EngineX";
+    config.timeout = 5000; // 5 seconds
+    cout << ">> Setting up environment for: " << config.appName << endl;
+}
+
+void ProcessTasks(const vector&lt;string&gt;& tasks) {
+    // Modern for-range loop
+    for (const auto& task : tasks) {
+        cout << ">> Executing: " << task << endl;
+    }
+}
+
+/*
+ * Compiling this requires a C++ compiler:
+ * g++ -std=c++17 main.cpp -o engine_x
+ * 
+ * 1. Preprocessor: #include, #define replaced.
+ * 2. Compilation: Source -> Assembly -> Object (.o)
+ * 3. Linking: Object files + Libraries -> Executable
+ */
+
+// Memory management example (Pre-smart pointers)
+void LegacyMemoryHandling() {
+    int* data = new int[MAX_BUFFER_SIZE];
+    // ... complex logic ...
+    delete[] data; // Crucial: Prevent memory leaks
+}
+        </code></pre>
         <div class="interactive-sim">
-            <h3>C++ Execution Simulator</h3>
+            <h3>C++ Compilation Simulator</h3>
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-cpp1_1');
-                out.innerHTML = 'g++ main.cpp -o main;<br>';
-                setTimeout(() => out.innerHTML += '>> Compilation Successful!<br>>> ./main<br>>> Hello, C++!', 800);
+                out.innerHTML = 'g++ -std=c++17 main.cpp -o engine_x;<br>';
+                setTimeout(() => out.innerHTML += '>> Preprocessing...<br>', 400);
+                setTimeout(() => out.innerHTML += '>> Compiling...<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Linking...<br>', 1200);
+                setTimeout(() => out.innerHTML += '>> Compilation Successful! Execution: EngineX v1.0.0', 1600);
             ">Run Simulation</button>
             <div id="sim-output-cpp1_1" class="sim-output"></div>
         </div>
