@@ -33,16 +33,13 @@ print(my_list[::-1])  # [5, 4, 3, 2, 1, 0] (The Pythonic way to reverse!)
         </code></pre>
         <div class="interactive-sim">
             <h3>List Comprehension Simulator</h3>
-            <button class="sim-button" onclick="runSimPython1_5()">Run Simulation</button>
-            <div id="sim-output-Python1_5" class="sim-output"></div>
-            <script>
-            function runSimPython1_5() {
-                const out = document.getElementById('sim-output-Python1_5');
-                out.innerHTML = 'nums = [1, 2, 3];<br>'; 
-                setTimeout(() => out.innerHTML += 'squares = [n*n for n in nums];<br>', 800); 
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-p1-5');
+                out.innerHTML = 'nums = [1, 2, 3];<br>';
+                setTimeout(() => out.innerHTML += 'squares = [n*n for n in nums];<br>', 800);
                 setTimeout(() => out.innerHTML += '>> squares is [1, 4, 9]', 1600);
-            }
-            </script>
+            ">Run Simulation</button>
+            <div id="sim-output-p1-5" class="sim-output"></div>
         </div>
     </section>
 

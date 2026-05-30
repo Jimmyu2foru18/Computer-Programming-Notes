@@ -53,15 +53,14 @@ String dayType = switch (day) {
 };
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava1_4_html()">Run Simulation</button>
-            <div id="sim-output-Java1_4_html" class="sim-output"></div>
-            <script>
-            function runSimJava1_4_html() {
-                const out = document.getElementById('sim-output-Java1_4_html');
-                const out = document.getElementById('sim-output-Java1_4_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Switch Statement Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j1-4');
+                out.innerHTML = 'day = 3;<br>';
+                setTimeout(() => out.innerHTML += 'switch(day) { case 3: print(\"Wednesday\"); break; }<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Wednesday', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-j1-4" class="sim-output"></div>
         </div>
     </section>
 

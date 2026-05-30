@@ -47,15 +47,14 @@ try {
 }
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava2_9_html()">Run Simulation</button>
-            <div id="sim-output-Java2_9_html" class="sim-output"></div>
-            <script>
-            function runSimJava2_9_html() {
-                const out = document.getElementById('sim-output-Java2_9_html');
-                const out = document.getElementById('sim-output-Java2_9_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Thread Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j2-9');
+                out.innerHTML = 't = new Thread(task);<br>';
+                setTimeout(() => out.innerHTML += 't.start();<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Thread running concurrently!', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-j2-9" class="sim-output"></div>
         </div>
     </section>
 

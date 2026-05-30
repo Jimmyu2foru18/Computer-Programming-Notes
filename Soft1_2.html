@@ -45,15 +45,13 @@ class Dog extends Animal { // Dog inherits 'name' and 'eat()'
 }
         </code></pre>
         <div class="interactive-sim">
-            <h3>Pattern Simulator</h3>
-            <button class="sim-button" onclick="runSimSoft1_2_html()">Run Simulation</button>
-            <div id="sim-output-Soft1_2_html" class="sim-output"></div>
-            <script>
-            function runSimSoft1_2_html() {
-                const out = document.getElementById('sim-output-Soft1_2_html');
-                const out = document.getElementById('sim-output-Soft1_2_html'); out.innerHTML = 'Design Pattern: Singleton<br>'; setTimeout(() => out.innerHTML += '>> Instance created', 1000);
-            }
-            </script>
+            <h3>Encapsulation Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-s1-2');
+                out.innerHTML = 'account.setBalance(-100);<br>';
+                setTimeout(() => out.innerHTML += '>> Error: Cannot set negative balance!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-s1-2" class="sim-output"></div>
         </div>
     </section>
 

@@ -37,15 +37,13 @@ Animal anotherPet = new Cat();
 anotherPet.makeSound();   // Output: Meow!
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava2_3_html()">Run Simulation</button>
-            <div id="sim-output-Java2_3_html" class="sim-output"></div>
-            <script>
-            function runSimJava2_3_html() {
-                const out = document.getElementById('sim-output-Java2_3_html');
-                const out = document.getElementById('sim-output-Java2_3_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Polymorphism Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j2-3');
+                out.innerHTML = 'Animal myPet = new Dog();<br>';
+                setTimeout(() => out.innerHTML += '>> myPet.makeSound() is \"Woof!\"', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j2-3" class="sim-output"></div>
         </div>
     </section>
 

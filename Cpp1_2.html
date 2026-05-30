@@ -1,0 +1,23 @@
+<article>
+    <h1>C++ I: Page 2 - Variables & Primitives</h1>
+
+    <section>
+        <h2>The Building Blocks</h2>
+        <p>C++ is statically typed, meaning you must declare the type of a variable before using it. This allows the compiler to perform rigorous checks and optimize memory layout.</p>
+        <pre><code class="language-cpp">
+int age = 25;
+double pi = 3.14159;
+char initial = 'J';
+bool isPro = true;
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Variable Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_2');
+                out.innerHTML = 'int x = 10; int y = 20;<br>';
+                setTimeout(() => out.innerHTML += '>> Sum = ' + (10 + 20), 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_2" class="sim-output"></div>
+        </div>
+    </section>
+</article>

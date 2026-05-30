@@ -29,16 +29,13 @@ print(complex_num.imag)  # 4.0
         </code></pre>
         <div class="interactive-sim">
             <h3>Number & Boolean Simulator</h3>
-            <button class="sim-button" onclick="runSimP1_3()">Run Operations</button>
-            <div id="sim-output-p1-3" class="sim-output"></div>
-            <script>
-            function runSimP1_3() {
+            <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-p1-3');
-                out.innerHTML = "a = 10; b = 3;<br>";
-                setTimeout(() => out.innerHTML += "a > b is " + (10 > 3) + "<br>", 800);
-                setTimeout(() => out.innerHTML += ">> a % b is " + (10 % 3), 1600);
-            }
-            </script>
+                out.innerHTML = 'a = 10; b = 3;<br>';
+                setTimeout(() => out.innerHTML += 'a > b is ' + (10 > 3) + '<br>', 800);
+                setTimeout(() => out.innerHTML += '>> a % b is ' + (10 % 3), 1600);
+            ">Run Operations</button>
+            <div id="sim-output-p1-3" class="sim-output"></div>
         </div>
     </section>
 

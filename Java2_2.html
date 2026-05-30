@@ -39,6 +39,15 @@ myDog.name = "Buddy"; // Attribute from Animal
 myDog.eat();         // Method from Animal
 myDog.bark();        // Method from Dog
         </code></pre>
+        <div class="interactive-sim">
+            <h3>Inheritance Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j2-2');
+                out.innerHTML = 'class Dog extends Animal;<br>';
+                setTimeout(() => out.innerHTML += '>> Dog inherits eat() and has bark()', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j2-2" class="sim-output"></div>
+        </div>
     </section>
 
     <section>

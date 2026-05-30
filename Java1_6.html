@@ -36,15 +36,13 @@ int[][] matrix = {
 int value = matrix[1][2];
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava1_6_html()">Run Simulation</button>
-            <div id="sim-output-Java1_6_html" class="sim-output"></div>
-            <script>
-            function runSimJava1_6_html() {
-                const out = document.getElementById('sim-output-Java1_6_html');
-                const out = document.getElementById('sim-output-Java1_6_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Array Access Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j1-6');
+                out.innerHTML = 'arr = [10, 20, 30];<br>';
+                setTimeout(() => out.innerHTML += '>> arr[1] is 20', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j1-6" class="sim-output"></div>
         </div>
     </section>
 

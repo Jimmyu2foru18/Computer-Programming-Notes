@@ -56,15 +56,16 @@ while (count < 3) {
             <li><strong>continue:</strong> Skips the <em>rest</em> of the current iteration and jumps back to the top to start the next one.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp1_5_html()">Run Simulation</button>
-            <div id="sim-output-CSharp1_5_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp1_5_html() {
-                const out = document.getElementById('sim-output-CSharp1_5_html');
-                const out = document.getElementById('sim-output-CSharp1_5_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>Loop Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs1-5');
+                out.innerHTML = 'for (int i=0; i<3; i++) {<br>';
+                setTimeout(() => out.innerHTML += '>> Iteration ' + 0 + '<br>', 400);
+                setTimeout(() => out.innerHTML += '>> Iteration ' + 1 + '<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Iteration ' + 2 + '<br>', 1200);
+                setTimeout(() => out.innerHTML += '}<br>', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-cs1-5" class="sim-output"></div>
         </div>
     </section>
 

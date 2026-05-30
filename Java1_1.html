@@ -15,14 +15,12 @@
         </ul>
         <div class="interactive-sim">
             <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava1_1_html()">Run Simulation</button>
-            <div id="sim-output-Java1_1_html" class="sim-output"></div>
-            <script>
-            function runSimJava1_1_html() {
-                const out = document.getElementById('sim-output-Java1_1_html');
-                const out = document.getElementById('sim-output-Java1_1_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-Java1_1');
+                out.innerHTML = 'class Car { ... };<br>'; 
+                setTimeout(() => out.innerHTML += '>> Car instance created', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-Java1_1" class="sim-output"></div>
         </div>
     </section>
 

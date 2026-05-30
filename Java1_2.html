@@ -80,6 +80,16 @@ score = 95;             // Initialization
 
 final double PI = 3.14; // A Constant (cannot be changed)
         </code></pre>
+        <div class="interactive-sim">
+            <h3>Java Variable Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j1-2');
+                out.innerHTML = 'int x = 10;<br>';
+                setTimeout(() => out.innerHTML += 'int y = 20;<br>', 800);
+                setTimeout(() => out.innerHTML += '>> sum = ' + (10 + 20), 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-j1-2" class="sim-output"></div>
+        </div>
     </section>
 
     <section>

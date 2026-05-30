@@ -1,0 +1,20 @@
+<article>
+    <h1>C++ I: Page 5 - Loops: For & While</h1>
+
+    <section>
+        <h2>Automating Tasks</h2>
+        <p>Loops allow you to repeat actions. C++ supports <code>for</code>, <code>while</code>, <code>do-while</code>, and the range-based <code>for</code> loop.</p>
+        <div class="interactive-sim">
+            <h3>Loop Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_5');
+                out.innerHTML = 'for (int i=0; i<3; i++) {<br>';
+                setTimeout(() => out.innerHTML += '>> Iteration ' + 0 + '<br>', 400);
+                setTimeout(() => out.innerHTML += '>> Iteration ' + 1 + '<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Iteration ' + 2 + '<br>', 1200);
+                setTimeout(() => out.innerHTML += '}<br>', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_5" class="sim-output"></div>
+        </div>
+    </section>
+</article>

@@ -25,16 +25,13 @@ print(f"Your grade is: {grade}")
         </code></pre>
         <div class="interactive-sim">
             <h3>Conditional Logic Simulator</h3>
-            <button class="sim-button" onclick="runSimPython1_8()">Run Simulation</button>
-            <div id="sim-output-Python1_8" class="sim-output"></div>
-            <script>
-            function runSimPython1_8() {
-                const out = document.getElementById('sim-output-Python1_8');
-                out.innerHTML = 'x = 10;<br>'; 
-                setTimeout(() => out.innerHTML += 'if (x > 5) print("Big");<br>', 800); 
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-p1-8');
+                out.innerHTML = 'x = 10;<br>';
+                setTimeout(() => out.innerHTML += 'if (x > 5) print(\"Big\");<br>', 800);
                 setTimeout(() => out.innerHTML += '>> Big', 1600);
-            }
-            </script>
+            ">Run Simulation</button>
+            <div id="sim-output-p1-8" class="sim-output"></div>
         </div>
     </section>
 

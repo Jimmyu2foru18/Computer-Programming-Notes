@@ -63,15 +63,13 @@ public class Student {
 }
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava2_1_html()">Run Simulation</button>
-            <div id="sim-output-Java2_1_html" class="sim-output"></div>
-            <script>
-            function runSimJava2_1_html() {
-                const out = document.getElementById('sim-output-Java2_1_html');
-                const out = document.getElementById('sim-output-Java2_1_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Encapsulation Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j2-1');
+                out.innerHTML = 'student.setGpa(5.0);<br>';
+                setTimeout(() => out.innerHTML += '>> Invalid GPA!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j2-1" class="sim-output"></div>
         </div>
     </section>
 

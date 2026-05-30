@@ -43,15 +43,13 @@ class Validator {
         <h2>4. SoC: Separation of Concerns</h2>
         <p>A system should be organized so that each part addresses a separate concern. Your UI code should not know how the database works; your Database code should not know how to send emails. This results in <strong>Low Coupling</strong> and <strong>High Cohesion</strong>.</p>
         <div class="interactive-sim">
-            <h3>Pattern Simulator</h3>
-            <button class="sim-button" onclick="runSimSoft1_6_html()">Run Simulation</button>
-            <div id="sim-output-Soft1_6_html" class="sim-output"></div>
-            <script>
-            function runSimSoft1_6_html() {
-                const out = document.getElementById('sim-output-Soft1_6_html');
-                const out = document.getElementById('sim-output-Soft1_6_html'); out.innerHTML = 'Design Pattern: Singleton<br>'; setTimeout(() => out.innerHTML += '>> Instance created', 1000);
-            }
-            </script>
+            <h3>DRY Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-s1-6');
+                out.innerHTML = 'Refactoring repeated logic...<br>';
+                setTimeout(() => out.innerHTML += '>> Code now DRY (single source of truth)!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-s1-6" class="sim-output"></div>
         </div>
     </section>
 

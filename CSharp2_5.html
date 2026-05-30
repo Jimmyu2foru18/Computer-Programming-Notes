@@ -49,15 +49,13 @@ string file = "daily.pdf";
 string fullPath = Path.Combine(folder, file); // Safe concatenation
         </code></pre>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp2_5_html()">Run Simulation</button>
-            <div id="sim-output-CSharp2_5_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp2_5_html() {
-                const out = document.getElementById('sim-output-CSharp2_5_html');
-                const out = document.getElementById('sim-output-CSharp2_5_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>File I/O Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs2-5');
+                out.innerHTML = 'File.WriteAllText(\"data.txt\", \"Hello\");<br>';
+                setTimeout(() => out.innerHTML += '>> File successfully created!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cs2-5" class="sim-output"></div>
         </div>
     </section>
 

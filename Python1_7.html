@@ -32,16 +32,13 @@ student["age"] = 21
         </code></pre>
         <div class="interactive-sim">
             <h3>Dictionary Lookup Simulator</h3>
-            <button class="sim-button" onclick="runSimPython1_7()">Run Simulation</button>
-            <div id="sim-output-Python1_7" class="sim-output"></div>
-            <script>
-            function runSimPython1_7() {
+            <button class="sim-button" onclick="
                 const d = {a: 1, b: 2};
-                const out = document.getElementById('sim-output-Python1_7');
-                out.innerHTML = 'd = {a: 1, b: 2};<br>'; 
-                setTimeout(() => out.innerHTML += '>> d["a"] is ' + d['a'], 800);
-            }
-            </script>
+                const out = document.getElementById('sim-output-p1-7');
+                out.innerHTML = 'd = {a: 1, b: 2};<br>';
+                setTimeout(() => out.innerHTML += '>> d[\"a\"] is ' + d[\'a\'], 800);
+            ">Run Simulation</button>
+            <div id="sim-output-p1-7" class="sim-output"></div>
         </div>
     </section>
 

@@ -55,15 +55,13 @@ class PaymentProcessor {
 }
         </code></pre>
         <div class="interactive-sim">
-            <h3>Pattern Simulator</h3>
-            <button class="sim-button" onclick="runSimSoft1_4_html()">Run Simulation</button>
-            <div id="sim-output-Soft1_4_html" class="sim-output"></div>
-            <script>
-            function runSimSoft1_4_html() {
-                const out = document.getElementById('sim-output-Soft1_4_html');
-                const out = document.getElementById('sim-output-Soft1_4_html'); out.innerHTML = 'Design Pattern: Singleton<br>'; setTimeout(() => out.innerHTML += '>> Instance created', 1000);
-            }
-            </script>
+            <h3>OCP Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-s1-4');
+                out.innerHTML = 'PaymentProcessor.process(new PayPal());<br>';
+                setTimeout(() => out.innerHTML += '>> PayPal payment processed!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-s1-4" class="sim-output"></div>
         </div>
     </section>
 

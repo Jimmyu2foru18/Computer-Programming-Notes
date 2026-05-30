@@ -13,15 +13,13 @@
         <h2>Engineering vs. Programming</h2>
         <p>Think of it like building a house. Programming is like carpentry—knowing how to saw wood and drive nails. Software Engineering is like <strong>Architecture and Civil Engineering</strong>. It involves planning the foundation, ensuring the electrical and plumbing systems are compatible, checking for fire safety codes, and making sure the building won't collapse during a storm. A programmer builds a feature; an engineer builds a system that can sustain a team of 100 developers working on it for a decade.</p>
         <div class="interactive-sim">
-            <h3>Pattern Simulator</h3>
-            <button class="sim-button" onclick="runSimSoft1_1_html()">Run Simulation</button>
-            <div id="sim-output-Soft1_1_html" class="sim-output"></div>
-            <script>
-            function runSimSoft1_1_html() {
-                const out = document.getElementById('sim-output-Soft1_1_html');
-                const out = document.getElementById('sim-output-Soft1_1_html'); out.innerHTML = 'Design Pattern: Singleton<br>'; setTimeout(() => out.innerHTML += '>> Instance created', 1000);
-            }
-            </script>
+            <h3>Abstraction Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-s1-1');
+                out.innerHTML = 'Car.drive();<br>';
+                setTimeout(() => out.innerHTML += '>> Engine running (Internal complexity hidden)', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-s1-1" class="sim-output"></div>
         </div>
     </section>
 

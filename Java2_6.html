@@ -32,15 +32,13 @@ import java.util.*;               // Wildcard import (all classes in package)
             <li><strong>Protected:</strong> Visible to classes in the same package AND any subclasses in different packages. This is the "bridge" between packages for inheritance.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava2_6_html()">Run Simulation</button>
-            <div id="sim-output-Java2_6_html" class="sim-output"></div>
-            <script>
-            function runSimJava2_6_html() {
-                const out = document.getElementById('sim-output-Java2_6_html');
-                const out = document.getElementById('sim-output-Java2_6_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Package Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j2-6');
+                out.innerHTML = 'package com.myapp.utils;<br>';
+                setTimeout(() => out.innerHTML += '>> Class imported from package!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j2-6" class="sim-output"></div>
         </div>
     </section>
 

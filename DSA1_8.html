@@ -38,15 +38,15 @@ def bubble_sort(arr):
             <li><strong>Best Case:</strong> O(n). If the array is already sorted, the algorithm can detect this (via the <code>swapped</code> flag) and finish in one pass.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA1_8_html()">Run Simulation</button>
-            <div id="sim-output-DSA1_8_html" class="sim-output"></div>
-            <script>
-            function runSimDSA1_8_html() {
-                const out = document.getElementById('sim-output-DSA1_8_html');
-                const out = document.getElementById('sim-output-DSA1_8_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Bubble Sort Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds1-8');
+                out.innerHTML = 'arr = [3, 1, 2];<br>';
+                setTimeout(() => out.innerHTML += '>> Swapping 3 and 1<br>', 400);
+                setTimeout(() => out.innerHTML += '>> Swapping 3 and 2<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1200);
+            ">Run Simulation</button>
+            <div id="sim-output-ds1-8" class="sim-output"></div>
         </div>
     </section>
 

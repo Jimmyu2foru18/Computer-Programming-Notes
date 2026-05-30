@@ -53,15 +53,14 @@ public class Car extends Vehicle {
             <li><strong>Use an Abstract Class</strong> if you want to share <em>Code</em> and <em>State</em> (fields) among closely related classes (e.g., all <code>Vehicles</code> have a brand and an engine).</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava2_5_html()">Run Simulation</button>
-            <div id="sim-output-Java2_5_html" class="sim-output"></div>
-            <script>
-            function runSimJava2_5_html() {
-                const out = document.getElementById('sim-output-Java2_5_html');
-                const out = document.getElementById('sim-output-Java2_5_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Abstract Class Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j2-5');
+                out.innerHTML = 'abstract class Vehicle { ... };<br>';
+                setTimeout(() => out.innerHTML += '>> Car extends Vehicle;<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Car instance created!', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-j2-5" class="sim-output"></div>
         </div>
     </section>
 

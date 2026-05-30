@@ -46,15 +46,13 @@ public int sumAll(int... numbers) {
 }
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava1_8_html()">Run Simulation</button>
-            <div id="sim-output-Java1_8_html" class="sim-output"></div>
-            <script>
-            function runSimJava1_8_html() {
-                const out = document.getElementById('sim-output-Java1_8_html');
-                const out = document.getElementById('sim-output-Java1_8_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Method Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j1-8');
+                out.innerHTML = 'public int add(int a, int b) { return a + b; }<br>';
+                setTimeout(() => out.innerHTML += '>> add(5, 3) returns ' + (5 + 3), 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j1-8" class="sim-output"></div>
         </div>
     </section>
 

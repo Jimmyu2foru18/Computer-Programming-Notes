@@ -48,15 +48,13 @@ names.Add("Bob");
 Console.WriteLine(names.Count); // 2
         </code></pre>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp1_6_html()">Run Simulation</button>
-            <div id="sim-output-CSharp1_6_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp1_6_html() {
-                const out = document.getElementById('sim-output-CSharp1_6_html');
-                const out = document.getElementById('sim-output-CSharp1_6_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>Array Access Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs1-6');
+                out.innerHTML = 'arr = [10, 20, 30];<br>';
+                setTimeout(() => out.innerHTML += '>> arr[1] is ' + 20, 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cs1-6" class="sim-output"></div>
         </div>
     </section>
 

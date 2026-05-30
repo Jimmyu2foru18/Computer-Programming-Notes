@@ -47,15 +47,14 @@ for (int i = 0; i < 100; i++) {
 String finalResult = sb.toString();
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava1_7_html()">Run Simulation</button>
-            <div id="sim-output-Java1_7_html" class="sim-output"></div>
-            <script>
-            function runSimJava1_7_html() {
-                const out = document.getElementById('sim-output-Java1_7_html');
-                const out = document.getElementById('sim-output-Java1_7_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>String Builder Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j1-7');
+                out.innerHTML = 'sb = new StringBuilder();<br>';
+                setTimeout(() => out.innerHTML += 'sb.append(\"Java\");<br>', 800);
+                setTimeout(() => out.innerHTML += '>> sb is \"Java\"', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-j1-7" class="sim-output"></div>
         </div>
     </section>
 

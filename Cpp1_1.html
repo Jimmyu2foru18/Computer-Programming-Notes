@@ -1,0 +1,27 @@
+<article>
+    <h1>C++ I: Page 1 - Introduction to C++ and the Development Environment</h1>
+
+    <section>
+        <h2>What is C++?</h2>
+        <p>C++ is a high-performance, compiled, object-oriented language that provides low-level memory manipulation features while maintaining high-level abstractions. It is the powerhouse behind operating systems, game engines, high-frequency trading platforms, and large-scale enterprise software.</p>
+    </section>
+
+    <section>
+        <h2>The C++ Development Pipeline</h2>
+        <p>Unlike Python, C++ must be compiled into machine code before it can be executed. This process involves:</p>
+        <ol>
+            <li><strong>Preprocessing:</strong> Handling macros and including header files.</li>
+            <li><strong>Compilation:</strong> Translating source code into object files.</li>
+            <li><strong>Linking:</strong> Combining object files into an executable.</li>
+        </ol>
+        <div class="interactive-sim">
+            <h3>C++ Execution Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp1_1');
+                out.innerHTML = 'g++ main.cpp -o main;<br>';
+                setTimeout(() => out.innerHTML += '>> Compilation Successful!<br>>> ./main<br>>> Hello, C++!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp1_1" class="sim-output"></div>
+        </div>
+    </section>
+</article>

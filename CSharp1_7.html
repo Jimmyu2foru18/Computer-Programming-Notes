@@ -47,15 +47,14 @@ string path = @"C:\Users\Documents\data.txt";
             <li><code>Contains()</code>: Checks if a substring exists (returns a bool).</li>
         </ul>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp1_7_html()">Run Simulation</button>
-            <div id="sim-output-CSharp1_7_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp1_7_html() {
-                const out = document.getElementById('sim-output-CSharp1_7_html');
-                const out = document.getElementById('sim-output-CSharp1_7_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>String Manipulation Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs1-7');
+                out.innerHTML = 's = \"Hello\";<br>';
+                setTimeout(() => out.innerHTML += '>> Upper: ' + 'Hello'.toUpperCase() + '<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Length: ' + 'Hello'.length, 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-cs1-7" class="sim-output"></div>
         </div>
     </section>
 

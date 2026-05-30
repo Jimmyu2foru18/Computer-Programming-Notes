@@ -33,15 +33,14 @@ queue.pop(0)      # Dequeue
             <li><strong>Breadth-First Search (BFS):</strong> A graph traversal algorithm that uses a queue to visit all neighbors at a given distance before moving to the next level.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA1_5_html()">Run Simulation</button>
-            <div id="sim-output-DSA1_5_html" class="sim-output"></div>
-            <script>
-            function runSimDSA1_5_html() {
-                const out = document.getElementById('sim-output-DSA1_5_html');
-                const out = document.getElementById('sim-output-DSA1_5_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Queue Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds1-5');
+                out.innerHTML = 'queue = [];<br>';
+                setTimeout(() => out.innerHTML += 'queue.enqueue(10);<br>', 400);
+                setTimeout(() => out.innerHTML += '>> Dequeue: ' + 10, 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds1-5" class="sim-output"></div>
         </div>
     </section>
 

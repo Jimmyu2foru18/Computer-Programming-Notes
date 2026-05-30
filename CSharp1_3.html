@@ -47,15 +47,13 @@ bool canDrive = (age >= 18) && hasLicense; // true
         <h2>3. Short-Circuit Evaluation</h2>
         <p>C# uses <strong>Short-Circuiting</strong> for its logical operators. If the result of an expression can be determined by evaluating the first part, the second part is never even looked at. This is a massive performance boost and can prevent errors (e.g., checking if an object is not NULL before accessing its property in the same line).</p>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp1_3_html()">Run Simulation</button>
-            <div id="sim-output-CSharp1_3_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp1_3_html() {
-                const out = document.getElementById('sim-output-CSharp1_3_html');
-                const out = document.getElementById('sim-output-CSharp1_3_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>Operator Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs1-3');
+                out.innerHTML = 'x = 10; y = 3;<br>';
+                setTimeout(() => out.innerHTML += '>> x % y is ' + (10 % 3), 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cs1-3" class="sim-output"></div>
         </div>
     </section>
 

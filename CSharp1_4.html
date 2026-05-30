@@ -51,15 +51,14 @@ string dayName = day switch {
 };
         </code></pre>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp1_4_html()">Run Simulation</button>
-            <div id="sim-output-CSharp1_4_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp1_4_html() {
-                const out = document.getElementById('sim-output-CSharp1_4_html');
-                const out = document.getElementById('sim-output-CSharp1_4_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>Switch Statement Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs1-4');
+                out.innerHTML = 'day = 3;<br>';
+                setTimeout(() => out.innerHTML += 'switch(day) { ... }<br>', 800);
+                setTimeout(() => out.innerHTML += '>> Wednesday', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-cs1-4" class="sim-output"></div>
         </div>
     </section>
 

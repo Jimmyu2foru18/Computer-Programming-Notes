@@ -14,18 +14,15 @@
         </ul>
         <div class="interactive-sim">
             <h3>Python Execution Simulator</h3>
-            <button class="sim-button" onclick="runSimP1_1()">Run Code</button>
-            <div id="sim-output-p1-1" class="sim-output"></div>
-            <script>
-            function runSimP1_1() {
+            <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-p1-1');
-                out.innerHTML = "Checking PATH...<br>";
-                setTimeout(() => out.innerHTML += "Parsing 'hello_world.py'...<br>", 800);
-                setTimeout(() => out.innerHTML += "Compiling to Bytecode...<br>", 1600);
-                setTimeout(() => out.innerHTML += "Executing in VM...<br>", 2400);
-                setTimeout(() => out.innerHTML += ">> Hello, World!<br>>> Welcome to Python programming!", 3200);
-            }
-            </script>
+                out.innerHTML = 'Checking PATH...<br>';
+                setTimeout(() => out.innerHTML += 'Parsing \'hello_world.py\'...<br>', 800);
+                setTimeout(() => out.innerHTML += 'Compiling to Bytecode...<br>', 1600);
+                setTimeout(() => out.innerHTML += 'Executing in VM...<br>', 2400);
+                setTimeout(() => out.innerHTML += '>> Hello, World!<br>>> Welcome to Python programming!', 3200);
+            ">Run Code</button>
+            <div id="sim-output-p1-1" class="sim-output"></div>
         </div>
     </section>
 

@@ -26,14 +26,12 @@
         </ul>
         <div class="interactive-sim">
             <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA1_1_html()">Run Simulation</button>
-            <div id="sim-output-DSA1_1_html" class="sim-output"></div>
-            <script>
-            function runSimDSA1_1_html() {
-                const out = document.getElementById('sim-output-DSA1_1_html');
-                const out = document.getElementById('sim-output-DSA1_1_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds1-1');
+                out.innerHTML = 'array = [3, 1, 2];<br>';
+                setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds1-1" class="sim-output"></div>
         </div>
     </section>
 

@@ -34,16 +34,13 @@ a = b = c = 0  # All three now equal 0
         </code></pre>
         <div class="interactive-sim">
             <h3>Variable Assignment Simulator</h3>
-            <button class="sim-button" onclick="runSimP1_2()">Assign Variables</button>
-            <div id="sim-output-p1-2" class="sim-output"></div>
-            <script>
-            function runSimP1_2() {
+            <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-p1-2');
-                out.innerHTML = "x = 10; y = 20;<br>";
-                setTimeout(() => out.innerHTML += "x = x + y;<br>", 800);
-                setTimeout(() => out.innerHTML += ">> x is now 30", 1600);
-            }
-            </script>
+                out.innerHTML = 'x = 10; y = 20;<br>';
+                setTimeout(() => out.innerHTML += 'x = x + y;<br>', 800);
+                setTimeout(() => out.innerHTML += '>> x is now 30', 1600);
+            ">Assign Variables</button>
+            <div id="sim-output-p1-2" class="sim-output"></div>
         </div>
     </section>
 

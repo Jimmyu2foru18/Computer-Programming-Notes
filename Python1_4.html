@@ -21,16 +21,13 @@ preserves line breaks."""
         </code></pre>
         <div class="interactive-sim">
             <h3>String Operations Simulator</h3>
-            <button class="sim-button" onclick="runSimP1_4()">Run Operations</button>
-            <div id="sim-output-p1-4" class="sim-output"></div>
-            <script>
-            function runSimP1_4() {
+            <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-p1-4');
-                out.innerHTML = "s = 'Hello';<br>";
-                setTimeout(() => out.innerHTML += "s = s + ' World';<br>", 800);
-                setTimeout(() => out.innerHTML += ">> s[0:5] is " + "'Hello'", 1600);
-            }
-            </script>
+                out.innerHTML = 's = \'Hello\';<br>';
+                setTimeout(() => out.innerHTML += 's = s + \' World\';<br>', 800);
+                setTimeout(() => out.innerHTML += '>> s[0:5] is ' + '\'Hello\'', 1600);
+            ">Run Operations</button>
+            <div id="sim-output-p1-4" class="sim-output"></div>
         </div>
     </section>
 

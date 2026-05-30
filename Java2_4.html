@@ -53,15 +53,13 @@ public interface Drawable {
 }
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava2_4_html()">Run Simulation</button>
-            <div id="sim-output-Java2_4_html" class="sim-output"></div>
-            <script>
-            function runSimJava2_4_html() {
-                const out = document.getElementById('sim-output-Java2_4_html');
-                const out = document.getElementById('sim-output-Java2_4_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Interface Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j2-4');
+                out.innerHTML = 'class Circle implements Drawable { ... };<br>';
+                setTimeout(() => out.innerHTML += '>> Circle instance implements Drawable!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j2-4" class="sim-output"></div>
         </div>
     </section>
 

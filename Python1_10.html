@@ -22,15 +22,12 @@ print(message)
         </code></pre>
         <div class="interactive-sim">
             <h3>Function Call Simulator</h3>
-            <button class="sim-button" onclick="runSimPython1_10()">Run Simulation</button>
-            <div id="sim-output-Python1_10" class="sim-output"></div>
-            <script>
-            function runSimPython1_10() {
-                const out = document.getElementById('sim-output-Python1_10');
-                out.innerHTML = 'def greet(): return "Hi";<br>'; 
-                setTimeout(() => out.innerHTML += '>> greet() returns "Hi"', 1000);
-            }
-            </script>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-p1-10');
+                out.innerHTML = 'def greet(): return \"Hi\";<br>';
+                setTimeout(() => out.innerHTML += '>> greet() returns \"Hi\"', 1000);
+            ">Run Simulation</button>
+            <div id="sim-output-p1-10" class="sim-output"></div>
         </div>
     </section>
 

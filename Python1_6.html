@@ -37,16 +37,13 @@ fruits.add("orange")
         </code></pre>
         <div class="interactive-sim">
             <h3>Tuple vs Set Simulator</h3>
-            <button class="sim-button" onclick="runSimPython1_6()">Run Simulation</button>
-            <div id="sim-output-Python1_6" class="sim-output"></div>
-            <script>
-            function runSimPython1_6() {
-                const out = document.getElementById('sim-output-Python1_6');
-                out.innerHTML = 't = (1, 2, 1); s = {1, 2, 1};<br>'; 
-                setTimeout(() => out.innerHTML += '>> t has 3 items<br>', 800); 
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-p1-6');
+                out.innerHTML = 't = (1, 2, 1); s = {1, 2, 1};<br>';
+                setTimeout(() => out.innerHTML += '>> t has 3 items<br>', 800);
                 setTimeout(() => out.innerHTML += '>> s has 2 items', 1600);
-            }
-            </script>
+            ">Run Simulation</button>
+            <div id="sim-output-p1-6" class="sim-output"></div>
         </div>
     </section>
 

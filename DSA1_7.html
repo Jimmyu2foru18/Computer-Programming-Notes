@@ -35,15 +35,13 @@ def binary_search(arr, target):
         <h2>2. Why It Scales So Well (O(log n))</h2>
         <p>Because you cut the search space in half with every single step, the number of steps required grows very slowly. For an array of 1,000,000 items, Linear Search might take 1,000,000 checks, but Binary Search will take at most 20 (because 2^20 is approx. 1,000,000). This exponential reduction in steps is what makes it so fast.</p>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA1_7_html()">Run Simulation</button>
-            <div id="sim-output-DSA1_7_html" class="sim-output"></div>
-            <script>
-            function runSimDSA1_7_html() {
-                const out = document.getElementById('sim-output-DSA1_7_html');
-                const out = document.getElementById('sim-output-DSA1_7_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Binary Search Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds1-7');
+                out.innerHTML = 'arr = [10, 20, 30, 40]; target = 30;<br>';
+                setTimeout(() => out.innerHTML += '>> Splitting search... found at index 2', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds1-7" class="sim-output"></div>
         </div>
     </section>
 

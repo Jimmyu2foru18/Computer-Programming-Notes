@@ -45,15 +45,14 @@ var result = users.Where(u => u.Age > 18)
         <h2>3. Deferred Execution: The Silent Performance Boost</h2>
         <p>One of the most important advanced concepts in LINQ is <strong>Deferred Execution</strong>. When you write a LINQ query, it doesn't actually run immediately. It only runs when you try to access the data (e.g., in a <code>foreach</code> loop or by calling <code>.ToList()</code>). This allows you to build complex queries in multiple steps without wasting CPU power until the very last second.</p>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp2_7_html()">Run Simulation</button>
-            <div id="sim-output-CSharp2_7_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp2_7_html() {
-                const out = document.getElementById('sim-output-CSharp2_7_html');
-                const out = document.getElementById('sim-output-CSharp2_7_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>LINQ Query Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs2-7');
+                out.innerHTML = 'nums = [1, 2, 3];<br>';
+                setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800);
+                setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-cs2-7" class="sim-output"></div>
         </div>
     </section>
 

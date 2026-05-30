@@ -47,15 +47,13 @@ public abstract class Shape {
             <li><strong>Use an Abstract Class</strong> if you want to share <em>code and state</em> among a group of closely related classes (e.g., all <code>Shapes</code> have a color and basic display logic).</li>
         </ul>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp2_3_html()">Run Simulation</button>
-            <div id="sim-output-CSharp2_3_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp2_3_html() {
-                const out = document.getElementById('sim-output-CSharp2_3_html');
-                const out = document.getElementById('sim-output-CSharp2_3_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>Interface Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs2-3');
+                out.innerHTML = 'class Circle implements IDrawable { ... };<br>';
+                setTimeout(() => out.innerHTML += '>> Circle instance implements IDrawable!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cs2-3" class="sim-output"></div>
         </div>
     </section>
 

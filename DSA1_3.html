@@ -35,15 +35,13 @@ class Node:
             <tr><td style="padding: 10px;">Delete (known location)</td><td style="padding: 10px;">O(1)</td><td style="padding: 10px;">O(n)</td></tr>
         </table>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA1_3_html()">Run Simulation</button>
-            <div id="sim-output-DSA1_3_html" class="sim-output"></div>
-            <script>
-            function runSimDSA1_3_html() {
-                const out = document.getElementById('sim-output-DSA1_3_html');
-                const out = document.getElementById('sim-output-DSA1_3_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Linked List Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds1-3');
+                out.innerHTML = 'Node A -> Node B;<br>';
+                setTimeout(() => out.innerHTML += '>> Inserting Node C: A -> C -> B', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds1-3" class="sim-output"></div>
         </div>
     </section>
 

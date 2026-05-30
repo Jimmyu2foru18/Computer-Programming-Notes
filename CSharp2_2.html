@@ -51,15 +51,13 @@ foreach (var a in zoo) {
             <li><strong>as:</strong> Tries to convert the object to a type. If it fails, it returns <code>null</code> instead of crashing the program.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp2_2_html()">Run Simulation</button>
-            <div id="sim-output-CSharp2_2_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp2_2_html() {
-                const out = document.getElementById('sim-output-CSharp2_2_html');
-                const out = document.getElementById('sim-output-CSharp2_2_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>Inheritance Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs2-2');
+                out.innerHTML = 'Dog myDog = new Dog();<br>';
+                setTimeout(() => out.innerHTML += '>> myDog.MakeSound() output: Woof!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cs2-2" class="sim-output"></div>
         </div>
     </section>
 

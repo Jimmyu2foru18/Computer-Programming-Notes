@@ -30,15 +30,13 @@
         <h2>2. Why Random Access is Fast</h2>
         <p>Because arrays are stored in a contiguous block of memory, the computer knows the memory address of every element just by using math: <code>Address = BaseAddress + (Index * ElementSize)</code>. This calculation takes constant time, making <strong>O(1) access</strong> the defining superpower of the array.</p>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA1_2_html()">Run Simulation</button>
-            <div id="sim-output-DSA1_2_html" class="sim-output"></div>
-            <script>
-            function runSimDSA1_2_html() {
-                const out = document.getElementById('sim-output-DSA1_2_html');
-                const out = document.getElementById('sim-output-DSA1_2_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Array Access Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds1-2');
+                out.innerHTML = 'arr = [10, 20, 30];<br>';
+                setTimeout(() => out.innerHTML += '>> arr[1] is ' + 20, 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds1-2" class="sim-output"></div>
         </div>
     </section>
 

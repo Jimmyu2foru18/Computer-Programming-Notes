@@ -48,15 +48,14 @@ for (Shape s : shapes) {
 }
         </code></pre>
         <div class="interactive-sim">
-            <h3>Pattern Simulator</h3>
-            <button class="sim-button" onclick="runSimSoft1_3_html()">Run Simulation</button>
-            <div id="sim-output-Soft1_3_html" class="sim-output"></div>
-            <script>
-            function runSimSoft1_3_html() {
-                const out = document.getElementById('sim-output-Soft1_3_html');
-                const out = document.getElementById('sim-output-Soft1_3_html'); out.innerHTML = 'Design Pattern: Singleton<br>'; setTimeout(() => out.innerHTML += '>> Instance created', 1000);
-            }
-            </script>
+            <h3>Polymorphism Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-s1-3');
+                out.innerHTML = 'Shape[] shapes = {new Circle(), new Square()};<br>';
+                setTimeout(() => out.innerHTML += '>> shapes[0].getArea() calls Circle.getArea()<br>', 800);
+                setTimeout(() => out.innerHTML += '>> shapes[1].getArea() calls Square.getArea()', 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-s1-3" class="sim-output"></div>
         </div>
     </section>
 

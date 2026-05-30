@@ -51,15 +51,13 @@ public class MathUtils {
 int result = MathUtils.square(5);
         </code></pre>
         <div class="interactive-sim">
-            <h3>Java Object Simulator</h3>
-            <button class="sim-button" onclick="runSimJava1_10_html()">Run Simulation</button>
-            <div id="sim-output-Java1_10_html" class="sim-output"></div>
-            <script>
-            function runSimJava1_10_html() {
-                const out = document.getElementById('sim-output-Java1_10_html');
-                const out = document.getElementById('sim-output-Java1_10_html'); out.innerHTML = 'class Car { ... };<br>'; setTimeout(() => out.innerHTML += '>> Car instance created', 800);
-            }
-            </script>
+            <h3>Constructor Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j1-10');
+                out.innerHTML = 'public User(String name) { this.name = name; }<br>';
+                setTimeout(() => out.innerHTML += '>> User instance initialized!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-j1-10" class="sim-output"></div>
         </div>
     </section>
 

@@ -71,15 +71,13 @@ const double PI = 3.14159;
 // PI = 3.15; // ERROR: Cannot change a constant
         </code></pre>
         <div class="interactive-sim">
-            <h3>C# LINQ Simulator</h3>
-            <button class="sim-button" onclick="runSimCSharp1_2_html()">Run Simulation</button>
-            <div id="sim-output-CSharp1_2_html" class="sim-output"></div>
-            <script>
-            function runSimCSharp1_2_html() {
-                const out = document.getElementById('sim-output-CSharp1_2_html');
-                const out = document.getElementById('sim-output-CSharp1_2_html'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'result = nums.Where(n => n > 1);<br>', 800); setTimeout(() => out.innerHTML += '>> result: [2, 3]', 1600);
-            }
-            </script>
+            <h3>Variable Assignment Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cs1-2');
+                out.innerHTML = 'int x = 10; int y = 20;<br>';
+                setTimeout(() => out.innerHTML += '>> Sum = ' + (10 + 20), 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cs1-2" class="sim-output"></div>
         </div>
     </section>
 

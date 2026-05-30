@@ -52,6 +52,16 @@ if (age < 18 || !hasLicense) {
     <section>
         <h2>Operator Precedence</h2>
         <p>Like PEMDAS in math, Java evaluates operators in a specific order. Postfix operators (<code>x++</code>) have the highest priority, followed by multiplicative (<code>*</code>, <code>/</code>, <code>%</code>), additive (<code>+</code>, <code>-</code>), comparison, and finally logical operators. When in doubt, <strong>always use parentheses</strong> to make your intent clear to other developers.</p>
+        <div class="interactive-sim">
+            <h3>Operator Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-j1-3');
+                out.innerHTML = 'x = 10; y = 3;<br>';
+                setTimeout(() => out.innerHTML += 'result = x % y;<br>', 800);
+                setTimeout(() => out.innerHTML += '>> result is ' + (10 % 3), 1600);
+            ">Run Simulation</button>
+            <div id="sim-output-j1-3" class="sim-output"></div>
+        </div>
     </section>
 
     <section>
