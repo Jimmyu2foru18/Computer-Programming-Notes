@@ -28,15 +28,13 @@ def bfs(graph, start):
         <p>DFS explores the graph by going <strong>as deep as possible</strong> down one branch before backtracking. It is implemented using a <strong>Stack</strong> (or recursion), which naturally tracks the path backwards.</p>
         <p><strong>Use Case:</strong> Cycle detection, solving mazes, topological sorting.</p>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_8_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_8_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_8_html() {
-                const out = document.getElementById('sim-output-DSA2_8_html');
-                const out = document.getElementById('sim-output-DSA2_8_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Graph Traversal Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-8');
+                out.innerHTML = 'BFS starting at A...<br>';
+                setTimeout(() => out.innerHTML += '>> Visited: A -> B -> C', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-8" class="sim-output"></div>
         </div>
     </section>
 

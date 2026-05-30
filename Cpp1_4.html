@@ -6,37 +6,45 @@
         <p>C++ uses <code>if</code>, <code>else if</code>, <code>else</code>, and <code>switch</code> to control the flow of execution based on conditions. Understanding conditional branching is the foundation of creating dynamic and reactive programs.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: control_flow.cpp
- * Demonstration of if-else and switch control structures
+ * Demonstration of if-else and switch control structures with complex logic
  */
 #include &lt;iostream&gt;
+#include &lt;string&gt;
 
 using namespace std;
 
 int main() {
     int score = 85;
+    bool hasExtraCredit = true;
     
-    // 1. If-Else-If Structure
+    // 1. Complex If-Else-If Structure
     if (score >= 90) {
         cout << "Grade: A" << endl;
     } else if (score >= 80) {
-        cout << "Grade: B" << endl;
+        // Nested condition
+        if (hasExtraCredit) {
+            cout << "Grade: A-" << endl;
+        } else {
+            cout << "Grade: B" << endl;
+        }
     } else if (score >= 70) {
         cout << "Grade: C" << endl;
     } else {
         cout << "Grade: F" << endl;
     }
 
-    // 2. Switch Statement
+    // 2. Advanced Switch Statement
     int day = 3; // Wednesday
     switch (day) {
         case 1: cout << "Monday" << endl; break;
         case 2: cout << "Tuesday" << endl; break;
-        case 3: cout << "Wednesday" << endl; break;
-        case 4: cout << "Thursday" << endl; break;
-        case 5: cout << "Friday" << endl; break;
+        case 3: 
+        case 4: 
+        case 5: 
+            cout << "Mid-week (Wed/Thu/Fri)" << endl; 
+            break; // Fall-through used effectively here
         default: cout << "Weekend" << endl;
     }
 
@@ -44,10 +52,9 @@ int main() {
     bool isStudent = true;
     bool hasID = false;
     
-    if (isStudent && hasID) {
+    // Short-circuit evaluation demo
+    if (isStudent && (hasID || score > 80)) {
         cout << "Access Granted." << endl;
-    } else if (isStudent || hasID) {
-        cout << "Access Conditional." << endl;
     } else {
         cout << "Access Denied." << endl;
     }
@@ -58,21 +65,18 @@ int main() {
 /*
  * Control Flow Nuances:
  * 1. Switch cases require a 'break' to prevent fall-through.
- * 2. 'default' in switch acts as the final 'else'.
- * 3. Logical && and || use "short-circuit" evaluation:
+ * 2. Fall-through (omitting break) can be useful for grouping cases.
+ * 3. 'default' in switch acts as the final 'else'.
+ * 4. Logical && and || use "short-circuit" evaluation:
  *    - In (A && B), if A is false, B is NOT evaluated.
  *    - In (A || B), if A is true, B is NOT evaluated.
- * 4. This short-circuiting can be used for performance and safety 
+ * 5. This short-circuiting can be used for performance and safety 
  *    (e.g., checking for null pointers before dereferencing).
+ * 6. Nested 'if' statements are readable up to a point; beyond that, 
+ *    consider refactoring into small helper functions.
+ * 7. Ternary operator (?:) is concise for simple assignments but should
+ *    not be nested as it becomes hard to read.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Switch Statement Simulator</h3>

@@ -31,15 +31,13 @@ def make_change(amount, coins):
         <p>When you need to explore a search space to find *all* solutions or the *guaranteed* best solution, use <strong>Backtracking</strong>. It's essentially a depth-first search of the state space. If you reach a state that violates constraints, you "backtrack" to the previous state and try a different path.</p>
         <p><strong>Use Cases:</strong> N-Queens problem, Sudoku solver, Graph coloring.</p>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_10_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_10_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_10_html() {
-                const out = document.getElementById('sim-output-DSA2_10_html');
-                const out = document.getElementById('sim-output-DSA2_10_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Backtracking Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-10');
+                out.innerHTML = 'Trying path 1...<br>';
+                setTimeout(() => out.innerHTML += '>> Dead end!<br>>> Backtracking...', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-10" class="sim-output"></div>
         </div>
     </section>
 

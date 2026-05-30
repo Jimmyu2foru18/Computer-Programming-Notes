@@ -67,14 +67,10 @@ class UserNotification {
     void notifyUser() { service.send("Hello!"); }
 }
         </code></pre>
-        <div class="interactive-sim">
-            <h3>DIP Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-s1-5');
-                out.innerHTML = 'UserNotification(new EmailService());<br>';
-                setTimeout(() => out.innerHTML += '>> User notified via Email!', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-s1-5" class="sim-output"></div>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=600&auto=format&fit=crop" alt="Abstract representation of modular system architecture and dependency inversion">
+            </div>
         </div>
     </section>
 

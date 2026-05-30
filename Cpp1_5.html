@@ -6,10 +6,9 @@
         <p>Loops allow you to repeat actions. C++ supports <code>for</code>, <code>while</code>, <code>do-while</code>, and the modern range-based <code>for</code> loop (C++11 and later).</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: loops.cpp
- * Demonstration of various C++ looping mechanisms
+ * Demonstration of various C++ looping mechanisms with control flow
  */
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -18,13 +17,13 @@ using namespace std;
 
 int main() {
     // 1. Traditional For Loop
-    cout << "For loop:" << endl;
+    cout << "For loop (counting):" << endl;
     for (int i = 0; i < 3; i++) {
         cout << "  Iteration " << i << endl;
     }
 
     // 2. While Loop
-    cout << "While loop:" << endl;
+    cout << "While loop (condition-based):" << endl;
     int j = 0;
     while (j < 3) {
         cout << "  Iteration " << j << endl;
@@ -37,7 +36,7 @@ int main() {
     do {
         cout << "  Iteration " << k << endl;
         k++;
-    } while (k < 3);
+    } while (k < 0); // Still executes once
 
     // 4. Range-based For Loop (C++11)
     vector&lt;int&gt; nums = {10, 20, 30};
@@ -46,27 +45,29 @@ int main() {
         cout << "  Value: " << n << endl;
     }
 
+    // 5. Advanced Loop Control: break/continue
+    cout << "Loop control example:" << endl;
+    for (int i = 0; i < 10; ++i) {
+        if (i == 2) continue; // Skip 2
+        if (i == 5) break;    // Exit at 5
+        cout << "  Value: " << i << endl;
+    }
+
     return 0;
 }
 
 /*
  * Loop Nuances:
  * 1. 'break' exits the loop immediately.
- * 2. 'continue' skips to the next iteration.
- * 3. Range-based loops are safer and more concise for containers.
+ * 2. 'continue' skips the rest of the current iteration and jumps to the next.
+ * 3. Range-based loops are safer and more concise for containers, 
+ *    preventing off-by-one errors.
  * 4. Infinite loops (e.g., while(true)) require a 'break' condition.
- * 5. Do-while guarantees at least one execution.
+ * 5. Do-while guarantees at least one execution, useful for input validation.
+ * 6. Always initialize your loop counter. Uninitialized variables lead to
+ *    undefined behavior.
+ * 7. When nested loops occur, 'break' only exits the innermost loop.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Loop Simulator</h3>

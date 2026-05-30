@@ -33,15 +33,13 @@ def quick_sort(arr):
             <li><strong>Worst Case:</strong> O(n²). This occurs if you pick a poor pivot (like the smallest or largest element) every time, leaving one side of the partition empty.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_1_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_1_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_1_html() {
-                const out = document.getElementById('sim-output-DSA2_1_html');
-                const out = document.getElementById('sim-output-DSA2_1_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Quick Sort Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-1');
+                out.innerHTML = 'arr = [3, 1, 2];<br>';
+                setTimeout(() => out.innerHTML += '>> Pivot: 1; Sorted: [1, 2, 3]', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-1" class="sim-output"></div>
         </div>
     </section>
 

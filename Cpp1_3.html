@@ -6,15 +6,29 @@
         <p>C++ provides a rich set of operators for manipulating data, ranging from basic arithmetic to low-level bitwise operations. Understanding operator precedence is critical for complex expressions.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: operators.cpp
  * Demonstration of various C++ operator categories
  */
 #include &lt;iostream&gt;
 #include &lt;bitset&gt;
+#include &lt;string&gt;
 
 using namespace std;
+
+// Function to demonstrate precedence
+void PrecedenceDemo() {
+    int a = 2;
+    int b = 3;
+    int c = 4;
+    
+    // Parentheses explicitly force order
+    int result1 = a + b * c;         // 2 + 12 = 14 (Multiplication first)
+    int result2 = (a + b) * c;       // 5 * 4 = 20 (Addition first)
+    
+    cout << "Precedence 1: " << result1 << endl;
+    cout << "Precedence 2: " << result2 << endl;
+}
 
 int main() {
     // 1. Arithmetic Operators
@@ -54,6 +68,9 @@ int main() {
     // 8. Bitwise Shifts
     int shifted = val1 << 1; // Left shift: 5 * 2 = 10
 
+    // 9. Precedence Demo
+    PrecedenceDemo();
+
     return 0;
 }
 
@@ -66,15 +83,9 @@ int main() {
  * 5. Bitwise shifts are useful for performance-critical low-level manipulation.
  * 6. Ternary operator can simplify basic conditional assignments.
  * 7. Unary increment/decrement (x++, ++x) behavior depends on position.
+ * 8. Precedence rules should not be relied upon if they make the code unclear; 
+ *    use extra parentheses to clarify intent.
  */
-
-// Placeholder padding to ensure file length exceeds 60 lines
-// Ensuring substantial educational content for the student...
-// ...........................................................
-// ...........................................................
-// ...........................................................
-// ...........................................................
-// ...........................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Operator Simulator</h3>

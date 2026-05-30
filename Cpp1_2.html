@@ -6,14 +6,14 @@
         <p>C++ is statically typed, meaning you must declare the type of a variable before using it. This allows the compiler to perform rigorous checks and optimize memory layout for specific data sizes.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: primitives.cpp
- * Demonstration of C++ primitive types and type modifiers
+ * Demonstration of C++ primitive types, type modifiers, and type inference
  */
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;limits&gt; // For numerical limits
+#include &lt;typeinfo&gt; // For typeid
 
 using namespace std;
 
@@ -27,54 +27,66 @@ struct UserProfile {
     bool isActive;
 };
 
+// Function to print type info
+void PrintTypeInfo(const char* name, const auto& val) {
+    cout << name << " type: " << typeid(val).name() << endl;
+}
+
 int main() {
-    // Integer types with modifiers
+    // 1. Integer types with modifiers
     short s = 10;            // Usually 2 bytes
     int i = 1000;            // Usually 4 bytes
     long l = 1000000L;       // Usually 4 or 8 bytes
     unsigned int ui = 500U;  // Only non-negative
 
-    // Floating point
+    // 2. Floating point
     float f = 3.14f;
     double d = 3.1415926535;
 
-    // Characters and Strings
+    // 3. Characters and Strings
     char c = 'A';
     string str = "Hello C++";
 
-    // Boolean
+    // 4. Boolean
     bool isRunning = true;
 
-    // Constants (Cannot be modified)
+    // 5. Constants (Cannot be modified)
     const int MAX_USERS = 100;
     
     cout << "--- Primitive Types Summary ---" << endl;
     cout << "Integer: " << i << endl;
     cout << "Double: " << d << endl;
     cout << "String: " << str << endl;
-    cout << "Is Running: " << (isRunning ? "Yes" : "No") << endl;
-
-    // Numerical limits
-    cout << "Min int: " << numeric_limits&lt;int&gt;::min() << endl;
-    cout << "Max int: " << numeric_limits&lt;int&gt;::max() << endl;
-
-    // Using the struct
+    
+    // 6. Modern C++: Type Inference with 'auto'
+    auto inferredInt = 100;        // Deduced as int
+    auto inferredDouble = 5.5;      // Deduced as double
+    
+    PrintTypeInfo("inferredInt", inferredInt);
+    
+    // 7. Using the struct
     UserProfile user = {1, 150.50, true};
     cout << "User ID: " << user.id << " | Balance: " << user.balance << endl;
+
+    // 8. Sizeof operator for platform inspection
+    cout << "Size of int: " << sizeof(int) << " bytes" << endl;
+    cout << "Size of double: " << sizeof(double) << " bytes" << endl;
 
     return 0;
 }
 
 /*
  * C++ Type System Nuances:
- * 1. sizeof(type) helps determine platform-specific size.
- * 2. Unsigned types cannot represent negative numbers.
- * 3. 'const' keyword ensures data immutability.
- * 4. Structs are lightweight containers for data.
+ * 1. sizeof(type) helps determine platform-specific size, critical for memory optimization.
+ * 2. Unsigned types cannot represent negative numbers; useful for counting/size values.
+ * 3. 'const' keyword ensures data immutability, allowing compiler optimizations.
+ * 4. 'auto' keyword (C++11+) simplifies code by letting the compiler deduce types.
+ * 5. Structs are lightweight containers for data; class-like behavior without 
+ *    the default private access modifier (by default, structs are public).
+ * 6. typeid operator is useful for runtime type information (RTTI), 
+ *    though often used sparingly in performance-critical paths.
+ * 7. Enums provide named integral constants, improving code readability.
  */
-
-// Padding to reach 60 lines...
-// ... (The code block above is over 60 lines already when counting includes, comments and struct)
         </code></pre>
         <div class="interactive-sim">
             <h3>Variable Simulator</h3>

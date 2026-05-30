@@ -28,15 +28,13 @@ min_val = heapq.heappop(heap) # Extract Min
         <h2>2. Why Heaps?</h2>
         <p>Heaps allow us to find the min/max element in O(1) time and extract/insert in O(log n) time. They are the engine behind <strong>Heap Sort</strong>, <strong>Priority Queues</strong>, and graph algorithms like <strong>Dijkstra’s Shortest Path</strong>.</p>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_6_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_6_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_6_html() {
-                const out = document.getElementById('sim-output-DSA2_6_html');
-                const out = document.getElementById('sim-output-DSA2_6_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Heap Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-6');
+                out.innerHTML = 'heap = [10, 20, 5];<br>';
+                setTimeout(() => out.innerHTML += '>> Min-Heap: [5, 20, 10]', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-6" class="sim-output"></div>
         </div>
     </section>
 

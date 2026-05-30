@@ -26,15 +26,13 @@ def hash_key(key, table_size):
         <h2>2. Why They Are Essential</h2>
         <p>Hash tables (or Hash Maps, Dictionaries in Python) are the fundamental tool used for caching, database indexing, and symbol tables in compilers. Any time you need to look up a value instantly based on a unique identifier (like a username or a product ID), you use a Hash Table.</p>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_2_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_2_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_2_html() {
-                const out = document.getElementById('sim-output-DSA2_2_html');
-                const out = document.getElementById('sim-output-DSA2_2_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Hash Table Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-2');
+                out.innerHTML = 'hashTable[\"Alice\"] = 50000;<br>';
+                setTimeout(() => out.innerHTML += '>> Value retrieved: ' + 50000, 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-2" class="sim-output"></div>
         </div>
     </section>
 

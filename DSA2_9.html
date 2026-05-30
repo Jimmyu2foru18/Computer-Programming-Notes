@@ -38,15 +38,13 @@ def fib(n, memo={}):
             <li><strong>Shortest Path (e.g., Bellman-Ford):</strong> Finding paths in graphs with negative weights.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_9_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_9_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_9_html() {
-                const out = document.getElementById('sim-output-DSA2_9_html');
-                const out = document.getElementById('sim-output-DSA2_9_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>DP Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-9');
+                out.innerHTML = 'Calculating Fibonacci(5)...<br>';
+                setTimeout(() => out.innerHTML += '>> Fibonacci(5) is 5', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-9" class="sim-output"></div>
         </div>
     </section>
 

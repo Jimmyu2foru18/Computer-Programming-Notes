@@ -31,15 +31,13 @@ def search(node, target):
             <li><strong>Postorder (Left, Right, Root):</strong> Useful for deleting the tree or evaluating expressions.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_4_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_4_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_4_html() {
-                const out = document.getElementById('sim-output-DSA2_4_html');
-                const out = document.getElementById('sim-output-DSA2_4_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>BST Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-4');
+                out.innerHTML = 'Insert(5); Insert(3);<br>';
+                setTimeout(() => out.innerHTML += '>> BST Structure: 5 -> left:3', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-4" class="sim-output"></div>
         </div>
     </section>
 

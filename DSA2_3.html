@@ -17,15 +17,13 @@
             <li><strong>Height:</strong> The number of edges from a node to the deepest leaf.</li>
         </ul>
         <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="runSimDSA2_3_html()">Run Simulation</button>
-            <div id="sim-output-DSA2_3_html" class="sim-output"></div>
-            <script>
-            function runSimDSA2_3_html() {
-                const out = document.getElementById('sim-output-DSA2_3_html');
-                const out = document.getElementById('sim-output-DSA2_3_html'); out.innerHTML = 'array = [3, 1, 2];<br>'; setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1000);
-            }
-            </script>
+            <h3>Tree Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-ds2-3');
+                out.innerHTML = 'Root -> Child A, Child B;<br>';
+                setTimeout(() => out.innerHTML += '>> Tree structure visualized!', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-ds2-3" class="sim-output"></div>
         </div>
     </section>
 
