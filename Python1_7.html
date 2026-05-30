@@ -36,8 +36,10 @@ student["age"] = 21
             <div id="sim-output-Python1_7" class="sim-output"></div>
             <script>
             function runSimPython1_7() {
+                const d = {a: 1, b: 2};
                 const out = document.getElementById('sim-output-Python1_7');
-                const out = document.getElementById('sim-output-Python1_7'); out.innerHTML = 'd = {a: 1, b: 2};<br>'; setTimeout(() => out.innerHTML += '>> d["a"] is ' + d['a'], 800);
+                out.innerHTML = 'd = {a: 1, b: 2};<br>'; 
+                setTimeout(() => out.innerHTML += '>> d["a"] is ' + d['a'], 800);
             }
             </script>
         </div>

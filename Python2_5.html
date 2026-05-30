@@ -55,7 +55,9 @@ class BankAccount:
             <script>
             function runSimPython2_5() {
                 const out = document.getElementById('sim-output-Python2_5');
-                const out = document.getElementById('sim-output-Python2_5'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+                out.innerHTML = 'class Account: balance=100;<br>'; 
+                setTimeout(() => out.innerHTML += 'account.balance = -50;<br>', 800); 
+                setTimeout(() => out.innerHTML += '>> ValueError: Balance cannot be negative!', 1600);
             }
             </script>
         </div>

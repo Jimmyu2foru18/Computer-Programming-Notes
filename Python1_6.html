@@ -42,7 +42,9 @@ fruits.add("orange")
             <script>
             function runSimPython1_6() {
                 const out = document.getElementById('sim-output-Python1_6');
-                const out = document.getElementById('sim-output-Python1_6-p1-6'); out.innerHTML = 't = (1, 2, 1); s = {1, 2, 1};<br>'; setTimeout(() => out.innerHTML += '>> t has ' + t.length + ' items<br>', 800); setTimeout(() => out.innerHTML += '>> s has ' + s.size + ' items', 1600);
+                out.innerHTML = 't = (1, 2, 1); s = {1, 2, 1};<br>'; 
+                setTimeout(() => out.innerHTML += '>> t has 3 items<br>', 800); 
+                setTimeout(() => out.innerHTML += '>> s has 2 items', 1600);
             }
             </script>
         </div>

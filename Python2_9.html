@@ -27,7 +27,9 @@ with open("data.txt", "r") as file:
             <script>
             function runSimPython2_9() {
                 const out = document.getElementById('sim-output-Python2_9');
-                const out = document.getElementById('sim-output-Python2_9'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+                out.innerHTML = 'with open("file.txt", "w") as f:<br>';
+                setTimeout(() => out.innerHTML += '>> f.write("Data");<br>', 800);
+                setTimeout(() => out.innerHTML += '>> file closed automatically', 1600);
             }
             </script>
         </div>

@@ -38,7 +38,9 @@ print(my_list[::-1])  # [5, 4, 3, 2, 1, 0] (The Pythonic way to reverse!)
             <script>
             function runSimPython1_5() {
                 const out = document.getElementById('sim-output-Python1_5');
-                const out = document.getElementById('sim-output-Python1_5-p1-5'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'squares = [n*n for n in nums];<br>', 800); setTimeout(() => out.innerHTML += '>> squares is [1, 4, 9]', 1600);
+                out.innerHTML = 'nums = [1, 2, 3];<br>'; 
+                setTimeout(() => out.innerHTML += 'squares = [n*n for n in nums];<br>', 800); 
+                setTimeout(() => out.innerHTML += '>> squares is [1, 4, 9]', 1600);
             }
             </script>
         </div>

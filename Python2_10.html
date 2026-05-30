@@ -59,7 +59,8 @@ if __name__ == '__main__':
             <script>
             function runSimPython2_10() {
                 const out = document.getElementById('sim-output-Python2_10');
-                const out = document.getElementById('sim-output-Python2_10'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+                out.innerHTML = 'try: 100/0<br>'; 
+                setTimeout(() => out.innerHTML += '>> ZeroDivisionError caught!', 1000);
             }
             </script>
         </div>

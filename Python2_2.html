@@ -58,22 +58,23 @@ print(math_utils.PI)
                 </code></pre>
             </div>
         </div>
-    </section>
-
-    <section>
-        <h2>Understanding Packages</h2>
-        <p>A <strong>Package</strong> is a step up from a module. It is a directory that contains multiple modules, allowing you to organize them into a hierarchy. For a directory to be treated as a package, it traditionally contains an <code>__init__.py</code> file. This allows you to import like this: <code>import my_app.database.models</code>.</p>
         <div class="interactive-sim">
-            <h3>Python Execution Simulator</h3>
+            <h3>Module Import Simulator</h3>
             <button class="sim-button" onclick="runSimPython2_2()">Run Simulation</button>
             <div id="sim-output-Python2_2" class="sim-output"></div>
             <script>
             function runSimPython2_2() {
                 const out = document.getElementById('sim-output-Python2_2');
-                const out = document.getElementById('sim-output-Python2_2'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+                out.innerHTML = 'import math;<br>'; 
+                setTimeout(() => out.innerHTML += '>> math.pi is ' + Math.PI, 1000);
             }
             </script>
         </div>
+    </section>
+
+    <section>
+        <h2>Understanding Packages</h2>
+        <p>A <strong>Package</strong> is a step up from a module. It is a directory that contains multiple modules, allowing you to organize them into a hierarchy. For a directory to be treated as a package, it traditionally contains an <code>__init__.py</code> file. This allows you to import like this: <code>import my_app.database.models</code>.</p>
     </section>
 
     <section>

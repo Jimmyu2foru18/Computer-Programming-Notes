@@ -46,13 +46,14 @@ class Square(Shape):
         return self.side * self.side
         </code></pre>
         <div class="interactive-sim">
-            <h3>Python Execution Simulator</h3>
+            <h3>Polymorphism Simulator</h3>
             <button class="sim-button" onclick="runSimPython2_7()">Run Simulation</button>
             <div id="sim-output-Python2_7" class="sim-output"></div>
             <script>
             function runSimPython2_7() {
                 const out = document.getElementById('sim-output-Python2_7');
-                const out = document.getElementById('sim-output-Python2_7'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+                out.innerHTML = 'class Cat: speak()="Meow"<br>class Dog: speak()="Woof"<br>';
+                setTimeout(() => out.innerHTML += '>> animal.speak() adapts to instance', 1000);
             }
             </script>
         </div>
