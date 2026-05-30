@@ -35,16 +35,10 @@ traceroute google.com
             <li><strong>Layer 4 (Transport):</strong> Is the correct port open? Is there a firewall blocking it?</li>
             <li><strong>Layer 7 (Application):</strong> Is the application service running? Are logs reporting errors?</li>
         </ol>
-        <div class="interactive-sim">
-            <h3>Packet Flow Simulator</h3>
-            <button class="sim-button" onclick="runSimNetworks2_10_html()">Run Simulation</button>
-            <div id="sim-output-Networks2_10_html" class="sim-output"></div>
-            <script>
-            function runSimNetworks2_10_html() {
-                const out = document.getElementById('sim-output-Networks2_10_html');
-                const out = document.getElementById('sim-output-Networks2_10_html'); out.innerHTML = 'Sending Packet...<br>'; setTimeout(() => out.innerHTML += '>> Packet Received!', 1000);
-            }
-            </script>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Abstract representation of network monitoring tools, diagnostics, and troubleshooting processes">
+            </div>
         </div>
     </section>
 
