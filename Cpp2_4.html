@@ -6,19 +6,19 @@
         <p>The STL algorithms library provides a collection of efficient, generic functions to perform common operations on sequences of elements, such as searching, sorting, and transforming.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: algorithms.cpp
- * Demonstration of STL algorithms
+ * Demonstration of STL algorithms: sorting, searching, transforming, and numeric ops
  */
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;algorithm&gt;
+#include &lt;numeric&gt; // For accumulate
 
 using namespace std;
 
 int main() {
-    vector&lt;int&gt; nums = {5, 2, 8, 1, 9};
+    vector&lt;int&gt; nums = {5, 2, 8, 1, 9, 2};
 
     // 1. Sort (using default operator<)
     sort(nums.begin(), nums.end());
@@ -35,9 +35,16 @@ int main() {
     // 3. Transform (doubling elements)
     transform(nums.begin(), nums.end(), nums.begin(), [](int n) { return n * 2; });
     
-    cout << "Transformed (doubled): ";
-    for (int n : nums) cout << n << " ";
-    cout << endl;
+    // 4. Numeric operations (accumulate)
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    cout << "Sum after doubling: " << sum << endl;
+
+    // 5. Predicate algorithms
+    bool allEven = all_of(nums.begin(), nums.end(), [](int n) { return n % 2 == 0; });
+    bool anyNegative = any_of(nums.begin(), nums.end(), [](int n) { return n < 0; });
+    
+    cout << "All even: " << (allEven ? "Yes" : "No") << endl;
+    cout << "Any negative: " << (anyNegative ? "Yes" : "No") << endl;
 
     return 0;
 }
@@ -48,19 +55,9 @@ int main() {
  * 2. They are generally more efficient and safer than manual loops.
  * 3. Most algorithms expect a range [first, last), where 'last' is excluded.
  * 4. Custom predicates (like lambdas) can be passed to customize behavior.
+ * 5. STL algorithms are highly optimized, often leveraging compiler intrinsics.
+ * 6. 'accumulate' and other numeric algorithms live in &lt;numeric&gt;.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Algorithm Simulator</h3>

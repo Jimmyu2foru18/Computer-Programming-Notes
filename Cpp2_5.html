@@ -6,10 +6,9 @@
         <p>Modern C++ (C++11 and later) introduced smart pointers to automate memory management, eliminating manual <code>new</code> and <code>delete</code> calls and drastically reducing memory leaks.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: smart_pointers.cpp
- * Demonstration of std::unique_ptr and std::shared_ptr
+ * Demonstration of std::unique_ptr, std::shared_ptr, and std::weak_ptr
  */
 #include &lt;iostream&gt;
 #include &lt;memory&gt; // For smart pointers
@@ -31,15 +30,20 @@ int main() {
         uPtr->use();
     } // Resource automatically released here
 
-    // 2. shared_ptr: Shared ownership (reference counted)
+    // 2. shared_ptr: Shared ownership
+    shared_ptr&lt;Resource&gt; sPtr1 = make_shared&lt;Resource&gt;();
     {
-        shared_ptr&lt;Resource&gt; sPtr1 = make_shared&lt;Resource&gt;();
-        {
-            shared_ptr&lt;Resource&gt; sPtr2 = sPtr1; // Ref count = 2
-            cout << "Ref count: " << sPtr1.use_count() << endl;
-        } // Ref count = 1
+        shared_ptr&lt;Resource&gt; sPtr2 = sPtr1; // Ref count = 2
         cout << "Ref count: " << sPtr1.use_count() << endl;
-    } // Ref count = 0, Resource released
+    } // Ref count = 1
+    
+    // 3. weak_ptr: Observer (prevents circular dependencies)
+    weak_ptr&lt;Resource&gt; wPtr = sPtr1;
+    if (auto shared = wPtr.lock()) {
+        cout << "Weak pointer still valid." << endl;
+    } else {
+        cout << "Weak pointer expired." << endl;
+    }
     
     return 0;
 }
@@ -50,21 +54,10 @@ int main() {
  * 2. shared_ptr: Copyable. Resource released when last reference is destroyed.
  * 3. make_unique / make_shared: Preferred for exception safety and performance.
  * 4. Use 'unique_ptr' by default; use 'shared_ptr' only if shared ownership is needed.
- * 5. Weak pointers ('weak_ptr') can prevent circular dependencies in shared_ptr.
+ * 5. Weak pointers ('weak_ptr') can prevent circular dependencies in shared_ptr
+ *    scenarios, where two objects reference each other.
+ * 6. Never call 'delete' on memory managed by smart pointers; this causes a double-free crash.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Smart Pointer Simulator</h3>
