@@ -47,10 +47,16 @@ pip freeze > requirements.txt
 # Someone else can then install everything in one go:
 pip install -r requirements.txt
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Diagram showing a Project folder containing code, a requirements.txt file, and a hidden .venv folder">
-            </div>
+        <div class="interactive-sim">
+            <h3>Python Execution Simulator</h3>
+            <button class="sim-button" onclick="runSimPython2_3()">Run Simulation</button>
+            <div id="sim-output-Python2_3" class="sim-output"></div>
+            <script>
+            function runSimPython2_3() {
+                const out = document.getElementById('sim-output-Python2_3');
+                const out = document.getElementById('sim-output-Python2_3'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+            }
+            </script>
         </div>
     </section>
 

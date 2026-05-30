@@ -30,10 +30,16 @@ print(email)  # Output: No email provided
 student["email"] = "alice@university.edu"
 student["age"] = 21
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Visual representation of a Hash Map—Keys pointing to Values">
-            </div>
+        <div class="interactive-sim">
+            <h3>Dictionary Lookup Simulator</h3>
+            <button class="sim-button" onclick="runSimPython1_7()">Run Simulation</button>
+            <div id="sim-output-Python1_7" class="sim-output"></div>
+            <script>
+            function runSimPython1_7() {
+                const out = document.getElementById('sim-output-Python1_7');
+                const out = document.getElementById('sim-output-Python1_7'); out.innerHTML = 'd = {a: 1, b: 2};<br>'; setTimeout(() => out.innerHTML += '>> d["a"] is ' + d['a'], 800);
+            }
+            </script>
         </div>
     </section>
 

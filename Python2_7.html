@@ -45,10 +45,16 @@ class Square(Shape):
     def area(self):
         return self.side * self.side
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Diagram showing a generic 'Shape' interface and several concrete children: Circle, Square, Triangle">
-            </div>
+        <div class="interactive-sim">
+            <h3>Python Execution Simulator</h3>
+            <button class="sim-button" onclick="runSimPython2_7()">Run Simulation</button>
+            <div id="sim-output-Python2_7" class="sim-output"></div>
+            <script>
+            function runSimPython2_7() {
+                const out = document.getElementById('sim-output-Python2_7');
+                const out = document.getElementById('sim-output-Python2_7'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+            }
+            </script>
         </div>
     </section>
 

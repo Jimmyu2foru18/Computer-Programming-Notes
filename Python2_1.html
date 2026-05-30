@@ -28,10 +28,16 @@ def create_profile(**kwargs):
 
 create_profile(name="Alice", age=25, city="New York")
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Diagram showing data flowing into *args (Tuple) and **kwargs (Dictionary)">
-            </div>
+        <div class="interactive-sim">
+            <h3>Lambda Simulator</h3>
+            <button class="sim-button" onclick="runSimPython2_1()">Run Simulation</button>
+            <div id="sim-output-Python2_1" class="sim-output"></div>
+            <script>
+            function runSimPython2_1() {
+                const out = document.getElementById('sim-output-Python2_1');
+                const out = document.getElementById('sim-output-Python2_1'); out.innerHTML = 'f = lambda x: x * 2;<br>'; setTimeout(() => out.innerHTML += '>> f(5) is 10', 1000);
+            }
+            </script>
         </div>
     </section>
 

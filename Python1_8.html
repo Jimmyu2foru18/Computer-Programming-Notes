@@ -23,10 +23,16 @@ else:
 
 print(f"Your grade is: {grade}")
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Flowchart diagram showing a decision tree for a grading system">
-            </div>
+        <div class="interactive-sim">
+            <h3>Conditional Logic Simulator</h3>
+            <button class="sim-button" onclick="runSimPython1_8()">Run Simulation</button>
+            <div id="sim-output-Python1_8" class="sim-output"></div>
+            <script>
+            function runSimPython1_8() {
+                const out = document.getElementById('sim-output-Python1_8');
+                const out = document.getElementById('sim-output-Python1_8'); out.innerHTML = 'x = 10;<br>'; setTimeout(() => out.innerHTML += 'if (x > 5) print("Big");<br>', 800); setTimeout(() => out.innerHTML += '>> Big', 1600);
+            }
+            </script>
         </div>
     </section>
 

@@ -48,10 +48,16 @@ class BankAccount:
         else:
             raise ValueError("Balance cannot be negative!")
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Diagram showing an external request hitting a 'Setter' wall where validation logic checks the data before allowing it into the private storage">
-            </div>
+        <div class="interactive-sim">
+            <h3>Python Execution Simulator</h3>
+            <button class="sim-button" onclick="runSimPython2_5()">Run Simulation</button>
+            <div id="sim-output-Python2_5" class="sim-output"></div>
+            <script>
+            function runSimPython2_5() {
+                const out = document.getElementById('sim-output-Python2_5');
+                const out = document.getElementById('sim-output-Python2_5'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
+            }
+            </script>
         </div>
     </section>
 

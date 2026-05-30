@@ -25,10 +25,16 @@ fruits = ["apple", "banana", "cherry"]
 for index, fruit in enumerate(fruits):
     print(f"{index}: {fruit}")
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Diagram of a 'for' loop walking through a list, pointing to index and value">
-            </div>
+        <div class="interactive-sim">
+            <h3>Loop Iterator Simulator</h3>
+            <button class="sim-button" onclick="runSimPython1_9()">Run Simulation</button>
+            <div id="sim-output-Python1_9" class="sim-output"></div>
+            <script>
+            function runSimPython1_9() {
+                const out = document.getElementById('sim-output-Python1_9');
+                const out = document.getElementById('sim-output-Python1_9'); out.innerHTML = 'for i in range(3):<br>'; setTimeout(() => out.innerHTML += '>> Number ' + i, 800);
+            }
+            </script>
         </div>
     </section>
 
