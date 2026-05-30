@@ -31,10 +31,16 @@ print(my_list[:3])    # [0, 1, 2] (first three)
 print(my_list[2:])    # [2, 3, 4, 5] (everything after index 2)
 print(my_list[::-1])  # [5, 4, 3, 2, 1, 0] (The Pythonic way to reverse!)
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://www.thepythoncodingstack.com/p/conditional-expression-ternary-operator-list-com/600/300" alt="Visual diagram of slicing indices—positive vs negative indexing">
-            </div>
+        <div class="interactive-sim">
+            <h3>List Comprehension Simulator</h3>
+            <button class="sim-button" onclick="runSimPython1_5()">Run Simulation</button>
+            <div id="sim-output-Python1_5" class="sim-output"></div>
+            <script>
+            function runSimPython1_5() {
+                const out = document.getElementById('sim-output-Python1_5');
+                const out = document.getElementById('sim-output-Python1_5-p1-5'); out.innerHTML = 'nums = [1, 2, 3];<br>'; setTimeout(() => out.innerHTML += 'squares = [n*n for n in nums];<br>', 800); setTimeout(() => out.innerHTML += '>> squares is [1, 4, 9]', 1600);
+            }
+            </script>
         </div>
     </section>
 

@@ -19,10 +19,18 @@ multiline = """This is a
 multiline string that
 preserves line breaks."""
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://techbeamers.com/python-string-format/600/300" alt="Visual comparison of Single vs Double vs Triple quotes in a code editor">
-            </div>
+        <div class="interactive-sim">
+            <h3>String Operations Simulator</h3>
+            <button class="sim-button" onclick="runSimP1_4()">Run Operations</button>
+            <div id="sim-output-p1-4" class="sim-output"></div>
+            <script>
+            function runSimP1_4() {
+                const out = document.getElementById('sim-output-p1-4');
+                out.innerHTML = "s = 'Hello';<br>";
+                setTimeout(() => out.innerHTML += "s = s + ' World';<br>", 800);
+                setTimeout(() => out.innerHTML += ">> s[0:5] is " + "'Hello'", 1600);
+            }
+            </script>
         </div>
     </section>
 

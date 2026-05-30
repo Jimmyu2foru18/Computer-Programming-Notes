@@ -32,10 +32,18 @@ print(y) # 2
         <pre><code class="language-python">
 a = b = c = 0  # All three now equal 0
         </code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=600&auto=format&fit=crop" alt="Diagram showing multiple labels (a, b, c) pointing to the same memory object (0)">
-            </div>
+        <div class="interactive-sim">
+            <h3>Variable Assignment Simulator</h3>
+            <button class="sim-button" onclick="runSimP1_2()">Assign Variables</button>
+            <div id="sim-output-p1-2" class="sim-output"></div>
+            <script>
+            function runSimP1_2() {
+                const out = document.getElementById('sim-output-p1-2');
+                out.innerHTML = "x = 10; y = 20;<br>";
+                setTimeout(() => out.innerHTML += "x = x + y;<br>", 800);
+                setTimeout(() => out.innerHTML += ">> x is now 30", 1600);
+            }
+            </script>
         </div>
     </section>
 
