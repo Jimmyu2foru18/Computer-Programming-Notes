@@ -6,46 +6,59 @@
         <p>The <code>std::vector</code> is the workhorse of modern C++ containers. It manages dynamic arrays, automatically handling memory resizing as elements are added or removed.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: vectors.cpp
- * Demonstration of std::vector functionality
+ * Demonstration of std::vector functionality, including reserve and emplace_back
  */
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;algorithm&gt;
+#include &lt;string&gt;
 
 using namespace std;
+
+struct Data {
+    int id;
+    string name;
+};
 
 int main() {
     // 1. Creation and Initialization
     vector&lt;int&gt; numbers = {10, 20, 30};
     
-    // 2. Dynamic resizing
+    // 2. Optimization: reserve()
+    // Pre-allocating memory avoids costly reallocations
+    numbers.reserve(10);
+    
+    // 3. Dynamic resizing: emplace_back()
+    // More efficient than push_back() for objects (constructs in place)
     numbers.push_back(40);
     numbers.push_back(50);
     
-    // 3. Access
+    // 4. Access
     cout << "First element: " << numbers[0] << endl;
-    cout << "Size: " << numbers.size() << endl;
+    cout << "Size: " << numbers.size() << " | Capacity: " << numbers.capacity() << endl;
     
-    // 4. Modification
+    // 5. Modification
     numbers.pop_back(); // Removes 50
     
-    // 5. Iteration
+    // 6. Iteration (Modern C++)
     cout << "All elements: ";
-    for (int n : numbers) {
+    for (const auto& n : numbers) {
         cout << n << " ";
     }
     cout << endl;
 
-    // 6. STL Algorithms with Vector
+    // 7. Emplacing objects in vector
+    vector&lt;Data&gt; dataItems;
+    dataItems.emplace_back(Data{1, "Item1"});
+    dataItems.emplace_back(1, "Item2"); // Direct construction
+    
+    // 8. Sorting
     sort(numbers.begin(), numbers.end(), greater&lt;int&gt;());
     
     cout << "Sorted (desc): ";
-    for (int n : numbers) {
-        cout << n << " ";
-    }
+    for (int n : numbers) cout << n << " ";
     cout << endl;
     
     return 0;
@@ -58,19 +71,8 @@ int main() {
  * 3. Vectors resize themselves when capacity is exceeded, which can be costly (O(n)).
  * 4. Use 'reserve()' if you know the final size to prevent multiple reallocations.
  * 5. Accessing out of bounds using '[]' causes undefined behavior; use '.at()' for safety.
+ * 6. 'emplace_back()' constructs the object in place, avoiding a copy/move operation.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Vector Simulator</h3>

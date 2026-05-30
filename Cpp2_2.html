@@ -6,10 +6,9 @@
         <p>Associative containers in the STL, such as <code>std::map</code> and <code>std::set</code>, are designed for fast lookup, insertion, and deletion of elements. Maps store key-value pairs, while sets store unique keys.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: associative.cpp
- * Demonstration of std::map and std::set
+ * Demonstration of std::map, std::unordered_map, std::set, and std::multimap
  */
 #include &lt;iostream&gt;
 #include &lt;map&gt;
@@ -33,16 +32,24 @@ int main() {
     // 3. std::set (Unique, ordered keys)
     set&lt;int&gt; uniqueIds = {1, 2, 3, 1, 2}; // 1 is stored once
     
-    // 4. Lookup
+    // 4. std::multimap (Multiple values for one key)
+    multimap&lt;string, string&gt; userRoles;
+    userRoles.insert({"Alice", "Admin"});
+    userRoles.insert({"Alice", "Editor"});
+    
+    // 5. Lookup
     if (phoneBook.find("Alice") != phoneBook.end()) {
         cout << "Alice's number: " << phoneBook["Alice"] << endl;
     }
     
-    // 5. Iteration
+    // 6. Iteration (Structured binding C++17)
     cout << "Phonebook entries: " << endl;
     for (const auto& [name, number] : phoneBook) {
         cout << name << ": " << number << endl;
     }
+    
+    // 7. Erasing elements
+    uniqueIds.erase(2);
     
     return 0;
 }
@@ -52,20 +59,11 @@ int main() {
  * 1. map: O(log n) access time, keys are sorted.
  * 2. unordered_map: O(1) average access time (hash table).
  * 3. set: O(log n) insertion/deletion, guarantees unique, sorted elements.
- * 4. Structured binding (C++17) simplifies map iteration (const auto& [key, val]).
- * 5. Prefer unordered_map unless ordering is explicitly required.
+ * 4. multimap: Allows duplicate keys.
+ * 5. Structured binding (C++17) simplifies map iteration (const auto& [key, val]).
+ * 6. Prefer unordered_map unless ordering is explicitly required.
+ * 7. Erasing elements from a map invalidates only iterators to the erased element.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Map Simulator</h3>

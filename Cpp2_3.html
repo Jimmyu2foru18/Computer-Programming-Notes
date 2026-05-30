@@ -6,14 +6,14 @@
         <p>Iterators are the fundamental mechanism for accessing elements in STL containers. They provide a standardized interface to traverse elements without needing to know the underlying container implementation.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: iterators.cpp
- * Demonstration of iterator usage
+ * Demonstration of iterator usage, including reverse iterators and inserters
  */
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;list&gt;
+#include &lt;iterator&gt; // For back_inserter
 
 using namespace std;
 
@@ -41,6 +41,14 @@ int main() {
     }
     cout << endl;
     
+    // 5. Insert Iterators
+    vector&lt;int&gt; dest;
+    copy(nums.begin(), nums.end(), back_inserter(dest));
+    
+    cout << "Copied vector: ";
+    for (int n : dest) cout << n << " ";
+    cout << endl;
+    
     return 0;
 }
 
@@ -52,19 +60,10 @@ int main() {
  * 4. ++it: Advances the iterator to the next element.
  * 5. rbegin()/rend(): Provide reverse traversal capabilities.
  * 6. Iterators can be invalidated if the container is resized (e.g., vector reallocation).
+ * 7. Insert iterators (back_inserter) simplify the process of adding elements
+ *    to containers via algorithms.
+ * 8. Const iterators (cbegin(), cend()) ensure read-only access to container elements.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Iterator Simulator</h3>
