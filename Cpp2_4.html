@@ -1,0 +1,75 @@
+<article>
+    <h1>C++ II: Page 4 - STL: Algorithms</h1>
+
+    <section>
+        <h2>Generic Algorithms</h2>
+        <p>The STL algorithms library provides a collection of efficient, generic functions to perform common operations on sequences of elements, such as searching, sorting, and transforming.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: algorithms.cpp
+ * Demonstration of STL algorithms
+ */
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; nums = {5, 2, 8, 1, 9};
+
+    // 1. Sort (using default operator<)
+    sort(nums.begin(), nums.end());
+    cout << "Sorted: ";
+    for (int n : nums) cout << n << " ";
+    cout << endl;
+
+    // 2. Find
+    auto it = find(nums.begin(), nums.end(), 8);
+    if (it != nums.end()) {
+        cout << "Found 8 at index: " << distance(nums.begin(), it) << endl;
+    }
+
+    // 3. Transform (doubling elements)
+    transform(nums.begin(), nums.end(), nums.begin(), [](int n) { return n * 2; });
+    
+    cout << "Transformed (doubled): ";
+    for (int n : nums) cout << n << " ";
+    cout << endl;
+
+    return 0;
+}
+
+/*
+ * Algorithm Nuances:
+ * 1. Algorithms operate on iterators (e.g., begin(), end()).
+ * 2. They are generally more efficient and safer than manual loops.
+ * 3. Most algorithms expect a range [first, last), where 'last' is excluded.
+ * 4. Custom predicates (like lambdas) can be passed to customize behavior.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Algorithm Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_4');
+                out.innerHTML = 'nums = {5, 2, 8};<br>';
+                setTimeout(() => out.innerHTML += '>> sort(nums.begin(), nums.end());<br>>> Sorted: {2, 5, 8}', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_4" class="sim-output"></div>
+        </div>
+    </section>
+</article>

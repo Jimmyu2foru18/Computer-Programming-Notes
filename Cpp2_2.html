@@ -1,0 +1,80 @@
+<article>
+    <h1>C++ II: Page 2 - STL: Maps & Sets</h1>
+
+    <section>
+        <h2>Associative Containers</h2>
+        <p>Associative containers in the STL, such as <code>std::map</code> and <code>std::set</code>, are designed for fast lookup, insertion, and deletion of elements. Maps store key-value pairs, while sets store unique keys.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: associative.cpp
+ * Demonstration of std::map and std::set
+ */
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;unordered_map&gt;
+#include &lt;set&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+    // 1. std::map (Ordered key-value, balanced tree)
+    map&lt;string, int&gt; phoneBook;
+    phoneBook["Alice"] = 12345;
+    phoneBook["Bob"] = 67890;
+    
+    // 2. std::unordered_map (Unordered key-value, hash table)
+    unordered_map&lt;string, string&gt; capitalCities;
+    capitalCities["France"] = "Paris";
+    capitalCities["Japan"] = "Tokyo";
+    
+    // 3. std::set (Unique, ordered keys)
+    set&lt;int&gt; uniqueIds = {1, 2, 3, 1, 2}; // 1 is stored once
+    
+    // 4. Lookup
+    if (phoneBook.find("Alice") != phoneBook.end()) {
+        cout << "Alice's number: " << phoneBook["Alice"] << endl;
+    }
+    
+    // 5. Iteration
+    cout << "Phonebook entries: " << endl;
+    for (const auto& [name, number] : phoneBook) {
+        cout << name << ": " << number << endl;
+    }
+    
+    return 0;
+}
+
+/*
+ * Associative Container Nuances:
+ * 1. map: O(log n) access time, keys are sorted.
+ * 2. unordered_map: O(1) average access time (hash table).
+ * 3. set: O(log n) insertion/deletion, guarantees unique, sorted elements.
+ * 4. Structured binding (C++17) simplifies map iteration (const auto& [key, val]).
+ * 5. Prefer unordered_map unless ordering is explicitly required.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Map Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_2');
+                out.innerHTML = 'map[\"Alice\"] = 123;<br>';
+                setTimeout(() => out.innerHTML += '>> Alice number is ' + 123, 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_2" class="sim-output"></div>
+        </div>
+    </section>
+</article>

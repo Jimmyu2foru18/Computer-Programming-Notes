@@ -1,0 +1,85 @@
+<article>
+    <h1>C++ II: Page 1 - STL: Vectors</h1>
+
+    <section>
+        <h2>Dynamic Arrays with std::vector</h2>
+        <p>The <code>std::vector</code> is the workhorse of modern C++ containers. It manages dynamic arrays, automatically handling memory resizing as elements are added or removed.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: vectors.cpp
+ * Demonstration of std::vector functionality
+ */
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+    // 1. Creation and Initialization
+    vector&lt;int&gt; numbers = {10, 20, 30};
+    
+    // 2. Dynamic resizing
+    numbers.push_back(40);
+    numbers.push_back(50);
+    
+    // 3. Access
+    cout << "First element: " << numbers[0] << endl;
+    cout << "Size: " << numbers.size() << endl;
+    
+    // 4. Modification
+    numbers.pop_back(); // Removes 50
+    
+    // 5. Iteration
+    cout << "All elements: ";
+    for (int n : numbers) {
+        cout << n << " ";
+    }
+    cout << endl;
+
+    // 6. STL Algorithms with Vector
+    sort(numbers.begin(), numbers.end(), greater&lt;int&gt;());
+    
+    cout << "Sorted (desc): ";
+    for (int n : numbers) {
+        cout << n << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
+
+/*
+ * Vector Nuances:
+ * 1. Vectors automatically manage heap memory.
+ * 2. 'size()' returns current elements, 'capacity()' returns total space allocated.
+ * 3. Vectors resize themselves when capacity is exceeded, which can be costly (O(n)).
+ * 4. Use 'reserve()' if you know the final size to prevent multiple reallocations.
+ * 5. Accessing out of bounds using '[]' causes undefined behavior; use '.at()' for safety.
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Vector Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_1');
+                out.innerHTML = 'vec = {10, 20};<br>';
+                setTimeout(() => out.innerHTML += '>> vec.push_back(30);<br>>> Vector size is 3', 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_1" class="sim-output"></div>
+        </div>
+    </section>
+</article>

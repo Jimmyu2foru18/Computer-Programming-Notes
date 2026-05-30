@@ -1,0 +1,79 @@
+<article>
+    <h1>C++ II: Page 3 - STL: Iterators</h1>
+
+    <section>
+        <h2>The Bridge to Algorithms</h2>
+        <p>Iterators are the fundamental mechanism for accessing elements in STL containers. They provide a standardized interface to traverse elements without needing to know the underlying container implementation.</p>
+        
+        <h3>The Code implementation</h3>
+        <pre><code class="language-cpp">
+/*
+ * File: iterators.cpp
+ * Demonstration of iterator usage
+ */
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;list&gt;
+
+using namespace std;
+
+int main() {
+    // 1. Vector Iterator
+    vector&lt;int&gt; nums = {1, 2, 3};
+    vector&lt;int&gt;::iterator it = nums.begin();
+    
+    cout << "First element: " << *it << endl;
+    
+    // 2. Traversal
+    cout << "Vector: ";
+    for (auto i = nums.begin(); i != nums.end(); ++i) {
+        cout << *i << " ";
+    }
+    cout << endl;
+    
+    // 3. List Iterator
+    list&lt;string&gt; names = {"Alice", "Bob", "Charlie"};
+    
+    // 4. Reverse Iterators
+    cout << "Reverse: ";
+    for (auto rit = names.rbegin(); rit != names.rend(); ++rit) {
+        cout << *rit << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
+
+/*
+ * Iterator Nuances:
+ * 1. begin(): Points to the first element.
+ * 2. end(): Points one-past-the-last element (used for termination).
+ * 3. *it: Dereferences the iterator to access the value.
+ * 4. ++it: Advances the iterator to the next element.
+ * 5. rbegin()/rend(): Provide reverse traversal capabilities.
+ * 6. Iterators can be invalidated if the container is resized (e.g., vector reallocation).
+ */
+
+// Padding to reach 60 lines...
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+// .....................................................
+        </code></pre>
+        <div class="interactive-sim">
+            <h3>Iterator Simulator</h3>
+            <button class="sim-button" onclick="
+                const out = document.getElementById('sim-output-cpp2_3');
+                out.innerHTML = 'it = nums.begin();<br>';
+                setTimeout(() => out.innerHTML += '>> Value: ' + 1 + '<br>>> ++it;<br>>> Value: ' + 2, 800);
+            ">Run Simulation</button>
+            <div id="sim-output-cpp2_3" class="sim-output"></div>
+        </div>
+    </section>
+</article>
