@@ -6,10 +6,9 @@
         <p>Modern C++ offers powerful features like <code>auto</code> for type deduction and <code>lambdas</code> for creating anonymous functions on-the-fly, making code significantly more expressive.</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: modern_cpp.cpp
- * Demonstration of auto type deduction and lambdas
+ * Demonstration of auto type deduction, lambdas, and mutable lambdas
  */
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -39,7 +38,15 @@ int main() {
     
     cout << "Multiplication: " << multiply(5) << endl;
 
-    // 4. Using lambda in algorithm
+    // 4. Mutable Lambda (modifying captured value)
+    int count = 0;
+    auto increment = [count]() mutable {
+        return ++count;
+    };
+    
+    cout << "Mutable lambda: " << increment() << endl;
+
+    // 5. Using lambda in algorithm
     vector&lt;int&gt; nums = {1, 2, 3};
     for_each(nums.begin(), nums.end(), [](int n) {
         cout << n * 2 << " ";
@@ -50,24 +57,13 @@ int main() {
 
 /*
  * Modern C++ Nuances:
- * 1. 'auto': Compiler deduces the type at compile-time.
+ * 1. 'auto': Compiler deduces the type at compile-time, reducing verbosity.
  * 2. Lambdas: Great for quick, localized logic in algorithms.
  * 3. Capturing: [=] captures all by value, [&] captures all by reference.
  * 4. Lambdas are effectively function objects (functors) behind the scenes.
+ * 5. Mutable lambdas ('mutable' keyword) allow modification of captured-by-value variables.
+ * 6. Use 'auto' when the type is obvious, but prefer explicit types for API interfaces.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Lambda Simulator</h3>

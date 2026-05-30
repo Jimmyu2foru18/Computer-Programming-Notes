@@ -6,10 +6,9 @@
         <p>Move semantics allow C++ to "transfer" the ownership of resources from one object to another instead of performing expensive copies. This is achieved using rvalue references (<code>&&</code>).</p>
         
         <h3>The Code implementation</h3>
-        <pre><code class="language-cpp">
-/*
+        <pre><code class="language-cpp">/*
  * File: move_semantics.cpp
- * Demonstration of Move Constructor and Move Assignment
+ * Demonstration of Move Constructor and Move Assignment (Rule of Five)
  */
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -24,11 +23,24 @@ public:
     Buffer(size_t s) : size(s), data(new int[s]) {}
     ~Buffer() { delete[] data; }
 
-    // Move constructor
+    // 1. Move constructor
     Buffer(Buffer&& other) noexcept : size(other.size), data(other.data) {
         other.size = 0;
         other.data = nullptr;
         cout << "Buffer moved." << endl;
+    }
+
+    // 2. Move assignment operator
+    Buffer& operator=(Buffer&& other) noexcept {
+        if (this != &other) {
+            delete[] data;
+            size = other.size;
+            data = other.data;
+            other.size = 0;
+            other.data = nullptr;
+            cout << "Buffer move-assigned." << endl;
+        }
+        return *this;
     }
 };
 
@@ -36,6 +48,9 @@ int main() {
     Buffer b1(1000);
     // Use std::move to transfer ownership
     Buffer b2 = move(b1); 
+    
+    Buffer b3(500);
+    b3 = move(b2);
     
     return 0;
 }
@@ -47,21 +62,10 @@ int main() {
  * 3. std::move() casts an object to an rvalue, enabling a move.
  * 4. Exception safety (noexcept) is required for move constructors.
  * 5. Move semantics drastically improve performance for container classes.
+ * 6. Rule of Five: If you implement a destructor, you should consider 
+ *    implementing copy constructor, copy assignment, move constructor, 
+ *    and move assignment to maintain resource integrity.
  */
-
-// Padding to reach 60 lines...
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
-// .....................................................
         </code></pre>
         <div class="interactive-sim">
             <h3>Move Simulator</h3>
