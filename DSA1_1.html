@@ -4,6 +4,14 @@
     <section>
         <h2>The Engine of Software</h2>
         <p>At the heart of every great software application—from the search bar in your browser to the routing system of a global logistics company—are <strong>Data Structures</strong> and <strong>Algorithms</strong>. They are the fundamental tools that allow us to process vast amounts of information efficiently and solve complex problems in predictable timeframes. Understanding them is the difference between a programmer who writes code that "works" and an engineer who writes code that <em>scales</em>.</p>
+        <pre><code class="language-python"># Simple example: Efficient data access using a dictionary
+data = {"user_123": "Alice", "user_456": "Bob"}
+print(data["user_123"])  # O(1) constant time access</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Abstract digital representation of performance and algorithms">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -14,6 +22,20 @@
         </ul>
         <h3>Efficiency Matters</h3>
         <p>A poorly chosen data structure can make a simple task take hours; a poorly designed algorithm can waste enormous amounts of CPU time and memory. Our goal is to choose the right structure and the right recipe for every scenario.</p>
+        <pre><code class="language-python"># Defining a simple Data Structure (Class)
+class Task:
+    def __init__(self, title, priority):
+        self.title = title
+        self.priority = priority
+
+# An Algorithm to process it
+def print_task(task):
+    print(f"Task: {task.title} [Priority: {task.priority}]")</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract data structure visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -24,14 +46,16 @@
             <li><strong>O(n) - Linear:</strong> Time increases proportionally with data size (e.g., scanning an array).</li>
             <li><strong>O(n²) - Quadratic:</strong> Time increases exponentially with data size (e.g., nested loops).</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>Algorithm Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-1');
-                out.innerHTML = 'array = [3, 1, 2];<br>';
-                setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-1" class="sim-output"></div>
+        <pre><code class="language-python"># O(n) - Linear Time Complexity
+def find_element(arr, target):
+    for item in arr:
+        if item == target:
+            return True
+    return False</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Mathematical representation of efficiency and logic">
+            </div>
         </div>
     </section>
 

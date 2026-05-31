@@ -4,9 +4,22 @@
     <section>
         <h2>The Brain of the Web</h2>
         <p>HTML is the skeleton, CSS is the makeup, but <strong>JavaScript (JS)</strong> is the <em>brain</em>. JavaScript is the programming language of the web. It allows you to create dynamic, interactive content, respond to user actions (like clicking buttons or typing in forms), fetch data from servers, and update the UI without reloading the page. Learning JavaScript is the turning point where you stop just "designing" web pages and start building "web applications."</p>
-    </section>
+        <pre><code class="language-javascript">
+let message = "Hello JS!";
+console.log(message);
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Web Design">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Variables: Storing Data</h2>
         <p>To do anything useful, a program must store information. We do this using <strong>Variables</strong>. In modern JavaScript (ES6+), you should almost always use <code>let</code> or <code>const</code>.</p>
         <ul>
@@ -19,11 +32,25 @@ const API_KEY = "12345"; // Never changes
 let score = 0;           // Will change
 score = 10;              // Allowed
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Javascript">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Core Data Types</h2>
         <p>JavaScript is dynamically typed, meaning a variable can hold any type of data, and that type can change.</p>
+        <pre><code class="language-javascript">
+let name = "Alice"; // String
+let age = 25; // Number
+let isActive = true; // Boolean
+        </code></pre>
         <ul>
             <li><strong>String:</strong> Text (e.g., <code>"Hello World"</code>).</li>
             <li><strong>Number:</strong> Integers or floats (e.g., <code>42</code>, <code>3.14</code>).</li>
@@ -31,20 +58,20 @@ score = 10;              // Allowed
             <li><strong>Array:</strong> Ordered list (e.g., <code>[1, 2, "three"]</code>).</li>
             <li><strong>Object:</strong> Key-value pairs (e.g., <code>{name: "John", age: 30}</code>).</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_6_html()">Run Simulation</button>
-            <div id="sim-output-Web1_6_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_6_html() {
-                const out = document.getElementById('sim-output-Web1_6_html');
-                const out = document.getElementById('sim-output-Web1_6_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master JavaScript basics with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -64,11 +91,33 @@ score = 10;              // Allowed
                 <p><small>A comprehensive look at storing data in JS.</small></p>
             </div>
         </div>
+        <pre><code class="language-javascript">
+// Practical exercise: Try creating a variable for your name and age!
+const myName = "Student";
+let myAge = 20;
+console.log(`Hello, my name is ${myName} and I am ${myAge} years old.`);
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop" alt="Coding and Learning">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Real-World Relationship: The Labelled Boxes</h2>
         <p>Think of <strong>Variables</strong> like <strong>Cardboard Boxes in a Storage Unit</strong>. Each box has a <strong>Label</strong> (the variable name) that tells you what's inside. When you need to use the data later, you just find the box with the correct label. <code>const</code> is a box that you seal with superglue—once you put something in, you can't take it out or replace it. <code>let</code> is a box with a removable lid—you can take out what's inside and replace it with something else whenever you need to. Data Types are just the "type" of thing you put in the box (a "String" item vs. a "Number" item), and JavaScript doesn't care if you put a number in a box that used to hold a string!</p>
+        <pre><code class="language-javascript">
+// The "Box" Analogy in code
+const sealedBox = "Inheritance"; // Cannot change
+let openBox = "Old Toys";        // Can change later
+openBox = "New Clothes";        // Replacing the contents
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=600&auto=format&fit=crop" alt="Storage Boxes">
+            </div>
+        </div>
     </section>
 
     <section>

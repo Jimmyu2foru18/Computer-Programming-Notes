@@ -52,7 +52,7 @@ string fullPath = Path.Combine(folder, file); // Safe concatenation
             <h3>File I/O Simulator</h3>
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-cs2-5');
-                out.innerHTML = 'File.WriteAllText(\"data.txt\", \"Hello\");<br>';
+                out.innerHTML = 'File.WriteAllText(&quot;data.txt&quot;, &quot;Hello&quot;);<br>';
                 setTimeout(() => out.innerHTML += '>> File successfully created!', 800);
             ">Run Simulation</button>
             <div id="sim-output-cs2-5" class="sim-output"></div>

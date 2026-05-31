@@ -4,9 +4,22 @@
     <section>
         <h2>The Modern JS Toolbox</h2>
         <p>JavaScript has evolved rapidly since 2015 (ES6). These "Modern" features aren't just syntactic sugar—they are powerful tools that make your code more concise, readable, and less prone to errors. While older JavaScript (ES5) is still valid, you will almost exclusively encounter ES6+ syntax in modern development, frameworks (React/Vue/Angular), and professional codebases. Mastering these features is essential for becoming a modern JavaScript developer.</p>
-    </section>
+        <pre><code class="language-javascript">
+const numbers = [1, 2, 3];
+const doubled = numbers.map(n =&gt; n * 2);
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Javascript">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Productivity Powerhouses</h2>
         <ul>
             <li><strong>Destructuring:</strong> A clean way to unpack values from arrays or properties from objects into distinct variables.</li>
@@ -24,9 +37,18 @@ const message = `Hello ${name}, you are ${age}.`;
 // Arrow Functions
 const sum = (a, b) => a + b;
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Object-Oriented JS: Classes</h2>
         <p>Before ES6, JS used complex prototype chains for object-oriented programming. Now, we use <code>class</code> syntax, which is much more intuitive and similar to other languages like Java or C#.</p>
         <pre><code class="language-javascript">
@@ -35,20 +57,20 @@ class Animal {
   speak() { console.log(`${this.name} makes a sound`); }
 }
         </code></pre>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_9_html()">Run Simulation</button>
-            <div id="sim-output-Web1_9_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_9_html() {
-                const out = document.getElementById('sim-output-Web1_9_html');
-                const out = document.getElementById('sim-output-Web1_9_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Javascript">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master modern JavaScript with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -68,11 +90,32 @@ class Animal {
                 <p><small>Object-oriented programming in modern JS.</small></p>
             </div>
         </div>
+        <pre><code class="language-javascript">
+// Practice: Using template literals and arrow functions
+const greet = (name) => `Hello, ${name}! Welcome to ES6.`;
+console.log(greet("Modern Developer"));
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" alt="Advanced Coding">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Real-World Relationship: The Swiss Army Knife</h2>
         <p>Think of <strong>Modern JavaScript features</strong> like a <strong>Swiss Army Knife</strong> compared to the old <strong>Kitchen Knife</strong>. In the old days (ES5), you only had a basic, sharp knife for everything. It worked, but it was tedious for complex tasks. Modern JavaScript gives you specialized tools: a corkscrew for opening specific types of data (Destructuring), a small scissor for trimming strings (Template Literals), and a durable blade for structural work (Classes). You're still building the same things, but you are now far faster, more precise, and far less likely to accidentally cut yourself (create bugs) while working.</p>
+        <pre><code class="language-javascript">
+// The "Swiss Army Knife" of code
+const tools = ["Knife", "Scissors", "Corkscrew"];
+const [primary, ...others] = tools; // Destructuring & Spread
+console.log(`Primary tool: ${primary}`);
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1594489428504-5c0c480a15fd?q=80&w=600&auto=format&fit=crop" alt="Swiss Army Knife">
+            </div>
+        </div>
     </section>
 
     <section>

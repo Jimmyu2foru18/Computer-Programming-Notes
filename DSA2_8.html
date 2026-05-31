@@ -4,6 +4,13 @@
     <section>
         <h2>Exploring Complex Relationships</h2>
         <p>A graph is just a collection of nodes and edges. To actually <em>use</em> that data, you need to be able to visit those nodes in a systematic way. This is called <strong>Graph Traversal</strong>. There are two primary approaches: <strong>Breadth-First Search (BFS)</strong> and <strong>Depth-First Search (DFS)</strong>. Choosing between them often depends on what you're trying to achieve—finding the shortest path (BFS) or exploring every branch of a structure (DFS).</p>
+        <pre><code class="language-python"># Traversal Goal: Visit every node exactly once
+# to process data or search for a target.</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Complex logic and traversal visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -21,20 +28,28 @@ def bfs(graph, start):
                 visited.add(neighbor)
                 queue.append(neighbor)
         </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Concentric circles and level-by-level network">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>2. DFS: Depth-First Search</h2>
         <p>DFS explores the graph by going <strong>as deep as possible</strong> down one branch before backtracking. It is implemented using a <strong>Stack</strong> (or recursion), which naturally tracks the path backwards.</p>
         <p><strong>Use Case:</strong> Cycle detection, solving mazes, topological sorting.</p>
-        <div class="interactive-sim">
-            <h3>Graph Traversal Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds2-8');
-                out.innerHTML = 'BFS starting at A...<br>';
-                setTimeout(() => out.innerHTML += '>> Visited: A -> B -> C', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds2-8" class="sim-output"></div>
+        <pre><code class="language-python"># DFS Recursive Implementation
+def dfs(graph, node, visited=None):
+    if visited is None: visited = set()
+    visited.add(node)
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Deep structural exploration and logic">
+            </div>
         </div>
     </section>
 

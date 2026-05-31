@@ -4,9 +4,25 @@
     <section>
         <h2>Designing for Every Screen</h2>
         <p>In the past, websites were designed for a single screen size—the desktop monitor. Today, users access the web from thousands of different devices with wildly varying screen sizes: smartphones, tablets, laptops, massive desktop monitors, and even smartwatches. <strong>Responsive Web Design (RWD)</strong> is the approach where a website automatically adjusts its layout and content to provide an optimal viewing experience on any device. It is no longer an "extra feature"—it is an absolute requirement for any professional web project.</p>
-    </section>
+        <pre><code class="language-css">
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Web Design">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. The Toolkit of Responsiveness</h2>
         <p>Responsive design relies on three core techniques working in harmony:</p>
         <ul>
@@ -22,25 +38,43 @@
   }
 }
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Mobile-First Development</h2>
         <p>The most effective workflow for RWD is <strong>Mobile-First</strong>. You design and code the styles for the smallest mobile screens <em>first</em>, then use media queries to add complexity for larger screens. This makes your mobile site faster (fewer styles to load) and forces you to prioritize the essential content for the most constrained users.</p>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_5_html()">Run Simulation</button>
-            <div id="sim-output-Web1_5_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_5_html() {
-                const out = document.getElementById('sim-output-Web1_5_html');
-                const out = document.getElementById('sim-output-Web1_5_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        <pre><code class="language-css">
+/* Default: Mobile Styles */
+.nav { display: block; }
 
-    <section>
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .nav { display: flex; }
+}
+        </code></pre>
+        
+            
+    
+
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master responsive design with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -65,6 +99,22 @@
     <section>
         <h2>Real-World Relationship: The Folding Map</h2>
         <p>Think of <strong>Responsive Design</strong> like a <strong>Professional Folding Map</strong>. When you are looking at the whole map (Desktop), it's a massive, detailed display. But when you want to take it with you in the car, you don't throw it away and get a different map—you fold it up. It’s the same information, just rearranged to fit the space available. If you didn't fold it (if you didn't have responsive design), it wouldn't fit in the car, and you couldn't use it. Responsive design ensures the "map" of your website works whether it's fully unfolded on a desk or folded into the tight constraints of a mobile phone.</p>
+        <pre><code class="language-css">
+/* The Folding Layout */
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Content 'folds' to next line when space is tight */
+}
+
+.item {
+  flex: 1 1 300px; /* Each item is at least 300px, but grows to fill space */
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=600&auto=format&fit=crop" alt="Multiple Devices">
+            </div>
+        </div>
     </section>
 
     <section>

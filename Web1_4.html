@@ -4,9 +4,25 @@
     <section>
         <h2>Everything is a Box</h2>
         <p>In CSS, every single element on the page is treated as a rectangular box. Understanding how these boxes are sized, spaced, and positioned is the single most important skill for mastering web layouts. If you don't understand the <strong>Box Model</strong>, you will constantly be frustrated by elements not aligning correctly or taking up the wrong amount of space.</p>
-    </section>
+        <pre><code class="language-css">
+.box {
+  width: 300px;
+  border: 1px solid black;
+  padding: 10px;
+}
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. The Box Model Anatomy</h2>
         <p>Each box consists of four layers, working from the inside out:</p>
         <ul>
@@ -25,29 +41,44 @@
   box-sizing: border-box; /* Crucial: includes padding/border in width */
 }
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Layout Systems: Flexbox & Grid</h2>
         <p>Before, we used floats (a nightmare). Now, we have two powerful layout systems:</p>
+        <pre><code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+        </code></pre>
         <ul>
             <li><strong>Flexbox:</strong> Best for one-dimensional layouts (a row of buttons, a navigation bar, centering items).</li>
             <li><strong>Grid:</strong> Best for two-dimensional layouts (the overall structure of the entire page: header, sidebar, main content, footer).</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_4_html()">Run Simulation</button>
-            <div id="sim-output-Web1_4_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_4_html() {
-                const out = document.getElementById('sim-output-Web1_4_html');
-                const out = document.getElementById('sim-output-Web1_4_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master the box model and layout systems with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -72,6 +103,20 @@
     <section>
         <h2>Real-World Relationship: The Picture Frame</h2>
         <p>Think of an HTML element like a <strong>Photograph</strong>. The actual photo is the <strong>Content</strong>. The matting around the photo is the <strong>Padding</strong> (space inside the frame). The frame itself is the <strong>Border</strong>. The space between this framed photo and the next photo hanging on the wall is the <strong>Margin</strong>. <strong>Flexbox</strong> is like organizing these framed photos in a straight line on a shelf. <strong>Grid</strong> is like deciding how to hang them all on a massive wall—placing them precisely in rows and columns.</p>
+        <pre><code class="language-css">
+/* The Picture Frame Analogy */
+.photo-frame {
+  padding: 20px;   /* Matting */
+  border: 10px solid #5d4037; /* Frame */
+  margin: 15px;    /* Space between frames */
+  background: white;
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=600&auto=format&fit=crop" alt="Gallery Wall">
+            </div>
+        </div>
     </section>
 
     <section>

@@ -4,6 +4,14 @@
     <section>
         <h2>Ordered Hierarchies</h2>
         <p>A <strong>Binary Search Tree (BST)</strong> is a specialized binary tree that maintains a specific order: for any given node, all elements in its <strong>left subtree are smaller</strong> than the node, and all elements in its <strong>right subtree are greater</strong> (or equal). This structural property makes searching, inserting, and deleting nodes remarkably fast—typically <strong>O(log n)</strong> if the tree remains relatively balanced.</p>
+        <pre><code class="language-python"># Property of a BST Node
+# Left.value < Node.value < Right.value
+bst_root = {'value': 10, 'left': 5, 'right': 15}</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Logic and ordered data structure visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -20,6 +28,11 @@ def search(node, target):
         return node
     return search(node.left, target) if target < node.data else search(node.right, target)
         </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Algorithmic searching and logic">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -30,14 +43,16 @@ def search(node, target):
             <li><strong>Preorder (Root, Left, Right):</strong> Useful for creating a copy of the tree.</li>
             <li><strong>Postorder (Left, Right, Root):</strong> Useful for deleting the tree or evaluating expressions.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>BST Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds2-4');
-                out.innerHTML = 'Insert(5); Insert(3);<br>';
-                setTimeout(() => out.innerHTML += '>> BST Structure: 5 -> left:3', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds2-4" class="sim-output"></div>
+        <pre><code class="language-python"># Inorder traversal (Pseudo)
+def inorder(node):
+    if node:
+        inorder(node.left)
+        print(node.value)
+        inorder(node.right)</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract representation of tree traversal">
+            </div>
         </div>
     </section>
 

@@ -47,15 +47,8 @@ class Square(Shape):
         </code></pre>
         <div class="interactive-sim">
             <h3>Polymorphism Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_7()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_7'); out.innerHTML = 'class Cat: speak()=&quot;Meow&quot;<br>class Dog: speak()=&quot;Woof&quot;<br>'; setTimeout(() => out.innerHTML += '>> animal.speak() adapts to instance', 1000);">Run Simulation</button>
             <div id="sim-output-Python2_7" class="sim-output"></div>
-            <script>
-            function runSimPython2_7() {
-                const out = document.getElementById('sim-output-Python2_7');
-                out.innerHTML = 'class Cat: speak()="Meow"<br>class Dog: speak()="Woof"<br>';
-                setTimeout(() => out.innerHTML += '>> animal.speak() adapts to instance', 1000);
-            }
-            </script>
         </div>
     </section>
 

@@ -4,22 +4,59 @@
     <section>
         <h2>The Vocabulary of the Web</h2>
         <p>An HTML document is more than just a template; it is a collection of elements that define the document's content and meaning. If you think of HTML as the skeleton of a website, then <strong>HTML Elements</strong> are the individual bones, joints, and organs. Knowing which tag to use for which piece of content is the difference between a website that is just "visual" and a website that is robust, accessible, and searchable.</p>
-    </section>
+        <pre><code class="language-html">
+&lt;p&gt;This is a paragraph element.&lt;/p&gt;
+&lt;a href="https://google.com"&gt;Link&lt;/a&gt;
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Web Design">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. The Essential Elements</h2>
         <p>While there are dozens of HTML tags, you will use a core set daily. Understanding their purpose is critical for proper structure.</p>
+        <pre><code class="language-html">
+&lt;ul&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
         <ul>
             <li><strong>Headings (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>):</strong> Define hierarchy. <code>&lt;h1&gt;</code> is the page title; <code>&lt;h2&gt;</code> are main section titles.</li>
             <li><strong>Lists (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>):</strong> Used to organize related pieces of information.</li>
             <li><strong>Tables (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>):</strong> Used for tabular data (not for page layout!).</li>
             <li><strong>Forms (<code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>):</strong> The primary way to collect user data.</li>
         </ul>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Semantic HTML: The Meaning Behind the Tag</h2>
         <p>In the early days, everything was a <code>&lt;div&gt;</code>. Today, we use <strong>Semantic Elements</strong> to tell the browser and search engines <em>what</em> the content is, not just how it looks. This is vital for accessibility (screen readers need to know where the navigation is versus the main content) and SEO (Google needs to know which part of the page is the core topic).</p>
+        <pre><code class="language-html">
+&lt;header&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Home&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+        </code></pre>
         
         <h3>Key Semantic Tags:</h3>
         <ul>
@@ -30,20 +67,27 @@
             <li><code>&lt;aside&gt;</code>: Tangential content (sidebars).</li>
             <li><code>&lt;footer&gt;</code>: The bottom section (copyright, contact info).</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_2_html()">Run Simulation</button>
-            <div id="sim-output-Web1_2_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_2_html() {
-                const out = document.getElementById('sim-output-Web1_2_html');
-                const out = document.getElementById('sim-output-Web1_2_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        <pre><code class="language-html">
+&lt;!-- Semantic Layout --&gt;
+&lt;header&gt;Website Header&lt;/header&gt;
+&lt;nav&gt;Navigation Links&lt;/nav&gt;
+&lt;main&gt;Main Content Area&lt;/main&gt;
+&lt;footer&gt;Website Footer&lt;/footer&gt;
+        </code></pre>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master HTML elements and semantics with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -68,6 +112,21 @@
     <section>
         <h2>Real-World Relationship: The Architect and the Building Labels</h2>
         <p>Think of <strong>Semantic HTML</strong> like <strong>Architectural Blueprints</strong>. An architect doesn't just draw a bunch of identical squares (<code>&lt;div&gt;</code>s). They label one square "Kitchen," another "Bedroom," and another "Garage." If a contractor walks in, they know exactly what each room is for. If you don't label your rooms (if you only use <code>&lt;div&gt;</code> tags), a visually impaired person (using a screen reader) or a search engine crawler (Googlebot) walks into your "web-house" and has no idea which part of the house is the kitchen or which part is the bathroom. Labels make your "house" livable and functional for everyone.</p>
+        <pre><code class="language-html">
+&lt;!-- Labeled Room (Semantic) vs Unlabeled Room (Generic) --&gt;
+&lt;section&gt;
+  &lt;h2&gt;Kitchen&lt;/h2&gt; &lt;!-- Semantic meaning --&gt;
+&lt;/section&gt;
+
+&lt;div&gt;
+  &lt;div&gt;Room&lt;/div&gt; &lt;!-- Generic, no meaning --&gt;
+&lt;/div&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1503387762-592dea58ef21?q=80&w=600&auto=format&fit=crop" alt="Architecture">
+            </div>
+        </div>
     </section>
 
     <section>

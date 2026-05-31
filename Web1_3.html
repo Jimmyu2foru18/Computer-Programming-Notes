@@ -4,9 +4,24 @@
     <section>
         <h2>Styling the Web</h2>
         <p>If HTML is the structural skeleton of your website, <strong>CSS (Cascading Style Sheets)</strong> is the visual makeup, clothing, and styling. CSS allows you to separate content (HTML) from presentation (CSS), which is a fundamental principle of modern web development. By using external CSS files, you can style hundreds of pages simultaneously just by changing one line of code, ensuring consistency and dramatically reducing maintenance time.</p>
-    </section>
+        <pre><code class="language-css">
+h1 {
+  color: blue;
+  font-size: 24px;
+}
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Web Design">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. The Syntax: Rule Sets</h2>
         <p>A CSS rule set targets an HTML element and tells the browser how to render it. It consists of a <strong>Selector</strong> and a <strong>Declaration Block</strong>.</p>
         <pre><code class="language-css">
@@ -23,9 +38,28 @@ p {
             <li><strong>Class (<code>.</code>):</strong> Targets a group (e.g., <code>.button</code>).</li>
             <li><strong>ID (<code>#</code>):</strong> Targets one unique element (e.g., <code>#main-nav</code>).</li>
         </ul>
-    </section>
+        <pre><code class="language-css">
+/* Element Selector */
+h1 { color: red; }
 
-    <section>
+/* Class Selector */
+.highlight { background-color: yellow; }
+
+/* ID Selector */
+#unique-header { border: 1px solid black; }
+        </code></pre>
+    
+
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop" alt="Coding">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Ways to Include CSS</h2>
         <p>You can apply CSS in three ways, but they are not created equal in terms of maintainability:</p>
         <ol>
@@ -37,20 +71,20 @@ p {
 &lt;!-- The Best Way: External Link --&gt;
 &lt;link rel="stylesheet" href="style.css"&gt;
         </code></pre>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_3_html()">Run Simulation</button>
-            <div id="sim-output-Web1_3_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_3_html() {
-                const out = document.getElementById('sim-output-Web1_3_html');
-                const out = document.getElementById('sim-output-Web1_3_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master the fundamentals of styling with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -75,6 +109,19 @@ p {
     <section>
         <h2>Real-World Relationship: The Interior Decorator</h2>
         <p>Think of <strong>HTML</strong> like the <strong>Construction of the house</strong>—the walls, the floors, the doors. Think of <strong>CSS</strong> like the <strong>Interior Decorator</strong>. You don't rebuild the house to change the wall color; you hire a decorator to apply paint, hang pictures, and pick furniture. If you want to change the style of the whole house (the whole website), you don't rebuild the walls—you just update the decoration (the External CSS file). This makes it fast, efficient, and easy to change the "vibe" of your house without structural work.</p>
+        <pre><code class="language-css">
+/* Change the 'vibe' without changing the 'structure' */
+body {
+  background-color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop" alt="Interior Design">
+            </div>
+        </div>
     </section>
 
     <section>

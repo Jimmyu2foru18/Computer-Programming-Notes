@@ -35,16 +35,8 @@ class Dog(Animal):
         <p>Python is one of the few modern languages that supports <strong>Multiple Inheritance</strong>, where a single class can have multiple parents. While powerful, this can lead to conflicts if two parents have a method with the same name. This is known as the "Diamond Problem."</p>
         <div class="interactive-sim">
             <h3>Inheritance Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_6()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_6'); out.innerHTML = 'class Animal: ... <br>'; setTimeout(() => out.innerHTML += 'class Dog(Animal): ...<br>', 800); setTimeout(() => out.innerHTML += '>> Dog inherits speak()', 1600);">Run Simulation</button>
             <div id="sim-output-Python2_6" class="sim-output"></div>
-            <script>
-            function runSimPython2_6() {
-                const out = document.getElementById('sim-output-Python2_6');
-                out.innerHTML = 'class Animal: ... <br>';
-                setTimeout(() => out.innerHTML += 'class Dog(Animal): ...<br>', 800);
-                setTimeout(() => out.innerHTML += '>> Dog inherits speak()', 1600);
-            }
-            </script>
         </div>
     </section>
 

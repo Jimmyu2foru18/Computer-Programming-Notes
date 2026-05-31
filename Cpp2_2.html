@@ -69,10 +69,16 @@ int main() {
             <h3>Map Simulator</h3>
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-cpp2_2');
-                out.innerHTML = 'map[\"Alice\"] = 123;<br>';
+                out.innerHTML = 'map[&quot;Alice&quot;] = 123;<br>';
                 setTimeout(() => out.innerHTML += '>> Alice number is ' + 123, 800);
             ">Run Simulation</button>
             <div id="sim-output-cpp2_2" class="sim-output"></div>
         </div>
     </section>
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Cpp2_1.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: STL: Vectors</a>
+            <a href="#" data-file="Cpp2_3.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: STL: Iterators &rarr;</a>
+        </div>
+    </footer>
 </article>

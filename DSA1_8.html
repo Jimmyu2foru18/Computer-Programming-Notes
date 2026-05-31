@@ -4,6 +4,14 @@
     <section>
         <h2>The Simple, Brute-Force Sort</h2>
         <p><strong>Bubble Sort</strong> is one of the simplest sorting algorithms, primarily used for educational purposes to demonstrate the concept of sorting. It works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. This pass through the list is repeated until the list is sorted. It is called "Bubble Sort" because with each pass, the largest unsorted element "bubbles up" to its correct position at the end of the array.</p>
+        <pre><code class="language-python"># Bubble Sort: Largest elements "bubble" to the end
+arr = [64, 34, 25, 12, 22]
+# After the first pass, 64 will be at the end of the list</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Algorithm performance and efficiency visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -16,7 +24,7 @@
             <li>Move to the next pair and repeat until you reach the end.</li>
             <li>Repeat the entire process for the remaining unsorted portion until no more swaps are needed.</li>
         </ol>
-        <pre><code class="language-python">
+        <pre><code class="language-python"># Bubble Sort implementation in Python
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -25,9 +33,13 @@ def bubble_sort(arr):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
-        if not swapped: break # Array is already sorted
-    return arr
-        </code></pre>
+        if not swapped: break # Stop if already sorted
+    return arr</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract data structure visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -37,16 +49,17 @@ def bubble_sort(arr):
             <li><strong>Worst/Average Case:</strong> O(n²). Because of the nested loops, performance degrades rapidly as the number of elements grows.</li>
             <li><strong>Best Case:</strong> O(n). If the array is already sorted, the algorithm can detect this (via the <code>swapped</code> flag) and finish in one pass.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>Bubble Sort Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-8');
-                out.innerHTML = 'arr = [3, 1, 2];<br>';
-                setTimeout(() => out.innerHTML += '>> Swapping 3 and 1<br>', 400);
-                setTimeout(() => out.innerHTML += '>> Swapping 3 and 2<br>', 800);
-                setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 1200);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-8" class="sim-output"></div>
+        <pre><code class="language-python"># O(n^2) Complexity: Nested loops are the bottleneck
+def quadratic_complexity_demo(n):
+    count = 0
+    for i in range(n):
+        for j in range(n - i - 1):
+            count += 1 # Comparison happens ~n^2/2 times
+    return count</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Logic and complexity mathematics">
+            </div>
         </div>
     </section>
 

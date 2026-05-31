@@ -42,14 +42,8 @@ class Dog:
         </ul>
         <div class="interactive-sim">
             <h3>Python Execution Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_4()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_4'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);">Run Simulation</button>
             <div id="sim-output-Python2_4" class="sim-output"></div>
-            <script>
-            function runSimPython2_4() {
-                const out = document.getElementById('sim-output-Python2_4');
-                const out = document.getElementById('sim-output-Python2_4'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
-            }
-            </script>
         </div>
     </section>
 

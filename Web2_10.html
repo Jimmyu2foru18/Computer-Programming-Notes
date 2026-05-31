@@ -4,6 +4,17 @@
     <section>
         <h2>Scaling Beyond Basic JS</h2>
         <p>As web applications grow in complexity—with hundreds of components, thousands of lines of code, and complex state synchronization—raw JavaScript becomes hard to manage. This is where <strong>Frontend Frameworks</strong> come in. They enforce a <strong>Component-Based Architecture</strong>, allowing you to break your UI into small, reusable, independent pieces. They also provide sophisticated "Reactivity" (automatically updating the DOM when data changes) and advanced tools for state management, routing, and performance optimization.</p>
+        <pre><code class="language-javascript">
+// React Component
+function App() {
+  return &lt;h1&gt;Hello React&lt;/h1&gt;;
+}
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Javascript and Frameworks abstraction">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -27,16 +38,14 @@ const Welcome = ({ name }) => &lt;h1&gt;Hello, {name}!&lt;/h1&gt;;
             <li><strong>State Management:</strong> How data is stored, shared, and updated across the component tree.</li>
             <li><strong>Virtual DOM:</strong> A lightweight representation of the real DOM; frameworks update this virtual representation first, then efficiently update only what changed in the real DOM.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_10_html()">Run Simulation</button>
-            <div id="sim-output-Web2_10_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_10_html() {
-                const out = document.getElementById('sim-output-Web2_10_html');
-                const out = document.getElementById('sim-output-Web2_10_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
+        <pre><code class="language-javascript">
+// State Example (React Hooks)
+const [count, setCount] = useState(0);
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop showing component structure">
+            </div>
         </div>
     </section>
 
@@ -65,16 +74,6 @@ const Welcome = ({ name }) => &lt;h1&gt;Hello, {name}!&lt;/h1&gt;;
     <section>
         <h2>Real-World Relationship: The Prefab Modular Home</h2>
         <p>Think of <strong>Basic JavaScript</strong> like <strong>building a house brick-by-brick</strong>. You control every single detail, but it takes a very long time and is hard to scale. Think of <strong>Modern Frameworks</strong> like building with <strong>Prefab Modular Units</strong>. You have pre-designed, pre-tested units for the kitchen, bedroom, and living room (Components). You just connect these units together according to a plan (the framework's architecture). You can build a massive, complex skyscraper in a fraction of the time, and you know that each pre-built module is already solid and reliable.</p>
-    </section>
-
-    <section>
-        <h2>References & Additional Learning</h2>
-        <ul>
-            <li><a href="https://react.dev/" target="_blank">React Official Documentation</a></li>
-            <li><a href="https://vuejs.org/" target="_blank">Vue.js Official Documentation</a></li>
-            <li><a href="https://angular.io/" target="_blank">Angular Official Documentation</a></li>
-            <li><a href="https://www.freecodecamp.org/news/tag/web-development/" target="_blank">freeCodeCamp: Web Frameworks Guide</a></li>
-        </ul>
     </section>
 
     <section style="margin-top: 40px; padding: 30px; background: #e8f5e9; border: 2px solid #c8e6c9; border-radius: 8px;">
@@ -106,3 +105,18 @@ const Welcome = ({ name }) => &lt;h1&gt;Hello, {name}!&lt;/h1&gt;;
 
     <section>
         <h2>References & Additional Learning</h2>
+        <ul>
+            <li><a href="https://react.dev/" target="_blank">React Official Documentation</a></li>
+            <li><a href="https://vuejs.org/" target="_blank">Vue.js Official Documentation</a></li>
+            <li><a href="https://angular.io/" target="_blank">Angular Official Documentation</a></li>
+            <li><a href="https://www.freecodecamp.org/news/tag/web-development/" target="_blank">freeCodeCamp: Web Frameworks Guide</a></li>
+        </ul>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Web2_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Performance Optimization</a>
+            <span style="color: #28a745; font-weight: bold;">Web Technologies Masterclass Complete!</span>
+        </div>
+    </footer>
+</article>

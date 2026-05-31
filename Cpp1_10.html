@@ -78,10 +78,16 @@ int main() {
             <h3>RAII Simulator</h3>
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-cpp1_10');
-                out.innerHTML = 'ResourceManager res(\"File\");<br>';
+                out.innerHTML = 'ResourceManager res(&quot;File&quot;);<br>';
                 setTimeout(() => out.innerHTML += '>> Work done...<br>>> Resource File released!', 800);
             ">Run Simulation</button>
             <div id="sim-output-cpp1_10" class="sim-output"></div>
         </div>
     </section>
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Cpp1_9.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: OOP: Inheritance & Polymorphism</a>
+            <a href="#" data-file="Cpp2_1.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: STL: Vectors &rarr;</a>
+        </div>
+    </footer>
 </article>

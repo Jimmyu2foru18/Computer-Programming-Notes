@@ -4,9 +4,23 @@
     <section>
         <h2>Dynamic Web Interaction</h2>
         <p>PHP is at its best when it interacts with the user and stores data. Web applications are "stateful," meaning they remember who you are (Sessions) and process the information you submit (Forms). By connecting PHP to a database, you can transform a static site into a dynamic one—like a blog, an e-commerce store, or a user dashboard.</p>
-    </section>
+        <pre><code class="language-php">
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = $_POST['name'];
+}
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Web Design">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Handling Forms: The Bridge</h2>
         <p>Forms are how users talk to your server. When a user clicks "Submit," the browser sends the form data to a PHP script using either <strong>GET</strong> (visible in the URL) or <strong>POST</strong> (hidden in the request body). In PHP, you access this data via <strong>Superglobal arrays</strong>.</p>
         <pre><code class="language-php">
@@ -16,9 +30,30 @@ echo "Hello, " . htmlspecialchars($name);
         </code></pre>
         <h3>Sessions: Remembering Users</h3>
         <p>HTTP is "stateless," meaning the server forgets you the moment a page loads. <strong>Sessions</strong> create a persistent connection by storing a unique Session ID in the user's browser (a cookie). PHP uses this ID to map requests to the correct data on the server.</p>
-    </section>
+        <pre><code class="language-php">
+&lt;?php
+  session_start();
+  $_SESSION['user_id'] = 42;
+  echo "Session started for user " . $_SESSION['user_id'];
+?&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Data and Security">
+            </div>
+        </div>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Connecting to Databases (MySQL)</h2>
         <p>PHP communicates with databases (like MySQL) to save and retrieve data. You should always use <strong>PDO (PHP Data Objects)</strong> because it supports prepared statements, which are vital for preventing <strong>SQL Injection</strong> attacks.</p>
         <pre><code class="language-php">
@@ -28,20 +63,20 @@ $stmt = $db-&gt;prepare("SELECT * FROM users WHERE email = ?");
 $stmt-&gt;execute([$email]);
 $user = $stmt-&gt;fetch();
         </code></pre>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_2_html()">Run Simulation</button>
-            <div id="sim-output-Web2_2_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_2_html() {
-                const out = document.getElementById('sim-output-Web2_2_html');
-                const out = document.getElementById('sim-output-Web2_2_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=600&auto=format&fit=crop" alt="Database Server">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master dynamic web interactions with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -61,11 +96,38 @@ $user = $stmt-&gt;fetch();
                 <p><small>Connecting your app to a database securely.</small></p>
             </div>
         </div>
+        <pre><code class="language-php">
+&lt;?php
+  // Database check snippet
+  if ($db) {
+    echo "Connected to the database successfully!";
+  }
+?&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Data Analysis">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Real-World Relationship: The ATM</h2>
         <p>Think of <strong>Forms and PHP</strong> like an <strong>ATM Machine</strong>. You insert your card and enter your PIN (the Form Submission). The ATM (the PHP backend) takes your request, verifies your identity against the central banking server (the Database), and then returns your cash or tells you "Invalid PIN" (the Response). Think of a <strong>Session</strong> like the <strong>Active Session at the ATM</strong>. Once you log in, the ATM "remembers" it's you for that specific transaction until you hit "Cancel" or your time runs out. The bank doesn't have to re-verify who you are for every single button you press; it maintains that session until you explicitly end it.</p>
+        <pre><code class="language-php">
+&lt;?php
+  // The ATM logic in code
+  if ($pin_entered === $correct_pin) {
+    $_SESSION['authenticated'] = true;
+    echo "Access Granted. Withdraw Cash?";
+  }
+?&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=600&auto=format&fit=crop" alt="ATM Machine">
+            </div>
+        </div>
     </section>
 
     <section>

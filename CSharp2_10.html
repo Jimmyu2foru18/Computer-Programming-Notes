@@ -44,7 +44,7 @@ unsafe {
             <h3>Attribute Simulator</h3>
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-cs2-10');
-                out.innerHTML = '[Author(\"John\")] class Process { ... };<br>';
+                out.innerHTML = '[Author(&quot;John&quot;)] class Process { ... };<br>';
                 setTimeout(() => out.innerHTML += '>> Metadata processed successfully!', 800);
             ">Run Simulation</button>
             <div id="sim-output-cs2-10" class="sim-output"></div>

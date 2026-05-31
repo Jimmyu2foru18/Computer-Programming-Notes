@@ -4,6 +4,17 @@
     <section>
         <h2>The Last-In-First-Out Data Structure</h2>
         <p>A <strong>Stack</strong> is a linear data structure that follows the <strong>Last-In-First-Out (LIFO)</strong> principle. Think of it as a physical stack of plates: you can only add a plate to the top, and you can only take the top plate off. You cannot remove a plate from the middle without destabilizing the whole stack. This restricted access is not a limitation—it's exactly what makes stacks so powerful for managing ordered tasks and state.</p>
+        <pre><code class="language-python"># Simple Stack implementation using a Python list
+stack = []
+stack.append('A')  # Push 'A'
+stack.append('B')  # Push 'B'
+top = stack.pop()  # Pop: returns 'B' (LIFO)
+print(top)         # Output: B</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract representation of a stack data structure">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -15,12 +26,19 @@
             <li><strong>Peek/Top:</strong> View the top element without removing it.</li>
             <li><strong>isEmpty:</strong> Check if the stack contains any elements.</li>
         </ul>
-        <pre><code class="language-python">
-# A simple Python implementation
-stack = []
-stack.append(10) # Push
-stack.pop()      # Pop
-        </code></pre>
+        <pre><code class="language-python"># Standard Stack Operations
+class Stack:
+    def __init__(self):
+        self.items = []
+    def push(self, item): self.items.append(item)
+    def pop(self): return self.items.pop() if not self.is_empty() else None
+    def peek(self): return self.items[-1] if not self.is_empty() else None
+    def is_empty(self): return len(self.items) == 0</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Algorithm performance visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -32,15 +50,19 @@ stack.pop()      # Pop
             <li><strong>Expression Evaluation:</strong> Parsing mathematical expressions (e.g., checking for balanced parentheses).</li>
             <li><strong>Backtracking:</strong> Algorithms like finding a path through a maze use a stack to keep track of visited intersections.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>Stack Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-4');
-                out.innerHTML = 'stack = [];<br>';
-                setTimeout(() => out.innerHTML += 'stack.push(10);<br>', 400);
-                setTimeout(() => out.innerHTML += '>> Pop: ' + 10, 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-4" class="sim-output"></div>
+        <pre><code class="language-python"># Example: Using a stack to check for balanced parentheses
+def is_balanced(expression):
+    stack = []
+    for char in expression:
+        if char == '(': stack.append(char)
+        elif char == ')':
+            if not stack: return False
+            stack.pop()
+    return len(stack) == 0</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Logic and mathematics visualization">
+            </div>
         </div>
     </section>
 

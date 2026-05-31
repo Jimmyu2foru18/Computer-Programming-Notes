@@ -60,15 +60,12 @@ print(math_utils.PI)
         </div>
         <div class="interactive-sim">
             <h3>Module Import Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_2()">Run Simulation</button>
-            <div id="sim-output-Python2_2" class="sim-output"></div>
-            <script>
-            function runSimPython2_2() {
+            <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-Python2_2');
                 out.innerHTML = 'import math;<br>'; 
                 setTimeout(() => out.innerHTML += '>> math.pi is ' + Math.PI, 1000);
-            }
-            </script>
+            ">Run Simulation</button>
+            <div id="sim-output-Python2_2" class="sim-output"></div>
         </div>
     </section>
 

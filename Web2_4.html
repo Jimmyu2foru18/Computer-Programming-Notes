@@ -4,9 +4,22 @@
     <section>
         <h2>The Heart of the Application</h2>
         <p>Most modern web applications are essentially "interfaces for databases." Whether it's a blog, an e-commerce site, or a social network, your web application exists to save, retrieve, and modify information stored in a database. <strong>MySQL</strong> is the most common relational database used with PHP. To build robust applications, you must master <strong>CRUD</strong> operations: <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, and <strong>D</strong>elete. Furthermore, you must learn to do this securely, protecting your data from common vulnerabilities like SQL Injection.</p>
-    </section>
+        <pre><code class="language-javascript">
+// CRUD Operations
+// Create, Read, Update, Delete
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. CRUD Operations</h2>
         <p>Every database interaction boils down to these four operations. In PHP, we use PDO prepared statements for all of them.</p>
         <ul>
@@ -21,25 +34,39 @@ $stmt = $db-&gt;prepare("SELECT name FROM users WHERE id = :id");
 $stmt-&gt;execute(['id' => $userId]);
 $user = $stmt-&gt;fetch();
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Security: Preventing SQL Injection</h2>
         <p><strong>SQL Injection</strong> occurs when a malicious user inputs SQL commands into a form field, potentially allowing them to dump your entire database. <strong>Never</strong> insert user input directly into a SQL query string. Always use <strong>Prepared Statements</strong>, which treat user input as <em>data</em>, not as part of the <em>command</em> to be executed.</p>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_4_html()">Run Simulation</button>
-            <div id="sim-output-Web2_4_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_4_html() {
-                const out = document.getElementById('sim-output-Web2_4_html');
-                const out = document.getElementById('sim-output-Web2_4_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        <pre><code class="language-php">
+$stmt = $conn-&gt;prepare("SELECT * FROM users WHERE email = ?");
+$stmt-&gt;bind_param("s", $email);
+$stmt-&gt;execute();
+        </code></pre>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master MySQL and PHP integration with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">

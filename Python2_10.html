@@ -54,15 +54,8 @@ if __name__ == '__main__':
         </code></pre>
         <div class="interactive-sim">
             <h3>Python Execution Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_10()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_10'); out.innerHTML = 'try: 100/0<br>'; setTimeout(() => out.innerHTML += '>> ZeroDivisionError caught!', 1000);">Run Simulation</button>
             <div id="sim-output-Python2_10" class="sim-output"></div>
-            <script>
-            function runSimPython2_10() {
-                const out = document.getElementById('sim-output-Python2_10');
-                out.innerHTML = 'try: 100/0<br>'; 
-                setTimeout(() => out.innerHTML += '>> ZeroDivisionError caught!', 1000);
-            }
-            </script>
         </div>
     </section>
 

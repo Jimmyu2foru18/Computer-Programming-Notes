@@ -4,6 +4,17 @@
     <section>
         <h2>Managing Priorities</h2>
         <p>A <strong>Heap</strong> is a specialized tree-based data structure that satisfies the <strong>Heap Property</strong>: in a <strong>Min-Heap</strong>, the parent node is always smaller than or equal to its children, making the root the smallest element. In a <strong>Max-Heap</strong>, the parent is always greater than or equal to its children, making the root the largest element. Heaps are the ideal structure for implementing <strong>Priority Queues</strong>, where you don't need to keep the entire collection sorted, but you <em>do</em> need to efficiently access and remove the highest (or lowest) priority item repeatedly.</p>
+        <pre><code class="language-python"># A Max-Heap visualization
+#      100
+#     /   \
+#    19    36
+#   /  \  /
+#  17   3 25</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Logic and priority management visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -22,19 +33,23 @@ heap = []
 heapq.heappush(heap, 5) # Insert
 min_val = heapq.heappop(heap) # Extract Min
         </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop" alt="Complex structured data representation">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>2. Why Heaps?</h2>
         <p>Heaps allow us to find the min/max element in O(1) time and extract/insert in O(log n) time. They are the engine behind <strong>Heap Sort</strong>, <strong>Priority Queues</strong>, and graph algorithms like <strong>Dijkstra’s Shortest Path</strong>.</p>
-        <div class="interactive-sim">
-            <h3>Heap Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds2-6');
-                out.innerHTML = 'heap = [10, 20, 5];<br>';
-                setTimeout(() => out.innerHTML += '>> Min-Heap: [5, 20, 10]', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds2-6" class="sim-output"></div>
+        <pre><code class="language-python"># Efficient access to extremes
+# heap[0] is always the minimum (in a min-heap)
+# O(1) constant time access</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Global network and performance visualization">
+            </div>
         </div>
     </section>
 

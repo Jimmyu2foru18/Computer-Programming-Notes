@@ -4,9 +4,23 @@
     <section>
         <h2>Handling the Wait</h2>
         <p>In web development, you frequently need to do things that take time—fetching data from a server, reading a large file, or waiting for a timer. If JavaScript were strictly "synchronous" (doing one thing at a time, blocking everything else), the entire browser would freeze every time you made a network request. <strong>Asynchronous JavaScript</strong> allows you to start an operation and continue doing other things, only responding once the operation finishes. <strong>Promises</strong> and <strong>Async/Await</strong> are the modern tools used to manage these background tasks effectively.</p>
-    </section>
+        <pre><code class="language-javascript">
+setTimeout(() =&gt; {
+  console.log("Done waiting!");
+}, 2000);
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Promises: I Promise to Finish</h2>
         <p>A <strong>Promise</strong> is an object representing the eventual completion (or failure) of an asynchronous operation. It can be in one of three states:</p>
         <ul>
@@ -22,9 +36,18 @@ const myPromise = new Promise((resolve, reject) => {
 
 myPromise.then(data => console.log(data));
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Javascript">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Fetch API: Talking to Servers</h2>
         <p>The <strong>Fetch API</strong> is the modern standard for making network requests (e.g., getting data from an API). It returns a Promise, making it incredibly easy to use with <code>async/await</code> syntax.</p>
         <pre><code class="language-javascript">
@@ -34,20 +57,20 @@ async function loadUserData() {
   console.log(data);
 }
         </code></pre>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_8_html()">Run Simulation</button>
-            <div id="sim-output-Web1_8_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_8_html() {
-                const out = document.getElementById('sim-output-Web1_8_html');
-                const out = document.getElementById('sim-output-Web1_8_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Javascript">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master async JavaScript with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -67,11 +90,35 @@ async function loadUserData() {
                 <p><small>Practical guide to interacting with web servers.</small></p>
             </div>
         </div>
+        <pre><code class="language-javascript">
+// Practice: A simple async delay
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+delay(1000).then(() => console.log("Waited 1 second"));
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Technology and Connection">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Real-World Relationship: The Restaurant Pager</h2>
         <p>Think of <strong>Asynchronous JavaScript</strong> like a <strong>Restaurant Pager</strong>. You place your order (Start Request), and instead of standing at the counter blocking everyone else (Synchronous Blocking), you take a pager and go sit down to have a conversation (Continue Doing Other Work). When the kitchen finishes your order (Async Operation Completes), your pager goes off (Promise Resolves). You then walk up to the counter and collect your food. This allows the restaurant (the Browser) to serve hundreds of customers simultaneously without a massive bottleneck at the order counter.</p>
+        <pre><code class="language-javascript">
+// The "Pager" in code
+const orderFood = () => {
+  console.log("Order placed...");
+  return new Promise(resolve => setTimeout(() => resolve("Pizza!"), 3000));
+};
+
+orderFood().then(food => console.log(`Got my ${food}`));
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600&auto=format&fit=crop" alt="Restaurant Pager/Service">
+            </div>
+        </div>
     </section>
 
     <section>

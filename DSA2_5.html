@@ -4,24 +4,46 @@
     <section>
         <h2>The Danger of Unbalanced Trees</h2>
         <p>A Binary Search Tree (BST) is incredibly efficient <em>if it stays balanced</em>. But if you insert data that is already sorted (e.g., 1, 2, 3, 4, 5), your BST turns into a straight line—effectively becoming a Linked List! In this "unbalanced" state, searching takes <strong>O(n)</strong> time instead of <strong>O(log n)</strong>. <strong>Balanced Trees</strong> are self-correcting data structures that detect this imbalance and automatically restructure themselves to keep the height logarithmic, guaranteeing peak performance.</p>
+        <pre><code class="language-python"># Unbalanced Tree (Degenerate)
+# 1 -> 2 -> 3 -> 4 -> 5 (Height = 5)
+# Balanced Tree
+#      3
+#    /   \
+#   2     4 (Height = 2)</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Balance and stability representation">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>1. AVL Trees: Strict Balance</h2>
         <p>An <strong>AVL Tree</strong> is a self-balancing BST where the height difference between left and right subtrees (the "balance factor") can never be more than 1. If it exceeds this, the tree performs a <strong>Rotation</strong> (Left, Right, or Double Rotations) to restore balance. This strictness makes AVL trees perfect for scenarios where you need fast searching and don't modify the tree quite as often.</p>
+        <pre><code class="language-python"># AVL Rotation (Pseudo)
+if balance_factor > 1:
+    if target < node.left.value:
+        return right_rotate(node)
+    else:
+        return left_right_rotate(node)</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Precise algorithmic logic and rotation visualization">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>2. Red-Black Trees: Balanced by Rule</h2>
         <p><strong>Red-Black Trees</strong> are slightly more relaxed than AVL trees. They assign a color (Red or Black) to each node and follow a set of rules to ensure the path from the root to any leaf is no more than twice as long as the path to any other leaf. They are more complex to implement but often perform better in scenarios involving many insertions and deletions.</p>
-        <div class="interactive-sim">
-            <h3>Tree Balance Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds2-5');
-                out.innerHTML = 'Insert 1, 2, 3...<br>';
-                setTimeout(() => out.innerHTML += '>> Tree rebalanced!', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds2-5" class="sim-output"></div>
+        <pre><code class="language-python"># Red-Black Tree Rules
+# 1. Every node is red or black.
+# 2. The root is black.
+# 3. Red nodes cannot have red children.</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Complex logic and structured data visualization">
+            </div>
         </div>
     </section>
 

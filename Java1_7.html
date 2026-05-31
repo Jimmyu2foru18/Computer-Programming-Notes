@@ -51,8 +51,8 @@ String finalResult = sb.toString();
             <button class="sim-button" onclick="
                 const out = document.getElementById('sim-output-j1-7');
                 out.innerHTML = 'sb = new StringBuilder();<br>';
-                setTimeout(() => out.innerHTML += 'sb.append(\"Java\");<br>', 800);
-                setTimeout(() => out.innerHTML += '>> sb is \"Java\"', 1600);
+                setTimeout(() => out.innerHTML += 'sb.append(&quot;Java&quot;);<br>', 800);
+                setTimeout(() => out.innerHTML += '>> sb is &quot;Java&quot;', 1600);
             ">Run Simulation</button>
             <div id="sim-output-j1-7" class="sim-output"></div>
         </div>

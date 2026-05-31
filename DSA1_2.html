@@ -4,6 +4,14 @@
     <section>
         <h2>The Fundamental Building Block</h2>
         <p>The <strong>Array</strong> is arguably the most essential data structure in computer science. It stores a collection of elements of the same type in <strong>contiguous memory locations</strong>. This simple, linear layout is what makes arrays incredibly fast for accessing data by its index. However, this same rigid structure brings limitations when you need to change the size of the array frequently.</p>
+        <pre><code class="language-python"># Array (List) creation and index-based access
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0]) # Output: apple (O(1) access)</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract data representation">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -24,19 +32,28 @@
             <tr><td style="padding: 10px;">Insert (at beginning/middle)</td><td style="padding: 10px;">O(n)</td></tr>
             <tr><td style="padding: 10px;">Delete</td><td style="padding: 10px;">O(n)</td></tr>
         </table>
+        <pre><code class="language-python"># Python lists are dynamic arrays that resize automatically
+dynamic_list = [1, 2, 3]
+dynamic_list.append(4) # O(1) amortized insertion at the end</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Performance and algorithm visualization">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>2. Why Random Access is Fast</h2>
         <p>Because arrays are stored in a contiguous block of memory, the computer knows the memory address of every element just by using math: <code>Address = BaseAddress + (Index * ElementSize)</code>. This calculation takes constant time, making <strong>O(1) access</strong> the defining superpower of the array.</p>
-        <div class="interactive-sim">
-            <h3>Array Access Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-2');
-                out.innerHTML = 'arr = [10, 20, 30];<br>';
-                setTimeout(() => out.innerHTML += '>> arr[1] is ' + 20, 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-2" class="sim-output"></div>
+        <pre><code class="language-python"># O(1) Access Calculation
+# The address is calculated directly, no traversal needed
+arr = [10, 20, 30, 40, 50]
+index = 3
+value = arr[index] # Instantly finds '40'</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Mathematical logic and efficiency visualization">
+            </div>
         </div>
     </section>
 

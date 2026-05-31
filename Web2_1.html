@@ -4,9 +4,23 @@
     <section>
         <h2>The Server-Side Brain</h2>
         <p>While JavaScript makes the browser "alive," <strong>PHP (Hypertext Preprocessor)</strong> is the powerhouse that runs on the web server. When a user requests a PHP page, the server executes the PHP code <em>before</em> sending the final, plain HTML to the browser. This allows you to generate content dynamically: fetching user data from a database, processing form submissions, or personalizing the page based on who is logged in. PHP is embedded directly into your HTML files.</p>
-    </section>
+        <pre><code class="language-php">
+&lt;?php
+  echo "Hello from PHP!";
+?&gt;
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. PHP Basics: Syntax & Variables</h2>
         <p>PHP code must be enclosed in special tags so the server knows which parts to execute.</p>
         <pre><code class="language-php">
@@ -26,9 +40,18 @@
             <li><strong>Boolean:</strong> true or false.</li>
             <li><strong>Array:</strong> Ordered list (or key-value map).</li>
         </ul>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Javascript">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Control Flow</h2>
         <p>PHP uses standard control flow structures similar to other C-style languages. This allows you to create dynamic logic, such as showing different HTML content based on whether a user is logged in or not.</p>
         <pre><code class="language-php">
@@ -38,20 +61,20 @@ if ($isLoggedIn) {
   echo "&lt;button&gt;Login&lt;/button&gt;";
 }
         </code></pre>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_1_html()">Run Simulation</button>
-            <div id="sim-output-Web2_1_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_1_html() {
-                const out = document.getElementById('sim-output-Web2_1_html');
-                const out = document.getElementById('sim-output-Web2_1_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop" alt="Coding">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master PHP fundamentals with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -71,11 +94,37 @@ if ($isLoggedIn) {
                 <p><small>Learn how to embed PHP inside your HTML files.</small></p>
             </div>
         </div>
+        <pre><code class="language-php">
+&lt;?php
+  // A simple PHP integration example
+  $title = "My PHP Page";
+  echo "&lt;h1&gt;$title&lt;/h1&gt;";
+?&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?q=80&w=600&auto=format&fit=crop" alt="PHP Programming">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Real-World Relationship: The Restaurant Kitchen</h2>
         <p>Think of your <strong>Web Server</strong> like a <strong>Restaurant Kitchen</strong>. The <strong>Client (the Browser)</strong> is the customer in the dining room. The <strong>HTML</strong> is the menu. When the customer orders a specific meal (requests a PHP page), the waiter takes the order to the kitchen. The chef (<strong>PHP</strong>) takes raw ingredients (data from the database or variables) and follows a recipe (PHP code) to cook the meal. The chef then sends the finished meal (the rendered HTML) out to the dining room. The customer never sees the kitchen or the chef working—they only see the final, ready-to-eat meal on their table.</p>
+        <pre><code class="language-php">
+&lt;?php
+  // The "Chef" (PHP) preparing data
+  $ingredients = ["HTML", "CSS", "PHP Data"];
+  foreach ($ingredients as $item) {
+    echo "&lt;li&gt;$item&lt;/li&gt;";
+  }
+?&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop" alt="Kitchen and Chef">
+            </div>
+        </div>
     </section>
 
     <section>

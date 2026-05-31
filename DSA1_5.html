@@ -4,6 +4,19 @@
     <section>
         <h2>The First-In-First-Out Data Structure</h2>
         <p>A <strong>Queue</strong> is a linear data structure that follows the <strong>First-In-First-Out (FIFO)</strong> principle. Think of it as a physical line of people waiting for a ticket: the first person to get in line is the first person to get served. You add elements to the back of the queue (enqueue) and remove them from the front (dequeue). This structured, fair-access approach is essential for any system where tasks need to be processed in the order they arrived.</p>
+        <pre><code class="language-python"># Efficient Queue implementation using collections.deque
+from collections import deque
+
+queue = deque()
+queue.append("Customer 1") # Enqueue
+queue.append("Customer 2") # Enqueue
+first = queue.popleft()    # Dequeue: returns "Customer 1"
+print(first)               # Output: Customer 1</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract data structure representation">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -15,12 +28,18 @@
             <li><strong>Peek/Front:</strong> View the front element without removing it.</li>
             <li><strong>isEmpty:</strong> Check if the queue contains any elements.</li>
         </ul>
-        <pre><code class="language-python">
-# A simple Python implementation
-queue = []
-queue.append(10)  # Enqueue
-queue.pop(0)      # Dequeue
-        </code></pre>
+        <pre><code class="language-python"># Standard Queue Implementation
+class SimpleQueue:
+    def __init__(self):
+        self.items = deque()
+    def enqueue(self, item): self.items.append(item)
+    def dequeue(self): return self.items.popleft() if self.items else None
+    def is_empty(self): return len(self.items) == 0</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Algorithm and performance visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -32,15 +51,20 @@ queue.pop(0)      # Dequeue
             <li><strong>Message Queues:</strong> Distributed systems (like RabbitMQ or Kafka) use queues to buffer messages between services, ensuring data is processed reliably.</li>
             <li><strong>Breadth-First Search (BFS):</strong> A graph traversal algorithm that uses a queue to visit all neighbors at a given distance before moving to the next level.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>Queue Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-5');
-                out.innerHTML = 'queue = [];<br>';
-                setTimeout(() => out.innerHTML += 'queue.enqueue(10);<br>', 400);
-                setTimeout(() => out.innerHTML += '>> Dequeue: ' + 10, 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-5" class="sim-output"></div>
+        <pre><code class="language-python"># Example: Queue used in Breadth-First Search (BFS)
+def bfs(graph, start):
+    visited = {start}
+    queue = deque([start])
+    while queue:
+        node = queue.popleft()
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Logic and math visualization">
+            </div>
         </div>
     </section>
 

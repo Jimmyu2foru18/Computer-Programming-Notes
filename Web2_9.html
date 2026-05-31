@@ -4,39 +4,69 @@
     <section>
         <h2>Speed is a Feature</h2>
         <p>In the digital age, speed is everything. Users will abandon a website that takes more than three seconds to load. Performance optimization is not about making your code "faster"—it's about making the <em>user experience</em> faster. This involves a dual approach: optimizing the <strong>Frontend</strong> (what the user downloads) to make the page render quickly, and optimizing the <strong>Backend</strong> (how the server processes requests) to reduce latency and server load.</p>
-    </section>
+        <pre><code class="language-javascript">
+// Lazy loading images
+&lt;img src="..." loading="lazy"&gt;
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Frontend Optimization</h2>
+        <pre><code class="language-javascript">
+// Minify JS/CSS
+// Compress images
+        </code></pre>
         <ul>
             <li><strong>Asset Minification:</strong> Removing unnecessary whitespace and comments from CSS and JavaScript files to reduce their size.</li>
             <li><strong>Image Optimization:</strong> Using modern, compressed formats like <code>WebP</code> and setting appropriate resolutions.</li>
             <li><strong>Lazy Loading:</strong> Deferring the loading of non-critical images or content until they are needed (e.g., when they scroll into view).</li>
             <li><strong>Browser Caching:</strong> Instructing the user's browser to store static assets locally so they don't need to be downloaded again on subsequent visits.</li>
         </ul>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Backend Optimization</h2>
+        <pre><code class="language-javascript">
+// Use Caching (Redis)
+// Database Indexing
+        </code></pre>
         <ul>
             <li><strong>Database Indexing:</strong> Adding indexes to columns frequently used in <code>WHERE</code> or <code>JOIN</code> clauses to drastically speed up query times.</li>
             <li><strong>Caching (Redis):</strong> Storing the results of expensive database queries or API calls in memory (like Redis) so they can be retrieved in milliseconds instead of seconds.</li>
             <li><strong>Query Optimization:</strong> Avoiding "N+1" query problems (where you perform one query to get a list, and then N queries to get related data) by using proper SQL <code>JOIN</code>s.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_9_html()">Run Simulation</button>
-            <div id="sim-output-Web2_9_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_9_html() {
-                const out = document.getElementById('sim-output-Web2_9_html');
-                const out = document.getElementById('sim-output-Web2_9_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master performance optimization with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">

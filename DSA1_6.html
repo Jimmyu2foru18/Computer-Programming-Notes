@@ -4,6 +4,19 @@
     <section>
         <h2>The Simple, Sequential Approach</h2>
         <p><strong>Linear Search</strong> (also known as Sequential Search) is the simplest searching algorithm in computer science. It works by checking every single element in a collection one by one, from start to finish, until either the target element is found or the end of the collection is reached. It makes no assumptions about whether the data is sorted, making it incredibly versatile but also potentially very slow for large datasets.</p>
+        <pre><code class="language-python"># Linear Search: Checking every element one by one
+arr = [4, 2, 7, 1, 9]
+target = 7
+
+for item in arr:
+    if item == target:
+        print("Found!")
+        break</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Algorithm performance and efficiency visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -16,13 +29,17 @@
             <li>If they don't match, move to the next element.</li>
             <li>If you reach the end of the collection without a match, return -1 (not found).</li>
         </ol>
-        <pre><code class="language-python">
+        <pre><code class="language-python"># Function implementation of Linear Search
 def linear_search(arr, target):
     for i in range(len(arr)):
         if arr[i] == target:
-            return i # Found
-    return -1 # Not found
-        </code></pre>
+            return i # Returns index if found
+    return -1 # Returns -1 if not found</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract data searching visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -32,14 +49,15 @@ def linear_search(arr, target):
             <li><strong>Worst Case:</strong> O(n). The target is at the very end, or not in the array at all, requiring you to check all <code>n</code> elements.</li>
             <li><strong>Best Case:</strong> O(1). The target is the very first element you check.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>Linear Search Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-6');
-                out.innerHTML = 'arr = [10, 20, 30]; target = 20;<br>';
-                setTimeout(() => out.innerHTML += '>> Index found at: ' + 1, 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-6" class="sim-output"></div>
+        <pre><code class="language-python"># Demonstrating linear growth: O(n)
+def linear_time_demo(n):
+    for i in range(n):
+        # Time taken grows proportionally with n
+        pass</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Logic and complexity mathematics">
+            </div>
         </div>
     </section>
 

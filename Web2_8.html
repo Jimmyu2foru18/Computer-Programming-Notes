@@ -4,9 +4,24 @@
     <section>
         <h2>From Code to Production</h2>
         <p>In the early days, "deployment" meant manually copying files from your laptop to a server using FTP. If you made a mistake, you had to manually fix it on the live server. Today, this is unacceptable. <strong>Professional Deployment</strong> relies on <strong>Automation</strong> to ensure that your code is tested, built, and deployed consistently every single time. This is achieved through a <strong>CI/CD Pipeline</strong> (Continuous Integration / Continuous Deployment). Furthermore, you must manage <strong>Environment Variables</strong> to ensure that sensitive information—like database passwords—never accidentally ends up in your public code repository.</p>
-    </section>
+        <pre><code class="language-yaml">
+# GitHub Actions Workflow
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. The CI/CD Pipeline</h2>
         <p>A CI/CD pipeline automates the steps between writing code and deploying it:</p>
         <ul>
@@ -24,25 +39,38 @@ jobs:
       - run: npm install
       - run: npm test
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Managing Secrets (.env)</h2>
         <p>Never hardcode API keys or database passwords. Use <strong>Environment Variables</strong>. Store them in a local <code>.env</code> file (which you <strong>add to .gitignore</strong> so it's never committed to Git) and access them in your code via `process.env` (Node) or `getenv()` (PHP).</p>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_8_html()">Run Simulation</button>
-            <div id="sim-output-Web2_8_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_8_html() {
-                const out = document.getElementById('sim-output-Web2_8_html');
-                const out = document.getElementById('sim-output-Web2_8_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        <pre><code class="language-bash">
+DB_PASSWORD=secret123
+API_KEY=xyz-789
+        </code></pre>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master automated deployment with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">

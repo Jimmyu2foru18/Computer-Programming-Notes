@@ -50,16 +50,8 @@ class BankAccount:
         </code></pre>
         <div class="interactive-sim">
             <h3>Python Execution Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_5()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_5'); out.innerHTML = 'class Account: balance=100;<br>'; setTimeout(() => out.innerHTML += 'account.balance = -50;<br>', 800); setTimeout(() => out.innerHTML += '>> ValueError: Balance cannot be negative!', 1600);">Run Simulation</button>
             <div id="sim-output-Python2_5" class="sim-output"></div>
-            <script>
-            function runSimPython2_5() {
-                const out = document.getElementById('sim-output-Python2_5');
-                out.innerHTML = 'class Account: balance=100;<br>'; 
-                setTimeout(() => out.innerHTML += 'account.balance = -50;<br>', 800); 
-                setTimeout(() => out.innerHTML += '>> ValueError: Balance cannot be negative!', 1600);
-            }
-            </script>
         </div>
     </section>
 

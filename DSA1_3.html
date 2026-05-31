@@ -4,6 +4,16 @@
     <section>
         <h2>The Flexible Chain</h2>
         <p>While arrays require contiguous memory, <strong>Linked Lists</strong> store data in nodes scattered throughout memory, connected by pointers. Each node contains two pieces of information: the data itself and a reference (or pointer) to the next node in the sequence. This structure makes Linked Lists the perfect solution when you need to perform frequent insertions and deletions, because you don't need to "shift" subsequent elements as you do with arrays. You simply update the pointer of the previous node to point to the new node!</p>
+        <pre><code class="language-python"># Basic structure of a Node in Python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None # Pointer to the next node</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Abstract data structure visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -13,12 +23,17 @@
             <li><strong>Singly Linked List:</strong> Each node points only to the next node. You can only traverse in one direction.</li>
             <li><strong>Doubly Linked List:</strong> Each node points to both the next <em>and</em> the previous node, allowing bidirectional traversal.</li>
         </ul>
-        <pre><code class="language-python">
-class Node:
+        <pre><code class="language-python"># Doubly Linked List Node
+class DoublyNode:
     def __init__(self, data):
         self.data = data
-        self.next = None # Pointer to next node
-        </code></pre>
+        self.next = None
+        self.prev = None # Pointer to the previous node</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=600&auto=format&fit=crop" alt="Nodes and connections visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -34,14 +49,16 @@ class Node:
             <tr><td style="padding: 10px;">Insert (known location)</td><td style="padding: 10px;">O(1)</td><td style="padding: 10px;">O(n)</td></tr>
             <tr><td style="padding: 10px;">Delete (known location)</td><td style="padding: 10px;">O(1)</td><td style="padding: 10px;">O(n)</td></tr>
         </table>
-        <div class="interactive-sim">
-            <h3>Linked List Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-3');
-                out.innerHTML = 'Node A -> Node B;<br>';
-                setTimeout(() => out.innerHTML += '>> Inserting Node C: A -> C -> B', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-3" class="sim-output"></div>
+        <pre><code class="language-python"># Inserting a new node after a given node: O(1)
+def insert_after(prev_node, new_data):
+    if not prev_node: return
+    new_node = Node(new_data)
+    new_node.next = prev_node.next
+    prev_node.next = new_node</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Logic and complexity visualization">
+            </div>
         </div>
     </section>
 

@@ -4,6 +4,11 @@
     <section>
         <h2>The World Wide Web: How it Works</h2>
         <p>The <strong>World Wide Web</strong> is a massive system of interconnected documents, images, and applications accessible via the internet. It relies on a <strong>Client-Server Architecture</strong>: your browser (the client) sends a request (using HTTP/HTTPS) to a remote computer (the server), which processes the request and sends back the content to be rendered on your screen.</p>
+        <pre><code class="language-html">
+&lt;!-- Client-Server Request --&gt;
+GET /index.html HTTP/1.1
+Host: www.example.com
+        </code></pre>
         
         <h3>The Web Stack</h3>
         <ul>
@@ -11,9 +16,24 @@
             <li><strong>CSS (Cascading Style Sheets):</strong> The visual makeup and layout.</li>
             <li><strong>JavaScript:</strong> The brain—handling interactivity and dynamic behavior.</li>
         </ul>
-    </section>
+        <pre><code class="language-html">
+&lt;!-- The Web Stack in Action --&gt;
+&lt;h1&gt;Hello World&lt;/h1&gt; &lt;!-- HTML --&gt;
+&lt;style&gt; h1 { color: blue; } &lt;/style&gt; &lt;!-- CSS --&gt;
+&lt;script&gt; console.log("Hi!"); &lt;/script&gt; &lt;!-- JS --&gt;
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Web Design">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. The Foundation: HTML</h2>
         <p>HTML is not a programming language; it is a <strong>Markup Language</strong>. It tells the browser what content is on the page (is this a heading? a paragraph? an image?). It uses <strong>Tags</strong>, which act as containers for content.</p>
         
@@ -31,9 +51,18 @@
   &lt;/body&gt;
 &lt;/html&gt;
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Start your web journey with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -58,6 +87,24 @@
     <section>
         <h2>Real-World Relationship: The Book Structure</h2>
         <p>Think of <strong>HTML</strong> like the <strong>Outline and Text</strong> of a book. The `&lt;head&gt;` contains information about the book—the title, author, and edition—which you don't read while reading the story itself. The `&lt;body&gt;` contains the actual chapters, paragraphs, and headings. Just like a book needs a clear outline so the reader can understand the narrative flow, a web page needs clear HTML structure so the browser (and the search engines) can understand the content and hierarchy of your page.</p>
+        <pre><code class="language-html">
+&lt;!-- HTML Document as a Book --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;The Book Title (Metadata)&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Chapter 1: The Beginning&lt;/h1&gt;
+    &lt;p&gt;The actual story content goes here...&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=600&auto=format&fit=crop" alt="Books">
+            </div>
+        </div>
     </section>
 
     <section>

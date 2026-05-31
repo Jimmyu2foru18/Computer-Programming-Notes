@@ -49,15 +49,8 @@ pip install -r requirements.txt
         </code></pre>
         <div class="interactive-sim">
             <h3>Python Execution Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_3()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_3'); out.innerHTML = 'Running code...<br>'; setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);">Run Simulation</button>
             <div id="sim-output-Python2_3" class="sim-output"></div>
-            <script>
-            function runSimPython2_3() {
-                const out = document.getElementById('sim-output-Python2_3');
-                out.innerHTML = 'Running code...<br>'; 
-                setTimeout(() => out.innerHTML += '>> Output: Success!', 1000);
-            }
-            </script>
         </div>
     </section>
 

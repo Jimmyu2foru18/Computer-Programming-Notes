@@ -4,9 +4,22 @@
     <section>
         <h2>Manipulating the Web Page</h2>
         <p>The <strong>Document Object Model (DOM)</strong> is the bridge between JavaScript and your HTML. When a browser loads an HTML page, it parses it into a tree-like structure of "Objects." Each element, attribute, and piece of text becomes a node in this tree. <strong>DOM Manipulation</strong> is the process of using JavaScript to traverse, modify, add, or remove these nodes, allowing you to create truly dynamic and interactive user experiences that update instantly without needing to refresh the page.</p>
-    </section>
+        <pre><code class="language-javascript">
+const element = document.getElementById("myId");
+element.textContent = "Updated!";
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Web Design">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Selecting Elements</h2>
         <p>Before you can change an element, you must select it. There are several ways to grab elements from the DOM:</p>
         <pre><code class="language-javascript">
@@ -17,31 +30,45 @@ const heading = document.getElementById("main-title");
 const firstButton = document.querySelector(".btn-primary");
 const allItems = document.querySelectorAll("li");
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=600&auto=format&fit=crop" alt="HTML/CSS">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Modifying the DOM</h2>
         <p>Once you've selected an element, you can change almost anything about it:</p>
+        <pre><code class="language-javascript">
+const newDiv = document.createElement("div");
+newDiv.innerHTML = "&lt;p&gt;New Content&lt;/p&gt;";
+document.body.appendChild(newDiv);
+        </code></pre>
         <ul>
             <li><strong>Content:</strong> <code>element.textContent = "New text!";</code></li>
             <li><strong>Styles:</strong> <code>element.style.color = "red";</code></li>
             <li><strong>Classes:</strong> <code>element.classList.add("active");</code></li>
             <li><strong>Structure:</strong> You can even <code>appendChild()</code> new elements or <code>remove()</code> existing ones.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb1_7_html()">Run Simulation</button>
-            <div id="sim-output-Web1_7_html" class="sim-output"></div>
-            <script>
-            function runSimWeb1_7_html() {
-                const out = document.getElementById('sim-output-Web1_7_html');
-                const out = document.getElementById('sim-output-Web1_7_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master DOM manipulation with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -61,11 +88,31 @@ const allItems = document.querySelectorAll("li");
                 <p><small>Change content, style, and structure on the fly.</small></p>
             </div>
         </div>
+        <pre><code class="language-javascript">
+// Practical exercise: Change the background of the page!
+document.body.style.backgroundColor = "#f0f0f0";
+console.log("Page background updated via DOM!");
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1581291518655-9e2692c73041?q=80&w=600&auto=format&fit=crop" alt="Digital Design">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Real-World Relationship: The Construction Crew and the Building Blueprint</h2>
         <p>Think of the <strong>DOM</strong> as the <strong>Detailed Blueprint</strong> of a building. It lists every single wall, window, and light switch. Your JavaScript is the <strong>Construction Crew</strong> that uses that blueprint to find specific components. If you want to change the light in the kitchen, the crew uses the blueprint (DOM API) to find the location (Selection), then they physically swap the bulb (Modification). They can even tear down a wall (Remove Element) or add a new closet (Create/Append Element) based on the instructions you provide in your code.</p>
+        <pre><code class="language-javascript">
+// The Blueprint (DOM) and the Crew (JS)
+const wall = document.querySelector(".kitchen-wall"); // Find it
+wall.style.color = "blue"; // Paint it
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=600&auto=format&fit=crop" alt="Blueprint and Construction">
+            </div>
+        </div>
     </section>
 
     <section>

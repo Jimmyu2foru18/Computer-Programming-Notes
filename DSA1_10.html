@@ -4,6 +4,13 @@
     <section>
         <h2>The Efficient Divide-and-Conquer</h2>
         <p><strong>Merge Sort</strong> is a highly efficient, <strong>stable</strong>, and predictable sorting algorithm. Unlike Bubble or Insertion Sort, which perform poorly on large datasets (O(n²)), Merge Sort consistently performs at <strong>O(n log n)</strong> time complexity. It achieves this by using a <strong>divide-and-conquer</strong> strategy: it recursively splits the array into halves until it has a bunch of single-element arrays (which are inherently sorted), and then it merges those small arrays back together in the correct order.</p>
+        <pre><code class="language-python"># Concept: Splitting until single elements
+# [38, 27, 43, 3] -> [38, 27], [43, 3] -> [38], [27], [43], [3]</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Divide and conquer visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -23,21 +30,23 @@ def merge_sort(arr):
         return merge(left, right)
     return arr
         </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Mathematical representation of efficiency and logic">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>2. Why It Matters</h2>
         <p>Merge sort is <strong>stable</strong> (it preserves the relative order of equal elements) and efficient. Its only major trade-off is <strong>space complexity</strong>: it requires O(n) extra space to hold the subarrays during the merging process, making it less memory-efficient than algorithms that sort "in-place."</p>
-        <div class="interactive-sim">
-            <h3>Merge Sort Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-10');
-                out.innerHTML = 'arr = [3, 1, 4, 2];<br>';
-                setTimeout(() => out.innerHTML += '>> Dividing: [3, 1], [4, 2]<br>', 400);
-                setTimeout(() => out.innerHTML += '>> Merging...<br>', 800);
-                setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3, 4]', 1200);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-10" class="sim-output"></div>
+        <pre><code class="language-python"># Memory trade-off: Creating new lists
+left_half = arr[:mid]  # O(k) space
+right_half = arr[mid:] # O(n-k) space</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Abstract data structure and performance representation">
+            </div>
         </div>
     </section>
 

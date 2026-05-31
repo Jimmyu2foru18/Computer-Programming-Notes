@@ -22,16 +22,8 @@ with open("data.txt", "r") as file:
         </code></pre>
         <div class="interactive-sim">
             <h3>Python Execution Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_9()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_9'); out.innerHTML = 'with open(&quot;file.txt&quot;, &quot;w&quot;) as f:<br>'; setTimeout(() => out.innerHTML += '>> f.write(&quot;Data&quot;);<br>', 800); setTimeout(() => out.innerHTML += '>> file closed automatically', 1600);">Run Simulation</button>
             <div id="sim-output-Python2_9" class="sim-output"></div>
-            <script>
-            function runSimPython2_9() {
-                const out = document.getElementById('sim-output-Python2_9');
-                out.innerHTML = 'with open("file.txt", "w") as f:<br>';
-                setTimeout(() => out.innerHTML += '>> f.write("Data");<br>', 800);
-                setTimeout(() => out.innerHTML += '>> file closed automatically', 1600);
-            }
-            </script>
         </div>
     </section>
 

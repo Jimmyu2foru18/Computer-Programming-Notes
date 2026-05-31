@@ -4,14 +4,39 @@
     <section>
         <h2>Taking Your App Live</h2>
         <p>Developing a web application is only half the battle; the other half is getting it on the internet so others can use it. This process is called <strong>Hosting</strong>. You typically start in a <strong>Local Development Environment</strong>, which acts as a sandbox on your own computer, and eventually "deploy" your code to a <strong>Production Server</strong> in the cloud, where it becomes live and accessible to the world. Understanding both environments is crucial for any full-stack developer.</p>
-    </section>
+        <pre><code class="language-bash">
+# Local development
+php -S localhost:8000
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Local Development with XAMPP</h2>
         <p><strong>XAMPP</strong> (X-Apache-MySQL-PHP-Perl) is the perfect sandbox for developers. It bundles everything you need to run a PHP/MySQL site on your laptop without needing an internet connection. It's safe, fast, and completely free. You put your files into the <code>htdocs</code> folder, start the Apache and MySQL modules, and instantly access your project at <code>http://localhost/</code>.</p>
-    </section>
+        <pre><code class="language-bash">
+# Access via http://localhost/dashboard/
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Cloud Hosting: The Professional Path</h2>
         <p>When it's time to go live, you need professional infrastructure. <strong>AWS (Amazon Web Services)</strong> is the industry standard.</p>
         <ul>
@@ -24,20 +49,20 @@ eb init
 eb create my-app-env
 eb deploy
         </code></pre>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_7_html()">Run Simulation</button>
-            <div id="sim-output-Web2_7_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_7_html() {
-                const out = document.getElementById('sim-output-Web2_7_html');
-                const out = document.getElementById('sim-output-Web2_7_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
-        </div>
-    </section>
+        
+            
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Code on Laptop">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master hosting and deployment with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">

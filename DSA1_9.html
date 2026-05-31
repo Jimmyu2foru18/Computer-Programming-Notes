@@ -4,6 +4,14 @@
     <section>
         <h2>The Incremental Sorting Approach</h2>
         <p><strong>Insertion Sort</strong> is an intuitive sorting algorithm that works similarly to the way you might sort a hand of playing cards. You maintain a "sorted portion" of your hand (the cards you've already organized) and a "new card" you're currently looking at. You pick up the new card and insert it into its correct position within your sorted hand by shifting the cards as needed. This approach is much more efficient than Bubble Sort for small or nearly sorted datasets.</p>
+        <pre><code class="language-python"># Example of the initial unsorted state
+hand = [8, 3, 1, 6, 2]
+# We start by assuming the first card (8) is a sorted subset</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=600&auto=format&fit=crop" alt="Abstract digital representation of performance and algorithms">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -28,6 +36,11 @@ def insertion_sort(arr):
         arr[j + 1] = key
     return arr
         </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1508873521834-8c43024c081d?q=80&w=600&auto=format&fit=crop" alt="Logic and algorithmic sorting visualization">
+            </div>
+        </div>
     </section>
 
     <section>
@@ -37,15 +50,13 @@ def insertion_sort(arr):
             <li><strong>Worst/Average Case:</strong> O(n²). The nested loop structure means that performance degrades quadratically as <code>n</code> increases.</li>
             <li><strong>Best Case:</strong> O(n). If the array is already sorted, you only perform one comparison per element and never shift, resulting in linear time.</li>
         </ul>
-        <div class="interactive-sim">
-            <h3>Insertion Sort Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-ds1-9');
-                out.innerHTML = 'arr = [3, 1, 2];<br>';
-                setTimeout(() => out.innerHTML += '>> Moving 1 to front...<br>', 400);
-                setTimeout(() => out.innerHTML += '>> Sorted: [1, 2, 3]', 800);
-            ">Run Simulation</button>
-            <div id="sim-output-ds1-9" class="sim-output"></div>
+        <pre><code class="language-python"># Best case scenario: Already sorted
+# The inner 'while' loop never executes!
+insertion_sort([1, 2, 3, 4, 5]) # O(n)</code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop" alt="Representation of computational complexity and speed">
+            </div>
         </div>
     </section>
 

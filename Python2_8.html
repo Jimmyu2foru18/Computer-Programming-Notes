@@ -43,15 +43,8 @@ for num in fibonacci(10):
         </code></pre>
         <div class="interactive-sim">
             <h3>Iterator Simulator</h3>
-            <button class="sim-button" onclick="runSimPython2_8()">Run Simulation</button>
+            <button class="sim-button" onclick="const out = document.getElementById('sim-output-Python2_8'); out.innerHTML = 'gen = (i for i in range(2));<br>'; setTimeout(() => out.innerHTML += '>> next(gen) is 0<br>>> next(gen) is 1', 1000);">Run Simulation</button>
             <div id="sim-output-Python2_8" class="sim-output"></div>
-            <script>
-            function runSimPython2_8() {
-                const out = document.getElementById('sim-output-Python2_8');
-                out.innerHTML = 'gen = (i for i in range(2));<br>';
-                setTimeout(() => out.innerHTML += '>> next(gen) is 0<br>>> next(gen) is 1', 1000);
-            }
-            </script>
         </div>
     </section>
 

@@ -4,9 +4,22 @@
     <section>
         <h2>JavaScript Everywhere</h2>
         <p>Traditionally, JavaScript could only run inside a web browser. <strong>Node.js</strong> changed that by providing a runtime environment that allows JavaScript to run directly on your computer or server. This enables you to use the same language—JavaScript—for both your frontend and your backend. <strong>Express.js</strong> is the most popular framework built on top of Node.js. It simplifies the process of creating web servers, handling HTTP requests, and building robust REST APIs, making it a favorite for modern full-stack development.</p>
-    </section>
+        <pre><code class="language-javascript">
+// Running JS on the server
+console.log(process.version);
+        </code></pre>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Node.js and Backend">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>1. Node.js & NPM</h2>
         <p>Node.js is built on Google's V8 engine, making it exceptionally fast. A huge part of the Node ecosystem is <strong>NPM (Node Package Manager)</strong>. NPM is the world's largest software registry, allowing you to easily install thousands of pre-built "packages" (like Express, database drivers, or authentication tools) to speed up your development.</p>
         <pre><code class="language-bash">
@@ -15,9 +28,18 @@ npm init -y
 # Install express
 npm install express
         </code></pre>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Technology and NPM">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>2. Express: Making Servers Simple</h2>
         <p>Without a framework, creating a server in Node requires a lot of code. Express reduces this to just a few lines.</p>
         <pre><code class="language-javascript">
@@ -32,20 +54,28 @@ app.listen(3000, () => console.log('Server running!'));
         </code></pre>
         <h3>Routing:</h3>
         <p>Express makes defining "routes" (URL paths like <code>/users</code> or <code>/login</code>) intuitive, allowing you to map URLs directly to specific functions that handle the business logic.</p>
-        <div class="interactive-sim">
-            <h3>DOM Simulator</h3>
-            <button class="sim-button" onclick="runSimWeb2_3_html()">Run Simulation</button>
-            <div id="sim-output-Web2_3_html" class="sim-output"></div>
-            <script>
-            function runSimWeb2_3_html() {
-                const out = document.getElementById('sim-output-Web2_3_html');
-                const out = document.getElementById('sim-output-Web2_3_html'); out.innerHTML = 'element.innerHTML = "Hi!";<br>'; setTimeout(() => out.innerHTML += '>> UI Updated', 1000);
-            }
-            </script>
+        <pre><code class="language-javascript">
+// Examples of routing
+app.get('/about', (req, res) => res.send('About Page'));
+app.post('/contact', (req, res) => res.send('Form Submitted'));
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1558494949-ef0109121c64?q=80&w=600&auto=format&fit=crop" alt="Server Routing">
+            </div>
         </div>
-    </section>
+    
 
-    <section>
+    
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?q=80&w=600&auto=format&fit=crop" alt="Express Development">
+    </div>
+</div></section>
+
+    
+<section>
         <h2>Visual Learning: Video Tutorials</h2>
         <p>Master Node.js and Express with these three videos:</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
@@ -65,11 +95,34 @@ app.listen(3000, () => console.log('Server running!'));
                 <p><small>How to manage dependencies like a pro.</small></p>
             </div>
         </div>
+        <pre><code class="language-bash">
+# Quick check of node version
+node -v
+# Running your express app
+node app.js
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=600&auto=format&fit=crop" alt="Code Display">
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Real-World Relationship: The JavaScript Factory</h2>
         <p>Think of <strong>Node.js</strong> as a <strong>Factory Building</strong> that lets you run your "JavaScript Machinery" anywhere, not just in the "Browser Showroom." Think of <strong>NPM</strong> as the <strong>Industrial Supply Catalog</strong>. Instead of building every screw, gear, and motor from scratch, you can browse the catalog (NPM) and order pre-manufactured parts (libraries/packages) to assemble your machinery faster. Think of <strong>Express</strong> as the <strong>Assembly Line Supervisor</strong>. They organize the factory floor, direct the flow of incoming materials (HTTP Requests), and ensure the right machinery (your route handler functions) is triggered to process those materials and output a finished product (the HTTP Response).</p>
+        <pre><code class="language-javascript">
+// The "Supervisor" (Express) at work
+app.use((req, res, next) => {
+  console.log("Supervisor: New request incoming!");
+  next();
+});
+        </code></pre>
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; padding: 20px; border: 2px solid #ddd; background: #f9f9f9; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&auto=format&fit=crop" alt="Factory and Catalog">
+            </div>
+        </div>
     </section>
 
     <section>
