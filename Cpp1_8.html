@@ -75,12 +75,30 @@ int main() {
         </code></pre>
         <div class="interactive-sim">
             <h3>Object Creation Simulator</h3>
-            <button class="sim-button" onclick="
-                const out = document.getElementById('sim-output-cpp1_8');
-                out.innerHTML = 'Vehicle car(\"Toyota\", 2020);<br>';
-                setTimeout(() => out.innerHTML += '>> Car instance created!', 800);
-            ">Run Simulation</button>
+<button class="sim-button" id="run-sim">
+	Run Simulation
+</button>
+
+<div id="sim-output-cpp1_8" class="sim-output"></div>
+
+<script>
+	document.getElementById('run-sim').addEventListener('click', () => {
+		const out = document.getElementById('sim-output-cpp1_8');
+
+		out.innerHTML = 'Vehicle car("Toyota", 2020);<br>';
+
+		setTimeout(() => {
+			out.innerHTML += '<br>> Car instance created!';
+		}, 800);
+	});
+</script>
             <div id="sim-output-cpp1_8" class="sim-output"></div>
         </div>
     </section>
+    <footer style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div style="display: flex; justify-content: space-between;">
+            <a href="#" data-file="Cpp1_7.html" style="text-decoration: none; color: #6c757d;">&larr; Previous: Pointers & References</a>
+            <a href="#" data-file="Cpp1_9.html" style="font-weight: bold; text-decoration: none; color: #007bff;">Next: OOP: Inheritance & Polymorphism &rarr;</a>
+        </div>
+    </footer>
 </article>
