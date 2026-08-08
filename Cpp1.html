@@ -1,0 +1,88 @@
+<article>
+    <h1>C++: Memory Management, Modern Features & Low-Level Mastery</h1>
+
+    <section>
+        <h2>1. Memory Model: Stack vs. Heap</h2>
+        <p>C++ gives the developer explicit control over memory layout. Understanding the distinction between stack and heap allocation is fundamental to writing efficient, leak-free code.</p>
+        
+        <h3>Stack Allocation</h3>
+        <p>Stack memory is managed automatically by the compiler. Variables declared inside a function scope are allocated on the stack. When the function returns, the stack frame is popped, and memory is reclaimed instantly. This makes stack allocation extremely fast, but it is limited by the operating system's stack size (typically 1–8 MB per thread).</p>
+        
+        <h3>Heap Allocation</h3>
+        <p>Heap memory is manually managed (via <code>new</code>/<code>delete</code> or smart pointers). It is much larger but slower due to the need for dynamic allocation bookkeeping. Failing to deallocate heap memory results in leaks; deallocating too early results in dangling pointers.</p>
+        <pre><code class="language-cpp">
+// Stack: automatic lifetime
+void stackExample() {
+    int arr[100]; // Allocated on stack, freed on return
+}
+
+// Heap: manual lifetime
+void heapExample() {
+    int* ptr = new int[100]; // Allocated on heap
+    delete[] ptr;             // Must be freed explicitly
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Pointers, References & Undefined Behavior</h2>
+        <p>Pointers are the most powerful and dangerous feature in C++. A pointer is a variable that stores a memory address. References are aliases that cannot be null and cannot be reseated.</p>
+        
+        <h3>Pointer Arithmetic</h3>
+        <p>Pointer arithmetic is scaled by the size of the pointed-to type. Incrementing an <code>int*</code> advances by 4 bytes (on most systems); incrementing a <code>char*</code> advances by 1 byte. This allows efficient traversal of arrays.</p>
+        
+        <h3>Common Undefined Behaviors</h3>
+        <ul>
+            <li><strong>Dangling Pointer</strong>: Using a pointer after the object it points to has been deleted.</li>
+            <li><strong>Double Free</strong>: Calling <code>delete</code> on the same pointer twice.</li>
+            <li><strong>Out-of-Bounds Access</strong>: Reading or writing past the end of an array.</li>
+            <li><strong>Null Pointer Dereference</strong>: Accessing memory through a null pointer.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. RAII: Resource Acquisition Is Initialization</h2>
+        <p>RAII is the cornerstone of C++ resource management. The idea is simple: tie resource lifetime to object lifetime. When an object is constructed, it acquires the resource. When it goes out of scope, its destructor releases the resource. This eliminates leaks even in the presence of exceptions.</p>
+        <pre><code class="language-cpp">
+class FileHandler {
+    std::fstream file;
+public:
+    FileHandler(const char* path) : file(path) {}
+    ~FileHandler() { file.close(); } // Automatic cleanup
+};
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>4. Move Semantics & Perfect Forwarding</h2>
+        <p>C++11 introduced rvalue references (<code>&amp;&amp;</code>) and move semantics to avoid expensive deep copies. An rvalue represents a temporary object that can be "moved from," transferring its resources to a new object without copying.</p>
+        
+        <h3>std::move</h3>
+        <p><code>std::move</code> casts an lvalue to an rvalue reference, signaling that the object may be moved from. The compiler then invokes the move constructor instead of the copy constructor.</p>
+        
+        <h3>Perfect Forwarding</h3>
+        <p>Template functions can preserve the value category (lvalue/rvalue) of arguments using <code>std::forward</code>. This enables generic wrappers that forward arguments to the correct constructor overload.</p>
+    </section>
+
+    <section>
+        <h2>5. Smart Pointers & Modern Memory Management</h2>
+        <p>The C++ Standard Library provides smart pointers in <code>&lt;memory&gt;</code> to automate heap memory management.</p>
+        <ul>
+            <li><strong>std::unique_ptr</strong>: Exclusive ownership. Cannot be copied, only moved. Zero overhead.</li>
+            <li><strong>std::shared_ptr</strong>: Reference-counted shared ownership. Use when multiple objects need to share a resource.</li>
+            <li><strong>std::weak_ptr</strong>: Non-owning observer. Breaks circular references with <code>shared_ptr</code>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Templates & Generic Programming</h2>
+        <p>Templates enable writing code that works with any type. The compiler generates type-specific code at compile time (monomorphization), yielding performance equivalent to handwritten code for each type.</p>
+        <pre><code class="language-cpp">
+template &lt;typename T&gt;
+T max(T a, T b) {
+    return (a &gt; b) ? a : b;
+}
+// Compiler generates: int max(int, int), double max(double, double), etc.
+        </code></pre>
+    </section>
+</article>

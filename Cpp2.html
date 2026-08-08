@@ -1,0 +1,101 @@
+<article>
+    <h1>C++: STL Deep Dive, Build Systems & Production Engineering</h1>
+
+    <section>
+        <h2>1. The Standard Template Library (STL)</h2>
+        <p>The STL provides a set of generic containers, algorithms, and iterators. Mastering the STL is essential for writing concise, efficient, and maintainable C++.</p>
+        
+        <h3>Sequence Containers</h3>
+        <ul>
+            <li><strong>std::vector</strong>: Dynamic array. Contiguous memory, O(1) random access, O(1) amortized push_back.</li>
+            <li><strong>std::deque</strong>: Double-ended queue. O(1) push/pop at both ends, non-contiguous.</li>
+            <li><strong>std::list</strong>: Doubly linked list. O(1) insertion/removal anywhere, but no random access.</li>
+        </ul>
+        
+        <h3>Associative Containers</h3>
+        <ul>
+            <li><strong>std::map</strong>: Red-Black tree key-value store. O(log n) lookup, insertion, deletion.</li>
+            <li><strong>std::unordered_map</strong>: Hash table. Average O(1) lookup, but worse constants than map.</li>
+            <li><strong>std::set</strong>: Unique keys, sorted. O(log n) operations.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Algorithms: The <code>&lt;algorithm&gt;</code> Library</h2>
+        <p>The STL provides over 100 algorithms that operate on iterator ranges. Prefer algorithms over manual loops—they express intent clearly and are optimized by library implementers.</p>
+        <pre><code class="language-cpp">
+std::vector&lt;int&gt; v = {3, 1, 4, 1, 5};
+
+// Sort using lambda comparator
+std::sort(v.begin(), v.end(), [](int a, int b) { return a &gt; b; });
+
+// Find first element greater than 3
+auto it = std::find_if(v.begin(), v.end(), [](int x) { return x &gt; 3; });
+
+// Transform: square each element
+std::transform(v.begin(), v.end(), v.begin(), [](int x) { return x * x; });
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Lambdas & Functional Style</h2>
+        <p>Lambdas (introduced in C++11) are anonymous functions that can capture variables from their enclosing scope. They enable functional programming patterns without the overhead of function objects.</p>
+        <pre><code class="language-cpp">
+int factor = 2;
+auto multiply = [factor](int x) { return x * factor; };
+// Capture by value: factor is copied into the lambda
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>4. CMake & Modern Build Systems</h2>
+        <p>CMake is the de facto standard build system for C++. It generates platform-specific build files (Makefiles, Visual Studio projects, Xcode projects) from a single <code>CMakeLists.txt</code>.</p>
+        <pre><code class="language-cmake">
+cmake_minimum_required(VERSION 3.20)
+project(MyApp)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(myapp main.cpp)
+target_link_libraries(myapp PRIVATE fmt::fmt)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>5. Unit Testing with Google Test</h2>
+        <p>Google Test (gtest) is the most widely used C++ testing framework. It provides macros for defining test cases, fixtures, and assertions.</p>
+        <pre><code class="language-cpp">
+#include &lt;gtest/gtest.h&gt;
+
+TEST(MathTest, Addition) {
+    EXPECT_EQ(2 + 2, 4);
+    EXPECT_NEAR(3.14, 3.14159, 0.01);
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>6. Concurrency: std::thread, std::async & std::mutex</h2>
+        <p>C++11 introduced a standardized threading library. Use <code>std::thread</code> for explicit threads, <code>std::async</code> for task-based parallelism, and <code>std::mutex</code> for protecting shared data.</p>
+        <pre><code class="language-cpp">
+std::mutex mtx;
+void safe_increment(int&amp; counter) {
+    std::lock_guard&lt;std::mutex&gt; lock(mtx);
+    ++counter;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>7. Expert Growth Path</h2>
+        <p>To reach expert level:</p>
+        <ul>
+            <li>Read <em>Effective Modern C++</em> by Scott Meyers</li>
+            <li>Contribute to open-source C++ projects (e.g., Chromium, LLVM)</li>
+            <li>Master sanitizers (ASan, UBSan, TSan) for bug detection</li>
+            <li>Study compiler optimizations and assembly output</li>
+            <li>Explore advanced libraries: Boost, Eigen, Abseil</li>
+        </ul>
+    </section>
+</article>

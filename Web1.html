@@ -1,0 +1,72 @@
+<article>
+    <h1>Web Technologies: Frontend Mastery & Professional Toolchain</h1>
+
+    <section>
+        <h2>1. The Professional Frontend Toolchain</h2>
+        <p>Transitioning from beginner to expert requires mastering the tools that automate complexity and enforce quality in large codebases.</p>
+        
+        <h3>Package Managers</h3>
+        <p><code>npm</code> and <code>yarn</code> manage dependencies, scripts, and version resolution. Understanding <code>package.json</code>, semantic versioning, and lock files is essential for reproducible builds.</p>
+        
+        <h3>Bundlers: Vite & Webpack</h3>
+        <p>Modern bundlers transform source code into browser-ready assets. <strong>Vite</strong> uses native ES modules for lightning-fast dev server startup and Hot Module Replacement (HMR). <strong>Webpack</code> provides fine-grained control over loaders, plugins, and code splitting for production optimization.</p>
+        
+        <h3>Type Checking: TypeScript</h3>
+        <p>TypeScript adds static typing to JavaScript, catching entire classes of bugs at compile time. Advanced features like generics, conditional types, and template literal types enable expressive, type-safe APIs.</p>
+    </section>
+
+    <section>
+        <h2>2. CSS Architecture & Scaling</h2>
+        <p>As applications grow, CSS becomes a liability without discipline. Modern architectures enforce consistency and prevent style leakage.</p>
+        
+        <h3>Methodologies</h3>
+        <ul>
+            <li><strong>BEM</strong> (Block Element Modifier): Enforces flat specificity and clear naming.</li>
+            <li><strong>CSS Modules</strong>: Scopes class names locally to components.</li>
+            <li><strong>CSS-in-JS</strong>: Styles co-located with components, enabling dynamic theming.</li>
+        </ul>
+        
+        <h3>Modern Layout</h3>
+        <p>CSS Grid excels at two-dimensional page layouts, while Flexbox handles one-dimensional component alignment. Container Queries (CSS) enable component-level responsiveness independent of viewport size.</p>
+    </section>
+
+    <section>
+        <h2>3. JavaScript Performance & Memory</h2>
+        <p>The V8 engine optimizes JavaScript through Just-In-Time (JIT) compilation. Understanding optimization boundaries helps write faster code.</p>
+        
+        <h3>Hidden Classes & Inline Caching</h3>
+        <p>V8 creates hidden classes for objects with the same shape. Adding properties dynamically deoptimizes objects. Initialize all properties in the constructor to maintain consistent hidden classes.</p>
+        
+        <h3>Memory Leaks</h3>
+        <p>Common leaks include forgotten timers/callbacks, detached DOM references, and closures holding large objects. Use Chrome DevTools Memory Profiler and WeakMap/WeakRef to diagnose and prevent leaks.</p>
+    </section>
+
+    <section>
+        <h2>4. Browser Rendering Pipeline</h2>
+        <p>Understanding the Critical Rendering Path is essential for performance optimization:</p>
+        <ol>
+            <li><strong>DOM Construction</strong>: Parse HTML into the DOM tree.</li>
+            <li><strong>CSSOM Construction</strong>: Parse CSS into the CSSOM tree.</li>
+            <li><strong>Render Tree</strong>: Combine DOM and CSSOM, excluding invisible elements.</li>
+            <li><strong>Layout</strong>: Compute geometry (position, size) of each node.</li>
+            <li><strong>Paint</strong>: Fill in pixels (colors, text, images).</li>
+            <li><strong>Composite</strong>: Draw layers to the screen via the compositor thread.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>5. Testing Strategies</h2>
+        <p>Modern frontend testing uses a layered approach:</p>
+        <ul>
+            <li><strong>Unit Tests</strong> (Jest, Vitest): Isolate functions and components.</li>
+            <li><strong>Integration Tests</strong> (React Testing Library): Verify component interactions.</li>
+            <li><strong>E2E Tests</strong> (Playwright, Cypress): Simulate real user workflows across browsers.</li>
+            <li><strong>Visual Regression</strong> (Storybook, Percy): Catch unintended UI changes.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Accessibility & WCAG</h2>
+        <p>Accessibility is not optional. Follow WCAG 2.1 AA guidelines: ensure keyboard navigability, provide text alternatives for images, maintain sufficient color contrast, and use semantic HTML so screen readers convey correct meaning.</p>
+    </section>
+</article>

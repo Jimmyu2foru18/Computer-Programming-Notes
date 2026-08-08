@@ -1,0 +1,78 @@
+<article>
+    <h1>Web Technologies: Full-Stack Architecture & Modern Frameworks</h1>
+
+    <section>
+        <h2>1. Full-Stack Architecture</h2>
+        <p>Modern web development spans client, server, and data layers. Understanding how these layers interact, scale, and fail is the mark of a senior engineer.</p>
+        
+        <h3>The Monorepo Approach</h3>
+        <p>Tools like Nx and Turborepo enable sharing code between frontend and backend in a single repository. This simplifies versioning, refactoring, and CI/CD pipelines while maintaining clear boundaries between domains.</p>
+    </section>
+
+    <section>
+        <h2>2. API Design: REST, GraphQL & tRPC</h2>
+        <p>Choosing the right API paradigm depends on client diversity, caching requirements, and team expertise.</p>
+        <ul>
+            <li><strong>REST</strong>: Resource-oriented, cacheable, stateless. Ideal for public APIs and microservices.</li>
+            <li><strong>GraphQL</strong>: Client-driven queries, single endpoint, strong typing. Eliminates over-fetching but complicates caching.</li>
+            <li><strong>tRPC</strong>: End-to-end typesafe APIs without code generation. Best for full-stack TypeScript applications.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Database Integration</h2>
+        <p>Web applications depend on reliable data access. ORMs abstract SQL but can generate inefficient queries.</p>
+        
+        <h3>Connection Pooling</h3>
+        <p>Opening a database connection involves TCP handshakes and authentication. Connection pools (e.g., HikariCP, pgBouncer) reuse connections, reducing latency from milliseconds to microseconds.</p>
+        
+        <h3>Query Optimization</h3>
+        <p>Use EXPLAIN ANALYZE to inspect query plans. Avoid N+1 queries by using JOINs or batch loading. Index columns used in WHERE, JOIN, and ORDER BY clauses.</p>
+    </section>
+
+    <section>
+        <h2>4. Web Security Deep Dive</h2>
+        <p>Security requires defense in depth across every layer:</p>
+        <ul>
+            <li><strong>Authentication</strong>: OAuth 2.0 / OIDC for delegated auth. Never store plain-text passwords; use Argon2id or bcrypt with per-user salts.</li>
+            <li><strong>Authorization</strong>: Enforce RBAC or ABAC at the API gateway and data layer.</li>
+            <li><strong>Input Validation</strong>: Parameterized queries prevent SQL injection. Context-aware encoding prevents XSS.</li>
+            <li><strong>CSRF Protection</strong>: SameSite cookies and anti-CSRF tokens for state-changing requests.</li>
+            <li><strong>CORS</strong>: Restrict origins, methods, and headers. Never use <code>Access-Control-Allow-Origin: *</code> with credentials.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Hosting & Deployment</h2>
+        <p>Modern deployment strategies prioritize speed, safety, and scalability:</p>
+        <ul>
+            <li><strong>Containerization</strong>: Docker images ensure consistency from development to production.</li>
+            <li><strong>Orchestration</strong>: Kubernetes manages scaling, rolling updates, and self-healing.</li>
+            <li><strong>Edge Computing</strong>: Cloudflare Workers, Vercel Edge Functions, and AWS Lambda@Edge reduce latency by executing code closer to users.</li>
+            <li><strong>CI/CD</strong>: Automated pipelines run tests, build artifacts, and deploy to staging/production on every commit.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Performance Optimization</h2>
+        <p>Performance is a feature. Measure with Core Web Vitals (LCP, FID, CLS) before optimizing.</p>
+        <ul>
+            <li><strong>Code Splitting</strong>: Load only the JavaScript needed for the current route.</li>
+            <li><strong>Lazy Loading</strong>: Defer offscreen images and components.</li>
+            <li><strong>Caching</strong>: Service Workers enable offline-first PWAs with stale-while-revalidate strategies.</li>
+            <li><strong>Image Optimization</strong>: Use modern formats (WebP, AVIF), responsive <code>srcset</code>, and explicit dimensions.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>7. Modern Frameworks Comparison</h2>
+        <p>Each framework makes different tradeoffs:</p>
+        <ul>
+            <li><strong>React</strong>: Flexible, unopinionated, massive ecosystem. Requires architectural decisions.</li>
+            <li><strong>Vue</strong>: Progressive, gentle learning curve, excellent documentation.</li>
+            <li><strong>Svelte</strong>: Compiler-based, no virtual DOM, smallest bundle sizes.</li>
+            <li><strong>Angular</strong>: Enterprise-grade, full-featured, steep learning curve.</li>
+            <li><strong>Solid</strong>: Fine-grained reactivity, fastest benchmarks, JSX syntax.</li>
+        </ul>
+    </section>
+</article>

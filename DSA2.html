@@ -1,0 +1,63 @@
+<article>
+    <h1>Data Structures & Algorithms: Advanced Structures & Optimization</h1>
+
+    <section>
+        <h2>1. Binary Search Trees (BST)</h2>
+        <p>A Binary Search Tree maintains the invariant that all left descendants are less than the node, and all right descendants are greater. This enables O(log n) search, insertion, and deletion in the average case.</p>
+        
+        <h3>Degenerate Trees</h3>
+        <p>If data is inserted in sorted order, a BST degenerates into a linked list, yielding O(n) operations. Self-balancing trees (AVL, Red-Black) solve this by performing rotations during insertion and deletion to maintain height balance.</p>
+    </section>
+
+    <section>
+        <h2>2. Balanced Trees: AVL & Red-Black</h2>
+        <p><strong>AVL Trees</strong> maintain a balance factor of -1, 0, or +1 at every node. They provide stricter balance than Red-Black trees, yielding faster lookups but slower insertions due to more frequent rotations.</p>
+        <p><strong>Red-Black Trees</strong> are used in the C++ STL (<code>std::map</code>, <code>std::set</code>) and the Linux kernel. They guarantee O(log n) operations with fewer rotations than AVL, making them better for write-heavy workloads.</p>
+    </section>
+
+    <section>
+        <h2>3. Heaps & Priority Queues</h2>
+        <p>A heap is a complete binary tree satisfying the heap property: each node is greater than (max-heap) or less than (min-heap) its children. Heaps enable O(1) access to the minimum/maximum element and O(log n) insertion and extraction.</p>
+        <pre><code class="language-python">
+import heapq
+
+heap = []
+heapq.heappush(heap, 3)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 2)
+
+print(heapq.heappop(heap))  # 1 (min element)
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>4. Graphs: Representations & Traversals</h2>
+        <p>Graphs model networks. The two primary representations are:</p>
+        <ul>
+            <li><strong>Adjacency Matrix</strong>: O(V²) space, O(1) edge lookup. Efficient for dense graphs.</li>
+            <li><strong>Adjacency List</strong>: O(V + E) space, O(degree) edge lookup. Efficient for sparse graphs.</li>
+        </ul>
+        <p><strong>BFS</strong> explores level-by-level using a queue, finding shortest paths in unweighted graphs. <strong>DFS</strong> explores as deep as possible using a stack (or recursion), useful for cycle detection and topological sorting.</p>
+    </section>
+
+    <section>
+        <h2>5. Dynamic Programming (DP)</h2>
+        <p>DP solves complex problems by breaking them into overlapping subproblems, storing results to avoid redundant computation. The key insight is identifying optimal substructure and overlapping subproblems.</p>
+        
+        <h3>Memoization vs. Tabulation</h3>
+        <p><strong>Memoization</strong> (top-down) uses recursion with a cache. <strong>Tabulation</strong> (bottom-up) uses iteration and a table. Tabulation is often more space-efficient and avoids recursion overhead.</p>
+        <pre><code class="language-python">
+def fib(n, memo={}):
+    if n in memo: return memo[n]
+    if n &lt;= 1: return n
+    memo[n] = fib(n-1, memo) + fib(n-2, memo)
+    return memo[n]
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>6. Optimization: Greedy & Branch & Bound</h2>
+        <p><strong>Greedy algorithms</strong> make locally optimal choices at each step, hoping to find a global optimum. They work for problems with the "greedy choice property" (e.g., Huffman coding, Dijkstra's algorithm).</p>
+        <p><strong>Branch and Bound</strong> systematically enumerates candidate solutions, pruning branches that cannot yield better solutions than the best found so far. It is used for NP-hard problems like integer programming.</p>
+    </section>
+</article>
